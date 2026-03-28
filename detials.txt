@@ -1,0 +1,369 @@
+
+==============================
+Name: Alok Mendis
+Rank: Divine
+Level: 100
+
+ATTRIBUTES:
+  - Strength: 8,550
+  - Speed: 7,100
+  - Vitality: 5,950
+  - Mana: 1,252,000
+  - Intelligence: 15,670
+  - Divinity: 410
+  - Affinity: Fire, Ice, Lightning
+    (40% increase in damage, 30% increase in resistance)
+  - Mana Vein Damage: 40%
+  - Dragon INT: 18500
+  - Demon INT: 18500
+  - Angel Core: 18500
+DIVINE/SPECIAL ABILITIES:
+• Regeneration (Divine):
+  Regenerates body from damage and poisons. Can restore the body even from a death state, drawing upon the cycle of both life and death.
+
+• Soul Absorber: 
+  Absorb and store souls, gaining their knowledge, skills, and essence.
+
+• Soul Rebirth: 
+  Transform a soul, wiping its memories to grant it a new beginning.
+
+• [Sovereign of Eternal Legions] (Divine – Death / Command):
+  Type: Unique (Bloodline-Locked)
+  Tier: Divine
+  Eligibility: Only child of Life and Death – Founding Celestials
+  
+  Description:
+  You do not "summon" undead. You RULE them. This Divine skill greatly enhances all abilities related to creating, commanding, and binding undead into your soul-domain and authority.
+  
+  Core Effects:
+  - You can designate undead and soul-bound familiars as part of your [Eternal Legion].
+  - Undead within your Eternal Legion:
+    • Obey your will at a conceptual level (cannot be stolen, charmed, or commanded by others unless opposing Authority exceeds yours).
+    • Receive scaling bonuses to stats, discipline, and resistances based on your Rank and Intelligence.
+  
+  Legion Capacity:
+  - Initial maximum: 54,000 units
+  - Scales primarily with Intelligence
+  - Increases through active use: large-scale battles, sustained command, and integration of new forces
+  - Current Legion members: Serena, Solis, Valeria, Raven, Lizzy, Froseti, Blizzard
+  
+  Additional Interactions:
+  - Directly amplifies command-type, domination, and coordination skills of Legion members (e.g., Raven's [Undead Legion Command]).
+  - Greatly reduces mental and spiritual strain when orchestrating army-level operations.
+  - Enhances stability of large formations and complex maneuvers executed by undead forces.
+
+• [Soul Evolve] (Divine – Life / Death / Evolution):
+  Type: Unique (Bloodline-Locked)
+  Tier: Divine
+  [Innate Skill Awakened]
+  
+  Reason for Awakening:
+  You have repeatedly and successfully used Souls as fuel, applied the Authorities of Life and Death, and overridden System-enforced racial and level limits to forcibly evolve your familiars beyond their natural paths. Your repeated actions have been recognized and systemized as a Skill.
+  
+  Description:
+  Initiate forced evolution on familiars, undead, and potentially other bound targets. Consumes souls and resources to break level caps, trigger evolution, and reshape racial/class paths.
+  
+  Core Mechanics:
+  - Allows you to see possible evolution branches.
+  - Influence or alter branches using appropriate souls and concepts.
+  - Higher-quality or specialized souls increase:
+    • Success rate
+    • Quality of evolution
+    • Chance to unlock unique variants
+  
+  Restrictions:
+  - Only applies to beings directly bound to you (familiar, servant, contracted soul, or Legion member).
+  - Evolution cost and risk scale with target Rank and how far you push beyond natural limits.
+  
+  Note:
+  This Skill is UNIQUE to you. It is an innate manifestation of your dual heritage as the Son of Life and Death.
+
+• Genesis of the Awakened:
+  Allows you to transform high-tier monster souls into new sentient beings, shaping their nature, instincts, and growth potential.
+
+• [Soulforged Vessel]:
+  Allows you to imbue suitable objects, constructs, or corpses with souls, granting them new life and identity.
+
+SKILLS:
+• Blood Manipulation (Rank C, 0%):
+  Forming blood constructs out of the body.
+• Bone Manipulation (Rank C, 0%):
+  Forming bone constructs and controlling them.
+• Dragon vision:
+  Greatly enhanced senses.
+• Swordsmanship (Rank B, 1%):
+  Reflects proficiency with the sword.
+• Elemental Blade Infusion:
+  Apply fire, ice, or lightning to your weapon. Elemental effects increase with proficiency.
+
+ELEMENTAL MAGIC:
+• Fire — Flame Manipulation (Rank B, 5.24%):
+  - Fire Ball: Launch a ball of fire at your target. More applications unlock with proficiency.
+  - Fire Blast: Launch a powerful blast of fire that erupts in a sweeping explosion of flames on impact.
+  - Fire Beam: Release a concentrated beam of fire from your hand.
+  - Inferno Pulse: Alok channels fire into a concentrated pulse that explodes outward from a point he chooses, creating a ring of intense flames. The pulse spreads rapidly in all directions, incinerating enemies caught in its radius while leaving concentrated fire streaks that continue burning for a short duration.
+
+• Ice — Ice Manipulation (Rank C, 43.5%):
+  - Icy Ball: Release a swirling ball of icy power that freezes on impact. More applications unlock with proficiency.
+  - Icy Blast: Release a short burst of lightning.
+  - Icy Beam: Launch a concentrated bolt of lightning at a target. More applications unlock with proficiency.
+
+• Lightning — Lightning Manipulation (Rank B, 12.2%):
+  - Lightning Zap: Release a short burst of lightning.
+  - Lightning Bolt: Launch a concentrated bolt of lightning at a target. More applications unlock with proficiency.
+  - Lightning Burst: Release a short burst of lightning.
+  - Lightning Spear: Launch a concentrated bolt of lightning at a target. More applications unlock with proficiency.
+  - Storm Breaker (Rank B): Alok forms a ball of pure lightning that flies upward and hovers above the battlefield. From this sphere, continuous lightning strikes rain down on all enemies below, with the number and intensity of strikes scaling with the mana invested. The storm persists as long as mana is channeled, targeting clustered foes and causing widespread devastation. Conductive surfaces and metallic objects further amplify the chaining and spread of the lightning.
+
+• Wind — Wind Manipulation (Rank C, 4.23%):
+  - Wind Bullet: Release a short burst of wind.
+  - Arcs of Wind: Release multiple slashes of wind with a simple motion of the fingers or hands, the effect greatly multiplies when a blade is used.
+  - Wind Bursts: Release bursts of wind from the feet to mimic flight or travel long distances.
+
+• Earth — Ground Manipulation (Rank D, 19.54%):
+  - Stone Gauntlet: Create a Gauntlet from stones.
+
+• Water — Water Manipulation (Rank D, 1%):
+  [Abilities to be unlocked]
+
+• Light — Light Manipulation (Rank D, 4,32%):
+  - Light Ball: Release a solid ball of light.
+
+COMBINED ELEMENTAL MAGIC:
+• Molten Tempest (Rank A, 2.003% completion) — Fire + Lightning + Ground:
+  Stomps the foot covered in molten rock, causing molten spikes to erupt violently. When the lightning arcs through these spikes, they resonate, sending continuous electric discharges outward, striking multiple enemies and chaining between nearby foes. The combination of molten stone and elemental energy makes this attack extremely destructive and difficult to evade.
+• Multi-elemental Stone Gauntlet:
+  Create a Gauntlet from stones and infuse elemental mana, turning into flaming stone Gauntlets or frosty stone Gauntlets.
+
+PASSIVE/AREA SKILLS:
+• Guiding Light:
+  Creates a stable orb of light that floats ahead of you, providing consistent illumination without the need for conscious focus. The orb will automatically maintain ideal position and brightness, adjusting its path based on your movement and mental intent.
+• Commander’s Dominion (Active/Passive):
+  Within a designated area, your undead minions and anyone you consider an ally receive +30% to all physical attributes, movement speed, and resistance. You may enforce advanced tactics and battle formations telepathically. Uses mana to maintain the area of effect.
+
+RACIAL SKILLS — DRACONIC:
+1. Elemental Claw (Basic): Infuse your hands/claws with any selected elemental mana. Adds massive magical damage and status effects (Burning, Freezing, Shocking, etc.) to physical strikes.
+2. Draconic Intimidation (Rank C): Emit a mana-charged roar. Inflicts [Fear] status, shatters enemy morale, and can physically disrupt the casting of lower-tier spells.
+3. Passive: Draconic Mana Circuit: Mana becomes 30% easier to manipulate; casting speed is significantly increased as the world’s mana now recognizes you as a predator.
+
+BLESSINGS:
+• Blessing: Resistance to mental charms and mind magic. (Lilith)
+
+• [Divine Blessing: Thor's Mark of the Storm Sovereign]
+  Type: Legendary Divine Blessing
+  Granted by: Thor, God of Thunder
+  
+  Effects:
+  - Thunderous Might: Alok's lightning attacks (spells, sword strikes, and skills) are further amplified by 25%.
+  - Storm Domain: Once per day, Alok can call forth a localized storm—summoning thunderclouds, rain, and devastating bolts of divine lightning to smite enemies in a wide area.
+  - Unstoppable Charge: Grants temporary immunity to paralysis, stun, and shock effects. When channeling lightning, movement speed increases by 40% for 30 seconds.
+  - Hammer's Echo: Alok's next critical lightning attack has a chance to unleash a shockwave reminiscent of Thor's hammer, dealing massive AoE damage and stunning all non-boss targets.
+  
+  Flavor Text:
+  "Rise, challenger! With my mark, let lightning obey your call and storms gather at your command. Let your fury echo mine, and may your legend shake the heavens."
+
+TITLES:
+
+• [Title: Evolver]
+  Description: You have transcended normal evolutionary constraints, forcibly guiding a being from monstrous existence toward true sentience. The Tower acknowledges you as an external agent of evolution.
+  
+  Effects:
+  - Increases the success rate and stability of forced evolutions and breakthroughs by +25% for creatures and undead under your control.
+  - Reduces the soul and mana cost required to push a subordinate being through an evolution threshold by 15%.
+  - Slightly increases your comprehension speed when observing or manipulating evolutionary stages and soul shifts.
+  
+  Hidden/Contextual:
+  - Beings you personally evolve gain a faint "Evolved by Alok" imprint in their soul, improving their loyalty and growth potential when serving under you.
+
+• [Title: Life Bringer]
+  Description: You have done what even most gods only whisper about—you have created new, sentient life from the chaotic remains of monsters. The Tower recognizes you as a nascent authority over the boundary between death and birth.
+  
+  Effects:
+  - Greatly enhances the power and precision of Life-aligned abilities. Life-attuned skills receive a +35% effectiveness bonus.
+  - When using [Genesis of the Awakened], the chance of producing a high-potential or unique variant increases significantly.
+  - Slightly boosts natural mana and vitality regeneration for all familiars and undead directly bound to your soul.
+  - Creatures and beings born directly from your hand (like this child fairy) receive a permanent Affinity Bonus toward growth, comprehension, and evolution.
+  
+  Hidden/Contextual:
+  - Certain higher entities and systems may now recognize you as a minor Life/Death authority, opening paths to future Authority Skills and Domains.
+  - Your actions in creating or destroying life may, under certain conditions, be recorded differently by the Tower than those of ordinary climbers.
+
+SYSTEM NOTIFICATIONS:
+[You have learned a Life Authority skill: [Genesis of the Awakened]]
+– Allows you to transform high-tier monster souls into new sentient beings, shaping their nature, instincts, and growth potential.
+[You have learned a Death Authority skill: [Soulforged Vessel]]
+– Allows you to imbue suitable objects, constructs, or corpses with souls, granting them new life and identity.
+
+==============================
+Name: Serena Aeonmorta
+Race: True PureBlood Vampire
+Level: 100
+Rank: SS2(Sovereign)
+
+Attributes:
+  - Strength: 3,852
+  - Speed: 3,526
+  - Vitality: 6,920
+  - Mana: 744,200
+  - Intelligence: 7,805
+  - Divinity: 1
+  - Affinity: Lightning
+    (40% increase in damage, 30% increase in resistance)
+
+Skills:
+  - Blood Manipulation (Rank B, 0%):
+      Can manipulate own blood, making swords, spikes, shooting blood particles.
+  - Regeneration (Rank C, 0%):
+      Regenerates injuries, can survive fatal blows.
+  - Blood Mist (Rank B, 0%):
+      Creates a mist that blocks vision, drains the life force, stamina, and mana of enemies. Allies are safe from the mist.
+  - Drain (Rank D, 0%):
+      Drains the life force, stamina, and mana from a single enemy. Small chance of permanently increasing some stats.
+  - Swordsmanship (Rank A, 0%):
+      Extremely proficient with swords.
+  - Vampiric Blade Arts (Rank B, 0%):
+      A sword style passed down by a lineage of Pureblood Vampires.
+
+Description:
+  Once a Vampire controlled by her lords for their missions, now a girl that seeks love.
+
+
+
+Skills:
+
+DIVINE/SPECIAL ABILITIES:
+• Regeneration (Divine):
+  Regenerates body from damage and poisons. Can restore the body even from a death state, drawing upon the cycle of both life and death.
+
+• Soul Absorber: 
+  Absorb and store souls, gaining their knowledge, skills, and essence.
+
+• Soul Rebirth: 
+  Transform a soul, wiping its memories to grant it a new beginning.
+
+• [Sovereign of Eternal Legions] (Divine – Death / Command):
+  Type: Unique (Bloodline-Locked)
+  Tier: Divine
+  Eligibility: Only child of Life and Death – Founding Celestials
+  
+  Description:
+  You do not "summon" undead. You RULE them. This Divine skill greatly enhances all abilities related to creating, commanding, and binding undead into your soul-domain and authority.
+  
+  Core Effects:
+  - You can designate undead and soul-bound familiars as part of your [Eternal Legion].
+  - Undead within your Eternal Legion:
+    • Obey your will at a conceptual level (cannot be stolen, charmed, or commanded by others unless opposing Authority exceeds yours).
+    • Receive scaling bonuses to stats, discipline, and resistances based on your Rank and Intelligence.
+  
+  Legion Capacity:
+  - Initial maximum: 10,000 units
+  - Scales primarily with Intelligence
+  - Increases through active use: large-scale battles, sustained command, and integration of new forces
+  - Current Legion members: Serena, Solis, Valeria, Raven, Lizzy, Froseti, Blizzard
+  
+  Additional Interactions:
+  - Directly amplifies command-type, domination, and coordination skills of Legion members (e.g., Raven's [Undead Legion Command]).
+  - Greatly reduces mental and spiritual strain when orchestrating army-level operations.
+  - Enhances stability of large formations and complex maneuvers executed by undead forces.
+
+• [Soul Evolve] (Divine – Life / Death / Evolution):
+  Type: Unique (Bloodline-Locked)
+  Tier: Divine
+  [Innate Skill Awakened]
+  
+  Reason for Awakening:
+  You have repeatedly and successfully used Souls as fuel, applied the Authorities of Life and Death, and overridden System-enforced racial and level limits to forcibly evolve your familiars beyond their natural paths. Your repeated actions have been recognized and systemized as a Skill.
+  
+  Description:
+  Initiate forced evolution on familiars, undead, and potentially other bound targets. Consumes souls and resources to break level caps, trigger evolution, and reshape racial/class paths.
+  
+  Core Mechanics:
+  - Allows you to see possible evolution branches.
+  - Influence or alter branches using appropriate souls and concepts.
+  - Higher-quality or specialized souls increase:
+    • Success rate
+    • Quality of evolution
+    • Chance to unlock unique variants
+  
+  Restrictions:
+  - Only applies to beings directly bound to you (familiar, servant, contracted soul, or Legion member).
+  - Evolution cost and risk scale with target Rank and how far you push beyond natural limits.
+  
+  Note:
+  This Skill is UNIQUE to you. It is an innate manifestation of your dual heritage as the Son of Life and Death.
+
+• Genesis of the Awakened:
+  Allows you to transform high-tier monster souls into new sentient beings, shaping their nature, instincts, and growth potential.
+
+• [Soulforged Vessel]:
+  Allows you to imbue suitable objects, constructs, or corpses with souls, granting them new life and identity.
+
+
+COMBAT SKILLS:
+• Blood Manipulation (Rank C, 14.25%):
+  Forming blood constructs out of the body.
+
+• Bone Manipulation (Rank C, 0%):
+  Forming bone constructs and controlling them.
+
+• Perception (Rank C, 84.24%):
+  Greatly enhanced senses.
+
+• Swordsmanship (Rank B, 78.41%):
+  Reflects proficiency with the sword.
+
+• Elemental Blade Infusion (Rank B, 96.13%):
+  Apply fire, ice, or lightning to your weapon. Elemental effects increase with proficiency.
+
+• Mana Force Strike (Rank B, 4.13%):
+  Increase the power of your punches by 30% through precise mana reinforcement.
+
+ELEMENTAL MAGIC - FIRE:
+• Flame Manipulation (Rank B, 83.16%):
+  - Fire Ball: Launch a ball of fire at your target that explodes on impact.
+  - Fire Blast: Launch a powerful blast of fire that erupts in a sweeping explosion of flames on impact.
+  - Flame Beam: Release a concentrated beam of fire from your hand.
+  - Inferno Pulse (Rank B):
+    Alok channels fire into a concentrated pulse that explodes outward from a point he chooses, creating a ring of intense flames. The pulse spreads rapidly in all directions, incinerating enemies caught in its radius while leaving concentrated fire streaks that continue burning for a short duration.
+
+ELEMENTAL MAGIC - ICE:
+• Ice Manipulation (Rank C, 54.68%):
+  - Icy Ball: Release a swirling ball of icy power that freezes on impact.
+  - Icy Blast: Release a powerful blast of frost power that freezes a large area on impact.
+  - Ice Beam: Release a concentrated beam of frost that freezes everything it passes.
+
+ELEMENTAL MAGIC - LIGHTNING:
+• Lightning Manipulation (Rank B, 4.75%):
+  - Lightning Zap: Release a short burst of lightning.
+  - Lightning Bolt: Launch a concentrated bolt of lightning at a target.
+  - Lightning Spear: Release a spear of pure red lightning that devastates an entire area upon impact, destroying groups of monsters and continuously emitting arcs of lightning in the vicinity, chaining to nearby foes and causing widespread destruction.
+
+
+
+
+
+  Name: Lumara Prima Spiritus Aeonmorta
+Rank: Mythic-2 (Origin)
+Level: 31
+[Attributes]
+•	Strength: 3,100
+•	Speed: 3,100
+•	Vitality: 5,600
+•	Mana: 1,060,000
+•	Intelligence: 10,600
+•	Divinity: 20
+•	Affinity: Fire, Ice, Lightning, Nature, Water, Light, Earth, Wind.
+o	Passive: +70% Elemental Damage / +80% Elemental Resistance.
+[Combat Skills]
+•	Elemental Manipulation (Rank C, 59%): The ability to weave and command the eight primal elements for offense and defense.
+o	Fire Blast.
+o	Ice Beam
+o	Wind Slash
+o	Whirlwind
+o	Swords of Light
+o	Flame Tornado
+o	Flowers of poison
+
+•	Spirit Blessing: Can accelerate the growth of flora, heal wounds of the soul and body, and provide a 50% stat buff to allies.
+•	Primal Convergence (Active): Lumara fuses two or more elements into a single devastating strike (e.g., Plasma from Lightning/Fire, or Blizzard from Ice/Wind).
+
