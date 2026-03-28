@@ -1,0 +1,143 @@
+Shop
+Elixirs
+•	Minor Power Elixir:
+Temporarily increases Strength by 15% for 20 minutes. Does not stack with other temporary Strength buffs.
+Price: 90,000 TP
+•	Refined Agility Draught:
+Temporarily increases Agility by 15% for 15 minutes.
+Price: 95,000 TP
+•	Elixir of Potential:
+Permanently increases a random attribute (STR, AGI, INT, or VIT) by 1–5 points, depending on absorption capability.
+Price: 700,000 TP
+•	Troll’s Blood:
+Contains rare trolls’ blood; permanently increases all physical stats by at least 10 points if fully absorbed (potential for more). If not fully absorbed, grants +2 to STR, AGI, and VIT, and +5 VIT. May also enhance physical skills with full absorption.
+Price: 2,500,000 TP
+•	Attribute Selection Serum:
+Choose one attribute—STR, AGI, INT, or VIT—to increase by 1–3 points permanently (max depends on absorption).
+Price: 1,200,000 TP
+•	Lesser Attribute Potion:
+Chance to grant 1–2 random attribute points. If absorption fails, temporarily boosts all stats by 5% for 15 minutes.
+Price: 250,000 TP
+•	Essence of Focus:
+Raises focus, skill learning speed, and chance of full elixir absorption by 20% for the next hour (can be combined with other potions).
+Price: 120,000 TP
+
+
+
+Basic Marksmanship (D Rank, Passive):
+Increases accuracy with ranged weapons by 20% and grants intuitive understanding of angles, wind, and leading targets. Makes basic marksmanship techniques easier to learn and master.
+Price: 250,000 TP
+If this skill affects things like my mana bullet, it’ll make fights easier for me and my team. He nodded, bookmarking it. And this buff…good for everyone.
+Blessing of Vigor (D Rank):
+Grants [Blessing of Vigor] — Buffs the target’s strength and vitality by 15% for 30 seconds. 90s cooldown.
+Price: 260,000 TP
+
+[Shop  
+Skill Scrolls.
+
+Lightning Zap (D Rank):  
+Grants [Lightning Zap] — Discharge a focused bolt of electricity at a single target. Damage and mana cost scale with INT.  
+Price: 100,000 TP
+
+Fireball (D Rank):  
+Grants [Fireball] — Hurl a ball of fire that explodes on impact, dealing fire damage in a small area. 10s cooldown.  
+Price: 110,000 TP
+
+Sword Mastery (D Rank, Passive):  
+Increases sword damage by 10% and improves precision and critical rate with all swords.  
+Price: 120,000 TP
+
+Marksmanship (D Rank, Passive):  
+Increases accuracy with ranged weapons by 15% and grants intuitive understanding of angles, wind, and leading targets. Makes basic marksmanship techniques easier to learn and master.  
+Price: 120,000 TP
+
+Quick Boost (D Rank):  
+Grants [Quick Boost] — Temporarily increases agility and reaction speed by 12% for 18 seconds. Cooldown: 70s.  
+Price: 140,000 TP
+
+Stone Skin (D Rank):  
+Grants [Stone Skin] — Hardens skin, reducing physical damage taken by 15% for 15 seconds. Cooldown: 90s.  
+Price: 135,000 TP
+
+Mana Sense (D Rank, Passive):  
+Allows the user to sense mana fluctuations, magical traps, and concealments within a 15-meter radius.  
+Price: 160,000 TP
+
+Healing Light (D Rank):  
+Grants [Healing Light] — Slowly restores a small amount of HP over 30 seconds. Good for minor wounds and fatigue.  
+Price: 125,000 TP
+
+Wind Gust (D Rank):  
+Grants [Wind Gust] — Pushes up to three enemies away with a strong gust of wind. Small chance to stagger. Cooldown: 22s.  
+Price: 120,000 TP
+
+Smokescreen (D Rank):  
+Grants [Smokescreen] — Creates a thick cloud of smoke on a 5m radius for 14 seconds, obscuring vision. Cooldown: 60s.  
+Price: 135,000 TP
+
+Heal (C Rank):  
+Grants [Heal] — Restore a moderate amount of HP to self or an ally. Cooldown: 15s. Scales with INT.  
+Price: 180,000 TP
+
+Mana Shield (C Rank):  
+Grants [Mana Shield] — Surrounds the user with a barrier that absorbs damage equal to 25% of max mana pool. Lasts 8 seconds. 60s cooldown.  
+Price: 200,000 TP
+
+Wind Step (C Rank):  
+Grants [Wind Step] — Teleports user up to 10 meters in a chosen direction. 20s cooldown.  
+Price: 225,000 TP
+
+Flame Wave (C Rank):  
+Grants [Flame Wave] — Unleashes a horizontal wave of fire, damaging all enemies in its path. 18s cooldown.  
+Price: 230,000 TP
+
+Shockwave Slash (C Rank):  
+Grants [Shockwave Slash] — Adds a mid-range shockwave to your melee sword attacks. 12s cooldown.  
+Price: 265,000 TP
+
+Blessing of Vigor (C Rank):  
+Grants [Blessing of Vigor] — Buffs the target’s strength and vitality by 15% for 30 seconds. 90s cooldown.  
+Price: 260,000 TP
+
+Mist Veil (C Rank):  
+Grants [Mist Veil] — Summons a cold mist around the user, lowering enemy hit rate and slightly boosting user’s evasion for 20 seconds. Cooldown: 60s.  
+Price: 240,000 TP
+
+Thunderous Charge (B Rank):  
+Grants [Thunderous Charge] — Massively increases speed, leaves a trail of lightning and deals area damage upon arrival. Lasts 7 seconds. 90s cooldown.  
+Price: 600,000 TP
+
+Venom Arrow (B Rank):  
+Grants [Venom Arrow] — Imbue your next arrow/bolt with potent poison; target takes damage over 18 seconds and has movement speed reduced. Cooldown: 80s.  
+Price: 520,000 TP
+
+Earthrise Barrier (B Rank):  
+Grants [Earthrise Barrier] — Erects a durable wall of rock, scaling in HP with your INT and level. Lasts 18 seconds. Cooldown: 150s.  
+Price: 750,000 TP
+
+Magical Counter (B Rank):  
+Grants [Magical Counter] — Instantly reflects the next spell (up to C Rank) back at the caster. Cooldown: 180s.  
+Price: 700,000 TP
+]
+
+[Shop
+Potions.
+Low Grade Health Potion: Restores small scratches and minor wounds, recovers some fatigue.
+Price: 100 TP
+Minor Health Potion: Restores a certain amount of health and stamina.
+Price: 500 TP
+Mid Grade Health Potion: Recovers significant health and stamina; cures some diseases; cannot heal severed limbs. Handles deeper wounds.
+Price: 1,000 TP
+High Grade Health Potion: Restores a large amount of health, rapidly heals major wounds, and can attach/restore severed limbs.
+Price: 10,000 TP
+Superior Grade Health Potion: Restores from near-death states, permanently increases VIT, cures most diseases and poisons, regrows severed limbs if administered immediately.
+Price: 1,000,000 TP
+Low Grade Mana Potion: Restores a small amount of mana; less effective for larger mana pools. Temporarily increases mana recovery rate by 5%.
+Price: 100 TP
+Mid Grade Mana Potion: Restores a moderate amount of mana. Temporarily boosts mana recovery by 20%.
+Price: 1,000 TP
+High Grade Mana Potion: Restores a large amount of mana. Temporarily increases mana recovery by 50%.
+Price: 10,000 TP
+Superior Grade Mana Potion: Fully restores all mana, permanently increases maximum mana, and enhances mana recovery rate by 200% for 24 hours.
+Price: 1,000,000 TP
+]
