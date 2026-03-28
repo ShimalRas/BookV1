@@ -1,0 +1,1130 @@
+═══════════════════════════════════════════════════════════════════════════════
+                          BOOK DETAILS - ORGANIZED REFERENCE
+═══════════════════════════════════════════════════════════════════════════════
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                          1. MAIN CHARACTERS - PROGRESSION
+═══════════════════════════════════════════════════════════════════════════════
+
+───────────────────────────────────────────────────────────────────────────────
+1.1 ALOK MENDIS - LEVEL 1 (EARLY STAGE)
+───────────────────────────────────────────────────────────────────────────────
+
+Name: Alok Mendis
+Rank: Divine
+Level: 1
+
+Attributes:
+• Strength: 91
+• Speed: 80
+• Vitality: 214
+• Mana: 5,800
+• Intelligence: 120
+• Divinity: 5
+• Affinity: Fire, Ice, Lightning (40% increase in damage, 30% increase in resistance.)
+
+Skills:
+• Regeneration (Divine):
+  Regenerates body from damage and poisons. Can restore the body even from a death state, drawing upon the cycle of both life and death.
+• Blood Manipulation (Rank C, 0%):
+  Forming blood constructs out of the body.
+• Bone Manipulation (Rank C, 0%):
+  Forming bone constructs and controlling them.
+• Perception (Rank C, 0%):
+  Greatly enhanced senses.
+• Swordsmanship (Rank C, 0%):
+  Reflects proficiency with the sword.
+• Flame Manipulation (Rank D, 0%):
+  - Fire Ball: Launch a ball of fire at your target. More applications unlock with proficiency.
+• Ice Manipulation (Rank D, 0%):
+  - Icy Ball: Release a swirling ball of icy power that freezes on impact. More applications unlock with proficiency.
+• Lightning Manipulation (Rank D, 2%):
+  - Lightning Zap: Release a short burst of lightning.
+  - Lightning Bolt: Launch a concentrated bolt of lightning at a target. More applications unlock with proficiency.
+
+───────────────────────────────────────────────────────────────────────────────
+1.2 TRI-UNION HARMONIZATION EVENT
+───────────────────────────────────────────────────────────────────────────────
+
+Tri-Union Harmonization Complete!  
+• Int increased by 20 (Current INT: 53, Mana: 5,300)  
+• Fire resistance gained: 40% 
+• Ice resistance gained: 30%  
+• Lightning resistance gained: 40%  
+• Fire, ice, and lightning magic/skills: +40% damage/effectiveness  
+• Elements now much easier to learn and control  
+• Mana pool massively expanded and perfectly balanced (Fire/Frost/Lightning)  
+• Reward: 25,000 points  
+
+───────────────────────────────────────────────────────────────────────────────
+1.3 ALOK MENDIS - LEVEL 30 (CURRENT STATE)
+───────────────────────────────────────────────────────────────────────────────
+
+Name: Alok Aeonmorta
+Rank: Divine
+Level: 30
+
+Attributes:
+• Strength: 730
+• Speed: 710
+• Vitality: 850
+• Mana: 132,000
+• Intelligence: 1320
+• Divine Power: 85
+• Affinity: Fire, Ice, Lightning (40% increase in damage, 40% increase in fire and lightning resistance, 30% increase in frost resistance.)
+• Mana Vein Advancement: 20% increase in all skill damage.
+
+Skills:
+
+DIVINE/SPECIAL ABILITIES:
+• Regeneration (Divine):
+  Regenerates body from damage and poisons. Can restore the body even from a death state, drawing upon the cycle of both life and death.
+
+• Soul Absorber: 
+  Absorb and store souls, gaining their knowledge, skills, and essence.
+
+• Soul Rebirth: 
+  Transform a soul, wiping its memories to grant it a new beginning.
+
+• [Sovereign of Eternal Legions] (Divine – Death / Command):
+  Type: Unique (Bloodline-Locked)
+  Tier: Divine
+  Eligibility: Only child of Life and Death – Founding Celestials
+  
+  Description:
+  You do not "summon" undead. You RULE them. This Divine skill greatly enhances all abilities related to creating, commanding, and binding undead into your soul-domain and authority.
+  
+  Core Effects:
+  - You can designate undead and soul-bound familiars as part of your [Eternal Legion].
+  - Undead within your Eternal Legion:
+    • Obey your will at a conceptual level (cannot be stolen, charmed, or commanded by others unless opposing Authority exceeds yours).
+    • Receive scaling bonuses to stats, discipline, and resistances based on your Rank and Intelligence.
+  
+  Legion Capacity:
+  - Initial maximum: 10,000 units
+  - Scales primarily with Intelligence
+  - Increases through active use: large-scale battles, sustained command, and integration of new forces
+  - Current Legion members: Serena, Solis, Valeria, Raven, Lizzy, Froseti, Blizzard
+  
+  Additional Interactions:
+  - Directly amplifies command-type, domination, and coordination skills of Legion members (e.g., Raven's [Undead Legion Command]).
+  - Greatly reduces mental and spiritual strain when orchestrating army-level operations.
+  - Enhances stability of large formations and complex maneuvers executed by undead forces.
+
+• [Soul Evolve] (Divine – Life / Death / Evolution):
+  Type: Unique (Bloodline-Locked)
+  Tier: Divine
+  [Innate Skill Awakened]
+  
+  Reason for Awakening:
+  You have repeatedly and successfully used Souls as fuel, applied the Authorities of Life and Death, and overridden System-enforced racial and level limits to forcibly evolve your familiars beyond their natural paths. Your repeated actions have been recognized and systemized as a Skill.
+  
+  Description:
+  Initiate forced evolution on familiars, undead, and potentially other bound targets. Consumes souls and resources to break level caps, trigger evolution, and reshape racial/class paths.
+  
+  Core Mechanics:
+  - Allows you to see possible evolution branches.
+  - Influence or alter branches using appropriate souls and concepts.
+  - Higher-quality or specialized souls increase:
+    • Success rate
+    • Quality of evolution
+    • Chance to unlock unique variants
+  
+  Restrictions:
+  - Only applies to beings directly bound to you (familiar, servant, contracted soul, or Legion member).
+  - Evolution cost and risk scale with target Rank and how far you push beyond natural limits.
+  
+  Note:
+  This Skill is UNIQUE to you. It is an innate manifestation of your dual heritage as the Son of Life and Death.
+
+• Genesis of the Awakened:
+  Allows you to transform high-tier monster souls into new sentient beings, shaping their nature, instincts, and growth potential.
+
+• [Soulforged Vessel]:
+  Allows you to imbue suitable objects, constructs, or corpses with souls, granting them new life and identity.
+
+
+COMBAT SKILLS:
+• Blood Manipulation (Rank C, 14.25%):
+  Forming blood constructs out of the body.
+
+• Bone Manipulation (Rank C, 0%):
+  Forming bone constructs and controlling them.
+
+• Perception (Rank C, 84.24%):
+  Greatly enhanced senses.
+
+• Swordsmanship (Rank B, 78.41%):
+  Reflects proficiency with the sword.
+
+• Elemental Blade Infusion (Rank B, 96.13%):
+  Apply fire, ice, or lightning to your weapon. Elemental effects increase with proficiency.
+
+• Mana Force Strike (Rank B, 4.13%):
+  Increase the power of your punches by 30% through precise mana reinforcement.
+
+ELEMENTAL MAGIC - FIRE:
+• Flame Manipulation (Rank B, 83.16%):
+  - Fire Ball: Launch a ball of fire at your target that explodes on impact.
+  - Fire Blast: Launch a powerful blast of fire that erupts in a sweeping explosion of flames on impact.
+  - Flame Beam: Release a concentrated beam of fire from your hand.
+  - Inferno Pulse (Rank B):
+    Alok channels fire into a concentrated pulse that explodes outward from a point he chooses, creating a ring of intense flames. The pulse spreads rapidly in all directions, incinerating enemies caught in its radius while leaving concentrated fire streaks that continue burning for a short duration.
+
+ELEMENTAL MAGIC - ICE:
+• Ice Manipulation (Rank C, 54.68%):
+  - Icy Ball: Release a swirling ball of icy power that freezes on impact.
+  - Icy Blast: Release a powerful blast of frost power that freezes a large area on impact.
+  - Ice Beam: Release a concentrated beam of frost that freezes everything it passes.
+
+ELEMENTAL MAGIC - LIGHTNING:
+• Lightning Manipulation (Rank B, 4.75%):
+  - Lightning Zap: Release a short burst of lightning.
+  - Lightning Bolt: Launch a concentrated bolt of lightning at a target.
+  - Lightning Spear: Release a spear of pure red lightning that devastates an entire area upon impact, destroying groups of monsters and continuously emitting arcs of lightning in the vicinity, chaining to nearby foes and causing widespread destruction.
+  - Storm Breaker (Rank B):
+     Alok forms a ball of pure lightning that flies upward and hovers above the battlefield. From this sphere, continuous lightning strikes rain down on all enemies below, with the number and intensity of strikes scaling with the mana invested. The storm persists as long as mana is channeled, targeting clustered foes and causing widespread devastation. Conductive surfaces and metallic objects further amplify the chaining and spread of the lightning.
+
+ELEMENTAL MAGIC - WIND:
+• Wind Manipulation (Rank D, 64.23%):
+  - Wind Bullet: Release a short burst of wind.
+
+ELEMENTAL MAGIC - EARTH:
+• Ground Manipulation (Rank D, 1%):
+  - Stone Gauntlet: Create a Gauntlet from stones.
+
+ELEMENTAL MAGIC - WATER:
+• Water Manipulation (Rank D, 1%):
+  [Abilities to be unlocked]
+
+ELEMENTAL MAGIC - LIGHT:
+• Light Manipulation (Rank D, 4,32%):
+  - Light Ball: Release a solid ball of light.
+
+COMBINED ELEMENTAL MAGIC:
+• Molten Tempest Rank A completion 2.003% (Fire + Lightning + Ground):
+  Stomps the foot covered in molten rock, causing molten spikes to erupt violently. When the lightning arcs through these spikes, they resonate, sending continuous electric discharges outward, striking multiple enemies and chaining between nearby foes. The combination of molten stone and elemental energy makes this attack extremely destructive and difficult to evade.
+
+
+PASSIVE SKILLS:
+• Guiding Light: 
+  Creates a stable orb of light that floats ahead of you, providing consistent illumination without the need for conscious focus. The orb will automatically maintain ideal position and brightness, adjusting its path based on your movement and mental intent.
+
+BLESSINGS:
+• Blessing: Resistance to mental charms and mind magic. (Lilith)
+
+• [Divine Blessing: Thor's Mark of the Storm Sovereign]
+  Type: Legendary Divine Blessing
+  Granted by: Thor, God of Thunder
+  
+  Effects:
+  - Thunderous Might: Alok's lightning attacks (spells, sword strikes, and skills) are further amplified by 25%.
+  - Storm Domain: Once per day, Alok can call forth a localized storm—summoning thunderclouds, rain, and devastating bolts of divine lightning to smite enemies in a wide area.
+  - Unstoppable Charge: Grants temporary immunity to paralysis, stun, and shock effects. When channeling lightning, movement speed increases by 40% for 30 seconds.
+  - Hammer's Echo: Alok's next critical lightning attack has a chance to unleash a shockwave reminiscent of Thor's hammer, dealing massive AoE damage and stunning all non-boss targets.
+  
+  Flavor Text:
+  "Rise, challenger! With my mark, let lightning obey your call and storms gather at your command. Let your fury echo mine, and may your legend shake the heavens."
+
+
+TITLES:
+
+• [Title: Evolver]
+  Description: You have transcended normal evolutionary constraints, forcibly guiding a being from monstrous existence toward true sentience. The Tower acknowledges you as an external agent of evolution.
+  
+  Effects:
+  - Increases the success rate and stability of forced evolutions and breakthroughs by +25% for creatures and undead under your control.
+  - Reduces the soul and mana cost required to push a subordinate being through an evolution threshold by 15%.
+  - Slightly increases your comprehension speed when observing or manipulating evolutionary stages and soul shifts.
+  
+  Hidden/Contextual:
+  - Beings you personally evolve gain a faint "Evolved by Alok" imprint in their soul, improving their loyalty and growth potential when serving under you.
+
+• [Title: Life Bringer]
+  Description: You have done what even most gods only whisper about—you have created new, sentient life from the chaotic remains of monsters. The Tower recognizes you as a nascent authority over the boundary between death and birth.
+  
+  Effects:
+  - Greatly enhances the power and precision of Life-aligned abilities. Life-attuned skills receive a +35% effectiveness bonus.
+  - When using [Genesis of the Awakened], the chance of producing a high-potential or unique variant increases significantly.
+  - Slightly boosts natural mana and vitality regeneration for all familiars and undead directly bound to your soul.
+  - Creatures and beings born directly from your hand (like this child fairy) receive a permanent Affinity Bonus toward growth, comprehension, and evolution.
+  
+  Hidden/Contextual:
+  - Certain higher entities and systems may now recognize you as a minor Life/Death authority, opening paths to future Authority Skills and Domains.
+  - Your actions in creating or destroying life may, under certain conditions, be recorded differently by the Tower than those of ordinary climbers.
+
+
+  CURRENT STATUS:
+[Killed 1 LVL 23 Medium Goblin]
+[Notification: LVL 6 → LVL 7]
+[All stats (except Divinity) increased by 15.]
+[Remaining monsters in gate: 55]
+[Reward Received: +10,000 Points]
+[Current Points Balance: 92,898,750 Points]
+
+───────────────────────────────────────────────────────────────────────────────
+1.4 SERENA - PUREBLOOD VAMPIRE
+───────────────────────────────────────────────────────────────────────────────
+
+Name: Serena
+Race: True Pureblood Vampire
+Level: 100
+Rank: SS1 (Ascendant)
+
+Attributes:
+• Strength: 3,009,
+• Speed: 2,783
+• Vitality: 5,921
+• Mana: 573,200
+• Intelligence: 5,732
+
+Skills:
+• Blood Manipulation (Rank B, Completion 89%)
+• Regeneration (Rank C, Completion 56.6%)
+• Blood Mist (Rank B, Completion 78.1%)
+• Drain (Rank C, Completion 14.2%)
+• Swordsmanship (Rank A, Completion 32.3%)
+• Vampiric Blade Arts (Rank B, Completion 12.1%)
+ELEMENTAL MAGIC - FIRE:
+• Flame Manipulation (Rank C, 83.16%):
+  - Fire Ball: Launch a ball of fire at your target that explodes on impact.
+
+ELEMENTAL MAGIC - ICE:
+• Ice Manipulation (Rank D, 84.68%):
+  - Icy Ball: Release a swirling ball of icy power that freezes on impact.
+
+
+ELEMENTAL MAGIC - LIGHTNING:
+• Lightning Manipulation (Rank C, 3.75%):
+  - Lightning Zap: Release a short burst of lightning.
+  - Lightning Bolt: Launch a concentrated bolt of lightning at a target.
+
+ELEMENTAL MAGIC - WIND:
+• Wind Manipulation (Rank D, 64.23%):
+  - Wind Bullet: Release a short burst of wind.
+
+Racial Abilities Unlocked:
+
+• [Vampiric Sovereignty]
+  - As a True Pureblood, Serena can create and rule over:
+    - Lesser Vampires (by turning humans or compatible races using her blood).
+    - Pureblood Vampires (by granting a higher concentration of her blood and essence).
+  - Vampires created by her are bound by a bloodline link and instinctively recognize her as Queen. Can also limit or allow their evolution.
+
+• [Perfect Shapeshift – Vampiric Form]
+  - Can freely alter her physical appearance within reasonable limits:
+    - Age, hair length/color, eye color, facial features, minor body proportions.
+  - Can manifest or dismiss her vampire wings at will.
+  - Can slightly adjust her size and apparent maturity (within a defined range).
+
+• [Ascendant Blood]
+  - Her blood now carries a powerful vampiric boon:
+    - Greatly enhances regeneration and physical stats in compatible vampires who receive it.
+    - Acts as a potent catalyst for future vampiric evolutions.
+
+Notes:
+• Serena is Alok's wife and one of his first three undead companions (now fully sentient).
+
+
+───────────────────────────────────────────────────────────────────────────────
+1.5 UNDEAD COMPANIONS EVOLUTION (SERENA, SOLIS, VALERIA, RAVEN)
+───────────────────────────────────────────────────────────────────────────────
+
+Alok's first three undead: Serena (wife), Solis, Valeria.
+Additional undead: Raven (necromancer).
+
+EVOLUTIONARY CHART (LEVEL-BASED)
+
+Level Range    Serena Evolution             Solis Evolution           Valeria Evolution         Raven Evolution
+-----------------------------------------------------------------------------------------------------------------------
+1–10           Basic Skeleton               Basic Skeleton            Basic Spirit              Undead Necromancer
+11–25          Vampiric Skeleton            Skeleton Soldier          Valkyrie Shade            Undead Necromancer
+26–49          Pureblood Vampire            Elite Skeleton            Valkyrie Apprentice       Undead Necromancer
+30 (Rebirth)   Pureblood Vampire                —                         —                        —
+50–99          True Pureblood Vampire       Death Knight              Valkyrie                  Lich
+100–199        Superior Vampire Noble       Death Swordmaster         Valkyrie Champion         Lich King
+200–299        Vampire Lord                 Death Grandmaster         Valkyrie Paragon          Abyssal Lich Emperor
+300–399        Vampire Queen / Ancestor     Death Battle King         Valkyrie Monarch          Eternal Lich Sovereign
+400–499        Empress of Undead            Death Warlord             Valkyrie Empress          Primordial Death Sage
+500+           (Open for god-tier/unique)   (Open for god-tier/unique) (Open for god-tier/unique) (Open for god-tier/unique)
+
+OPTIONAL ADDENDUM: EVOLUTION DESCRIPTIONS
+
+Serena Path:
+• Basic Skeleton: Lowest undead, minimal strength, takes commands.
+• Vampiric Skeleton: Gains blood absorption and limited healing.Retains intellect, charm ability, starts blood magic.
+• Pureblood Vampire (Rebirth): Fully sentient, magical focus, unique traits.
+• True Pureblood Vampire: Polymorph, immortal, commands vampires.
+• Superior Vampire Noble: High authority, unique enchantments, advanced creation.
+• Vampire Lord: Territory governance, domain/presence, controls high undead.
+• Vampire Queen / Ancestor: Clan sovereign, awakens ancient powers, supreme charm.
+• Empress of Undead: Rule over legions, necromantic mastery, semi-divinity.
+
+Solis Path:
+• Basic Skeleton: Entry undead, melee proficiency.
+• Skeleton Soldier: Enhanced combat, basic tactics.
+• Elite Skeleton: Armored, better leadership.
+• Death Knight: Black magic, mounted combat, advanced tactics.
+• Death Swordmaster: Weapon mastery, aura skills, leading squads.
+• Death Grandmaster: Martial legend, soul manipulation, undead fusion.
+• Death Battle King: Army command, battlefield control, disaster-tier abilities.
+• Death Warlord: Commanding death domains, disaster-level magic.
+
+Valeria Path:
+• Basic Spirit: Ethereal, scouting, low offense.
+• Valkyrie Shade: Gathers power, learns martial skills.
+• Valkyrie Apprentice: Combat techniques, minor blessings.
+• Valkyrie: Flight, summoning spirit weapons, divine arts.
+• Valkyrie Champion: Leads spirits, radiant power, battlefield aura.
+• Valkyrie Paragon: Supreme techniques, charm magic, spectral legions.
+• Valkyrie Monarch: Domain mastery, inspires armies, divine intervention.
+• Valkyrie Empress: Ruler of the valkyrie host, controls fate/war.
+
+Raven Path:
+• Undead Necromancer (Rank B, Lv 1–50): Basic necromancy, raises minor undead, learns death magic fundamentals.
+• Lich (Rank A, Lv 50–100): Enhanced bone manipulation, commands skeletal legions, advanced death spells.
+• Lich King (Rank S, Lv 100–200): Phylactery-bound immortality, masters high necromancy, domain of death influence.
+• Abyssal Lich Emperor (Rank SS-1, Lv 200–300): Commands vast undead armies, manipulates soul energy, reshapes death domains.
+• Eternal Lich Sovereign (Rank SS-2, Lv 300–400): Transcendent necromantic authority, creates unique undead, bends laws of death.
+• Primordial Death Sage (Rank SS-3, Lv 400–500): Near-divine necromantic mastery, death domain incarnate, rivals gods of death.
+
+
+───────────────────────────────────────────────────────────────────────────────
+1.6 ARIA - CHILD FAIRY OF LIFE AND DEATH (NEWBORN)
+───────────────────────────────────────────────────────────────────────────────
+
+Name: Aria
+Race: Teen Fairy of Life and Death (Unique)
+Age: one month
+Rank: S (Racial Baseline)
+Level: 43
+
+Attributes:
+• Strength: 625
+• Agility: 610
+• Vitality: 850
+• Mana: 102,500
+• Intelligence: 1025
+• Spirit: 500
+• Divinity: 1
+
+Affinities:
+• Wind, Nature, Ground, Lightning
+  - Damage with these elements: +40%
+  - Resistance to these elements: +40%
+
+Special Trait – Extreme Mana Veins:
+• Skill damage: +35%
+• Mana regeneration: +50%
+
+Titles:
+• Daughter of the Evolver
+• First Fairy of the Death Army
+• Soulborn
+
+Innate Skills:
+• [Fairy Physique (Unique)]: A body optimized for mana circulation, rapid growth, and high adaptability. Greatly increased affinity for Life, Nature, and Spirit.
+• [Innocent Core]: Emotional and mental corruption are strongly resisted in early stages. Negative influences are filtered and weakened, allowing stable, healthy growth.
+• [Instinctive Magic (Fairy)]: Even without training, can instinctively manifest minor Life, Wind, and Nature magic appropriate to her level and mental development.
+
+Elemental Magic – Lightning
+• Lightning Manipulation (Rank D, 0%) – Inherited
+  - Lightning Zap: Release a short burst of lightning.
+
+Elemental Magic – Wind
+• Wind Manipulation (Rank D, 1%)
+  - Wind Bullet: Release a short, focused burst of wind.
+
+Elemental Magic – Ground
+• Ground Manipulation (Rank D, 1%)
+  - [Abilities to be unlocked as proficiency increases.]
+
+Elemental Magic – Nature
+• Nature Manipulation (Rank D, 1%)
+  - [Abilities to be unlocked as proficiency increases.]
+
+Inherited / Origin Skills:
+• [Child of Life and Death] (Unique): Born from the combined Authorities of Life and Death. Slightly increases growth speed of level, stats, and affinities compared to standard fairies. Grants a faint, passive resistance against forced soul manipulation and mental domination.
+
+Passive Skills:
+• Flight: Flying is effortless and consumes negligible stamina and mana under normal conditions.
+
+
+───────────────────────────────────────────────────────────────────────────────
+1.7 SOLIS - Blazing Death Knight
+───────────────────────────────────────────────────────────────────────────────
+
+Name: Solis
+Race: Human
+Level: 67
+Rank: S
+
+Attributes:
+• Strength: 925
+• Speed: 876
+• Vitality: 1,225
+• Mana: 128,100
+• Intelligence: 1,281
+
+Skills:
+• Enhance Weapon (Rank B, Completion 57.43%):
+  Channels mana into the familiar’s weapon, significantly boosting its damage for one powerful attack. Delivers a single empowered blow before the enhancement fades.
+
+• Wind Slash (Rank B, Completion 92.88%):
+  Releases wind slashes from the sword and fires wind bullets from his fingers.
+
+• Swordsmanship (Rank D, Completion 93.45%):
+  Increases proficiency with swords; boosts attack damage and critical damage.
+
+• Flame Slash (Rank C, Completion 2.12%):
+  Releases a violent, raging flame arc from the sword, hitting all enemies in the slash direction. Enemies damaged by the slash are further burned, taking twice his attack power as follow-up flame damage.
+• [Infernal Execution]
+  - Channel concentrated death-fire into your weapon.
+  - A single strike that detonates on impact, dealing massive physical and fire/death damage in a line or focused point.
+  - Greatly increased effectiveness against living and low-tier undead.
+
+• [Hellmarch]
+  - Coat yourself and your armor in controlled hellfire.
+  - Each step leaves burning death-flames on the ground.
+  - Enemies within a certain radius suffer continuous burn and morale damage.
+• [Graveflame Bulwark]
+  - Manifest an armor of fused bone and death-fire.
+  - Greatly raises physical and magical defense for a duration.
+  - Reflects a portion of melee damage as searing death-fire back at attackers.
+
+• [Cinder Call]
+  - Mark enemies in your sight as “Condemned.”
+  - Condemned targets ignite with delayed death-flames after a short time or upon being struck, causing chained detonations among clustered foes.
+
+
+Description:
+• A knight that once served a great being, slain and long forgotten, now serving a new purpose to aid his lord. The lord’s orders are absolute; protection is his priority.
+
+
+───────────────────────────────────────────────────────────────────────────────
+1.8 VALERIA - VALKYRIE APPRENTICE (LEVEL 50)
+───────────────────────────────────────────────────────────────────────────────
+
+Name: Valeria
+Race: Valkyrie 
+Level: 65
+Rank: S
+
+Attributes:
+• Strength: 1015
+• Speed: 1020
+• Vitality: 10255
+• Mana: 161,000
+• Intelligence: 1610
+
+
+Skills:
+
+COMBAT SKILLS:
+• Basic Spearmanship (Rank B, Completion 61.89%):
+  Increased accuracy and efficiency when wielding spears, even as an undead. Deals 30% more critical damage.
+
+• Piercing (Rank B, Completion 14.68%):
+  Thrusts the spear with precision, imbued with mana for maximum damage, ignoring a portion of the target's basic defense.
+
+LIGHT MAGIC & MANIPULATION:
+• Light Manipulation (Rank B, Completion 0%):
+  Freely shape and control light within range. Create blades, shields, or bindings of light.
+  Enhances precision and versatility of all light-based skills.
+
+• Heavenpiercing Lances (Rank B, Completion 2.4%):
+  [Evolved from Spears of Illumination]
+  Conjure multiple high-density spears of condensed light with improved penetration, tracking, and explosive impact on contact.
+  Can target multiple enemies or focus all lances on a single point.
+
+SUPPORT & HEALING SKILLS:
+• Heaven's Call (Rank C, Completion 1%):
+  Heals allies, removes minor curses and status effects, and purifies corruption.
+
+• Battlefield Salvation (Rank B, Completion 0%):
+  High-tier healing skill that rapidly restores HP and mends moderate injuries of selected allies.
+  Can purify most curses, poisons, and weak corruption.
+
+AURA & BUFF SKILLS:
+• [Valkyrie's Blessing] (Rank C, Completion 0%):
+  Area buff that increases allies' Strength, Agility, and resistance to fear and mental effects.
+  Undead under your lord's command also benefit, converted through his Authority.
+
+• [Purifying Radiance] (Rank B, Completion 0%):
+  Emit a wave of light that cleanses debuffs and weakens dark/chaos entities.
+  Deals bonus damage to enemies heavily aligned with corruption.
+
+Description:
+• Once a Valkyrie, now an undead who has forgotten her past; her only purpose is to obey her lord's command. She grows each passing day to protect her lord.
+
+
+───────────────────────────────────────────────────────────────────────────────
+1.9 RAVEN - UNDEAD NECROMANCER (LEVEL 50)
+───────────────────────────────────────────────────────────────────────────────
+
+Name: Raven
+Class: Lich
+Level: 55
+Rank: A
+
+Attributes:
+• Strength: 525
+• Speed: 531
+• Vitality: 555
+• Mana: 114,300
+• Intelligence: 1,143
+
+Skills:
+• Undead Legion Command (Rank B+, Completion 0%):
+  Summon up to 500 undead familiars using his lord's power.
+  Mana Cost: 200 per summon
+
+• Dark Blasts (Rank C, Completion 0%):
+  Launches projectiles of dark energy.
+  Mana Cost: 100
+
+Description:
+• Once a mighty lich commanding hundreds, now a necromancer reborn and bound by loyalty to his lord.
+
+
+───────────────────────────────────────────────────────────────────────────────
+1.10 ELEMENTAL GUARDIAN (CONSTRUCT)
+───────────────────────────────────────────────────────────────────────────────
+
+Name: Aegis
+Designation: Elemental Guardian
+Rank: SS-1 (Ascendant)
+Type: Soul-Bearing Elemental Golem / Guardian-Class
+State: Active Core Installed / Awaiting Name
+
+Core & Soul:
+• Heart: Elemental Fairy-Heart Core (S Rank, Enhanced)
+• Soul: Artificial, Engineered Soul
+  - Prior identity: Erased
+  - Current nature: Blank framework with imposed directives
+  - Capabilities:
+    - Independent thought
+    - Situational analysis
+    - Long-term learning and adaptation
+
+Directives:
+• Primary: Protect Aria above all else.
+• Secondary:
+  - Obey Alok’s commands instinctively (Absolute authority).
+  - Obey Serena and Aria within the bounds of Alok’s authority.
+  - Defend designated allies and the base.
+  - Destroy any target identified as an enemy by Alok, Serena, or Aria.
+
+Elemental Systems:
+• Embedded Elemental Mana Cores (x6):
+  - Flame Core Gem — Stores, channels, and amplifies fire-aspected mana.
+  - Frost Core Gem — Stores, channels, and amplifies ice/frost-aspected mana.
+  - Lightning Core Gem — Stores, channels, and amplifies lightning-aspected mana.
+  - Wind Core Gem — Stores, channels, and amplifies air/wind-aspected mana.
+  - Nature Core Gem — Stores, channels, and amplifies life/nature-aspected mana.
+  - Ground Core Gem — Stores, channels, and amplifies earth/stone-aspected mana.
+
+Elemental Capabilities:
+• Offensive and defensive elemental techniques via internal circuits:
+  - Flame: High-temperature attacks, area denial, armor-melting strikes.
+  - Frost: Area slow, solidification, armor and movement suppression.
+  - Lightning: High-speed strikes, precision damage, rapid response.
+  - Wind: High agility, directional bursts, cutting winds, flight support.
+  - Nature: Limited regeneration support, plant manipulation, life-aspected interference.
+  - Ground: Reinforcement, barriers, tremors, positional control.
+• Element combinations available depending on mana/experience:
+  - Lightning + Wind, Flame + Wind, Frost + Ground
+
+Body & Movement:
+• Chassis: Humanoid (female form), optimized for agility, speed, and balance.
+• Motion: Fully articulated joints with near-human fluidity; high-speed close-quarters combat capacity.
+• Flight: Capable of flight and aerial maneuvering via wind and elemental mana manipulation.
+
+Recovery & Durability:
+• Durability: SS-1 (Ascendant) class.
+• Self-Repair: Converts mana into structural repair; fairy-material integration enhances component regeneration.
+• Mana: Six cores provide large storage and fast regeneration; can draw ambient mana to replenish reserves.
+
+Behavior & Role:
+• Primary Role: Guardian of Aria (highest priority), Alok’s base, and designated allies.
+• Secondary Role: Destroyer — extreme offensive output on order, using multi-element barrages and advanced combat instincts.
+
+Growth:
+• Designed to learn from each battle; refines tactics, efficiency, and response over time.
+• Long-term potential: Capability and sophistication increase with experience and diverse enemy exposure.
+
+Ownership & Authority:
+• Recognized Owner: Alok (absolute authority)
+• Recognized High-Priority Protectees: Aria, Serena
+• Recognized Base & Allies: Updatable via Alok’s commands.
+
+Note:
+• Name currently unassigned; assigning a name finalizes identity linkage and may influence emergent behavior.
+
+═══════════════════════════════════════════════════════════════════════════════
+                          2. GAME SYSTEMS & MECHANICS
+═══════════════════════════════════════════════════════════════════════════════
+
+───────────────────────────────────────────────────────────────────────────────
+2.1 RANK PROGRESSION SYSTEM
+───────────────────────────────────────────────────────────────────────────────
+
+Rank        Base Stat Gain     Typical Examples                           Natural Limit*(Every Tier threshold)
+            (per Level)
+───────────────────────────────────────────────────────────────────────────────
+E           +2                 Regular humans, basic trainees              
+D           +3                 Trained/elite humans, soldiers,             
+                              knights, minor awakened
+
+C           +4                 Magic-capable mortals, low-tier             
+                              adventurers, basic monster elites
+
+B           +5                 Advanced mortals and stronger races:        
+                              beastkin, lesser vampires, high goblins,
+                              medium orcs, solid mid-tier players
+
+A           +7                 High-tier mortals and evolved races:      
+                              true vampires, high elves, dragonoid
+                              warriors, strong veteran players,
+                              elite commanders
+
+S           +10                World-class mortals and peak high         
+(Pinnacle)                     races: early Serena, national champions,
+                              named dungeon bosses, clan heads
+
+SS-1        +12                Ascendant elites: refined S-rank          
+(Ascendant)                    veterans, lesser vampire lords, 
+                              draconic lieutenants, demon captains
+
+SS-2        +14                Sovereign-class mortals:                  
+(Sovereign)                    regional warlords, major vampire 
+                              lords, dragon generals, demon dukes,
+                              city-destroyer level threats
+
+SS-3        +16                Transcendent mortals / quasi-mythic:        
+(Transcendent)                 top vampire lords, draconic champions, 
+                              demonic warlords, heroic legends on 
+                              the brink of apotheosis
+
+Mythic-1    +18                Lower myth-tier: Archfey nobles,            
+(Legendary)                    ancient dragon kings, high demon 
+                              princes, beings that can reshape
+                              regions or lesser worlds
+
+Mythic-2    +20                Upper myth-tier: realm guardians,           
+(Origin)                       proto-god champions, named 
+                              calamities, Tower-chosen monsters
+
+Demi        +25                Demigod / Draconic / Demonic rank:         
+(Demigod /                      children of gods and mortals, 
+Draconic /                      true primordial dragons, great 
+Demonic)                        demon kings, nascent god-rulers
+                              whose existence warps continents
+
+Divine      +30                True godborns and full divine hybrids:     
+(God Tier)                      Alok (child of two gods), true gods         
+                              in mortal form, direct avatars               
+───────────────────────────────────────────────────────────────────────────────
+*Natural Limit refers to the typical maximum total stats attainable for 
+beings in a “normal” world without direct Tower intervention, major 
+blessings, or extreme evolution paths. B–A are the peak for most 
+civilizations; S and its sub-tiers are extremely rare; Mythic, Demi, 
+and Divine tiers belong to legend, calamity, or divinity.
+
+
+Rank,Mana Color,Base Stat Gain,Status & Scale
+E,Dull Grey,+2,The Mundane: Regular humans; mana is faint and wispy.
+D,Pale Bronze,+3,"The Initiated: Elite soldiers; first signs of ""hardening."""
+C,Copper Green,+4,The Capable: Low-tier adventurers; steady and reliable.
+B,Azure Blue,+5,The Advanced: Beastkin and mid-tier players; fluid flow.
+A,Royal Purple,+7,The Elite: High-tier mortals; dense and pressurized.
+S,Sunlight Gold,+10,The Pinnacle: National champions; radiant and warm.
+SS-1,Crimson Spark,+12,The Ascendant: Refined veterans; volatile and hot.
+SS-2,Violet Obsidian,+14,The Sovereign: City-destroyer threats; heavy gravity.
+SS-3,Silver Mercury,+16,The Transcendent: Brink of apotheosis; liquid-metal mana.
+Myth-1,Ethereal Teal,+18,The Legendary: Ancient dragon kings; region-shapers.
+Myth-2,Celestial White,+20,"The Origin: Proto-gods; absolute, shadow-erasing light."
+Demi,Void Black,+25,The Primordial: Continent-warping god-rulers; cosmic density.
+Divine,Starry Violet,+30,The Godborn: Alok; Deep violet mana filled with swirling gold stars.
+═══════════════════════════════════════════════════════════════════════════════
+                          3. EQUIPMENT & ARTIFACTS
+═══════════════════════════════════════════════════════════════════════════════
+
+───────────────────────────────────────────────────────────────────────────────
+3.1 NUMBERED ARTIFACT #27: "ECLIPSE TYRANT"
+───────────────────────────────────────────────────────────────────────────────
+
+Type: Legendary Sword (One-of-a-Kind)
+Status: Bound – Sole Wielder: Alok
+
+Description:
+Forged in a forgotten era where day and night, storm and silence bowed to one sovereignty, Eclipse Tyrant answers only to those whose spirit embraces the spectrum of elements. Its jet-black blade is woven through with shifting veins of frost, flame, thunder, water, metal, light, and darkness—transforming an exceptional wielder into an incarnation of nature's full might. It is said its powers deepen as its bearer grows, eclipsing all rivals.
+
+BASE EFFECTS:
+• Elemental Amplification: All elemental magic and skills are amplified by 140% while wielding Eclipse Tyrant.
+  - Current elements damage: 200% + (20% mana vein boost)
+
+• Elemental Adaptation: Wielder gains 20% resistance to all elemental damage, passively scaling with mastery.
+  - Current fire resistance: 60%
+  - Current lightning resistance: 60%
+  - Current frost resistance: 50%
+  - Current wind resistance: 35%
+
+ACTIVE SKILLS:
+
+• Sovereign Cascade:
+  Unleash a devastating wave of three or more elemental energies in a sweeping arc. Each element manifests as a separate strike, chaining into one another for overwhelming damage and status effects.
+
+• Aspect Shift:
+  Change the sword's "attunement" to any of the wielder's elemental affinities, causing Eclipse Tyrant to transform its color and properties—e.g., a flaming blade burns enemies, a frost blade chills, a light blade radiates holy damage, and so on. Shifting is instantaneous and can occur once per turn.
+
+• Primal Aegis:
+  Briefly summon a rotating barrier of elemental shields that reduce incoming elemental damage by 70% for up to 10 seconds. Any absorbed energy empowers the next attack.
+
+ULTIMATE ABILITIES (1/day each):
+
+• Elemental King's Judgement:
+  Channel all available elemental affinities into a single cataclysmic attack. Eclipse Tyrant erupts in a cascade of combined elemental fury, devastating foes in an area and reshaping the battlefield to reflect the elements wielded.
+
+• Blizzard Thunderfirestorm:
+  Summon a supernatural cataclysm: from the heavens, a storm of razor-sharp frost, wild wind blades, crimson lightning bolts, and blazing fire meteors descends, targeting all foes in a wide radius. Each strike inflicts severe elemental damage and may weaken enemy resistances. Cannot be interrupted and leaves behind a lingering elemental field for several seconds.
+
+Note: This sword is bound to Alok and cannot be held by anyone other than him.
+
+───────────────────────────────────────────────────────────────────────────────
+3.2 PARTY EQUIPMENT
+───────────────────────────────────────────────────────────────────────────────
+
+• Alok: Bracelet of Mana Confluence — Increases mana recovery rate by 15%
+• Serena: Ring of Crimson Fortitude — Increases regeneration and resistances
+• Zelius: Cloak of Thunder's Promise — Boosts lightning attacks and shields
+• Euryale: Orb of Tidal Foresight — Enhances water magic and grants brief precognition
+• Thanen: Amulet of Shadow Refuge — Reduces damage from darkness and amplifies stealth
+• Zeyria: Pendant of Draconic Affinity — Raises resistance to elemental attacks and augments dragon skills
+• Lirael: Charm of Emerald Winds — Regenerates health and increases speed in wind-based areas
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                          4. WORLD COSMOLOGY
+═══════════════════════════════════════════════════════════════════════════════
+
+───────────────────────────────────────────────────────────────────────────────
+4.1 FOUNDATIONAL DIVINE PARENTS
+───────────────────────────────────────────────────────────────────────────────
+
+Above all Pantheons—embodying Life and Death:
+
+• Azrakel (God of Death, Supreme, Lord of the Final Passage):
+  Chief among the Death gods; all gods of death across worlds hold only a fragment of his true domain.
+
+• Seraphae (Goddess of Life, Supreme, Lady of the Breath):
+  Chief above all gods of life and growth; every goddess of birth, nurture, and spring draws but a spark of her essence.
+
+—Alok is their son, a rare fusion of the two primal forces, watched intently by all lesser gods.
+
+───────────────────────────────────────────────────────────────────────────────
+4.2 THE PANTHEONS AND EMPYREAN REGISTRY
+───────────────────────────────────────────────────────────────────────────────
+
+A. OLYMPIAN AND GREEK LINEAGE:
+Hermes • Athena • Ares • Dionysus • Poseidon • Charybdis • Antaeus • Thanatos • Orion • Triton • Persephone • Hades • Zeus • Hera • Demeter • Hestia • Apollo • Artemis • Brontes • Steropes • Arges • Nike • Nemesis
+
+B. NORSE AESIR AND VANIR:
+Odin • Thor • Heimdall • Urd • Skuld • Verdandi • Freya
+
+C. HINDU:
+Shiva • Chandra
+
+D. CELTIC:
+Cernunnos
+
+E. CHINESE/JADE DYNASTY:
+Jade Emperor • Erlang Shen • Prince Nezha • Leizhenzi • West Empress Dowager • Daode Tianzun • Lingbao Tianzun • Sanhuang Wudi • Kiku • Ji • Li Ju • Snapping Turtle
+
+F. ABRAHAMIC:
+Gabriel • Michael • Metatron
+
+G. EGYPTIAN:
+Ra • Anubis • Montu
+
+H. BALTIC & OTHERS:
+Giltinė (Lithuanian death goddess) • Sulė (sun goddess)
+
+I. SLAVIC:
+Dazhbog • Nevadba
+
+J. JAPANESE-INSPIRED/ORIGINAL:
+Arashi • Arte • Ratu • Allardi • Dun Cow (Dun Cow from English folklore; others—unique or local spirits)
+
+───────────────────────────────────────────────────────────────────────────────
+4.3 DEMONS & DEVILS—THE INFERNAL HOST
+───────────────────────────────────────────────────────────────────────────────
+
+NATURE:
+Demons/Devils are a distinct, non-human ancient race, not inherently evil but chaotic, cunning, and capable of harboring immense and unique powers.
+
+POTENTIAL FOR GROWTH:
+Powerful demons can rival or even surpass the might of the highest gods or Elder Dragons.
+
+HIERARCHY:
+Newborns/Imps → Greater Demons → Archdemons → Demon Lords → Demon Kings/Queens → Primordial Demons (legendary)
+
+DOMAINS:
+Ranging from chaos, temptation, destruction, to dreams, despair, lust, hunger, and the primordial forces.
+
+UNIQUE DEMON NOBILITY:
+• Lilith (Queen of Temptation, Night)
+• Ravana (King of Conquest, War)
+• Baal (Lord of Discord)
+• Abaddon (Destruction)
+• Belial (Corruption)
+• Asmodeus (Lust)
+• Mara (Desire/Illusion)
+
+───────────────────────────────────────────────────────────────────────────────
+4.4 WORLD STRUCTURE & INTERACTIONS
+───────────────────────────────────────────────────────────────────────────────
+
+PANTHEONS GOVERN FRAGMENTS:
+For every cosmic concept (like Death, Life, Thunder, War), most pantheons possess a representative, but only Azrakel and Seraphae embody the primal essence above all.
+
+GODLY HIERARCHY:
+Supreme (Azrakel/Seraphae) → Major Pantheon Deities (e.g., Hades, Ra, Odin, Shiva) → Minor Deities & Spirits
+
+DEMONIC COUNTERBALANCE:
+Demons and Devils exploit unguarded realms, forging so-called "hells," but are as likely to aid as to destroy—depending on their contracts, chaos, or ambition.
+
+THE TOWER:
+A neutral testing ground that attracts the gaze of all—god, demon, and mortal. Its trials call forth the interest and wagers of every divine/demonic power.
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                          5. GATE SYSTEMS & MONSTERS
+═══════════════════════════════════════════════════════════════════════════════
+
+───────────────────────────────────────────────────────────────────────────────
+5.1 GATE RANK PATTERNS & CLEARANCE INFORMATION
+───────────────────────────────────────────────────────────────────────────────
+
+Gate Rank   Typical Monsters                Clear Time        Time          Break
+                                            (Outside)         Dilation      Consequences
+────────────────────────────────────────────────────────────────────────────────
+E           Regular goblins and other       ~1 hour           None          Minor localized
+            monsters under level 5                                          damage
+
+D           Regular goblins over level      ~1 hour           None          Neighborhood/
+            10, bosses are medium                                           district damage
+            goblins around level 25
+
+C           Regular and medium goblins,     1–3 hours         None          Significant city
+            bosses usually high goblins                                     district damage
+            over level 50
+
+B           High goblins above level 50     6 hours to        Minor         Part of a city
+            and elite goblins, boss is      1 full day        possible      leveled
+            either elite goblin or 
+            medium orc. levels 70-100
+
+A           High orcs over        ~3 days           Possible      Entire cities
+            level 70 bosses over level 150          (typical)         (hours        destroyed,
+                                                             outside =      released monsters
+                                                             days/weeks     even stronger
+                                                             inside)
+
+S           Continental/world-scale         Months            Extreme       Entire countries
+            threats, legendary monsters     (outside),        (varies       or more ruined,
+                                           longer inside     greatly)      catastrophic
+────────────────────────────────────────────────────────────────────────────────
+
+ADDITIONAL NOTES:
+• A-rank gates may exist in altered dimensions where time flows differently
+• S-rank gates can be as large as continents or entire worlds
+• Backup parties will enter A-rank gates if the primary team fails to return
+• Monsters released during gate breaks are significantly stronger than raid encounters
+• Very few S-rank hunters exist on Earth, and level requirements are critical
+
+───────────────────────────────────────────────────────────────────────────────
+5.2 E-RANK GATES (LEVEL < 5)
+───────────────────────────────────────────────────────────────────────────────
+
+• Regular Goblin
+• Kobold Youngling
+• Lesser Slime
+• Wild Hound
+• Cave Snake
+• Forest Sprite (weak)
+• Stone Imp (minor)
+• Feral Bat
+
+───────────────────────────────────────────────────────────────────────────────
+5.3 D-RANK GATES (LEVEL 5–25, BOSS LEVEL ~25)
+───────────────────────────────────────────────────────────────────────────────
+
+• Regular Goblin (stronger)
+• Goblin Scout
+• Kobold Warrior
+• Lesser Orc (juvenile)
+• Medium Slime
+• Wild Boar
+• Small Bugbear
+• Skeleton (weak)
+• Cave Lizard
+• Medium Goblin (boss)
+• Dusky Harpy (rare)
+• Carrion Crow (giant)
+
+───────────────────────────────────────────────────────────────────────────────
+5.4 C-RANK GATES (LEVEL 15–35, BOSS OVER 40)
+───────────────────────────────────────────────────────────────────────────────
+
+• Regular Goblin (level<20)
+• Medium Goblin
+• Orc
+• Orc Warrior (minor)
+• Skeleton Soldier
+• Stone Imp (strong)
+• Forest Warg
+• Ogre Fledgling (rare)
+• Giant Spider
+• Lizardman
+• Medium Slime (strong)
+• High Goblin (boss)
+• Shadow Bat
+• Acid Toad
+
+───────────────────────────────────────────────────────────────────────────────
+5.5 B-RANK GATES (LEVEL 40–60, BOSS: ELITE GOBLIN OR MEDIUM ORC)
+───────────────────────────────────────────────────────────────────────────────
+
+• High Goblin
+• Elite Goblin
+• Orc
+• Skeleton Knight
+• Warg Alpha
+• Giant Lizardman
+• Ogre (juvenile)
+• Iron Slime
+• Dark Imp
+• Forest Troll (rare)
+• Death Crow (giant, rare)
+• High Orc (rare, elite)
+• Elite Goblin (boss or mini-boss)
+• Medium Orc (boss)
+• Ogre Mage (rare, possible mini-boss)
+• Second Stage Fairy(rare, boss)
+• First Stage Fairy(rare)
+• Shadow Bats.
+• Blood Bats(rare, boss)
+───────────────────────────────────────────────────────────────────────────────
+5.6 A-RANK GATES (LEVEL 60+)
+───────────────────────────────────────────────────────────────────────────────
+
+• Medium Orc
+• High Orc
+• Troll Berserker
+• Abyssal Warg
+• Skeleton Champion
+• Ogre Warrior
+• Shadow Mage
+• Wyvern Hatchling (rare)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                          6. CRAFTING MATERIALS
+═══════════════════════════════════════════════════════════════════════════════
+
+───────────────────────────────────────────────────────────────────────────────
+6.1 COMMON ORES
+───────────────────────────────────────────────────────────────────────────────
+
+• Iron Ore: Standard, durable metal used for weapons, tools, and construction.
+• Copper Ore: Malleable, used for wiring, enchantment bases, or alloying.
+• Tin Ore: Soft, used mainly for alloys such as bronze.
+• Coal: Essential for forges, and combining heat magic with metalwork.
+
+───────────────────────────────────────────────────────────────────────────────
+6.2 UNCOMMON ORES
+───────────────────────────────────────────────────────────────────────────────
+
+• Bronzite Ore: A copper/tin alloy ore that resists corrosion, often has magical conductivity.
+• Silverite: Slightly magical and very conductive; used for charms, magical weapon linings, or as a base for enchanting.
+• Ferrite Crystal: Iron with crystalline growths, useful for strengthening weapons or as magic amplifiers.
+
+───────────────────────────────────────────────────────────────────────────────
+6.3 RARE ORES
+───────────────────────────────────────────────────────────────────────────────
+
+• Mithril: Lightweight, silvery, extremely strong and magically receptive. Ideal for armor and magical items.
+• Arcanite: Blue-green ore found near ley lines, amplifies spells and stores mana.
+• Blood Iron: Blood-red veined iron, stronger and more menacing; sometimes bonded with the blood of monsters, making it harder and giving it minor lifesteal properties.
+• Froststeel: Pale-blue ore found in cold regions; imbues forged weapons with frost magic or chilling properties.
+• Obsidite: Volcanic glass infused with elemental fire or earth, incredibly sharp but brittle.
+
+───────────────────────────────────────────────────────────────────────────────
+6.4 VERY RARE / EXOTIC ORES
+───────────────────────────────────────────────────────────────────────────────
+
+• Dragonbone Ore: Fossilized dragon bones laced with minerals; nearly unbreakable, can hold enchantments especially well.
+• Voidsilver: Iridescent, shadowy silver that resists magic and curses; prized by rogue mages and monster hunters.
+• Aurichalcum: Sun-gold metal, blazes bright under enchantment, sometimes used for holy or radiant weapons and armor.
+• Stardust Ore: Rare meteorite metal that glimmers with inner light; absorbs and reflects magic, sometimes used in legendary artifacts.
+
+───────────────────────────────────────────────────────────────────────────────
+6.5 LEGENDARY / MYTHIC ORES
+───────────────────────────────────────────────────────────────────────────────
+
+• Adamantium: Nearly unbreakable, black-green metal. Alok already possesses a lump—regarded as the stuff of legend; famed for peerless strength and magic resistance.
+• Eternium: Mytho-magical, silvery metal said to never tarnish or age; rumored to enhance the user's life force and magical connection.
+• Netherite: Deep purple-black ore, exuding a faint pulse. Repels most common enchantments, favored by demon-slayers and artifact makers.
+• Celestium: Prismatic metal found only in fallen starmetal deposits or ancient ruins; said to harmonize with the wielder's soul, shifting properties based on their intent.
+
+───────────────────────────────────────────────────────────────────────────────
+6.6 UTILITY MINERALS
+───────────────────────────────────────────────────────────────────────────────
+
+• Magestone: Crystal clusters that store and channel mana; vital for runecrafting, enchanting, magic tech.
+• Blastite: Volatile orange-red ore, sometimes used for traps, bombs, or as a power source for magical machinery.
+• Luminite: Naturally glowing white-gold mineral, used for magical lanterns, light-enchanted weapons, or visual effects in armor.
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                          7. ECONOMY & PRICING
+═══════════════════════════════════════════════════════════════════════════════
+
+───────────────────────────────────────────────────────────────────────────────
+7.1 MANA STONE PRICING TABLE (TOWER POINTS)
+───────────────────────────────────────────────────────────────────────────────
+
+Rank    Typical Source              Average Value        Notes
+                                    (Tower Points)
+──────────────────────────────────────────────────────────────────────────────
+E       Regular Goblin, Lesser      10 – 25             Small, weak, used for 
+                                                        basic enchantments
+
+D       Medium Goblin, Kobold       250 – 500             Modest, common among 
+                                                        intermediate gates
+
+C       High Goblin, Orc Scout      1200 – 2500           Solid, often used in 
+                                                        weapon/armor upgrades
+
+B       Elite Goblin, Medium Orc    1000 – 2500         Rare, precious, essential 
+                                                        for strong forges
+
+B+      Boss (Medium Orc, etc.)     1,500 – 2,500       Exceptional power, from 
+                                                        notable boss creatures
+
+A       High Orc, Troll, Wyvern     5,000 – 10,000      Extremely rare, powerful 
+                                                        enhancement material
+
+S       Legendary Bosses, Dragons   25,000 – 50,000     Exceptionally rare, world-
+                                                        class power source
+──────────────────────────────────────────────────────────────────────────────
+
+Note:
+Mana stone price may fluctuate depending on quality, purity, and demand. Boss or unusually large/rare stones always command a high premium.
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                          END OF ORGANIZED REFERENCE DOCUMENT
+═══════════════════════════════════════════════════════════════════════════════
