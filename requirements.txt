@@ -1,0 +1,35 @@
+# No external dependencies required
+# This project uses only Python standard library modules
+
+One star
+natural: 250
+artificial: 75
+
+two stars
+natural: 750
+artificial: 500
+
+three stars
+natural: 2,000
+artificial: 1,500
+
+four stars
+natural: 5,000
+artificial: 3,500
+
+five stars
+natural: 20,000
+artificial: 15,000
+
+six stars
+natural: 50,000
+artificial: 35,000
+
+seven stars
+natural: 200,000
+artificial: 150,000
+
+eight stars
+natural: 1,000,000
+artificial: 750,000
+
