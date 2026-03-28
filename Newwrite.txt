@@ -6,7 +6,7 @@ Attributes:
 • STR: 674
 • AGI: 495
 • VIT: 1220
-• INT: 2890
+• INT: 3190
 • Divinity: 1560
 • Affinity: Lightning, Flame, Frost, Blood (100% increase in damage, 60% increase in resistance)
 • Attribute Points: 0
@@ -53,7 +53,7 @@ Regenerates body from damage and poisons. Can restore the body even from a death
 
 Skills:
 
-• Perception (Rank A, 64.07%):
+• Perception (Rank A, 99.07%):
 Greatly enhanced senses.
 • Giant Force (Rank A, 0%).
 Description: For 10 seconds increases all physical stats by 500%. Cooldown 10 minutes.
@@ -166,7 +166,7 @@ Attributes:
 
 Solis Level 50 (Blazing Death Knight)
 
-• Rank: B
+• Rank: S
 • STR: 564
 • AGI: 506
 • VIT: 930
@@ -183,7 +183,7 @@ Skills:
 • 
 Valeria Level 50 (Valkyrie Apprentice)
 Race: Valkyrie
-• Rank: A
+• Rank: S
 • STR: 522
 • AGI: 495
 • VIT: 952
@@ -203,7 +203,7 @@ Race: Vampire
 • AGI: 1865
 • VIT: 5217
 • INT: 5722
-• Attribute Points: 750 
+• Attribute Points: 750
 Skills: 
 •	Skill: Regeneration(Rank B, Completion 0%)
 Regenerates injuries, can survive fatal blows, recover lost limbs.
@@ -238,7 +238,7 @@ Regenerates injuries, can survive fatal blows, recover lost limbs.
 [Familiar: Raven]
 Level: 50 (Necromancer)
 Race: Human
-Rank: A
+Rank: S
 •	STR: 150
 •	AGI: 145
 •	VIT: 245
@@ -252,12 +252,12 @@ Summon up to 150 undead familiars using his lord’s power. Number increases as 
 Launches projectiles of pure dark energy at foes.
 
 [Familiar: Aria]
-Level: 2 (Fairy)
+Level: 42 (Fairy)
 Race: Child Fairy
 Rank: S
-•	STR: 103
-•	AGI: 103
-•	VIT: 253
-•	INT: 450
+•	STR: 333
+•	AGI: 323
+•	VIT: 473
+•	INT: 750
 •	Divinity: 1
-•	Attribute Points: 10
+•	Attribute Points: 00
