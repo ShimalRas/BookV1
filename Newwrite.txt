@@ -3,11 +3,11 @@ Rank: Divine
 Level: 30
 Race: mixed
 Attributes:
-• STR: 674
-• AGI: 495
-• VIT: 1220
-• INT: 3190
-• Divinity: 1560
+• STR: 2474
+• AGI: 2485
+• VIT: 4870
+• INT: 9390
+• Divinity: 2110
 • Affinity: Lightning, Flame, Frost, Blood (100% increase in damage, 60% increase in resistance)
 • Attribute Points: 0
 Tower points: 104,345,250
@@ -181,14 +181,14 @@ Skills:
 •	Swordsmanship (Rank D, 83.53%): Proficiency with sword combat increases
 • Flame Slash
 • 
-Valeria Level 50 (Valkyrie Apprentice)
+Valeria Level 100 (Valkyrie Apprentice)
 Race: Valkyrie
 • Rank: S
-• STR: 522
-• AGI: 495
-• VIT: 952
-• INT: 1241
-• Attribute Points: 300
+• STR: 772
+• AGI: 745
+• VIT: 1402
+• INT: 1791
+• Attribute Points: 00
 Skills: 
 
 • Infuse Mana (Rank E, 12.42%)
