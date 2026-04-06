@@ -4,30 +4,51 @@
 One star
 natural: 250
 artificial: 75
+Range: 5 meters
+width: 1 meter
+Circles: 1
 
 two stars
 natural: 750
 artificial: 500
+Range: 10 meters
+width: 2.5 meters
+Circles: 1
 
 three stars
 natural: 2,000
 artificial: 1,500
+Range: 30 meters
+width: 10 meters
+Circles: 3
 
 four stars
 natural: 5,000
 artificial: 3,500
+Range: 250 meters
+width: 50 meters
+Circles: 7
 
 five stars
 natural: 20,000
 artificial: 15,000
+Range: 1000 meters
+width: 250 meters
+Circles: 20
 
 six stars
 natural: 50,000
 artificial: 35,000
+Range: 5000 meters
+width: 1000 meters
+Circles: 50
 
 seven stars
 natural: 200,000
 artificial: 150,000
+Range: 10000 meters
+width: 2500 meters
+Circles: 100
 
 eight stars
 natural: 1,000,000

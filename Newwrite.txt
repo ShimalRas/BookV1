@@ -1,15 +1,18 @@
 Name: Alok Aeonmorta
 Rank: Divine
-Level: 30
+Level: 100
 Race: mixed
 Attributes:
-• STR: 2474
-• AGI: 2485
-• VIT: 4870
-• INT: 9390
-• Divinity: 2110
+• STR: 6274
+• AGI: 4685
+• VIT: 9670
+• INT: 13840
+• Dragon INT: 18050
+• Demon INT: 18050
+• Angel Core: 18050
+• Divinity: 2370
 • Affinity: Lightning, Flame, Frost, Blood (100% increase in damage, 60% increase in resistance)
-• Attribute Points: 0
+• Attribute Points: 1650
 Tower points: 104,345,250
 DIVINE ABILITIES:
 • Regeneration (Divine):
