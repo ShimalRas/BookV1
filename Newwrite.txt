@@ -1,26 +1,27 @@
 Name: Alok Aeonmorta
 Rank: Divine
-Level: 100
+Level: 135
 Race: mixed
 Attributes:
-• STR: 6274
-• AGI: 4685
-• VIT: 9670
-• INT: 13840
-• Dragon INT: 18050
-• Demon INT: 18050
-• Angel Core: 18050
-• Divinity: 2370
-• Affinity: Lightning, Flame, Frost, Blood (100% increase in damage, 60% increase in resistance)
-• Attribute Points: 1650
-Tower points: 104,345,250
+• STR: 6,449
+• AGI: 4,860
+• VIT: 10,020
+• INT: 14,190
+• Dragon INT: 18,450
+• Demon INT: 18,450
+• Angel Core: 18,450
+• Divinity: 2,720
+• Total INT: 69,540
+• Affinity: Lightning, Flame, Frost, Blood (150% increase in damage, 100% increase in resistance)
+• Attribute Points: 2,700
+Tower points: 394,345,250
 DIVINE ABILITIES:
 • Regeneration (Divine):
 Regenerates body from damage and poisons. Can restore the body even from a death state, drawing upon the cycle of both life and death.
 
 • Incineration Beam: Shoots a beam of absolute flames that incinerate monsters caught.
 
-• Thunder's Judgement: An immensely powerful spear of pure divine lightning that unleashes complete destruction upon an area of 400 meters releasing a violent thunderstorm that sweeps away everything.
+• Thunder's Judgement: An immensely powerful spear of pure divine lightning that unleashes complete destruction upon an area of 10,000 meters releasing a violent thunderstorm that sweeps away everything.
 
 • Soul Absorber: 
   Absorb and store souls, gaining their knowledge, skills, and essence.
@@ -43,8 +44,8 @@ Regenerates body from damage and poisons. Can restore the body even from a death
     • Receive scaling bonuses to stats, discipline, and resistances based on your Rank and Intelligence.
   
   Legion Capacity:
-  - Initial maximum: 2300 units
-  - Scales primarily with Intelligence
+  - Initial maximum: 100,000 units
+  - Scales primarily with Intelligence and Divinity
   - Increases through active use: large-scale battles, sustained command, and integration of new forces
   - Current Legion members: Serena, Solis, Valeria, Raven, Lizzy, Froseti, Blizzard
   
@@ -66,7 +67,7 @@ Gather mana to your core and increases the mana pool, however it will be harder 
 • Basic Combat(Rank C, 56.554%)
 Refines combat techniques
 
-•	Swordsmanship (Rank B, 45.53%): Proficiency with sword combat increases
+•	Swordsmanship (Rank B, 85.53%): Proficiency with sword combat increases
 
 • Astraean Valkyrie Sword Style (Rank S) – 
 Description: The sword art of the Valkyrie Royals and warriors from Brynhildr Astraean, the supreme empire of the Valkyries.
@@ -74,31 +75,31 @@ First Form: Graceful Strike : released a mana powered strike gracefully dealing 
 
 Second Form: Flowing Severance: Instantly targets and slashes limbs with circular motion releasing deep mana slashes.
 
-• Mana Form (Rank C, 61%):
+• Mana Form (Rank C, 98%):
 Forms shapes using mana. Usage depends on the user’s mastery. Uses a lot of mana. Effects of shapes scale with INT.
 Saved Shapes: Sphere, Bullet, Sword, Hammer, Fist, Arrow.
 
-• Mana Bullet (Rank D, 82.23%)
+• Mana Bullet (Rank D, 99.99%)
 Forms a bullet of mana and shoots at a target. Usage scales with skill rank, user rank, and mastery. Bullet can explode on impact. Explosion radius: 1 meter.
 
-• Mana Sword (Rank C, 17%):
+• Mana Sword (Rank C, 74%):
 Create a temporary sword with mana, provides an Attack power of 20, once formed it uses mana 
 • Basic Marksmanship (D Rank, 73.43%):
 Increases accuracy with ranged weapons by 20% and grants intuitive understanding of angles, wind, and leading targets. Makes basic marksmanship techniques easier to learn and master.
 
-Mana Blast(one-star) (Rank C, 23.36%):
-Forms and releases a blast of mana that explodes when the user wills it to or explodes on impact, explosion radius of 5 meters normally.
+Mana Blast(one-star) (Rank C, 75.36%):
+Forms and releases a blast of mana that explodes when the user wills it to or explodes on impact, explosion radius of 25 meters normally.
 
 Angel's Condemnation (three-stars) (Rank A, 0.002%): Rains down hundreds of swords of pure light that targets enemies and pierces through.
 
-• Blood Manipulation (Rank D, 62%):
+• Blood Manipulation (Rank C, 98%):
   - Blood Arrow(one-star): Shoot a hardened, high-velocity arrow of blood. Pierces barriers and inflicts bleeding, with damage scaling from user’s INT and blood affinity. Effective against single targets and light defenses. Maximum range: 30 meters. Enhanced accuracy when combined with Marksmanship.
 
   - Blood Fist(one-star): Unleash a fist of blood that strikes with 70% more power than the user’s STR stat. The fist has a maximum range of fifteen meters. Fist size is variable and can be adjusted at will. Number of fists per activation: 2 (scales with skill rank).
 
   - Blood spikes(two-star): Erupting spikes of blood from the ground or magic circles.
-
-
+ 
+  - Blood Mist (three-star): Create a mist of blood that drains the enemies mana and health.
 Elemental Magic:
 • Lightning Manipulation (Rank B, 12.2%):
   - Lightning Zap: Release a short straight line of lightning.
@@ -107,7 +108,9 @@ Elemental Magic:
                               The caster may continuously generate new lightning balls—up to the limit of their mana and magical control—and the spell will persist until manually canceled or mana is exhausted.
                               Ball lightning orbits the caster and will relentlessly chase foes, shocking any that enter its proximity.
                               While active, the caster can freely use other skills; Ball Lightning requires no attention to maintain, operating automatically until dismissed. Each sphere’s damage increases with spell rank and caster INT.
-  - Lightning Spear(three-star):  Release a spear of pure red lightning that devastates an entire area of one hundred meters upon impact, destroying groups of monsters and continuously emitting arcs of lightning in the vicinity, chaining to nearby foes and causing widespread destruction.
+  - Lightning Spear(three-star):  Release a spear of pure red lightning that devastates an entire area of Five hundred meters upon impact, destroying groups of monsters and continuously emitting arcs of lightning in the vicinity, chaining to nearby foes and causing widespread destruction.
+  - Thunder Dominion(four-stars): Summon a storm field of chained lightning that continuously strikes every enemy within range and amplifies all lightning damage.
+
 • Flame Manipulation (Rank B, 83.16%):
   - Fire Ball: Launch a ball of fire at your target that explodes on impact.
   - Fire Blast(one-star): Launch a powerful blast of fire that erupts in a sweeping explosion of flames on impact.
@@ -115,13 +118,100 @@ Elemental Magic:
   - Flame Beam(three-stars): Release a concentrated beam of fire from your hand.
   - Fire Chains(three-stars): Summons chains of pure flames that seizes and burns enemies.
   - Flame Tornado(three-stars): Unleashes a tornado of flames.
+  - Inferno Crown(four-stars): Create a spiraling crown of ultra-hot fire that burns everything around the caster and continuously expands outward.
 
 • Ice Manipulation (Rank C, 54.68%):
   - Icy Ball: Release a swirling ball of icy power that freezes on impact.
   - Icy Blast(one-star): Release a powerful blast of frost power that freezes a large area on impact.
   - Ice Beam(three-stars): Release a concentrated beam of frost that freezes everything it passes.
   - Frost Wave(two-stars): Releases a wave of frost.
+  - Absolute Zero Field(four-stars): Drop the temperature across a wide area and lock enemies in crushing layers of frozen mana.
 
+ELEMENTAL MAGIC - WIND:
+• Wind Manipulation (Rank D, 64.23%):
+  - Wind Bullet(one-star): Release a short burst of wind.
+  - Arcs of Wind(three-stars): Compress air into razor-thin arcs released from the fingers or palms, capable of firing a single arc or up to ten simultaneous slashes with one motion. The effect is greater when using a sword or through magic circles.
+  - Sky Rend(four-stars): Compress and release a violent wind shear that tears through multiple targets and destabilizes movement.
+
+ELEMENTAL MAGIC - NATURE:
+• Nature Manipulation (Rank C, 0.5%):
+  - Vine Lash(one-star): Release a fast whip of vines to strike or restrain a target.
+  - Root Bind(one-star): Summon roots from the ground to immobilize enemies.
+  - Thorn Shot(two-stars): Fire a spread of hardened thorns that pierce light defenses.
+  - Bark Armor(two-stars): Coat the body in protective bark to reduce incoming damage.
+  - Nature's Grasp(three-stars): Unleash a wide surge of roots, vines, and branches to trap multiple foes.
+  - Worldroot Bloom(four-stars): Trigger a massive burst of living growth that overwhelms the battlefield with binding roots, thorned vines, and crushing flora.
+  - Verdant Sovereignty (four-stars)- calls forth nature’s wrath—an explosion of growth that overtakes the field, creating barriers, healing allies, and smothering enemies.
+ELEMENTAL MAGIC - EARTH:
+• Ground Manipulation (Rank D, 1%):
+  - Stone Gauntlet(one-star): Create a Gauntlet from stones.
+  - Seismic Ruin(four-stars): Slam the ground and release a destructive earthquake that fractures terrain and hurls enemies upward.
+
+ELEMENTAL MAGIC - WATER:
+• Water Manipulation (Rank D, 1%):
+  - Water Sphere (one-star): Shoots out a ball of water that slows the enemy down.
+  - Water Blast (two-stars): Shoots out a powerful blast of water that knocks back enemies with force.
+  - Water Spikes (three-stars): Unleashes spikes of water that pierces the enemies.
+  - Tidal Cataclysm(four-stars): Summon a sweeping tidal surge that crushes enemies, floods the field, and washes away defenses.
+
+ELEMENTAL MAGIC - LIGHT:
+• Light Manipulation (Rank C, 54,32%):
+  - Light Ball(one-star): Release a solid ball of light.
+  -Angel's Condemnation (three-stars): Rains down hundreds of swords of pure light that targets enemies and pierces through.
+  - Radiant Judgment(four-stars): Call down a column of holy light that scorches foes and purges darkness in a wide area.
+
+COMBINED ELEMENTAL MAGIC:
+• Molten Tempest(four-stars) (Fire + Lightning + Ground):
+  Stomps the foot covered in molten rock, causing molten spikes to erupt violently. When the lightning arcs through these spikes, they resonate, sending continuous electric discharges outward, striking multiple enemies and chaining between nearby foes. The combination of molten stone and elemental energy makes this attack extremely destructive and difficult to evade.
+
+• Charged Gauntlet (three-star): Combines flame and lightning along with the stone gauntlets, sends out a lightning arc with each powered strike. Slam into the ground for releaseing a wave of flames.
+
+PASSIVE SKILLS:
+• Guiding Light: 
+  Creates a stable orb of light that floats ahead of you, providing consistent illumination without the need for conscious focus. The orb will automatically maintain ideal position and brightness, adjusting its path based on your movement and mental intent.
+
+BLESSINGS:
+• Blessing: Resistance to mental charms and mind magic. (Lilith)
+
+• [Divine Blessing: Thor's Mark of the Storm Sovereign]
+  Type: Legendary Divine Blessing
+  Granted by: Thor, God of Thunder
+  
+  Effects:
+  - Thunderous Might: Alok's lightning attacks (spells, sword strikes, and skills) are further amplified by 25%.
+  - Storm Domain: Once per day, Alok can call forth a localized storm—summoning thunderclouds, rain, and devastating bolts of divine lightning to smite enemies in a wide area.
+  - Unstoppable Charge: Grants temporary immunity to paralysis, stun, and shock effects. When channeling lightning, movement speed increases by 40% for 30 seconds.
+  - Hammer's Echo: Alok's next critical lightning attack has a chance to unleash a shockwave reminiscent of Thor's hammer, dealing massive AoE damage and stunning all non-boss targets.
+  
+  Flavor Text:
+  "Rise, challenger! With my mark, let lightning obey your call and storms gather at your command. Let your fury echo mine, and may your legend shake the heavens."
+
+
+TITLES:
+
+• [Title: Evolver]
+  Description: You have transcended normal evolutionary constraints, forcibly guiding a being from monstrous existence toward true sentience. The Tower acknowledges you as an external agent of evolution.
+  
+  Effects:
+  - Increases the success rate and stability of forced evolutions and breakthroughs by +25% for creatures and undead under your control.
+  - Reduces the soul and mana cost required to push a subordinate being through an evolution threshold by 15%.
+  - Slightly increases your comprehension speed when observing or manipulating evolutionary stages and soul shifts.
+  
+  Hidden/Contextual:
+  - Beings you personally evolve gain a faint "Evolved by Alok" imprint in their soul, improving their loyalty and growth potential when serving under you.
+
+• [Title: Life Bringer]
+  Description: You have done what even most gods only whisper about—you have created new, sentient life from the chaotic remains of monsters. The Tower recognizes you as a nascent authority over the boundary between death and birth.
+  
+  Effects:
+  - Greatly enhances the power and precision of Life-aligned abilities. Life-attuned skills receive a +35% effectiveness bonus.
+  - When using [Genesis of the Awakened], the chance of producing a high-potential or unique variant increases significantly.
+  - Slightly boosts natural mana and vitality regeneration for all familiars and undead directly bound to your soul.
+  - Creatures and beings born directly from your hand (like this child fairy) receive a permanent Affinity Bonus toward growth, comprehension, and evolution.
+  
+  Hidden/Contextual:
+  - Certain higher entities and systems may now recognize you as a minor Life/Death authority, opening paths to future Authority Skills and Domains.
+  - Your actions in creating or destroying life may, under certain conditions, be recorded differently by the Tower than those of ordinary climbers.
 
 
 E--> A ranks: +1 PHY(STR, AGI, VIT), +2 INT. 
