@@ -10,7 +10,7 @@ Attributes:
 • Dragon INT: 18,450
 • Demon INT: 18,450
 • Angel Core: 18,450
-• Divinity: 2,720
+• Divinity: 7,720
 • Total INT: 69,540
 • Affinity: Lightning, Flame, Frost, Blood (150% increase in damage, 100% increase in resistance)
 • Attribute Points: 2,700

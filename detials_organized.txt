@@ -670,7 +670,7 @@ Note:
 2.1 RANK PROGRESSION SYSTEM
 ───────────────────────────────────────────────────────────────────────────────
 
-Rank        Base Stat Gain     Typical Examples                           Natural Limit*(Every Tier threshold)
+Rank        Base Stat Gain     Typical Examples                          
             (per Level)
 ───────────────────────────────────────────────────────────────────────────────
 E           +2                 Regular humans, basic trainees              

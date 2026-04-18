@@ -1,5 +1,27 @@
-LEVELING AND TIERS
-==================
+LEVELING AND TIERS (CANON CLARIFIED VERSION)
+===========================================
+
+DEFINITIONS (IMPORTANT)
+-----------------------
+Stats:
+- STR = Strength
+- AGI = Agility
+- VIT = Vitality
+- INT = Intelligence
+
+PHY (Physical Stats):
+- "PHY" is a category meaning STR + AGI + VIT (used only in growth rules and shorthand notes).
+
+Attribute Gain Per Level (Rank Table):
+- The "Attribute Gain Per Level" values in Section (3) are a POINT POOL.
+- You gain that many (Attribute Points) each level, then you distribute them into STR/AGI/VIT/INT as you choose,
+  subject to your build/species/class biases and caps.
+
+Tier Progression Benchmarks (Section 4):
+- In Section (4), "Physical" is NOT the same thing as PHY in Section (2).
+- "Physical" in Section (4) is a shorthand benchmark for (STR + AGI) only.
+- VIT is listed separately in Section (4) because it scales faster than STR/AGI in your setting.
+
 
 1) PLAYER TIER CHART (LEVEL-BASED)
 ----------------------------------
@@ -16,33 +38,45 @@ LEVELING AND TIERS
 | 1501–2500+  | God/Demon Class  | True gods; high demons; supreme entities |
 
 
-2) BASE STAT GAIN PER LEVEL (SIMPLE MODEL)
-------------------------------------------
-- E to A ranks:   +1 PHY (STR, AGI, VIT) and +2 INT per level
-- S to Mythic-2:  +3 PHY and +5 INT per level
-- Demi to Divine: +5 PHY and +10 INT per level
+2) BASE STAT GAIN PER LEVEL (SIMPLE MODEL; CATEGORY SHORTHAND)
+--------------------------------------------------------------
+This section is a HIGH-LEVEL shorthand for typical growth tendencies by major rank bands.
+It describes "baseline leaning" (how builds usually allocate points), not mandatory allocation.
+
+- E to A ranks:
+  - Typical allocation pattern per level: +1 to (one of STR/AGI/VIT) and +2 to INT
+- S to Mythic-2:
+  - Typical allocation pattern per level: +3 to Physical (distributed across STR/AGI/VIT) and +5 to INT
+- Demi to Divine:
+  - Typical allocation pattern per level: +5 to Physical (distributed across STR/AGI/VIT) and +10 to INT
 
 Notes:
-- PHY = physical stats (STR, AGI, VIT)
+- PHY here means the physical-stat CATEGORY (STR, AGI, VIT).
+- Exact point allocation is governed by Section (3): Rank Attribute Gain Table (point pool).
 
 
-3) RANK ATTRIBUTE GAIN TABLE (PER LEVEL)
-----------------------------------------
-| Rank                  | Attribute Gain Per Level | Typical Examples |
-|-----------------------|--------------------------|------------------|
-| E                     | +2                       | Regular humans; basic trainees |
-| D                     | +3                       | Trained/elite humans; soldiers; knights; minor awakened |
-| C                     | +4                       | Magic-capable mortals; low-tier adventurers; basic monster elites |
-| B                     | +5                       | Beastkin; lesser vampires; high goblins; medium orcs; solid mid-tier players |
-| A                     | +7                       | True vampires; high elves; dragonoid warriors; strong veteran players; elite commanders |
-| S (Pinnacle)          | +10                      | National champions; named gate bosses; clan heads |
-| SS-1 (Ascendant)      | +12                      | Refined S-rank veterans; lesser vampire lords; draconic lieutenants; demon captains |
-| SS-2 (Sovereign)      | +14                      | Regional warlords; major vampire lords; dragon generals; demon dukes; city-destroyer threats |
-| SS-3 (Transcendent)   | +16                      | Top vampire lords; draconic champions; demonic warlords; heroic legends nearing apotheosis |
-| Mythic-1 (Legendary)  | +18                      | Archfey nobles; ancient dragon kings; high demon princes; region/world-class threats |
-| Mythic-2 (Origin)     | +20                      | Realm guardians; proto-god champions; named calamities; Tower-chosen monsters |
-| Demi (Demigod Class)  | +25                      | Primordial dragons; great demon kings; nascent god-rulers whose presence warps continents |
-| Divine (God Tier)     | +30                      | True godborns; full divine hybrids; avatars; gods in mortal form |
+3) RANK ATTRIBUTE GAIN TABLE (POINT POOL PER LEVEL)
+---------------------------------------------------
+Rule:
+- Each level, you gain a number of Attribute Points based on your Rank.
+- You distribute those points into STR/AGI/VIT/INT (build-dependent).
+- Species/class tendencies often bias VIT growth higher than STR/AGI, which is why VIT benchmarks scale faster in Section (4).
+
+| Rank                  | Attribute Points Gained Per Level | Typical Examples |
+|-----------------------|-----------------------------------|------------------|
+| E                     | +2                                | Regular humans; basic trainees |
+| D                     | +3                                | Soldiers; knights; minor awakened |
+| C                     | +4                                | Low-tier adventurers; basic monster elites |
+| B                     | +5                                | Beastkin; lesser vampires; high goblins; mid orcs; solid mid-tier players |
+| A                     | +7                                | True vampires; high elves; dragonoid warriors; veteran players; elite commanders |
+| S (Pinnacle)          | +10                               | National champions; named gate bosses; clan heads |
+| SS-1 (Ascendant)      | +12                               | Refined S-rank veterans; lesser vampire lords; demon captains |
+| SS-2 (Sovereign)      | +14                               | Major vampire lords; demon dukes; dragon generals; city-destroyer threats |
+| SS-3 (Transcendent)   | +16                               | Heroic legends nearing apotheosis; top warlords/champions |
+| Mythic-1 (Legendary)  | +18                               | Archfey nobles; ancient dragon kings; high demon princes |
+| Mythic-2 (Origin)     | +20                               | Realm guardians; proto-god champions; named calamities; Tower-chosen monsters |
+| Demi (Demigod Class)  | +25                               | Primordial dragons; great demon kings; nascent god-rulers |
+| Divine (God Tier)     | +30                               | True godborns; divine hybrids; avatars; gods in mortal form |
 
 Natural Limit (setting note):
 - Most civilizations peak at B–A in a normal world.
@@ -51,20 +85,23 @@ Natural Limit (setting note):
 
 4) TIER PROGRESSION STATS (AVERAGE BENCHMARKS)
 ----------------------------------------------
-| Tier Benchmark       | Level  | Physical | Vitality | INT      | Attribute Points |
-|----------------------|--------|----------|----------|----------|------------------|
-| First Tier           | 20     | 180      | 260      | 320      | 120              |
-| Second Tier          | 50     | 350      | 600      | 750      | 250              |
-| Third Tier           | 100    | 1,000    | 2,000    | 2,200    | 550              |
-| Fourth Tier          | 200    | 5,000    | 10,000   | 12,500   | 2,000            |
-| Fifth Tier           | 400    | 15,000   | 35,000   | 35,000   | 10,000           |
-| Sixth Tier           | 700    | 45,000   | 90,000   | 110,000  | 25,000           |
-| Seventh Tier         | 1000   | 120,000  | 260,000  | 300,000  | 60,000           |
-| Eighth Tier          | 1200   | 300,000  | 700,000  | 800,000  | 150,000          |
-| God/Demon Class Tier | 1500+  | 900,000+ | 2,200,000+ | 2,500,000+ | 400,000+     |
+Interpretation:
+- Physical = (STR + AGI)
+- Vitality = VIT (listed separately because it scales faster than STR/AGI in your setting)
+- INT = Intelligence
+- Attribute Points = typical total unspent/free points or total points earned (choose one and keep consistent in your sheets)
 
-Notes:
-- Define whether "Physical" is (STR+AGI), (STR+AGI+VIT), or a separate category total.
+| Tier Benchmark       | Level  | Physical (STR+AGI) | Vitality (VIT) | INT      | Attribute Points |
+|----------------------|--------|--------------------|----------------|----------|------------------|
+| First Tier           | 20     | 180                | 260            | 320      | 120              |
+| Second Tier          | 50     | 350                | 600            | 750      | 250              |
+| Third Tier           | 100    | 1,000              | 2,000          | 2,200    | 550              |
+| Fourth Tier          | 200    | 5,000              | 10,000         | 12,500   | 2,000            |
+| Fifth Tier           | 400    | 15,000             | 35,000         | 35,000   | 10,000           |
+| Sixth Tier           | 700    | 45,000             | 90,000         | 110,000  | 25,000           |
+| Seventh Tier         | 1000   | 120,000            | 260,000        | 300,000  | 60,000           |
+| Eighth Tier          | 1200   | 300,000            | 700,000        | 800,000  | 150,000          |
+| God/Demon Class Tier | 1500+  | 900,000+           | 2,200,000+     | 2,500,000+ | 400,000+       |
 
 
 5) LEVEL 20 BASELINE STATS (STANDARD AVERAGE)
@@ -81,16 +118,14 @@ Notes:
 
 6) STAR SPELL SCALING TABLE
 ---------------------------
-| Star Rating  | Natural Power | Artificial Power | Range       | Width       | Circles | Tier         |
-|--------------|---------------|------------------|-------------|-------------|---------|--------------|
-| One Star     | 250           | 75               | 5 meters    | 1 meter     | 1       | Senior Mage  |
-| Two Stars    | 750           | 500              | 10 meters   | 2.5 meters  | 1       | Elite Mage   |
-| Three Stars  | 2,000         | 1,500            | 30 meters   | 10 meters   | 3       | Grand Mage   |
-| Four Stars   | 5,000         | 3,500            | 250 meters  | 50 meters   | 7       | Great Mage   |
-| Five Stars   | 20,000        | 15,000           | 1000 meters | 250 meters  | 20      | Archmage     |
-| Six Stars    | 50,000        | 35,000           | 5000 meters | 1000 meters | 50      | Supreme Mage |
-| Seven Stars  | 200,000       | 150,000          | 10000 meters| 2500 meters | 100     | Mythic Mage  |
-| Eight Stars  | 1,000,000     | 750,000          | -           | -           | -       | Divine Mage  |
+| Star Rating  | Natural Power | Artificial Power | Range            | Width          | Circles | Tier         |
+|--------------|---------------|------------------|------------------|----------------|---------|--------------|
+| One Star     | 250           | 75               | 5 meters         | 1 meter        | 1       | Senior Mage  |
+| Two Stars    | 750           | 500              | 10 meters        | 2.5 meters     | 1       | Elite Mage   |
+| Three Stars  | 2,000         | 1,500            | 30 meters        | 10 meters      | 3       | Grand Mage   |
+| Four Stars   | 5,000         | 3,500            | 250 meters       | 50 meters      | 7       | Great Mage   |
+| Five Stars   | 20,000        | 15,000           | 1,000 meters     | 250 meters     | 20      | Archmage     |
+| Six Stars    | 50,000        | 35,000           | 5,000 meters     | 1,000 meters   | 50      | Supreme Mage |
+| Seven Stars  | 200,000       | 150,000          | 10,000 meters    | 2,500 meters   | 100     | Mythic Mage  |
+| Eight Stars  | 1,000,000     | 750,000          | 1,000 kilometers | 100 kilometers | 250     | Divine Mage  |
 
-Notes:
-- Range, width, and circles for Eight Stars were not specified in the source values.
