@@ -1108,16 +1108,14 @@ D       Medium Goblin, Kobold       250 – 500             Modest, common among
 C       High Goblin, Orc Scout      1200 – 2500           Solid, often used in 
                                                         weapon/armor upgrades
 
-B       Elite Goblin, Medium Orc    1000 – 2500         Rare, precious, essential 
+B       Elite Goblin, Medium Orc    10,000 – 25,000         Rare, precious, essential 
                                                         for strong forges
 
-B+      Boss (Medium Orc, etc.)     1,500 – 2,500       Exceptional power, from 
-                                                        notable boss creatures
 
-A       High Orc, Troll, Wyvern     5,000 – 10,000      Extremely rare, powerful 
+A       High Orc, Troll, Wyvern     50,000 – 100,000      Extremely rare, powerful 
                                                         enhancement material
 
-S       Legendary Bosses, Dragons   25,000 – 50,000     Exceptionally rare, world-
+S       Legendary Bosses, Dragons   250,000 – 500,000     Exceptionally rare, world-
                                                         class power source
 ──────────────────────────────────────────────────────────────────────────────
 
