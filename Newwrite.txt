@@ -257,14 +257,14 @@ Attributes:
 
 
 
-Solis Level 50 (Blazing Death Knight)
+Solis Level 185 (Blazing Swordmaster)
 
-• Rank: S
-• STR: 564
-• AGI: 506
-• VIT: 930
-• INT: 904
-• Attribute Points: 300
+• Rank: SS1
+• STR: 2,669
+• AGI: 2,511
+• VIT: 4,035
+• INT: 4,509
+• Attribute Points: 0
 Skills: 
 
 •Infuse Mana (Rank E, 84.42%)
