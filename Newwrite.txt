@@ -260,11 +260,11 @@ Attributes:
 Solis Level 185 (Blazing Swordmaster)
 
 • Rank: SS1
-• STR: 2,669
-• AGI: 2,511
-• VIT: 4,035
-• INT: 4,509
-• Attribute Points: 0
+• STR: 2,819
+• AGI: 2,661
+• VIT: 4,285
+• INT: 4,709
+• Attribute Points: 100
 Skills: 
 
 •Infuse Mana (Rank E, 84.42%)
