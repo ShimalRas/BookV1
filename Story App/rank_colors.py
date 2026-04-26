@@ -13,7 +13,7 @@ RANK_COLORS = {
     "Mythic-1": {"base": "#311d36", "panel": "#482553", "accent": "#d96cff", "accent_soft": "#7a3d8d", "glow": "#f0abfc", "text": "#fcf6ff"},
     "Mythic-2": {"base": "#12364c", "panel": "#1b4f70", "accent": "#53d0ff", "accent_soft": "#27688f", "glow": "#bae6fd", "text": "#f1fbff"},
     "Demi": {"base": "#1c1a2c", "panel": "#2d2947", "accent": "#9c7bff", "accent_soft": "#52428c", "glow": "#ddd6fe", "text": "#faf7ff"},
-    "Divine": {"base": "#10243c", "panel": "#143657", "accent": "#f7c95c", "accent_soft": "#7d6520", "glow": "#fde68a", "text": "#fffdf4"},
+    "Divine": {"base": "#1a1033", "panel": "#26164a", "accent": "#f5c85a", "accent_soft": "#4f2f77", "glow": "#fff0b8", "text": "#fffdf6"},
 }
 
 DEFAULT_RANK = "E"

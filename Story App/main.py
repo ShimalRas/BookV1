@@ -162,7 +162,11 @@ class App(ttk.Frame):
 
         self.system_header = ttk.Frame(self.system_shell, style="Card.TFrame")
         self.system_header.pack(fill="x", padx=16, pady=(16, 8))
-        ttk.Label(self.system_header, text="STATUS", font=("Segoe UI", 26, "bold")).pack(anchor="center")
+        self.status_crown = ttk.Label(self.system_header, text="✦  ✧  ✦", font=("Segoe UI", 18, "bold"), style="Title.TLabel")
+        self.status_crown.pack(anchor="center")
+        ttk.Label(self.system_header, text="STATUS", font=("Segoe UI", 30, "bold")).pack(anchor="center", pady=(0, 0))
+        self.status_line = ttk.Label(self.system_header, text="", style="Muted.TLabel")
+        self.status_line.pack(anchor="center", pady=(2, 0))
 
         self.system_name = ttk.Label(self.system_header, text="No character selected", font=("Segoe UI", 16, "bold"), style="Title.TLabel")
         self.system_name.pack(anchor="center", pady=(4, 0))
@@ -191,12 +195,18 @@ class App(ttk.Frame):
         self.set_system_mode("status")
 
     def _build_status_view(self) -> None:
-        self.hero_name = ttk.Label(self.status_view, text="No character selected", font=("Segoe UI", 15, "bold"), style="Title.TLabel")
+        self.status_shell = ttk.Frame(self.status_view, style="Card.TFrame")
+        self.status_shell.pack(fill="both", expand=True, padx=8, pady=8)
+
+        top_ornament = ttk.Label(self.status_shell, text="✦✧✦  CELESTIAL RECORD  ✦✧✦", style="Muted.TLabel", font=("Segoe UI", 10, "bold"))
+        top_ornament.pack(anchor="center", pady=(0, 10))
+
+        self.hero_name = ttk.Label(self.status_shell, text="No character selected", font=("Segoe UI", 15, "bold"), style="Title.TLabel")
         self.hero_name.pack(anchor="w", pady=(0, 2))
-        self.hero_subtitle = ttk.Label(self.status_view, text="", style="Muted.TLabel")
+        self.hero_subtitle = ttk.Label(self.status_shell, text="", style="Muted.TLabel")
         self.hero_subtitle.pack(anchor="w", pady=(0, 8))
 
-        summary_strip = ttk.Frame(self.status_view, style="Card.TFrame")
+        summary_strip = ttk.Frame(self.status_shell, style="Card.TFrame")
         summary_strip.pack(fill="x", pady=(4, 12))
 
         self.summary_fields = {}
@@ -212,7 +222,7 @@ class App(ttk.Frame):
         summary_strip.columnconfigure(0, weight=1)
         summary_strip.columnconfigure(1, weight=1)
 
-        stat_row = ttk.Frame(self.status_view, style="Card.TFrame")
+        stat_row = ttk.Frame(self.status_shell, style="Card.TFrame")
         stat_row.pack(fill="x", pady=(8, 12))
         for column, key in enumerate(["str", "agi", "vit", "intelligence", "divinity"]):
             tile = ttk.Frame(stat_row, style="AccentCard.TFrame")
@@ -223,11 +233,11 @@ class App(ttk.Frame):
             label.pack(anchor="w", padx=12, pady=(2, 10))
             self.stat_tiles[key] = label
 
-        self.special_badge = ttk.Label(self.status_view, text="Canon profile inactive", style="Muted.TLabel", font=("Segoe UI", 10, "bold"))
+        self.special_badge = ttk.Label(self.status_shell, text="Canon profile inactive", style="Muted.TLabel", font=("Segoe UI", 10, "bold"))
         self.special_badge.pack(anchor="w", pady=(4, 6))
 
-        ttk.Label(self.status_view, text="Signature Archive", style="Muted.TLabel").pack(anchor="w", pady=(6, 6))
-        signature_wrap = ttk.Frame(self.status_view, style="Card.TFrame")
+        ttk.Label(self.status_shell, text="Signature Archive", style="Muted.TLabel").pack(anchor="w", pady=(6, 6))
+        signature_wrap = ttk.Frame(self.status_shell, style="Card.TFrame")
         signature_wrap.pack(fill="both", expand=True)
         signature_scroll = ttk.Scrollbar(signature_wrap, orient="vertical")
         signature_scroll.pack(side="right", fill="y")
@@ -237,10 +247,12 @@ class App(ttk.Frame):
         self.signature_text.configure(state="disabled")
 
     def _build_skills_view(self) -> None:
-        ttk.Label(self.skills_view, text="SKILLS", font=("Segoe UI", 22, "bold")).pack(anchor="center", pady=(6, 8))
-        ttk.Label(self.skills_view, text="Press Skills to inspect the current character's full skill list.", style="Muted.TLabel").pack(anchor="center", pady=(0, 10))
+        skills_shell = ttk.Frame(self.skills_view, style="Card.TFrame")
+        skills_shell.pack(fill="both", expand=True, padx=8, pady=8)
+        ttk.Label(skills_shell, text="✦✧✦  SKILL ARCHIVE  ✦✧✦", style="Muted.TLabel", font=("Segoe UI", 10, "bold")).pack(anchor="center", pady=(0, 10))
+        ttk.Label(skills_shell, text="Press Skills to inspect the current character's full skill list.", style="Muted.TLabel").pack(anchor="center", pady=(0, 10))
 
-        skills_wrap = ttk.Frame(self.skills_view, style="Card.TFrame")
+        skills_wrap = ttk.Frame(skills_shell, style="Card.TFrame")
         skills_wrap.pack(fill="both", expand=True)
         skills_scroll = ttk.Scrollbar(skills_wrap, orient="vertical")
         skills_scroll.pack(side="right", fill="y")
@@ -492,6 +504,7 @@ class App(ttk.Frame):
 
     def refresh_system_window(self, character: dict) -> None:
         total_power = character["str"] + character["agi"] + character["vit"] + character["intelligence"] + character["divinity"]
+        self.status_line.configure(text="CELESTIAL DIVINE INTERFACE")
         self.hero_name.configure(text=character["name"])
         self.hero_subtitle.configure(text=f"{character['race']} • {character['rank']} • Level {character['level']} • Total power {total_power:,}")
 
@@ -520,7 +533,7 @@ class App(ttk.Frame):
             self.stat_tiles[key].configure(text=f"{value:,}")
 
         if is_alok_profile(character["name"]):
-            self.special_badge.configure(text="Canon profile active: Alok is the main focus", foreground="#f8c36d")
+            self.special_badge.configure(text="Canon profile active: Alok is the main focus", foreground=self.palette["accent"])
             profile = ALOK_PROFILE
             sections = [
                 f"Tower points: {profile['tower_points']:,}",
@@ -603,9 +616,10 @@ class App(ttk.Frame):
         accent = self.palette["accent"]
         accent_soft = self.palette["accent_soft"]
         text = self.palette["text"]
+        glow = self.palette["glow"]
         style.configure("TFrame", background=base_bg)
         style.configure("TLabel", background=base_bg, foreground=text)
-        style.configure("Muted.TLabel", background=base_bg, foreground="#b5c3d3")
+        style.configure("Muted.TLabel", background=base_bg, foreground="#c7d0dd")
         style.configure("Title.TLabel", background=base_bg, foreground=text)
         style.configure("Card.TFrame", background=panel_bg)
         style.configure("AccentCard.TFrame", background=accent_soft)
@@ -616,11 +630,15 @@ class App(ttk.Frame):
         style.map("TNotebook.Tab", background=[("selected", accent_soft)], foreground=[("selected", "#ffffff")])
         self.root.configure(bg=base_bg)
         self._style_badge(self.system_badge, panel_bg, accent, text)
+        self._style_badge(self.status_crown, base_bg, glow, text)
+        self._style_panel_text(self.status_line, glow)
         self._style_panel_text(self.hero_name, text)
         self._style_panel_text(self.hero_subtitle, "#d7e0ec")
         self._style_panel_text(self.progress_title, text)
         self._style_panel_text(self.progress_summary, "#d7e0ec")
         self._style_panel_text(self.special_badge, accent)
+        self._style_panel_text(self.system_name, text)
+        self._style_panel_text(self.system_meta, "#d7e0ec")
 
     def _style_badge(self, widget: ttk.Label, background: str, foreground: str, text_color: str) -> None:
         widget.configure(background=background, foreground=foreground)
