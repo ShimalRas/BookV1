@@ -1,7 +1,8 @@
-import { useMemo, useState, type CSSProperties } from 'react'
+import { useEffect, useMemo, useState, type CSSProperties } from 'react'
 
 type RankName = 'E' | 'D' | 'C' | 'B' | 'A' | 'S' | 'SS-1' | 'SS-2' | 'SS-3' | 'Mythic-1' | 'Mythic-2' | 'Demi' | 'Divine'
 type SystemMode = 'status' | 'skills'
+type WorkspaceTab = 'sheet' | 'history' | 'progression'
 
 type Palette = {
   base: string
@@ -10,6 +11,39 @@ type Palette = {
   accentSoft: string
   glow: string
   text: string
+}
+
+type Skill = {
+  id: string
+  name: string
+  rank: string
+  description: string
+}
+
+type HistoryEntry = {
+  id: string
+  timestamp: string
+  action: string
+  detail: string
+}
+
+type Character = {
+  id: string
+  name: string
+  race: string
+  rank: RankName
+  level: number
+  str: number
+  agi: number
+  vit: number
+  intelligence: number
+  divinity: number
+  title: string
+  fatigue: number
+  remainingPoints: number
+  notes: string
+  skills: Skill[]
+  history: HistoryEntry[]
 }
 
 const rankColors: Record<RankName, Palette> = {
@@ -28,10 +62,31 @@ const rankColors: Record<RankName, Palette> = {
   Divine: { base: '#1a1033', panel: '#26164a', accent: '#f5c85a', accentSoft: '#4f2f77', glow: '#fff0b8', text: '#fffdf6' },
 }
 
-const alok = {
+const rankGains: Record<RankName, { phy: number; int: number; divinity: number }> = {
+  E: { phy: 1, int: 2, divinity: 0 },
+  D: { phy: 1, int: 2, divinity: 0 },
+  C: { phy: 1, int: 2, divinity: 0 },
+  B: { phy: 1, int: 2, divinity: 0 },
+  A: { phy: 1, int: 2, divinity: 0 },
+  S: { phy: 3, int: 5, divinity: 0 },
+  'SS-1': { phy: 3, int: 5, divinity: 0 },
+  'SS-2': { phy: 3, int: 5, divinity: 0 },
+  'SS-3': { phy: 3, int: 5, divinity: 0 },
+  'Mythic-1': { phy: 3, int: 5, divinity: 0 },
+  'Mythic-2': { phy: 3, int: 5, divinity: 0 },
+  Demi: { phy: 5, int: 10, divinity: 2 },
+  Divine: { phy: 5, int: 10, divinity: 4 },
+}
+
+const races = ['human', 'elf', 'vampire', 'dragonoid', 'angel', 'fairy', 'valkyrie', 'demon', 'mixed']
+const ranks: RankName[] = ['E', 'D', 'C', 'B', 'A', 'S', 'SS-1', 'SS-2', 'SS-3', 'Mythic-1', 'Mythic-2', 'Demi', 'Divine']
+const STORAGE_KEY = 'story-app-react-v2'
+
+const seededCharacter: Character = {
+  id: crypto.randomUUID(),
   name: 'Alok Aeonmorta',
   race: 'mixed',
-  rank: 'Divine' as RankName,
+  rank: 'Divine',
   level: 135,
   str: 7449,
   agi: 9560,
@@ -40,27 +95,124 @@ const alok = {
   divinity: 8420,
   title: 'Eternal Legion Sovereign',
   fatigue: 33,
-  hp: 310092,
-  mp: 488430,
+  remainingPoints: 0,
+  notes: 'Seeded from source notes. Main canon profile.',
   skills: [
-    'Regeneration (Divine)',
-    'Thunder\'s Judgement',
-    'Soul Absorber',
-    'Sovereign of Eternal Legions',
-    'Astraean Valkyrie Sword Style',
-    'Lightning Manipulation',
-    'Flame Manipulation',
-    'Blood Manipulation',
+    { id: crypto.randomUUID(), name: 'Regeneration (Divine)', rank: 'Divine', description: 'Regenerates body from damage and poisons.' },
+    { id: crypto.randomUUID(), name: 'Thunder\'s Judgement', rank: 'Divine', description: 'Divine lightning spear and storm field.' },
+    { id: crypto.randomUUID(), name: 'Sovereign of Eternal Legions', rank: 'Divine', description: 'Rules undead and soul-bound familiars.' },
+    { id: crypto.randomUUID(), name: 'Astraean Valkyrie Sword Style', rank: 'Rank S', description: 'Royal sword art with multi-form attacks.' },
+    { id: crypto.randomUUID(), name: 'Lightning Manipulation', rank: 'Rank B', description: 'Lightning arsenal and chained strikes.' },
+  ],
+  history: [
+    { id: crypto.randomUUID(), timestamp: new Date().toISOString(), action: 'Seed', detail: 'Created Alok canon profile with Divine rank.' },
   ],
 }
 
+function loadInitialCharacters(): Character[] {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY)
+    if (!raw) return [seededCharacter]
+    const parsed = JSON.parse(raw) as Character[]
+    if (!Array.isArray(parsed) || parsed.length === 0) return [seededCharacter]
+    return parsed
+  } catch {
+    return [seededCharacter]
+  }
+}
+
 function App() {
+  const [characters, setCharacters] = useState<Character[]>(() => loadInitialCharacters())
+  const [selectedId, setSelectedId] = useState<string>(() => loadInitialCharacters()[0].id)
   const [mode, setMode] = useState<SystemMode>('status')
-  const palette = rankColors[alok.rank]
-  const totalPower = useMemo(
-    () => alok.str + alok.agi + alok.vit + alok.intelligence + alok.divinity,
-    [],
+  const [tab, setTab] = useState<WorkspaceTab>('sheet')
+  const [skillDraft, setSkillDraft] = useState({ name: '', rank: 'Rank C', description: '' })
+
+  const selected = useMemo(
+    () => characters.find((item) => item.id === selectedId) ?? characters[0],
+    [characters, selectedId],
   )
+
+  const palette = rankColors[selected.rank]
+  const isAlok = selected.name.toLowerCase() === 'alok aeonmorta'
+  const totalPower = selected.str + selected.agi + selected.vit + selected.intelligence + selected.divinity
+  const hp = selected.vit * 25 + selected.str * 8
+  const mp = selected.intelligence * 25 + selected.divinity * 4
+  const hpFill = Math.min(100, Math.round((hp / (selected.level * 3000)) * 100))
+  const mpFill = Math.min(100, Math.round((mp / (selected.level * 4600)) * 100))
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(characters))
+  }, [characters])
+
+  function updateSelected(patch: Partial<Character>, action = 'Edit', detail = 'Updated character data') {
+    setCharacters((prev) =>
+      prev.map((item) => {
+        if (item.id !== selected.id) return item
+        return {
+          ...item,
+          ...patch,
+          history: [{ id: crypto.randomUUID(), timestamp: new Date().toISOString(), action, detail }, ...item.history],
+        }
+      }),
+    )
+  }
+
+  function addCharacter() {
+    const created: Character = {
+      id: crypto.randomUUID(),
+      name: `New Character ${characters.length + 1}`,
+      race: 'human',
+      rank: 'E',
+      level: 1,
+      str: 50,
+      agi: 50,
+      vit: 50,
+      intelligence: 60,
+      divinity: 0,
+      title: 'Unassigned',
+      fatigue: 0,
+      remainingPoints: 0,
+      notes: '',
+      skills: [],
+      history: [{ id: crypto.randomUUID(), timestamp: new Date().toISOString(), action: 'Create', detail: 'Character created.' }],
+    }
+    setCharacters((prev) => [created, ...prev])
+    setSelectedId(created.id)
+  }
+
+  function levelUpSelected() {
+    const gain = rankGains[selected.rank]
+    updateSelected(
+      {
+        level: selected.level + 1,
+        str: selected.str + gain.phy,
+        agi: selected.agi + gain.phy,
+        vit: selected.vit + gain.phy,
+        intelligence: selected.intelligence + gain.int,
+        divinity: selected.divinity + gain.divinity,
+        remainingPoints: selected.remainingPoints + gain.phy + gain.int + gain.divinity,
+      },
+      'Level Up',
+      `Leveled to ${selected.level + 1} with ${selected.rank} gains (+${gain.phy} PHY, +${gain.int} INT).`,
+    )
+  }
+
+  function addSkill() {
+    if (!skillDraft.name.trim()) return
+    const skill: Skill = {
+      id: crypto.randomUUID(),
+      name: skillDraft.name.trim(),
+      rank: skillDraft.rank,
+      description: skillDraft.description.trim(),
+    }
+    updateSelected(
+      { skills: [skill, ...selected.skills] },
+      'Skill',
+      `Added skill ${skill.name} (${skill.rank}).`,
+    )
+    setSkillDraft({ name: '', rank: 'Rank C', description: '' })
+  }
 
   return (
     <div
@@ -77,44 +229,91 @@ function App() {
       <header className="topbar">
         <div>
           <h1>Story App</h1>
-          <p>Local character manager with stats, skills, history, and progression</p>
+          <p>Local character manager with stats, skills, history, progression, and saved change logs</p>
         </div>
-        <div className="rank-badge">Lv {alok.level} {alok.rank}</div>
+        <div className="rank-badge">Lv {selected.level} {selected.rank}</div>
       </header>
 
       <main className="layout">
         <aside className="sidebar">
-          <div className="char-pill">{alok.name} | {alok.race}</div>
-          <button>New Character</button>
-          <button>Save Character</button>
-          <button>Refresh</button>
+          <div className="char-list">
+            {characters.map((character) => (
+              <button
+                key={character.id}
+                className={character.id === selected.id ? 'char-pill active' : 'char-pill'}
+                onClick={() => setSelectedId(character.id)}
+              >
+                {character.name} | {character.race}
+              </button>
+            ))}
+          </div>
+          <button onClick={addCharacter}>New Character</button>
+          <button onClick={() => updateSelected({}, 'Save', 'Manual save event recorded.')}>Save Character</button>
+          <button onClick={levelUpSelected}>Level Up</button>
         </aside>
 
         <section className="main-panel">
           <article className="sheet-card">
-            <h2>Character Sheet</h2>
-            <div className="grid2">
-              <label>Name<input defaultValue={alok.name} /></label>
-              <label>Race<input defaultValue={alok.race} /></label>
-              <label>Rank<input defaultValue={alok.rank} /></label>
-              <label>Level<input defaultValue={alok.level} /></label>
-              <label>STR<input defaultValue={alok.str} /></label>
-              <label>AGI<input defaultValue={alok.agi} /></label>
-              <label>VIT<input defaultValue={alok.vit} /></label>
-              <label>INT<input defaultValue={alok.intelligence} /></label>
-              <label>Divinity<input defaultValue={alok.divinity} /></label>
+            <div className="tabs">
+              <button className={tab === 'sheet' ? 'active' : ''} onClick={() => setTab('sheet')}>Character Sheet</button>
+              <button className={tab === 'history' ? 'active' : ''} onClick={() => setTab('history')}>History</button>
+              <button className={tab === 'progression' ? 'active' : ''} onClick={() => setTab('progression')}>Progression</button>
             </div>
-            <label className="notes">Notes<textarea defaultValue="Seeded from source notes." /></label>
+
+            {tab === 'sheet' && (
+              <>
+                <h2>Character Sheet</h2>
+                <div className="grid2">
+                  <label>Name<input value={selected.name} onChange={(event) => updateSelected({ name: event.target.value }, 'Edit', 'Updated name.')} /></label>
+                  <label>Race<select value={selected.race} onChange={(event) => updateSelected({ race: event.target.value }, 'Edit', 'Updated race.')}>{races.map((race) => <option key={race}>{race}</option>)}</select></label>
+                  <label>Rank<select value={selected.rank} onChange={(event) => updateSelected({ rank: event.target.value as RankName }, 'Edit', 'Updated rank.')}>{ranks.map((rank) => <option key={rank}>{rank}</option>)}</select></label>
+                  <label>Level<input type="number" value={selected.level} onChange={(event) => updateSelected({ level: Number(event.target.value) || 1 }, 'Edit', 'Adjusted level manually.')} /></label>
+                  <label>STR<input type="number" value={selected.str} onChange={(event) => updateSelected({ str: Number(event.target.value) || 0 }, 'Edit', 'Adjusted STR.')} /></label>
+                  <label>AGI<input type="number" value={selected.agi} onChange={(event) => updateSelected({ agi: Number(event.target.value) || 0 }, 'Edit', 'Adjusted AGI.')} /></label>
+                  <label>VIT<input type="number" value={selected.vit} onChange={(event) => updateSelected({ vit: Number(event.target.value) || 0 }, 'Edit', 'Adjusted VIT.')} /></label>
+                  <label>INT<input type="number" value={selected.intelligence} onChange={(event) => updateSelected({ intelligence: Number(event.target.value) || 0 }, 'Edit', 'Adjusted INT.')} /></label>
+                  <label>Divinity<input type="number" value={selected.divinity} onChange={(event) => updateSelected({ divinity: Number(event.target.value) || 0 }, 'Edit', 'Adjusted Divinity.')} /></label>
+                </div>
+                <label className="notes">Notes<textarea value={selected.notes} onChange={(event) => updateSelected({ notes: event.target.value }, 'Notes', 'Updated notes.')} /></label>
+              </>
+            )}
+
+            {tab === 'history' && (
+              <>
+                <h2>History Timeline</h2>
+                <div className="history-list">
+                  {selected.history.map((entry) => (
+                    <div key={entry.id} className="history-row">
+                      <strong>{entry.action}</strong>
+                      <span>{entry.detail}</span>
+                      <small>{new Date(entry.timestamp).toLocaleString()}</small>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {tab === 'progression' && (
+              <>
+                <h2>Progression</h2>
+                <div className="progress-panel">
+                  <p>Current rank: <strong>{selected.rank}</strong></p>
+                  <p>Level gain model: +{rankGains[selected.rank].phy} PHY, +{rankGains[selected.rank].int} INT, +{rankGains[selected.rank].divinity} Divinity</p>
+                  <p>Remaining points: <strong>{selected.remainingPoints}</strong></p>
+                  <button onClick={levelUpSelected}>Apply One Level Up</button>
+                </div>
+              </>
+            )}
           </article>
 
           <article className="status-window">
-            <div className="status-frame">
+            <div className={isAlok ? 'status-frame alok-frame' : 'status-frame'}>
               <div className="status-head">
                 <div className="stars">✦ ✧ ✦</div>
                 <h3>STATUS</h3>
-                <p>CELESTIAL DIVINE INTERFACE</p>
-                <h4>{alok.name}</h4>
-                <small>{alok.race} • {alok.rank} • Level {alok.level} • Total power {totalPower.toLocaleString()}</small>
+                <p>{isAlok ? 'CELESTIAL DIVINE INTERFACE' : 'SYSTEM INTERFACE'}</p>
+                <h4>{selected.name}</h4>
+                <small>{selected.race} • {selected.rank} • Level {selected.level} • Total power {totalPower.toLocaleString()}</small>
               </div>
 
               <div className="mode-row">
@@ -124,32 +323,54 @@ function App() {
 
               {mode === 'status' ? (
                 <>
+                  <div className="bars">
+                    <div>
+                      <label>HP</label>
+                      <div className="bar-track"><div className="bar-fill" style={{ width: `${hpFill}%` }} /></div>
+                      <strong>{hp.toLocaleString()}</strong>
+                    </div>
+                    <div>
+                      <label>MP</label>
+                      <div className="bar-track"><div className="bar-fill mp" style={{ width: `${mpFill}%` }} /></div>
+                      <strong>{mp.toLocaleString()}</strong>
+                    </div>
+                  </div>
+
                   <div className="summary-grid">
-                    <Card label="Name" value={alok.name} />
-                    <Card label="Level" value={String(alok.level)} />
-                    <Card label="Job" value={alok.rank} />
-                    <Card label="Fatigue" value={String(alok.fatigue)} />
-                    <Card label="Title" value={alok.title} />
-                    <Card label="HP" value={alok.hp.toLocaleString()} />
-                    <Card label="MP" value={alok.mp.toLocaleString()} />
-                    <Card label="Remaining Points" value="0" />
+                    <Card label="Name" value={selected.name} />
+                    <Card label="Level" value={String(selected.level)} />
+                    <Card label="Job" value={selected.rank} />
+                    <Card label="Fatigue" value={String(selected.fatigue)} />
+                    <Card label="Title" value={selected.title} />
+                    <Card label="Remaining Points" value={String(selected.remainingPoints)} />
                   </div>
 
                   <div className="stat-grid">
-                    <Card label="STR" value={alok.str.toLocaleString()} />
-                    <Card label="AGI" value={alok.agi.toLocaleString()} />
-                    <Card label="VIT" value={alok.vit.toLocaleString()} />
-                    <Card label="INTELLIGENCE" value={alok.intelligence.toLocaleString()} />
-                    <Card label="DIVINITY" value={alok.divinity.toLocaleString()} />
+                    <Card label="STR" value={selected.str.toLocaleString()} />
+                    <Card label="AGI" value={selected.agi.toLocaleString()} />
+                    <Card label="VIT" value={selected.vit.toLocaleString()} />
+                    <Card label="INTELLIGENCE" value={selected.intelligence.toLocaleString()} />
+                    <Card label="DIVINITY" value={selected.divinity.toLocaleString()} />
                   </div>
 
-                  <div className="canon">Canon profile active: Alok is the main focus</div>
+                  {isAlok && <div className="canon">Canon profile active: Alok has a unique celestial system panel</div>}
                 </>
               ) : (
-                <div className="skills-list">
-                  {alok.skills.map((skill) => (
-                    <div key={skill} className="skill-row">{skill}</div>
-                  ))}
+                <div className="skills-list-wrap">
+                  <div className="skill-form">
+                    <input placeholder="Skill name" value={skillDraft.name} onChange={(event) => setSkillDraft((prev) => ({ ...prev, name: event.target.value }))} />
+                    <input placeholder="Skill rank" value={skillDraft.rank} onChange={(event) => setSkillDraft((prev) => ({ ...prev, rank: event.target.value }))} />
+                    <input placeholder="Description" value={skillDraft.description} onChange={(event) => setSkillDraft((prev) => ({ ...prev, description: event.target.value }))} />
+                    <button onClick={addSkill}>Add Skill</button>
+                  </div>
+                  <div className="skills-list">
+                    {selected.skills.map((skill) => (
+                      <div key={skill.id} className="skill-row">
+                        <strong>{skill.name} [{skill.rank}]</strong>
+                        <span>{skill.description}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
