@@ -267,13 +267,13 @@ Solis Level 185 (Blazing Swordmaster)
 • Attribute Points: 400
 Skills: 
 
-•Infuse Mana (Rank E, 84.42%)
- Infuses the weapon with mana to increase power and sharpness by 15%
-• Wind Slash(Rank D, Completion 84.23%)
+•Infuse Mana (Rank B, 84.42%)
+ Infuses the weapon with mana to increase power and sharpness by 65%
+• Wind Slash(Rank B, Completion 84.23%)
  Releases wind slashes from it’s sword.
-•	Swordsmanship (Rank D, 83.53%): Proficiency with sword combat increases
+•	Swordsmanship (Rank A, 91.53%): Proficiency with sword combat increases
 
-• Flame Slash (Rank D, 72.11%): Infuses sword slashes with flame energy, releasing arcs of fire toward enemies. Damage increases with INT and Flame affinity.
+• Flame Slash (Rank C, 72.11%): Infuses sword slashes with flame energy, releasing arcs of fire toward enemies. Damage increases with INT and Flame affinity.
 
 • Blazing Vortex (one-star, Rank C, 45.67%): Spin rapidly with the sword while surrounded by flames, creating a whirlwind of fire that strikes all nearby enemies. Can be sustained for a short duration with continuous mana drain.
 
