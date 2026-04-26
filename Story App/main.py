@@ -5,6 +5,7 @@ import tkinter as tk
 from tkinter import messagebox, simpledialog, ttk
 
 from lore import ALOK_PROFILE, is_alok_profile
+from rank_colors import get_rank_colors
 from rules import get_rank_gain, get_race_defaults, get_race_names, get_tier_benchmark, get_tier_for_level
 from store import StoryStore
 
@@ -23,6 +24,7 @@ class App(ttk.Frame):
         self.current_skill_id: int | None = None
         self.character_lore = {}
         self.stat_tiles = {}
+        self.palette = get_rank_colors("E")
         self._build_style()
         self._build_layout()
         self.reload_characters()
@@ -30,20 +32,20 @@ class App(ttk.Frame):
     def _build_style(self) -> None:
         style = ttk.Style()
         style.theme_use("clam")
-        base_bg = "#08111d"
-        panel_bg = "#0d1726"
-        accent = "#f59e0b"
-        accent_alt = "#60a5fa"
-        text = "#edf2f7"
-        muted = "#9aa7b6"
+        base_bg = self.palette["base"]
+        panel_bg = self.palette["panel"]
+        accent = self.palette["accent"]
+        accent_soft = self.palette["accent_soft"]
+        text = self.palette["text"]
+        muted = "#a8b6c6"
         style.configure("TFrame", background=base_bg)
         style.configure("TLabel", background=base_bg, foreground=text)
         style.configure("Muted.TLabel", background=base_bg, foreground=muted)
         style.configure("Title.TLabel", background=base_bg, foreground=text)
         style.configure("Card.TFrame", background=panel_bg)
-        style.configure("AccentCard.TFrame", background="#101f33")
+        style.configure("AccentCard.TFrame", background=accent_soft)
         style.configure("TButton", padding=9, background=panel_bg, foreground=text)
-        style.map("TButton", background=[("active", accent_alt)])
+        style.map("TButton", background=[("active", accent_soft)])
         style.configure("Treeview", rowheight=28, background="#0e1725", fieldbackground="#0e1725", foreground=text)
         style.configure("Treeview.Heading", background="#172337", foreground=text)
         style.configure("TLabelframe", background=base_bg, foreground=text)
@@ -68,6 +70,7 @@ class App(ttk.Frame):
 
         self.system_badge = ttk.Label(header, text="Idle", style="Title.TLabel", font=("Segoe UI", 11, "bold"), padding=(14, 8))
         self.system_badge.pack(side="right")
+        self._style_badge(self.system_badge, self.palette["panel"], self.palette["accent"], self.palette["text"])
 
         body = ttk.Frame(self)
         body.pack(fill="both", expand=True, padx=16, pady=12)
@@ -256,6 +259,7 @@ class App(ttk.Frame):
             return
         self.current_character_id = character_id
         self.current_skill_id = None
+        self.apply_rank_theme(character["rank"])
         self.system_badge.configure(text=f"Lv {character['level']} {character['rank']}")
         self._set_field("name", character["name"])
         self._set_field("race", character["race"])
@@ -466,6 +470,40 @@ class App(ttk.Frame):
                 "Use this panel for a curated character summary, signature skills, and canon notes.\n\n"
                 "For special characters, this area can show the lore archive and unique powers."
             )
+
+    def apply_rank_theme(self, rank: str) -> None:
+        self.palette = get_rank_colors(rank)
+        style = ttk.Style()
+        base_bg = self.palette["base"]
+        panel_bg = self.palette["panel"]
+        accent = self.palette["accent"]
+        accent_soft = self.palette["accent_soft"]
+        text = self.palette["text"]
+        style.configure("TFrame", background=base_bg)
+        style.configure("TLabel", background=base_bg, foreground=text)
+        style.configure("Muted.TLabel", background=base_bg, foreground="#b5c3d3")
+        style.configure("Title.TLabel", background=base_bg, foreground=text)
+        style.configure("Card.TFrame", background=panel_bg)
+        style.configure("AccentCard.TFrame", background=accent_soft)
+        style.configure("Treeview", rowheight=28, background=panel_bg, fieldbackground=panel_bg, foreground=text)
+        style.configure("Treeview.Heading", background=accent_soft, foreground=text)
+        style.configure("TNotebook", background=base_bg, borderwidth=0)
+        style.configure("TNotebook.Tab", padding=(16, 10), background=panel_bg, foreground=text)
+        style.map("TNotebook.Tab", background=[("selected", accent_soft)], foreground=[("selected", "#ffffff")])
+        self.root.configure(bg=base_bg)
+        self._style_badge(self.system_badge, panel_bg, accent, text)
+        self._style_panel_text(self.hero_name, text)
+        self._style_panel_text(self.hero_subtitle, "#d7e0ec")
+        self._style_panel_text(self.progress_title, text)
+        self._style_panel_text(self.progress_summary, "#d7e0ec")
+        self._style_panel_text(self.special_badge, accent)
+
+    def _style_badge(self, widget: ttk.Label, background: str, foreground: str, text_color: str) -> None:
+        widget.configure(background=background, foreground=foreground)
+        widget.configure(style="Title.TLabel")
+
+    def _style_panel_text(self, widget: ttk.Label, foreground: str) -> None:
+        widget.configure(foreground=foreground)
 
     def _set_progress_text(self, text: str) -> None:
         self.progress_text.configure(state="normal")
