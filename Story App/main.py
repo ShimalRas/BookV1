@@ -24,6 +24,7 @@ class App(ttk.Frame):
         self.current_skill_id: int | None = None
         self.character_lore = {}
         self.stat_tiles = {}
+        self.system_mode = "status"
         self.palette = get_rank_colors("E")
         self._build_style()
         self._build_layout()
@@ -117,8 +118,8 @@ class App(ttk.Frame):
         left.pack(side="left", fill="both", expand=True, padx=(0, 10))
 
         right = ttk.Frame(top, style="Card.TFrame")
-        right.pack(side="left", fill="y", padx=(10, 0))
-        right.configure(width=390)
+        right.pack(side="left", fill="both", padx=(10, 0))
+        right.configure(width=460)
 
         self.fields = {}
         labels = [
@@ -156,36 +157,98 @@ class App(ttk.Frame):
         self.notes = tk.Text(left, height=10, bg="#0e1725", fg="#edf2f7", insertbackground="#edf2f7", relief="flat", wrap="word")
         self.notes.pack(fill="both", expand=True, padx=18, pady=(0, 18))
 
-        ttk.Label(right, text="System Window", font=("Segoe UI", 15, "bold")).pack(anchor="w", padx=18, pady=(16, 12))
+        self.system_shell = ttk.Frame(right, style="Card.TFrame")
+        self.system_shell.place(relx=0.5, rely=0.5, anchor="center", relwidth=0.92, relheight=0.93)
 
-        self.hero_name = ttk.Label(right, text="No character selected", font=("Segoe UI", 15, "bold"), style="Title.TLabel")
-        self.hero_name.pack(anchor="w", padx=18)
-        self.hero_subtitle = ttk.Label(right, text="", style="Muted.TLabel")
-        self.hero_subtitle.pack(anchor="w", padx=18, pady=(2, 0))
+        self.system_header = ttk.Frame(self.system_shell, style="Card.TFrame")
+        self.system_header.pack(fill="x", padx=16, pady=(16, 8))
+        ttk.Label(self.system_header, text="STATUS", font=("Segoe UI", 26, "bold")).pack(anchor="center")
 
-        stat_row = ttk.Frame(right)
-        stat_row.pack(fill="x", padx=18, pady=(16, 10))
+        self.system_name = ttk.Label(self.system_header, text="No character selected", font=("Segoe UI", 16, "bold"), style="Title.TLabel")
+        self.system_name.pack(anchor="center", pady=(4, 0))
+        self.system_meta = ttk.Label(self.system_header, text="", style="Muted.TLabel", justify="center")
+        self.system_meta.pack(anchor="center", pady=(2, 0))
+
+        self.system_button_row = ttk.Frame(self.system_shell, style="Card.TFrame")
+        self.system_button_row.pack(fill="x", padx=16, pady=(6, 10))
+        self.status_button = ttk.Button(self.system_button_row, text="Status", command=lambda: self.set_system_mode("status"))
+        self.skills_button = ttk.Button(self.system_button_row, text="Skills", command=lambda: self.set_system_mode("skills"))
+        self.status_button.pack(side="left", padx=(0, 8))
+        self.skills_button.pack(side="left")
+
+        self.system_content = ttk.Frame(self.system_shell, style="Card.TFrame")
+        self.system_content.pack(fill="both", expand=True, padx=16, pady=(0, 16))
+        self.system_content.grid_columnconfigure(0, weight=1)
+
+        self.status_view = ttk.Frame(self.system_content, style="Card.TFrame")
+        self.status_view.grid(row=0, column=0, sticky="nsew")
+
+        self.skills_view = ttk.Frame(self.system_content, style="Card.TFrame")
+        self.skills_view.grid(row=0, column=0, sticky="nsew")
+
+        self._build_status_view()
+        self._build_skills_view()
+        self.set_system_mode("status")
+
+    def _build_status_view(self) -> None:
+        self.hero_name = ttk.Label(self.status_view, text="No character selected", font=("Segoe UI", 15, "bold"), style="Title.TLabel")
+        self.hero_name.pack(anchor="w", pady=(0, 2))
+        self.hero_subtitle = ttk.Label(self.status_view, text="", style="Muted.TLabel")
+        self.hero_subtitle.pack(anchor="w", pady=(0, 8))
+
+        summary_strip = ttk.Frame(self.status_view, style="Card.TFrame")
+        summary_strip.pack(fill="x", pady=(4, 12))
+
+        self.summary_fields = {}
+        summary_labels = ["Name", "Level", "Job", "Fatigue", "Title", "HP", "MP", "Remaining Points"]
+        for index, field in enumerate(summary_labels):
+            tile = ttk.Frame(summary_strip, style="AccentCard.TFrame")
+            tile.grid(row=index // 2, column=index % 2, sticky="nsew", padx=6, pady=6)
+            ttk.Label(tile, text=field.upper(), style="Muted.TLabel", font=("Segoe UI", 8, "bold")).pack(anchor="w", padx=12, pady=(10, 0))
+            label = ttk.Label(tile, text="-", font=("Segoe UI", 13, "bold"), style="Title.TLabel")
+            label.pack(anchor="w", padx=12, pady=(2, 10))
+            self.summary_fields[field.lower().replace(" ", "_")] = label
+
+        summary_strip.columnconfigure(0, weight=1)
+        summary_strip.columnconfigure(1, weight=1)
+
+        stat_row = ttk.Frame(self.status_view, style="Card.TFrame")
+        stat_row.pack(fill="x", pady=(8, 12))
         for column, key in enumerate(["str", "agi", "vit", "intelligence", "divinity"]):
             tile = ttk.Frame(stat_row, style="AccentCard.TFrame")
-            tile.grid(row=0, column=column, padx=(0, 8), sticky="nsew")
+            tile.grid(row=0, column=column, padx=6, sticky="nsew")
             stat_row.columnconfigure(column, weight=1)
-            ttk.Label(tile, text=key.upper(), style="Muted.TLabel").pack(anchor="w", padx=12, pady=(10, 0))
+            ttk.Label(tile, text=key.upper(), style="Muted.TLabel", font=("Segoe UI", 8, "bold")).pack(anchor="w", padx=12, pady=(10, 0))
             label = ttk.Label(tile, text="0", font=("Segoe UI", 14, "bold"), style="Title.TLabel")
             label.pack(anchor="w", padx=12, pady=(2, 10))
             self.stat_tiles[key] = label
 
-        self.special_badge = ttk.Label(right, text="Canon profile inactive", style="Muted.TLabel", font=("Segoe UI", 10, "bold"))
-        self.special_badge.pack(anchor="w", padx=18, pady=(6, 6))
+        self.special_badge = ttk.Label(self.status_view, text="Canon profile inactive", style="Muted.TLabel", font=("Segoe UI", 10, "bold"))
+        self.special_badge.pack(anchor="w", pady=(4, 6))
 
-        ttk.Label(right, text="Signature Archive", style="Muted.TLabel").pack(anchor="w", padx=18, pady=(8, 6))
-        signature_wrap = ttk.Frame(right, style="Card.TFrame")
-        signature_wrap.pack(fill="both", expand=True, padx=18, pady=(0, 18))
+        ttk.Label(self.status_view, text="Signature Archive", style="Muted.TLabel").pack(anchor="w", pady=(6, 6))
+        signature_wrap = ttk.Frame(self.status_view, style="Card.TFrame")
+        signature_wrap.pack(fill="both", expand=True)
         signature_scroll = ttk.Scrollbar(signature_wrap, orient="vertical")
         signature_scroll.pack(side="right", fill="y")
         self.signature_text = tk.Text(signature_wrap, height=14, bg="#0e1725", fg="#edf2f7", insertbackground="#edf2f7", relief="flat", wrap="word", yscrollcommand=signature_scroll.set)
         self.signature_text.pack(side="left", fill="both", expand=True)
         signature_scroll.config(command=self.signature_text.yview)
         self.signature_text.configure(state="disabled")
+
+    def _build_skills_view(self) -> None:
+        ttk.Label(self.skills_view, text="SKILLS", font=("Segoe UI", 22, "bold")).pack(anchor="center", pady=(6, 8))
+        ttk.Label(self.skills_view, text="Press Skills to inspect the current character's full skill list.", style="Muted.TLabel").pack(anchor="center", pady=(0, 10))
+
+        skills_wrap = ttk.Frame(self.skills_view, style="Card.TFrame")
+        skills_wrap.pack(fill="both", expand=True)
+        skills_scroll = ttk.Scrollbar(skills_wrap, orient="vertical")
+        skills_scroll.pack(side="right", fill="y")
+
+        self.skills_text = tk.Text(skills_wrap, bg="#0e1725", fg="#edf2f7", insertbackground="#edf2f7", relief="flat", wrap="word", yscrollcommand=skills_scroll.set)
+        self.skills_text.pack(side="left", fill="both", expand=True)
+        skills_scroll.config(command=self.skills_text.yview)
+        self.skills_text.configure(state="disabled")
 
     def _build_skills_tab(self) -> None:
         frame = ttk.Frame(self.skills_tab)
@@ -432,6 +495,21 @@ class App(ttk.Frame):
         self.hero_name.configure(text=character["name"])
         self.hero_subtitle.configure(text=f"{character['race']} • {character['rank']} • Level {character['level']} • Total power {total_power:,}")
 
+        title = "Eternal Legion Sovereign" if is_alok_profile(character["name"]) else character["rank"]
+        fatigue = max(0, 100 - min(100, character["level"] // 2))
+        hp = character["vit"] * 25 + character["str"] * 8
+        mp = character["intelligence"] * 25 + character["divinity"] * 4
+        remaining_points = 0
+
+        self.summary_fields["name"].configure(text=character["name"])
+        self.summary_fields["level"].configure(text=str(character["level"]))
+        self.summary_fields["job"].configure(text=character["rank"])
+        self.summary_fields["fatigue"].configure(text=str(fatigue))
+        self.summary_fields["title"].configure(text=title)
+        self.summary_fields["hp"].configure(text=f"{hp:,}")
+        self.summary_fields["mp"].configure(text=f"{mp:,}")
+        self.summary_fields["remaining_points"].configure(text=str(remaining_points))
+
         for key, value in (
             ("str", character["str"]),
             ("agi", character["agi"]),
@@ -470,6 +548,52 @@ class App(ttk.Frame):
                 "Use this panel for a curated character summary, signature skills, and canon notes.\n\n"
                 "For special characters, this area can show the lore archive and unique powers."
             )
+
+        self._render_skill_view(character)
+
+    def _render_skill_view(self, character: dict) -> None:
+        skills = self.store.list_skills(character["id"])
+        if is_alok_profile(character["name"]):
+            display_lines = [
+                f"{ALOK_PROFILE['name']} - Divine archive",
+                "",
+                "Skills:",
+            ]
+            for skill in skills:
+                display_lines.append(f"- {skill['name']} [{skill['rank']}]")
+                display_lines.append(f"  {skill['description']}")
+                display_lines.append("")
+            display_lines.extend([
+                "Divine abilities:",
+            ])
+            for ability in ALOK_PROFILE["divine_abilities"]:
+                display_lines.append(f"- {ability['name']} [{ability['rank']}]")
+                display_lines.append(f"  {ability['description']}")
+                display_lines.append("")
+        else:
+            display_lines = [
+                f"{character['name']} - Skill archive",
+                "",
+            ]
+            if skills:
+                for skill in skills:
+                    display_lines.append(f"- {skill['name']} [{skill['rank']}] : {skill['description']}")
+            else:
+                display_lines.append("No skills saved yet.")
+        self._set_skills_text("\n".join(display_lines))
+
+    def set_system_mode(self, mode: str) -> None:
+        self.system_mode = mode
+        if mode == "skills":
+            self.status_view.grid_remove()
+            self.skills_view.grid()
+            self.skills_button.state(["pressed"])
+            self.status_button.state(["!pressed"])
+        else:
+            self.skills_view.grid_remove()
+            self.status_view.grid()
+            self.status_button.state(["pressed"])
+            self.skills_button.state(["!pressed"])
 
     def apply_rank_theme(self, rank: str) -> None:
         self.palette = get_rank_colors(rank)
@@ -516,6 +640,12 @@ class App(ttk.Frame):
         self.signature_text.delete("1.0", tk.END)
         self.signature_text.insert("1.0", text)
         self.signature_text.configure(state="disabled")
+
+    def _set_skills_text(self, text: str) -> None:
+        self.skills_text.configure(state="normal")
+        self.skills_text.delete("1.0", tk.END)
+        self.skills_text.insert("1.0", text)
+        self.skills_text.configure(state="disabled")
 
 
 class SkillDialog:
