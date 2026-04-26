@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState, type CSSProperties } from 'react'
 
 type RankName = 'E' | 'D' | 'C' | 'B' | 'A' | 'S' | 'SS-1' | 'SS-2' | 'SS-3' | 'Mythic-1' | 'Mythic-2' | 'Demi' | 'Divine'
 type SystemMode = 'status' | 'skills'
-type WorkspaceTab = 'sheet' | 'history' | 'progression'
+type WorkspacePage = 'panel' | 'editor' | 'history' | 'progression'
 
 type Palette = {
   base: string
@@ -123,29 +123,27 @@ function loadInitialCharacters(): Character[] {
 
 function App() {
   const [characters, setCharacters] = useState<Character[]>(() => loadInitialCharacters())
-  const [selectedId, setSelectedId] = useState<string>(() => loadInitialCharacters()[0].id)
+  const [selectedId, setSelectedId] = useState<string | null>(null)
   const [mode, setMode] = useState<SystemMode>('status')
-  const [tab, setTab] = useState<WorkspaceTab>('sheet')
+  const [page, setPage] = useState<WorkspacePage>('panel')
   const [skillDraft, setSkillDraft] = useState({ name: '', rank: 'Rank C', description: '' })
 
-  const selected = useMemo(
-    () => characters.find((item) => item.id === selectedId) ?? characters[0],
-    [characters, selectedId],
-  )
+  const selected = useMemo(() => characters.find((item) => item.id === selectedId), [characters, selectedId])
 
-  const palette = rankColors[selected.rank]
-  const isAlok = selected.name.toLowerCase() === 'alok aeonmorta'
-  const totalPower = selected.str + selected.agi + selected.vit + selected.intelligence + selected.divinity
-  const hp = selected.vit * 25 + selected.str * 8
-  const mp = selected.intelligence * 25 + selected.divinity * 4
-  const hpFill = Math.min(100, Math.round((hp / (selected.level * 3000)) * 100))
-  const mpFill = Math.min(100, Math.round((mp / (selected.level * 4600)) * 100))
+  const palette = rankColors[selected?.rank ?? 'Divine']
+  const isAlok = selected?.name.toLowerCase() === 'alok aeonmorta'
+  const totalPower = selected ? selected.str + selected.agi + selected.vit + selected.intelligence + selected.divinity : 0
+  const hp = selected ? selected.vit * 25 + selected.str * 8 : 0
+  const mp = selected ? selected.intelligence * 25 + selected.divinity * 4 : 0
+  const hpFill = selected ? Math.min(100, Math.round((hp / (selected.level * 3000)) * 100)) : 0
+  const mpFill = selected ? Math.min(100, Math.round((mp / (selected.level * 4600)) * 100)) : 0
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(characters))
   }, [characters])
 
   function updateSelected(patch: Partial<Character>, action = 'Edit', detail = 'Updated character data') {
+    if (!selected) return
     setCharacters((prev) =>
       prev.map((item) => {
         if (item.id !== selected.id) return item
@@ -182,6 +180,7 @@ function App() {
   }
 
   function levelUpSelected() {
+    if (!selected) return
     const gain = rankGains[selected.rank]
     updateSelected(
       {
@@ -199,6 +198,7 @@ function App() {
   }
 
   function addSkill() {
+    if (!selected) return
     if (!skillDraft.name.trim()) return
     const skill: Skill = {
       id: crypto.randomUUID(),
@@ -229,9 +229,9 @@ function App() {
       <header className="topbar">
         <div>
           <h1>Story App</h1>
-          <p>Local character manager with stats, skills, history, progression, and saved change logs</p>
+          <p>Local character manager with a dedicated celestial panel, separate stat editor, and saved history</p>
         </div>
-        <div className="rank-badge">Lv {selected.level} {selected.rank}</div>
+        <div className="rank-badge">{selected ? `Lv ${selected.level} ${selected.rank}` : 'No character selected'}</div>
       </header>
 
       <main className="layout">
@@ -240,7 +240,7 @@ function App() {
             {characters.map((character) => (
               <button
                 key={character.id}
-                className={character.id === selected.id ? 'char-pill active' : 'char-pill'}
+                className={character.id === selectedId ? 'char-pill active' : 'char-pill'}
                 onClick={() => setSelectedId(character.id)}
               >
                 {character.name} | {character.race}
@@ -248,133 +248,141 @@ function App() {
             ))}
           </div>
           <button onClick={addCharacter}>New Character</button>
-          <button onClick={() => updateSelected({}, 'Save', 'Manual save event recorded.')}>Save Character</button>
+          <button onClick={() => updateSelected({}, 'Save', 'Manual save event recorded.')} disabled={!selected}>Save Character</button>
           <button onClick={levelUpSelected}>Level Up</button>
         </aside>
 
         <section className="main-panel">
-          <article className="sheet-card">
-            <div className="tabs">
-              <button className={tab === 'sheet' ? 'active' : ''} onClick={() => setTab('sheet')}>Character Sheet</button>
-              <button className={tab === 'history' ? 'active' : ''} onClick={() => setTab('history')}>History</button>
-              <button className={tab === 'progression' ? 'active' : ''} onClick={() => setTab('progression')}>Progression</button>
-            </div>
+          <div className="workspace-tabs">
+            <button className={page === 'panel' ? 'active' : ''} onClick={() => setPage('panel')}>System Panel</button>
+            <button className={page === 'editor' ? 'active' : ''} onClick={() => setPage('editor')}>Stat Editor</button>
+            <button className={page === 'history' ? 'active' : ''} onClick={() => setPage('history')}>History</button>
+            <button className={page === 'progression' ? 'active' : ''} onClick={() => setPage('progression')}>Progression</button>
+          </div>
 
-            {tab === 'sheet' && (
-              <>
-                <h2>Character Sheet</h2>
-                <div className="grid2">
-                  <label>Name<input value={selected.name} onChange={(event) => updateSelected({ name: event.target.value }, 'Edit', 'Updated name.')} /></label>
-                  <label>Race<select value={selected.race} onChange={(event) => updateSelected({ race: event.target.value }, 'Edit', 'Updated race.')}>{races.map((race) => <option key={race}>{race}</option>)}</select></label>
-                  <label>Rank<select value={selected.rank} onChange={(event) => updateSelected({ rank: event.target.value as RankName }, 'Edit', 'Updated rank.')}>{ranks.map((rank) => <option key={rank}>{rank}</option>)}</select></label>
-                  <label>Level<input type="number" value={selected.level} onChange={(event) => updateSelected({ level: Number(event.target.value) || 1 }, 'Edit', 'Adjusted level manually.')} /></label>
-                  <label>STR<input type="number" value={selected.str} onChange={(event) => updateSelected({ str: Number(event.target.value) || 0 }, 'Edit', 'Adjusted STR.')} /></label>
-                  <label>AGI<input type="number" value={selected.agi} onChange={(event) => updateSelected({ agi: Number(event.target.value) || 0 }, 'Edit', 'Adjusted AGI.')} /></label>
-                  <label>VIT<input type="number" value={selected.vit} onChange={(event) => updateSelected({ vit: Number(event.target.value) || 0 }, 'Edit', 'Adjusted VIT.')} /></label>
-                  <label>INT<input type="number" value={selected.intelligence} onChange={(event) => updateSelected({ intelligence: Number(event.target.value) || 0 }, 'Edit', 'Adjusted INT.')} /></label>
-                  <label>Divinity<input type="number" value={selected.divinity} onChange={(event) => updateSelected({ divinity: Number(event.target.value) || 0 }, 'Edit', 'Adjusted Divinity.')} /></label>
-                </div>
-                <label className="notes">Notes<textarea value={selected.notes} onChange={(event) => updateSelected({ notes: event.target.value }, 'Notes', 'Updated notes.')} /></label>
-              </>
-            )}
+          {!selected && (
+            <article className="empty-state">
+              <h2>Select A Character</h2>
+              <p>Choose a character from the left list to open the system panel.</p>
+            </article>
+          )}
 
-            {tab === 'history' && (
-              <>
-                <h2>History Timeline</h2>
-                <div className="history-list">
-                  {selected.history.map((entry) => (
-                    <div key={entry.id} className="history-row">
-                      <strong>{entry.action}</strong>
-                      <span>{entry.detail}</span>
-                      <small>{new Date(entry.timestamp).toLocaleString()}</small>
-                    </div>
-                  ))}
-                </div>
-              </>
-            )}
-
-            {tab === 'progression' && (
-              <>
-                <h2>Progression</h2>
-                <div className="progress-panel">
-                  <p>Current rank: <strong>{selected.rank}</strong></p>
-                  <p>Level gain model: +{rankGains[selected.rank].phy} PHY, +{rankGains[selected.rank].int} INT, +{rankGains[selected.rank].divinity} Divinity</p>
-                  <p>Remaining points: <strong>{selected.remainingPoints}</strong></p>
-                  <button onClick={levelUpSelected}>Apply One Level Up</button>
-                </div>
-              </>
-            )}
-          </article>
-
-          <article className="status-window">
-            <div className={isAlok ? 'status-frame alok-frame' : 'status-frame'}>
-              <div className="status-head">
-                <div className="stars">✦ ✧ ✦</div>
-                <h3>STATUS</h3>
-                <p>{isAlok ? 'CELESTIAL DIVINE INTERFACE' : 'SYSTEM INTERFACE'}</p>
-                <h4>{selected.name}</h4>
-                <small>{selected.race} • {selected.rank} • Level {selected.level} • Total power {totalPower.toLocaleString()}</small>
+          {selected && page === 'editor' && (
+            <article className="sheet-card">
+              <h2>Stat Editor</h2>
+              <div className="grid2">
+                <label>Name<input value={selected.name} onChange={(event) => updateSelected({ name: event.target.value }, 'Edit', 'Updated name.')} /></label>
+                <label>Race<select value={selected.race} onChange={(event) => updateSelected({ race: event.target.value }, 'Edit', 'Updated race.')}>{races.map((race) => <option key={race}>{race}</option>)}</select></label>
+                <label>Rank<select value={selected.rank} onChange={(event) => updateSelected({ rank: event.target.value as RankName }, 'Edit', 'Updated rank.')}>{ranks.map((rank) => <option key={rank}>{rank}</option>)}</select></label>
+                <label>Level<input type="number" value={selected.level} onChange={(event) => updateSelected({ level: Number(event.target.value) || 1 }, 'Edit', 'Adjusted level manually.')} /></label>
+                <label>STR<input type="number" value={selected.str} onChange={(event) => updateSelected({ str: Number(event.target.value) || 0 }, 'Edit', 'Adjusted STR.')} /></label>
+                <label>AGI<input type="number" value={selected.agi} onChange={(event) => updateSelected({ agi: Number(event.target.value) || 0 }, 'Edit', 'Adjusted AGI.')} /></label>
+                <label>VIT<input type="number" value={selected.vit} onChange={(event) => updateSelected({ vit: Number(event.target.value) || 0 }, 'Edit', 'Adjusted VIT.')} /></label>
+                <label>INT<input type="number" value={selected.intelligence} onChange={(event) => updateSelected({ intelligence: Number(event.target.value) || 0 }, 'Edit', 'Adjusted INT.')} /></label>
+                <label>Divinity<input type="number" value={selected.divinity} onChange={(event) => updateSelected({ divinity: Number(event.target.value) || 0 }, 'Edit', 'Adjusted Divinity.')} /></label>
               </div>
+              <label className="notes">Notes<textarea value={selected.notes} onChange={(event) => updateSelected({ notes: event.target.value }, 'Notes', 'Updated notes.')} /></label>
+            </article>
+          )}
 
-              <div className="mode-row">
-                <button className={mode === 'status' ? 'active' : ''} onClick={() => setMode('status')}>Status</button>
-                <button className={mode === 'skills' ? 'active' : ''} onClick={() => setMode('skills')}>Skills</button>
+          {selected && page === 'history' && (
+            <article className="sheet-card">
+              <h2>History Timeline</h2>
+              <div className="history-list">
+                {selected.history.map((entry) => (
+                  <div key={entry.id} className="history-row">
+                    <strong>{entry.action}</strong>
+                    <span>{entry.detail}</span>
+                    <small>{new Date(entry.timestamp).toLocaleString()}</small>
+                  </div>
+                ))}
               </div>
+            </article>
+          )}
 
-              {mode === 'status' ? (
-                <>
-                  <div className="bars">
-                    <div>
-                      <label>HP</label>
-                      <div className="bar-track"><div className="bar-fill" style={{ width: `${hpFill}%` }} /></div>
-                      <strong>{hp.toLocaleString()}</strong>
-                    </div>
-                    <div>
-                      <label>MP</label>
-                      <div className="bar-track"><div className="bar-fill mp" style={{ width: `${mpFill}%` }} /></div>
-                      <strong>{mp.toLocaleString()}</strong>
-                    </div>
-                  </div>
+          {selected && page === 'progression' && (
+            <article className="sheet-card">
+              <h2>Progression</h2>
+              <div className="progress-panel">
+                <p>Current rank: <strong>{selected.rank}</strong></p>
+                <p>Level gain model: +{rankGains[selected.rank].phy} PHY, +{rankGains[selected.rank].int} INT, +{rankGains[selected.rank].divinity} Divinity</p>
+                <p>Remaining points: <strong>{selected.remainingPoints}</strong></p>
+                <button onClick={levelUpSelected}>Apply One Level Up</button>
+              </div>
+            </article>
+          )}
 
-                  <div className="summary-grid">
-                    <Card label="Name" value={selected.name} />
-                    <Card label="Level" value={String(selected.level)} />
-                    <Card label="Job" value={selected.rank} />
-                    <Card label="Fatigue" value={String(selected.fatigue)} />
-                    <Card label="Title" value={selected.title} />
-                    <Card label="Remaining Points" value={String(selected.remainingPoints)} />
-                  </div>
+          {selected && page === 'panel' && (
+            <article className="status-window panel-only">
+              <div className={isAlok ? 'status-frame alok-frame' : 'status-frame'}>
+                <div className="status-head">
+                  <div className="stars">✦ ✧ ✦</div>
+                  <h3>STATUS</h3>
+                  <p>{isAlok ? 'CELESTIAL DIVINE INTERFACE' : 'SYSTEM INTERFACE'}</p>
+                  <h4>{selected.name}</h4>
+                  <small>{selected.race} • {selected.rank} • Level {selected.level} • Total power {totalPower.toLocaleString()}</small>
+                </div>
 
-                  <div className="stat-grid">
-                    <Card label="STR" value={selected.str.toLocaleString()} />
-                    <Card label="AGI" value={selected.agi.toLocaleString()} />
-                    <Card label="VIT" value={selected.vit.toLocaleString()} />
-                    <Card label="INTELLIGENCE" value={selected.intelligence.toLocaleString()} />
-                    <Card label="DIVINITY" value={selected.divinity.toLocaleString()} />
-                  </div>
+                <div className="mode-row">
+                  <button className={mode === 'status' ? 'active' : ''} onClick={() => setMode('status')}>Status</button>
+                  <button className={mode === 'skills' ? 'active' : ''} onClick={() => setMode('skills')}>Skills</button>
+                </div>
 
-                  {isAlok && <div className="canon">Canon profile active: Alok has a unique celestial system panel</div>}
-                </>
-              ) : (
-                <div className="skills-list-wrap">
-                  <div className="skill-form">
-                    <input placeholder="Skill name" value={skillDraft.name} onChange={(event) => setSkillDraft((prev) => ({ ...prev, name: event.target.value }))} />
-                    <input placeholder="Skill rank" value={skillDraft.rank} onChange={(event) => setSkillDraft((prev) => ({ ...prev, rank: event.target.value }))} />
-                    <input placeholder="Description" value={skillDraft.description} onChange={(event) => setSkillDraft((prev) => ({ ...prev, description: event.target.value }))} />
-                    <button onClick={addSkill}>Add Skill</button>
-                  </div>
-                  <div className="skills-list">
-                    {selected.skills.map((skill) => (
-                      <div key={skill.id} className="skill-row">
-                        <strong>{skill.name} [{skill.rank}]</strong>
-                        <span>{skill.description}</span>
+                {mode === 'status' ? (
+                  <>
+                    <div className="bars">
+                      <div>
+                        <label>HP</label>
+                        <div className="bar-track"><div className="bar-fill" style={{ width: `${hpFill}%` }} /></div>
+                        <strong>{hp.toLocaleString()}</strong>
                       </div>
-                    ))}
+                      <div>
+                        <label>MP</label>
+                        <div className="bar-track"><div className="bar-fill mp" style={{ width: `${mpFill}%` }} /></div>
+                        <strong>{mp.toLocaleString()}</strong>
+                      </div>
+                    </div>
+
+                    <div className="summary-grid">
+                      <Card label="Name" value={selected.name} />
+                      <Card label="Level" value={String(selected.level)} />
+                      <Card label="Job" value={selected.rank} />
+                      <Card label="Fatigue" value={String(selected.fatigue)} />
+                      <Card label="Title" value={selected.title} />
+                      <Card label="Remaining Points" value={String(selected.remainingPoints)} />
+                    </div>
+
+                    <div className="stat-grid">
+                      <Card label="STR" value={selected.str.toLocaleString()} />
+                      <Card label="AGI" value={selected.agi.toLocaleString()} />
+                      <Card label="VIT" value={selected.vit.toLocaleString()} />
+                      <Card label="INTELLIGENCE" value={selected.intelligence.toLocaleString()} />
+                      <Card label="DIVINITY" value={selected.divinity.toLocaleString()} />
+                    </div>
+
+                    {isAlok && <div className="canon">Canon profile active: Alok has a unique celestial system panel</div>}
+                  </>
+                ) : (
+                  <div className="skills-list-wrap">
+                    <div className="skill-form">
+                      <input placeholder="Skill name" value={skillDraft.name} onChange={(event) => setSkillDraft((prev) => ({ ...prev, name: event.target.value }))} />
+                      <input placeholder="Skill rank" value={skillDraft.rank} onChange={(event) => setSkillDraft((prev) => ({ ...prev, rank: event.target.value }))} />
+                      <input placeholder="Description" value={skillDraft.description} onChange={(event) => setSkillDraft((prev) => ({ ...prev, description: event.target.value }))} />
+                      <button onClick={addSkill}>Add Skill</button>
+                    </div>
+                    <div className="skills-list">
+                      {selected.skills.map((skill) => (
+                        <div key={skill.id} className="skill-row">
+                          <strong>{skill.name} [{skill.rank}]</strong>
+                          <span>{skill.description}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-          </article>
+                )}
+              </div>
+            </article>
+          )}
         </section>
       </main>
     </div>
