@@ -3,17 +3,17 @@ Rank: Divine
 Level: 135
 Race: mixed
 Attributes:
-• STR: 6,449
-• AGI: 4,860
+• STR: 7,449
+• AGI: 9,560
 • VIT: 10,020
-• INT: 14,190
+• INT: 15,190
 • Dragon INT: 18,450
 • Demon INT: 18,450
 • Angel Core: 18,450
-• Divinity: 7,720
+• Divinity: 8,420
 • Total INT: 69,540
 • Affinity: Lightning, Flame, Frost, Blood (150% increase in damage, 100% increase in resistance)
-• Attribute Points: 2,700
+• Attribute Points: 0
 Tower points: 394,345,250
 DIVINE ABILITIES:
 • Regeneration (Divine):
@@ -260,11 +260,11 @@ Attributes:
 Solis Level 185 (Blazing Swordmaster)
 
 • Rank: SS1
-• STR: 2,819
-• AGI: 2,661
-• VIT: 4,285
-• INT: 4,709
-• Attribute Points: 100
+• STR: 3,219
+• AGI: 3,061
+• VIT: 5,235
+• INT: 6,109
+• Attribute Points: 400
 Skills: 
 
 •Infuse Mana (Rank E, 84.42%)
@@ -272,8 +272,17 @@ Skills:
 • Wind Slash(Rank D, Completion 84.23%)
  Releases wind slashes from it’s sword.
 •	Swordsmanship (Rank D, 83.53%): Proficiency with sword combat increases
-• Flame Slash
-• 
+
+• Flame Slash (Rank D, 72.11%): Infuses sword slashes with flame energy, releasing arcs of fire toward enemies. Damage increases with INT and Flame affinity.
+
+• Blazing Vortex (one-star, Rank C, 45.67%): Spin rapidly with the sword while surrounded by flames, creating a whirlwind of fire that strikes all nearby enemies. Can be sustained for a short duration with continuous mana drain.
+
+• Inferno Blade (two-star, Rank C, 38.94%): Coat the entire blade in ultra-hot flames, increasing all fire-based attack damage by 40% for 20 seconds. During this time, melee attacks apply burning status to enemies.
+
+• Phoenix Ascension (three-star, Rank C, 12.53%): Launch into the air trailing flames, then dive down with an explosive sword strike that creates a wide explosion of fire. The impact radius expands with INT stat.
+
+• Eternal Flame Sovereign (four-star, Rank D, 0.01%): Channel all inner flame reserves into a massive sword swing that releases a crescent of absolute fire spanning hundreds of meters. This devastating attack burns away defenses and leaves scorched earth. Upon impact, continuous waves of flame energy erupt for several seconds, affecting all enemies in the area. Cooldown: 15 minutes.
+
 Valeria Level 100 (Valkyrie Apprentice)
 Race: Valkyrie
 • Rank: S
