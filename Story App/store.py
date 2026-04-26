@@ -5,6 +5,7 @@ import sqlite3
 from datetime import datetime
 from pathlib import Path
 
+from lore import ALOK_PROFILE, alok_skill_rows
 from rules import get_race_defaults
 
 APP_DIR = Path(__file__).resolve().parent
@@ -79,7 +80,6 @@ class StoryStore:
         if cursor.fetchone()["total"]:
             return
 
-        defaults = get_race_defaults("mixed")
         now = utc_now()
         connection.execute(
             """
@@ -87,40 +87,31 @@ class StoryStore:
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
-                "Alok Aeonmorta",
-                "mixed",
-                "Divine",
-                135,
-                7449,
-                9560,
-                10020,
-                18190,
-                8420,
+                ALOK_PROFILE["name"],
+                ALOK_PROFILE["race"],
+                ALOK_PROFILE["rank"],
+                ALOK_PROFILE["level"],
+                ALOK_PROFILE["stats"]["str"],
+                ALOK_PROFILE["stats"]["agi"],
+                ALOK_PROFILE["stats"]["vit"],
+                ALOK_PROFILE["stats"]["intelligence"],
+                ALOK_PROFILE["stats"]["divinity"],
                 "Seeded from the source notes for the first test character.",
                 now,
                 now,
             ),
         )
         character_id = connection.execute("SELECT last_insert_rowid() AS id").fetchone()["id"]
-        sample_skills = [
-            ("Regeneration (Divine)", "Divine", "Regenerates body from damage and poisons. Can restore the body even from a death state."),
-            ("Incineration Beam", "Divine", "Shoots a beam of absolute flames that incinerate monsters caught."),
-            ("Thunder's Judgement", "Divine", "Unleashes complete destruction across a massive area."),
-            ("Soul Absorber", "Divine", "Absorb and store souls, gaining knowledge, skills, and essence."),
-            ("Soul Rebirth", "Divine", "Transforms a soul and wipes its memories to grant a new beginning."),
-            ("Sovereign of Eternal Legions", "Divine", "Rules undead and soul-bound familiars within the Eternal Legion."),
-        ]
-        for name, rank, description in sample_skills:
+        for name, rank, description in alok_skill_rows():
             self.add_skill(character_id, name, rank, description, connection=connection)
         self.log_history(
             character_id,
             "seed",
-            "Seeded demo character Alok Aeonmorta",
+            "Seeded demo character Alok Aeonmorta from the canon profile",
             before={},
-            after={"name": "Alok Aeonmorta", "race": "mixed", "rank": "Divine"},
+            after={"name": ALOK_PROFILE["name"], "race": ALOK_PROFILE["race"], "rank": ALOK_PROFILE["rank"]},
             connection=connection,
         )
-        _ = defaults
 
     def list_characters(self) -> list[dict]:
         with self.connect() as connection:
