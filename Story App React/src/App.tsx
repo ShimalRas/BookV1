@@ -154,21 +154,49 @@ const seededCharacter: Character = {
 }
 
 function normalizeCharacter(raw: any): Character {
-  const intDragon = Number(raw?.intDragon ?? 0) || 0
-  const intDemon = Number(raw?.intDemon ?? 0) || 0
-  const intAngel = Number(raw?.intAngel ?? 0) || 0
+  const rawObj = raw && typeof raw === 'object' ? raw : {}
+  const hasIntDragon = Object.prototype.hasOwnProperty.call(rawObj, 'intDragon')
+  const hasIntDemon = Object.prototype.hasOwnProperty.call(rawObj, 'intDemon')
+  const hasIntAngel = Object.prototype.hasOwnProperty.call(rawObj, 'intAngel')
+  const hasAffinity = Object.prototype.hasOwnProperty.call(rawObj, 'affinity')
+  const hasTowerPoints = Object.prototype.hasOwnProperty.call(rawObj, 'towerPoints')
+
+  let intDragon = Number(rawObj?.intDragon ?? 0) || 0
+  let intDemon = Number(rawObj?.intDemon ?? 0) || 0
+  let intAngel = Number(rawObj?.intAngel ?? 0) || 0
+  let affinity = String(rawObj?.affinity ?? '')
+  let towerPoints = Number(rawObj?.towerPoints ?? 0) || 0
+
   const inferredAlok =
-    (typeof raw?.name === 'string' && raw.name.toLowerCase().includes('alok')) || intDragon + intDemon + intAngel !== 0
-  const divinityEnabled = raw?.divinityEnabled === true ? true : raw?.divinityEnabled === false ? false : inferredAlok
+    (typeof rawObj?.name === 'string' && rawObj.name.toLowerCase().includes('alok')) || intDragon + intDemon + intAngel !== 0
+  const divinityEnabled = rawObj?.divinityEnabled === true ? true : rawObj?.divinityEnabled === false ? false : inferredAlok
+
+  if (inferredAlok) {
+    const canonMissing = (!hasIntDragon && !hasIntDemon && !hasIntAngel) || (intDragon === 0 && intDemon === 0 && intAngel === 0)
+    const metaMissing = (!hasAffinity && !hasTowerPoints) || (!affinity.trim() && towerPoints === 0)
+    if (canonMissing && metaMissing) {
+      intDragon = seededCharacter.intDragon
+      intDemon = seededCharacter.intDemon
+      intAngel = seededCharacter.intAngel
+      affinity = seededCharacter.affinity
+      towerPoints = seededCharacter.towerPoints
+    } else {
+      if (!hasIntDragon && intDragon === 0) intDragon = seededCharacter.intDragon
+      if (!hasIntDemon && intDemon === 0) intDemon = seededCharacter.intDemon
+      if (!hasIntAngel && intAngel === 0) intAngel = seededCharacter.intAngel
+      if (!hasAffinity && !affinity.trim()) affinity = seededCharacter.affinity
+      if (!hasTowerPoints && towerPoints === 0) towerPoints = seededCharacter.towerPoints
+    }
+  }
 
   return {
     ...raw,
     intDragon,
     intDemon,
     intAngel,
-    affinity: String(raw?.affinity ?? ''),
+    affinity,
     attributePoints: Number(raw?.attributePoints ?? 0) || 0,
-    towerPoints: Number(raw?.towerPoints ?? 0) || 0,
+    towerPoints,
     divinityEnabled,
     skills: Array.isArray(raw?.skills) ? raw.skills : [],
     history: Array.isArray(raw?.history) ? raw.history : [],
