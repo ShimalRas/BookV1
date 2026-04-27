@@ -41,12 +41,11 @@ type Character = {
   intDemon: number
   intAngel: number
   divinity: number
+  divinityEnabled: boolean
   affinity: string
   attributePoints: number
   towerPoints: number
   title: string
-  fatigue: number
-  remainingPoints: number
   notes: string
   skills: Skill[]
   history: HistoryEntry[]
@@ -102,12 +101,11 @@ const seededCharacter: Character = {
   intDemon: 18450,
   intAngel: 18450,
   divinity: 8420,
+  divinityEnabled: true,
   affinity: 'Lightning, Flame, Frost, Blood (150% damage, 100% resistance)',
   attributePoints: 0,
   towerPoints: 394345250,
   title: 'Eternal Legion Sovereign',
-  fatigue: 33,
-  remainingPoints: 0,
   notes: 'Canon profile seeded from Newwrite.txt',
   skills: [
     { id: crypto.randomUUID(), name: 'Regeneration', rank: 'Divine', description: 'Regenerates body from damage and poisons. Can restore the body even from a death state, drawing upon the cycle of both life and death.' },
@@ -156,14 +154,22 @@ const seededCharacter: Character = {
 }
 
 function normalizeCharacter(raw: any): Character {
+  const intDragon = Number(raw?.intDragon ?? 0) || 0
+  const intDemon = Number(raw?.intDemon ?? 0) || 0
+  const intAngel = Number(raw?.intAngel ?? 0) || 0
+  const inferredAlok =
+    (typeof raw?.name === 'string' && raw.name.toLowerCase().includes('alok')) || intDragon + intDemon + intAngel !== 0
+  const divinityEnabled = raw?.divinityEnabled === true ? true : raw?.divinityEnabled === false ? false : inferredAlok
+
   return {
     ...raw,
-    intDragon: Number(raw?.intDragon ?? 0) || 0,
-    intDemon: Number(raw?.intDemon ?? 0) || 0,
-    intAngel: Number(raw?.intAngel ?? 0) || 0,
+    intDragon,
+    intDemon,
+    intAngel,
     affinity: String(raw?.affinity ?? ''),
     attributePoints: Number(raw?.attributePoints ?? 0) || 0,
     towerPoints: Number(raw?.towerPoints ?? 0) || 0,
+    divinityEnabled,
     skills: Array.isArray(raw?.skills) ? raw.skills : [],
     history: Array.isArray(raw?.history) ? raw.history : [],
   }
@@ -191,10 +197,14 @@ function App() {
   const selected = useMemo(() => characters.find((item) => item.id === selectedId), [characters, selectedId])
 
   const palette = rankColors[selected?.rank ?? 'Divine']
-  const isAlok = selected?.name.toLowerCase() === 'alok aeonmorta'
-  const extraInt = selected && isAlok ? (selected.intDragon + selected.intDemon + selected.intAngel) : 0
+  const hasAlokExtraInt = Boolean(selected && (selected.intDragon !== 0 || selected.intDemon !== 0 || selected.intAngel !== 0))
+  const isAlokNameMatch = Boolean(selected && selected.name.toLowerCase().includes('alok'))
+  const isAlok = Boolean(selected && (isAlokNameMatch || hasAlokExtraInt))
+  const divinityEnabled = Boolean(selected && (isAlok || selected.divinityEnabled))
+  const extraInt = selected && isAlok ? selected.intDragon + selected.intDemon + selected.intAngel : 0
   const totalInt = selected ? selected.intelligence + extraInt : 0
-  const totalPower = selected ? selected.str + selected.agi + selected.vit + totalInt + selected.divinity : 0
+  const effectiveDivinity = selected && divinityEnabled ? selected.divinity : 0
+  const totalPower = selected ? selected.str + selected.agi + selected.vit + totalInt + effectiveDivinity : 0
   const hp = selected ? selected.vit * 100 : 0
   const mp = selected ? totalInt * 100 : 0
   const hpFill = selected ? Math.min(100, Math.round((hp / (selected.level * 3000)) * 100)) : 0
@@ -225,20 +235,19 @@ function App() {
       race: 'human',
       rank: 'E',
       level: 1,
-      str: 50,
-      agi: 50,
-      vit: 50,
-      intelligence: 60,
+      str: 10,
+      agi: 10,
+      vit: 10,
+      intelligence: 10,
       intDragon: 0,
       intDemon: 0,
       intAngel: 0,
       divinity: 0,
+      divinityEnabled: false,
       affinity: '',
       attributePoints: 0,
       towerPoints: 0,
       title: 'Unassigned',
-      fatigue: 0,
-      remainingPoints: 0,
       notes: '',
       skills: [],
       history: [{ id: crypto.randomUUID(), timestamp: new Date().toISOString(), action: 'Create', detail: 'Character created.' }],
@@ -250,6 +259,8 @@ function App() {
   function levelUpSelected() {
     if (!selected) return
     const gain = rankGains[selected.rank]
+    const canUseDivinity = Boolean(isAlok || selected.divinityEnabled)
+    const divinityGain = canUseDivinity ? gain.divinity : 0
     updateSelected(
       {
         level: selected.level + 1,
@@ -257,8 +268,7 @@ function App() {
         agi: selected.agi + gain.phy,
         vit: selected.vit + gain.phy,
         intelligence: selected.intelligence + gain.int,
-        divinity: selected.divinity + gain.divinity,
-        remainingPoints: selected.remainingPoints + gain.phy + gain.int + gain.divinity,
+        divinity: selected.divinity + divinityGain,
       },
       'Level Up',
       `Leveled to ${selected.level + 1} with ${selected.rank} gains (+${gain.phy} PHY, +${gain.int} INT).`,
@@ -343,6 +353,22 @@ function App() {
                 <label>Race<select value={selected.race} onChange={(event) => updateSelected({ race: event.target.value }, 'Edit', 'Updated race.')}>{races.map((race) => <option key={race}>{race}</option>)}</select></label>
                 <label>Rank<select value={selected.rank} onChange={(event) => updateSelected({ rank: event.target.value as RankName }, 'Edit', 'Updated rank.')}>{ranks.map((rank) => <option key={rank}>{rank}</option>)}</select></label>
                 <label>Level<input type="number" value={selected.level} onChange={(event) => updateSelected({ level: Number(event.target.value) || 1 }, 'Edit', 'Adjusted level manually.')} /></label>
+                <label>
+                  Divinity Enabled
+                  <input
+                    type="checkbox"
+                    checked={divinityEnabled}
+                    disabled={isAlok}
+                    onChange={(event) => {
+                      const nextEnabled = event.target.checked
+                      updateSelected(
+                        nextEnabled ? { divinityEnabled: true } : { divinityEnabled: false, divinity: 0 },
+                        'Edit',
+                        nextEnabled ? 'Enabled Divinity.' : 'Disabled Divinity and cleared value.',
+                      )
+                    }}
+                  />
+                </label>
                 <label>STR<input type="number" value={selected.str} onChange={(event) => updateSelected({ str: Number(event.target.value) || 0 }, 'Edit', 'Adjusted STR.')} /></label>
                 <label>AGI<input type="number" value={selected.agi} onChange={(event) => updateSelected({ agi: Number(event.target.value) || 0 }, 'Edit', 'Adjusted AGI.')} /></label>
                 <label>VIT<input type="number" value={selected.vit} onChange={(event) => updateSelected({ vit: Number(event.target.value) || 0 }, 'Edit', 'Adjusted VIT.')} /></label>
@@ -354,7 +380,9 @@ function App() {
                     <label>Angel Core<input type="number" value={selected.intAngel} onChange={(event) => updateSelected({ intAngel: Number(event.target.value) || 0 }, 'Edit', 'Adjusted Angel Core.')} /></label>
                   </>
                 )}
-                <label>Divinity<input type="number" value={selected.divinity} onChange={(event) => updateSelected({ divinity: Number(event.target.value) || 0 }, 'Edit', 'Adjusted Divinity.')} /></label>
+                {divinityEnabled && (
+                  <label>Divinity<input type="number" value={selected.divinity} onChange={(event) => updateSelected({ divinity: Number(event.target.value) || 0 }, 'Edit', 'Adjusted Divinity.')} /></label>
+                )}
                 <label>Attribute Points<input type="number" value={selected.attributePoints} onChange={(event) => updateSelected({ attributePoints: Number(event.target.value) || 0 }, 'Edit', 'Adjusted attribute points.')} /></label>
                 <label>Tower Points<input type="number" value={selected.towerPoints} onChange={(event) => updateSelected({ towerPoints: Number(event.target.value) || 0 }, 'Edit', 'Adjusted tower points.')} /></label>
                 <label>Affinity<input value={selected.affinity} onChange={(event) => updateSelected({ affinity: event.target.value }, 'Edit', 'Updated affinity.')} /></label>
@@ -384,7 +412,6 @@ function App() {
               <div className="progress-panel">
                 <p>Current rank: <strong>{selected.rank}</strong></p>
                 <p>Level gain model: +{rankGains[selected.rank].phy} PHY, +{rankGains[selected.rank].int} INT, +{rankGains[selected.rank].divinity} Divinity</p>
-                <p>Remaining points: <strong>{selected.remainingPoints}</strong></p>
                 <button onClick={levelUpSelected}>Apply One Level Up</button>
               </div>
             </article>
@@ -425,9 +452,7 @@ function App() {
                       <Card label="Name" value={selected.name} />
                       <Card label="Level" value={String(selected.level)} />
                       <Card label="Rank" value={selected.rank} />
-                      <Card label="Fatigue" value={String(selected.fatigue)} />
                       <Card label="Title" value={selected.title} />
-                      <Card label="Remaining Points" value={String(selected.remainingPoints)} />
                       <Card label="Attribute Points" value={String(selected.attributePoints)} />
                       <Card label="Tower Points" value={selected.towerPoints.toLocaleString()} />
                       <Card label="Affinity" value={selected.affinity || '—'} />
@@ -438,7 +463,7 @@ function App() {
                       <Card label="AGI" value={selected.agi.toLocaleString()} />
                       <Card label="VIT" value={selected.vit.toLocaleString()} />
                       <Card label="TOTAL INT" value={totalInt.toLocaleString()} />
-                      <Card label="DIVINITY" value={selected.divinity.toLocaleString()} />
+                      {divinityEnabled && <Card label="DIVINITY" value={selected.divinity.toLocaleString()} />}
                     </div>
 
                     {isAlok && (
