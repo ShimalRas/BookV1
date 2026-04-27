@@ -92,6 +92,15 @@ const races = ['human', 'elf', 'vampire', 'dragonoid', 'angel', 'fairy', 'valkyr
 const ranks: RankName[] = ['E', 'D', 'C', 'B', 'A', 'S', 'SS-1', 'SS-2', 'SS-3', 'Mythic-1', 'Mythic-2', 'Demi', 'Divine']
 const STORAGE_KEY = 'story-app-react-v2'
 
+const chromePalette: Palette = {
+  base: '#000000',
+  panel: '#0b0b12',
+  accent: '#9aa3b2',
+  accentSoft: '#1b2230',
+  glow: '#e5e7eb',
+  text: '#ffffff',
+}
+
 const seededCharacter: Character = {
   id: crypto.randomUUID(),
   name: 'Alok Aeonmorta',
@@ -230,7 +239,7 @@ function App() {
 
   const selected = useMemo(() => characters.find((item) => item.id === selectedId), [characters, selectedId])
 
-  const palette = rankColors[selected?.rank ?? 'Divine']
+  const selectedRankPalette = selected ? rankColors[selected.rank] : rankColors.Divine
   const hasAlokExtraInt = Boolean(selected && (selected.intDragon !== 0 || selected.intDemon !== 0 || selected.intAngel !== 0))
   const isAlokNameMatch = Boolean(selected && selected.name.toLowerCase().includes('alok'))
   const isAlok = Boolean(selected && (isAlokNameMatch || hasAlokExtraInt))
@@ -288,6 +297,22 @@ function App() {
     }
     setCharacters((prev) => [created, ...prev])
     setSelectedId(created.id)
+    setPage('panel')
+    setMode('status')
+  }
+
+  const selectedCardVars = useMemo(() => {
+    return {
+      '--accent': selectedRankPalette.accent,
+      '--accent-soft': selectedRankPalette.accentSoft,
+      '--glow': selectedRankPalette.glow,
+    } as CSSProperties
+  }, [selectedRankPalette])
+
+  function openCharacter(id: string) {
+    setSelectedId(id)
+    setPage('panel')
+    setMode('status')
   }
 
   function levelUpSelected() {
@@ -330,12 +355,12 @@ function App() {
     <div
       className="app"
       style={{
-        '--base': palette.base,
-        '--panel': palette.panel,
-        '--accent': palette.accent,
-        '--accent-soft': palette.accentSoft,
-        '--glow': palette.glow,
-        '--text': palette.text,
+        '--base': chromePalette.base,
+        '--panel': chromePalette.panel,
+        '--accent': chromePalette.accent,
+        '--accent-soft': chromePalette.accentSoft,
+        '--glow': chromePalette.glow,
+        '--text': chromePalette.text,
       } as CSSProperties}
     >
       <header className="topbar">
@@ -343,7 +368,17 @@ function App() {
           <h1>Story App</h1>
           <p>Local character manager with a dedicated celestial panel, separate stat editor, and saved history</p>
           <div className="top-nav">
-            <button className={navPage === 'characters' ? 'active' : ''} onClick={() => setNavPage('characters')}>Characters</button>
+            <button
+              className={navPage === 'characters' ? 'active' : ''}
+              onClick={() => {
+                setNavPage('characters')
+                setSelectedId(null)
+                setPage('panel')
+                setMode('status')
+              }}
+            >
+              Characters
+            </button>
             <button className={navPage === 'skills' ? 'active' : ''} onClick={() => setNavPage('skills')}>Skills</button>
             <button className={navPage === 'ranks' ? 'active' : ''} onClick={() => setNavPage('ranks')}>Ranks</button>
             <button className={navPage === 'items' ? 'active' : ''} onClick={() => setNavPage('items')}>Items</button>
@@ -352,38 +387,50 @@ function App() {
         <div className="rank-badge">{selected ? `Lv ${selected.level} ${selected.rank}` : 'No character selected'}</div>
       </header>
 
-      <main className={navPage === 'characters' ? 'layout' : 'layout layout-single'}>
+      <main className="app-main">
         {navPage === 'characters' ? (
-          <>
-            <aside className="sidebar">
-              <div className="char-list">
-                {characters.map((character) => (
-                  <button
-                    key={character.id}
-                    className={character.id === selectedId ? 'char-pill active' : 'char-pill'}
-                    onClick={() => setSelectedId(character.id)}
-                  >
-                    {character.name} | {character.race}
-                  </button>
-                ))}
-              </div>
-              <button onClick={addCharacter}>New Character</button>
-              <button onClick={() => updateSelected({}, 'Save', 'Manual save event recorded.')} disabled={!selected}>Save Character</button>
-              <button onClick={levelUpSelected}>Level Up</button>
-            </aside>
+          selectedId === null ? (
+            <section className="characters-center">
+              <div className="character-grid">
+                {characters.map((character) => {
+                  const rankPalette = rankColors[character.rank]
+                  const cardVars = {
+                    '--accent': rankPalette.accent,
+                    '--accent-soft': rankPalette.accentSoft,
+                    '--glow': rankPalette.glow,
+                  } as CSSProperties
 
+                  return (
+                    <button key={character.id} className="char-card" style={cardVars} onClick={() => openCharacter(character.id)}>
+                      <div className="char-card-top">
+                        <strong>{character.name}</strong>
+                        <span className="char-card-rank">{character.rank}</span>
+                      </div>
+                      <div className="char-card-meta">
+                        <span>{character.race}</span>
+                        <span>Lv {character.level}</span>
+                      </div>
+                    </button>
+                  )
+                })}
+              </div>
+              <div className="character-footer">
+                <button className="primary" onClick={addCharacter}>New Character</button>
+              </div>
+            </section>
+          ) : (
             <section className="main-panel">
-          <div className="workspace-tabs">
-            <button className={page === 'panel' ? 'active' : ''} onClick={() => setPage('panel')}>System Panel</button>
-            <button className={page === 'editor' ? 'active' : ''} onClick={() => setPage('editor')}>Stat Editor</button>
-            <button className={page === 'history' ? 'active' : ''} onClick={() => setPage('history')}>History</button>
-            <button className={page === 'progression' ? 'active' : ''} onClick={() => setPage('progression')}>Progression</button>
-          </div>
+              <div className="workspace-tabs">
+                <button className={page === 'panel' ? 'active' : ''} onClick={() => setPage('panel')}>System Panel</button>
+                <button className={page === 'editor' ? 'active' : ''} onClick={() => setPage('editor')}>Stat Editor</button>
+                <button className={page === 'history' ? 'active' : ''} onClick={() => setPage('history')}>History</button>
+                <button className={page === 'progression' ? 'active' : ''} onClick={() => setPage('progression')}>Progression</button>
+              </div>
 
           {!selected && (
             <article className="empty-state">
-              <h2>Select A Character</h2>
-              <p>Choose a character from the left list to open the system panel.</p>
+              <h2>Select a character</h2>
+              <p>Choose a character to open the system panel.</p>
             </article>
           )}
 
@@ -460,7 +507,7 @@ function App() {
           )}
 
           {selected && page === 'panel' && (
-            <article className="status-window panel-only">
+            <article className="status-window panel-only" style={selectedCardVars}>
               <div className={isAlok ? 'status-frame alok-frame' : 'status-frame'}>
                 <div className="status-head">
                   <div className="stars">✦ ✧ ✦</div>
@@ -540,7 +587,7 @@ function App() {
             </article>
           )}
             </section>
-          </>
+          )
         ) : (
           <section className="main-panel">
             <article className="sheet-card">
