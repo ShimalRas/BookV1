@@ -270,6 +270,13 @@ function slugify(input: string): string {
     .replace(/^-+|-+$/g, '')
 }
 
+function normalizeOwnerName(owner: string): string {
+  const value = owner.trim()
+  if (!value) return 'Unknown'
+  if (value.toLowerCase().includes('alok')) return 'Alok'
+  return value
+}
+
 function inferStarTier(...texts: string[]): StarTier {
   const merged = texts.join(' ').toLowerCase()
   if (/\b(one|1)\s*-?\s*star/.test(merged)) return 1
@@ -308,7 +315,6 @@ function App() {
   const [skillSearch, setSkillSearch] = useState('')
   const [skillElement, setSkillElement] = useState('all')
   const [skillStar, setSkillStar] = useState<SkillPageStarFilter>('all')
-  const [skillOwner, setSkillOwner] = useState('all')
 
   const selected = useMemo(() => characters.find((item) => item.id === selectedId), [characters, selectedId])
 
@@ -331,7 +337,7 @@ function App() {
       character.skills.map((skill) => ({
         id: `tracked-${character.id}-${skill.id}`,
         name: skill.name,
-        owner: character.name,
+        owner: normalizeOwnerName(character.name),
         rank: skill.rank,
         element: inferElement(skill.name, skill.rank, skill.description),
         starTier: inferStarTier(skill.name, skill.rank, skill.description),
@@ -345,15 +351,11 @@ function App() {
   const allCodexSkills = useMemo<SkillCodexEntry[]>(() => {
     const index = new Map<string, SkillCodexEntry>()
     for (const skill of [...canonSkillCodex, ...trackedSkills]) {
-      const key = `${slugify(skill.owner)}::${slugify(skill.name)}`
+      const key = `${slugify(skill.name)}::${slugify(skill.element)}::${skill.starTier ?? 'none'}::${slugify(skill.category)}`
       if (!index.has(key)) index.set(key, skill)
     }
     return Array.from(index.values())
   }, [trackedSkills])
-
-  const codexOwners = useMemo(() => {
-    return ['all', ...Array.from(new Set(allCodexSkills.map((skill) => skill.owner))).sort((a, b) => a.localeCompare(b))]
-  }, [allCodexSkills])
 
   const codexElements = useMemo(() => {
     return ['all', ...Array.from(new Set(allCodexSkills.map((skill) => skill.element))).sort((a, b) => a.localeCompare(b))]
@@ -362,7 +364,6 @@ function App() {
   const filteredCodex = useMemo(() => {
     const query = skillSearch.trim().toLowerCase()
     return allCodexSkills
-      .filter((skill) => (skillOwner === 'all' ? true : skill.owner === skillOwner))
       .filter((skill) => (skillElement === 'all' ? true : skill.element === skillElement))
       .filter((skill) => {
         if (skillStar === 'all') return true
@@ -371,7 +372,7 @@ function App() {
       })
       .filter((skill) => {
         if (!query) return true
-        return [skill.name, skill.owner, skill.rank, skill.element, skill.category, skill.description].join(' ').toLowerCase().includes(query)
+        return [skill.name, skill.rank, skill.element, skill.category, skill.description].join(' ').toLowerCase().includes(query)
       })
       .sort((a, b) => {
         const aStar = a.starTier ?? -1
@@ -379,7 +380,34 @@ function App() {
         if (aStar !== bStar) return bStar - aStar
         return a.name.localeCompare(b.name)
       })
-  }, [allCodexSkills, skillElement, skillOwner, skillSearch, skillStar])
+  }, [allCodexSkills, skillElement, skillSearch, skillStar])
+
+  const filteredTitleCodex = useMemo(() => {
+    return filteredCodex.filter((skill) => skill.category === 'Title' || skill.name.toLowerCase().startsWith('title:'))
+  }, [filteredCodex])
+
+  const filteredSkillCodex = useMemo(() => {
+    return filteredCodex.filter((skill) => !(skill.category === 'Title' || skill.name.toLowerCase().startsWith('title:')))
+  }, [filteredCodex])
+
+  const groupedCodex = useMemo(() => {
+    const order: StarTier[] = [4, 3, 2, 1, null]
+    return order
+      .map((starTier) => {
+        const starSkills = filteredSkillCodex.filter((skill) => skill.starTier === starTier)
+        if (starSkills.length === 0) return null
+        const elements = Array.from(new Set(starSkills.map((skill) => skill.element))).sort((a, b) => a.localeCompare(b))
+        return {
+          starTier,
+          starText: starTier === null ? 'Starless Skills' : `${starTier}-Star Skills`,
+          elements: elements.map((element) => ({
+            element,
+            skills: starSkills.filter((skill) => skill.element === element),
+          })),
+        }
+      })
+      .filter((group): group is { starTier: StarTier; starText: string; elements: { element: string; skills: SkillCodexEntry[] }[] } => group !== null)
+  }, [filteredSkillCodex])
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(characters))
@@ -724,11 +752,12 @@ function App() {
                 <div className="skills-codex">
                   <div className="skills-codex-head">
                     <div>
-                      <h3>Elemental and Star Skill Archive</h3>
-                      <p>Canon skills from your world plus tracked character skills. Use filters to inspect stars, elements, and owners.</p>
+                      <h3>Elemental Star Skill Archive</h3>
+                      <p>Skills are organized by star tier first, then by element. Titles are listed in a separate section.</p>
                     </div>
                     <div className="skills-codex-metrics">
-                      <span>{filteredCodex.length} visible</span>
+                      <span>{filteredSkillCodex.length} skills</span>
+                      <span>{filteredTitleCodex.length} titles</span>
                       <span>{allCodexSkills.length} total</span>
                     </div>
                   </div>
@@ -736,15 +765,7 @@ function App() {
                   <div className="skills-filters">
                     <label>
                       Search
-                      <input value={skillSearch} onChange={(event) => setSkillSearch(event.target.value)} placeholder="skill, element, owner..." />
-                    </label>
-                    <label>
-                      Owner
-                      <select value={skillOwner} onChange={(event) => setSkillOwner(event.target.value)}>
-                        {codexOwners.map((owner) => (
-                          <option key={owner} value={owner}>{owner === 'all' ? 'All Owners' : owner}</option>
-                        ))}
-                      </select>
+                      <input value={skillSearch} onChange={(event) => setSkillSearch(event.target.value)} placeholder="skill, element, rank..." />
                     </label>
                     <label>
                       Element
@@ -764,26 +785,53 @@ function App() {
                     </label>
                   </div>
 
-                  <div className="skills-grid-codex">
-                    {filteredCodex.map((skill) => {
-                      const tint = elementTint[skill.element] ?? '#9ab3ff'
-                      return (
-                        <article key={skill.id} className="skill-codex-card" style={{ '--skill-tint': tint } as CSSProperties}>
-                          <div className="skill-codex-top">
-                            <strong>{skill.name}</strong>
-                            <span>{skill.starTier === null ? 'No Star' : `${skill.starTier}-Star`}</span>
+                  <div className="skills-group-stack">
+                    {groupedCodex.map((group) => (
+                      <section key={group.starText} className="skills-star-group">
+                        <h4>{group.starText}</h4>
+                        {group.elements.map((elementBlock) => (
+                          <div key={`${group.starText}-${elementBlock.element}`} className="skills-element-block">
+                            <h5>{elementBlock.element}</h5>
+                            <div className="skills-grid-codex">
+                              {elementBlock.skills.map((skill) => {
+                                const tint = elementTint[skill.element] ?? '#9ab3ff'
+                                return (
+                                  <article key={skill.id} className="skill-codex-card" style={{ '--skill-tint': tint } as CSSProperties}>
+                                    <div className="skill-codex-top">
+                                      <strong>{skill.name}</strong>
+                                      <span>{skill.starTier === null ? 'No Star' : `${skill.starTier}-Star`}</span>
+                                    </div>
+                                    <div className="skill-codex-tags">
+                                      <span>{skill.element}</span>
+                                      <span>{skill.rank}</span>
+                                      <span>{skill.category}</span>
+                                    </div>
+                                    <p>{skill.description}</p>
+                                  </article>
+                                )
+                              })}
+                            </div>
                           </div>
-                          <div className="skill-codex-tags">
-                            <span>{skill.owner}</span>
-                            <span>{skill.element}</span>
-                            <span>{skill.rank}</span>
-                            <span>{skill.category}</span>
-                          </div>
-                          <p>{skill.description}</p>
-                        </article>
-                      )
-                    })}
+                        ))}
+                      </section>
+                    ))}
                   </div>
+
+                  <section className="titles-section">
+                    <h4>Titles</h4>
+                    <div className="titles-grid">
+                      {filteredTitleCodex.map((title) => (
+                        <article key={title.id} className="title-card">
+                          <strong>{title.name}</strong>
+                          <div className="skill-codex-tags">
+                            <span>{title.rank}</span>
+                            <span>{title.element}</span>
+                          </div>
+                          <p>{title.description}</p>
+                        </article>
+                      ))}
+                    </div>
+                  </section>
                 </div>
               ) : (
                 <pre className="doc-view">{navPage === 'ranks' ? ranksDoc : itemsDoc}</pre>
