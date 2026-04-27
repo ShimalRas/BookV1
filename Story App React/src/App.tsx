@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useState, type CSSProperties } from 'react'
 
-import skillsDoc from './docs/skills.txt?raw'
 import ranksDoc from './docs/ranks.txt?raw'
 import itemsDoc from './docs/items.txt?raw'
+import { canonSkillCodex, type SkillCodexEntry, type StarTier } from './data/skillCodex'
 
 type RankName = 'E' | 'D' | 'C' | 'B' | 'A' | 'S' | 'SS-1' | 'SS-2' | 'SS-3' | 'Mythic-1' | 'Mythic-2' | 'Demi' | 'Divine'
 type SystemMode = 'status' | 'skills'
@@ -24,6 +24,8 @@ type Skill = {
   rank: string
   description: string
 }
+
+type SkillPageStarFilter = 'all' | 'none' | '1' | '2' | '3' | '4'
 
 type HistoryEntry = {
   id: string
@@ -91,6 +93,38 @@ const rankGains: Record<RankName, { phy: number; int: number; divinity: number }
 const races = ['human', 'elf', 'vampire', 'dragonoid', 'angel', 'fairy', 'valkyrie', 'demon', 'mixed']
 const ranks: RankName[] = ['E', 'D', 'C', 'B', 'A', 'S', 'SS-1', 'SS-2', 'SS-3', 'Mythic-1', 'Mythic-2', 'Demi', 'Divine']
 const STORAGE_KEY = 'story-app-react-v2'
+
+const elementTint: Record<string, string> = {
+  Arcane: '#8ec5ff',
+  Blood: '#ff7b8f',
+  Dark: '#8b7be2',
+  'Death/Command': '#9f9fbc',
+  Evolution: '#9adf93',
+  Fire: '#ff9656',
+  'Fire+Lightning+Ground': '#ffb763',
+  Ground: '#c9a06f',
+  Ice: '#8de6ff',
+  Life: '#85d88f',
+  'Life/Death': '#96cfaa',
+  Light: '#ffe49d',
+  'Lightning/Divine': '#f9d377',
+  Lightning: '#f6c65b',
+  Mind: '#8dc7ff',
+  Nature: '#93e69f',
+  Physical: '#c3c8d6',
+  Soul: '#b39cff',
+  Water: '#79c7ff',
+  Wind: '#93dbff',
+}
+
+const starLabel: Record<SkillPageStarFilter, string> = {
+  all: 'All Stars',
+  none: 'No Star',
+  '1': '1-Star',
+  '2': '2-Star',
+  '3': '3-Star',
+  '4': '4-Star',
+}
 
 const chromePalette: Palette = {
   base: '#000000',
@@ -229,6 +263,41 @@ function loadInitialCharacters(): Character[] {
   }
 }
 
+function slugify(input: string): string {
+  return input
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+function inferStarTier(...texts: string[]): StarTier {
+  const merged = texts.join(' ').toLowerCase()
+  if (/\b(one|1)\s*-?\s*star/.test(merged)) return 1
+  if (/\b(two|2)\s*-?\s*star/.test(merged)) return 2
+  if (/\b(three|3)\s*-?\s*star/.test(merged)) return 3
+  if (/\b(four|4)\s*-?\s*star/.test(merged)) return 4
+  return null
+}
+
+function inferElement(name: string, rank: string, description: string): string {
+  const text = `${name} ${rank} ${description}`.toLowerCase()
+  if (text.includes('blood')) return 'Blood'
+  if (text.includes('lightning') || text.includes('storm') || text.includes('thunder')) return 'Lightning'
+  if (text.includes('fire') || text.includes('flame') || text.includes('inferno') || text.includes('ember')) return 'Fire'
+  if (text.includes('frost') || text.includes('ice') || text.includes('zero')) return 'Ice'
+  if (text.includes('wind') || text.includes('air')) return 'Wind'
+  if (text.includes('water') || text.includes('tidal')) return 'Water'
+  if (text.includes('ground') || text.includes('stone') || text.includes('earth') || text.includes('seismic')) return 'Ground'
+  if (text.includes('nature') || text.includes('vine') || text.includes('root') || text.includes('thorn') || text.includes('verdant')) return 'Nature'
+  if (text.includes('light') || text.includes('radiant') || text.includes('angel')) return 'Light'
+  if (text.includes('dark')) return 'Dark'
+  if (text.includes('soul')) return 'Soul'
+  if (text.includes('divine') || text.includes('blessing')) return 'Lightning/Divine'
+  if (text.includes('mana')) return 'Arcane'
+  if (text.includes('sword') || text.includes('physical')) return 'Physical'
+  return 'Arcane'
+}
+
 function App() {
   const [characters, setCharacters] = useState<Character[]>(() => loadInitialCharacters())
   const [selectedId, setSelectedId] = useState<string | null>(null)
@@ -236,6 +305,10 @@ function App() {
   const [page, setPage] = useState<WorkspacePage>('panel')
   const [navPage, setNavPage] = useState<NavPage>('characters')
   const [skillDraft, setSkillDraft] = useState({ name: '', rank: 'Rank C', description: '' })
+  const [skillSearch, setSkillSearch] = useState('')
+  const [skillElement, setSkillElement] = useState('all')
+  const [skillStar, setSkillStar] = useState<SkillPageStarFilter>('all')
+  const [skillOwner, setSkillOwner] = useState('all')
 
   const selected = useMemo(() => characters.find((item) => item.id === selectedId), [characters, selectedId])
 
@@ -252,6 +325,61 @@ function App() {
   const mp = selected ? totalInt * 100 : 0
   const hpFill = selected ? Math.min(100, Math.round((hp / (selected.level * 3000)) * 100)) : 0
   const mpFill = selected ? Math.min(100, Math.round((mp / (selected.level * 4600)) * 100)) : 0
+
+  const trackedSkills = useMemo<SkillCodexEntry[]>(() => {
+    return characters.flatMap((character) =>
+      character.skills.map((skill) => ({
+        id: `tracked-${character.id}-${skill.id}`,
+        name: skill.name,
+        owner: character.name,
+        rank: skill.rank,
+        element: inferElement(skill.name, skill.rank, skill.description),
+        starTier: inferStarTier(skill.name, skill.rank, skill.description),
+        category: 'Tracked',
+        description: skill.description || 'No description provided.',
+        source: 'tracked' as const,
+      })),
+    )
+  }, [characters])
+
+  const allCodexSkills = useMemo<SkillCodexEntry[]>(() => {
+    const index = new Map<string, SkillCodexEntry>()
+    for (const skill of [...canonSkillCodex, ...trackedSkills]) {
+      const key = `${slugify(skill.owner)}::${slugify(skill.name)}`
+      if (!index.has(key)) index.set(key, skill)
+    }
+    return Array.from(index.values())
+  }, [trackedSkills])
+
+  const codexOwners = useMemo(() => {
+    return ['all', ...Array.from(new Set(allCodexSkills.map((skill) => skill.owner))).sort((a, b) => a.localeCompare(b))]
+  }, [allCodexSkills])
+
+  const codexElements = useMemo(() => {
+    return ['all', ...Array.from(new Set(allCodexSkills.map((skill) => skill.element))).sort((a, b) => a.localeCompare(b))]
+  }, [allCodexSkills])
+
+  const filteredCodex = useMemo(() => {
+    const query = skillSearch.trim().toLowerCase()
+    return allCodexSkills
+      .filter((skill) => (skillOwner === 'all' ? true : skill.owner === skillOwner))
+      .filter((skill) => (skillElement === 'all' ? true : skill.element === skillElement))
+      .filter((skill) => {
+        if (skillStar === 'all') return true
+        if (skillStar === 'none') return skill.starTier === null
+        return skill.starTier === Number(skillStar)
+      })
+      .filter((skill) => {
+        if (!query) return true
+        return [skill.name, skill.owner, skill.rank, skill.element, skill.category, skill.description].join(' ').toLowerCase().includes(query)
+      })
+      .sort((a, b) => {
+        const aStar = a.starTier ?? -1
+        const bStar = b.starTier ?? -1
+        if (aStar !== bStar) return bStar - aStar
+        return a.name.localeCompare(b.name)
+      })
+  }, [allCodexSkills, skillElement, skillOwner, skillSearch, skillStar])
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(characters))
@@ -591,8 +719,75 @@ function App() {
         ) : (
           <section className="main-panel">
             <article className="sheet-card">
-              <h2>{navPage === 'skills' ? 'Skills' : navPage === 'ranks' ? 'Ranks' : 'Items'}</h2>
-              <pre className="doc-view">{navPage === 'skills' ? skillsDoc : navPage === 'ranks' ? ranksDoc : itemsDoc}</pre>
+              <h2>{navPage === 'skills' ? 'Skills Codex' : navPage === 'ranks' ? 'Ranks' : 'Items'}</h2>
+              {navPage === 'skills' ? (
+                <div className="skills-codex">
+                  <div className="skills-codex-head">
+                    <div>
+                      <h3>Elemental and Star Skill Archive</h3>
+                      <p>Canon skills from your world plus tracked character skills. Use filters to inspect stars, elements, and owners.</p>
+                    </div>
+                    <div className="skills-codex-metrics">
+                      <span>{filteredCodex.length} visible</span>
+                      <span>{allCodexSkills.length} total</span>
+                    </div>
+                  </div>
+
+                  <div className="skills-filters">
+                    <label>
+                      Search
+                      <input value={skillSearch} onChange={(event) => setSkillSearch(event.target.value)} placeholder="skill, element, owner..." />
+                    </label>
+                    <label>
+                      Owner
+                      <select value={skillOwner} onChange={(event) => setSkillOwner(event.target.value)}>
+                        {codexOwners.map((owner) => (
+                          <option key={owner} value={owner}>{owner === 'all' ? 'All Owners' : owner}</option>
+                        ))}
+                      </select>
+                    </label>
+                    <label>
+                      Element
+                      <select value={skillElement} onChange={(event) => setSkillElement(event.target.value)}>
+                        {codexElements.map((element) => (
+                          <option key={element} value={element}>{element === 'all' ? 'All Elements' : element}</option>
+                        ))}
+                      </select>
+                    </label>
+                    <label>
+                      Star Tier
+                      <select value={skillStar} onChange={(event) => setSkillStar(event.target.value as SkillPageStarFilter)}>
+                        {Object.keys(starLabel).map((key) => (
+                          <option key={key} value={key}>{starLabel[key as SkillPageStarFilter]}</option>
+                        ))}
+                      </select>
+                    </label>
+                  </div>
+
+                  <div className="skills-grid-codex">
+                    {filteredCodex.map((skill) => {
+                      const tint = elementTint[skill.element] ?? '#9ab3ff'
+                      return (
+                        <article key={skill.id} className="skill-codex-card" style={{ '--skill-tint': tint } as CSSProperties}>
+                          <div className="skill-codex-top">
+                            <strong>{skill.name}</strong>
+                            <span>{skill.starTier === null ? 'No Star' : `${skill.starTier}-Star`}</span>
+                          </div>
+                          <div className="skill-codex-tags">
+                            <span>{skill.owner}</span>
+                            <span>{skill.element}</span>
+                            <span>{skill.rank}</span>
+                            <span>{skill.category}</span>
+                          </div>
+                          <p>{skill.description}</p>
+                        </article>
+                      )
+                    })}
+                  </div>
+                </div>
+              ) : (
+                <pre className="doc-view">{navPage === 'ranks' ? ranksDoc : itemsDoc}</pre>
+              )}
             </article>
           </section>
         )}
