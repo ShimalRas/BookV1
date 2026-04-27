@@ -41,6 +41,9 @@ type Character = {
   intDemon: number
   intAngel: number
   divinity: number
+  affinity: string
+  attributePoints: number
+  towerPoints: number
   title: string
   fatigue: number
   remainingPoints: number
@@ -95,20 +98,57 @@ const seededCharacter: Character = {
   agi: 9560,
   vit: 10020,
   intelligence: 15190,
-  intDragon: 0,
-  intDemon: 0,
-  intAngel: 0,
+  intDragon: 18450,
+  intDemon: 18450,
+  intAngel: 18450,
   divinity: 8420,
+  affinity: 'Lightning, Flame, Frost, Blood (150% damage, 100% resistance)',
+  attributePoints: 0,
+  towerPoints: 394345250,
   title: 'Eternal Legion Sovereign',
   fatigue: 33,
   remainingPoints: 0,
-  notes: 'Seeded from source notes. Main canon profile.',
+  notes: 'Canon profile seeded from Newwrite.txt',
   skills: [
-    { id: crypto.randomUUID(), name: 'Regeneration (Divine)', rank: 'Divine', description: 'Regenerates body from damage and poisons.' },
-    { id: crypto.randomUUID(), name: 'Thunder\'s Judgement', rank: 'Divine', description: 'Divine lightning spear and storm field.' },
-    { id: crypto.randomUUID(), name: 'Sovereign of Eternal Legions', rank: 'Divine', description: 'Rules undead and soul-bound familiars.' },
-    { id: crypto.randomUUID(), name: 'Astraean Valkyrie Sword Style', rank: 'Rank S', description: 'Royal sword art with multi-form attacks.' },
-    { id: crypto.randomUUID(), name: 'Lightning Manipulation', rank: 'Rank B', description: 'Lightning arsenal and chained strikes.' },
+    { id: crypto.randomUUID(), name: 'Regeneration', rank: 'Divine', description: 'Regenerates body from damage and poisons. Can restore the body even from a death state, drawing upon the cycle of both life and death.' },
+    { id: crypto.randomUUID(), name: 'Incineration Beam', rank: 'Divine', description: 'Shoots a beam of absolute flames that incinerate monsters caught.' },
+    { id: crypto.randomUUID(), name: "Thunder's Judgement", rank: 'Divine', description: 'An immensely powerful spear of pure divine lightning that unleashes complete destruction upon an area of 10,000 meters releasing a violent thunderstorm that sweeps away everything.' },
+    { id: crypto.randomUUID(), name: 'Soul Absorber', rank: 'Divine', description: 'Absorb and store souls, gaining their knowledge, skills, and essence.' },
+    { id: crypto.randomUUID(), name: 'Soul Rebirth', rank: 'Divine', description: 'Transform a soul, wiping its memories to grant it a new beginning.' },
+    { id: crypto.randomUUID(), name: 'Sovereign of Eternal Legions', rank: 'Divine', description: 'Divine skill that enhances creating, commanding, and binding undead into your soul-domain and authority.' },
+
+    { id: crypto.randomUUID(), name: 'Perception', rank: 'Rank A (99.07%)', description: 'Greatly enhanced senses.' },
+    { id: crypto.randomUUID(), name: 'Giant Force', rank: 'Rank A (0%)', description: 'For 10 seconds increases all physical stats by 500%. Cooldown 10 minutes.' },
+    { id: crypto.randomUUID(), name: 'Basic Mana Meditation', rank: 'Unranked', description: 'Gather mana to your core and increases the mana pool, however it will be harder to gain as your stats increase.' },
+    { id: crypto.randomUUID(), name: 'Basic Combat', rank: 'Rank C (56.554%)', description: 'Refines combat techniques.' },
+    { id: crypto.randomUUID(), name: 'Swordsmanship', rank: 'Rank B (85.53%)', description: 'Proficiency with sword combat increases.' },
+    { id: crypto.randomUUID(), name: 'Astraean Valkyrie Sword Style', rank: 'Rank S', description: 'The sword art of the Valkyrie Royals and warriors from Brynhildr Astraean, the supreme empire of the Valkyries.' },
+
+    { id: crypto.randomUUID(), name: 'Mana Form', rank: 'Rank C (98%)', description: 'Forms shapes using mana. Uses a lot of mana. Effects of shapes scale with INT. Saved shapes: Sphere, Bullet, Sword, Hammer, Fist, Arrow.' },
+    { id: crypto.randomUUID(), name: 'Mana Bullet', rank: 'Rank D (99.99%)', description: 'Forms a bullet of mana and shoots at a target. Bullet can explode on impact. Explosion radius: 1 meter.' },
+    { id: crypto.randomUUID(), name: 'Mana Sword', rank: 'Rank C (74%)', description: 'Create a temporary sword with mana, provides an Attack power of 20.' },
+    { id: crypto.randomUUID(), name: 'Basic Marksmanship', rank: 'Rank D (73.43%)', description: 'Increases accuracy with ranged weapons by 20% and grants intuitive understanding of angles, wind, and leading targets.' },
+    { id: crypto.randomUUID(), name: 'Mana Blast (one-star)', rank: 'Rank C (75.36%)', description: 'Forms and releases a blast of mana that explodes when the user wills it to or explodes on impact. Explosion radius: 25 meters normally.' },
+    { id: crypto.randomUUID(), name: "Angel's Condemnation (three-stars)", rank: 'Rank A (0.002%)', description: 'Rains down hundreds of swords of pure light that targets enemies and pierces through.' },
+
+    { id: crypto.randomUUID(), name: 'Blood Manipulation', rank: 'Rank C (98%)', description: 'Blood affinity manipulation toolkit (arrows, fists, spikes, mist).' },
+    { id: crypto.randomUUID(), name: 'Lightning Manipulation', rank: 'Rank B (12.2%)', description: 'Lightning magic toolkit (zap, bolt, ball lightning, spear, dominion).' },
+    { id: crypto.randomUUID(), name: 'Flame Manipulation', rank: 'Rank B (83.16%)', description: 'Flame magic toolkit (fire ball, blasts, beams, chains, tornado, inferno crown).' },
+    { id: crypto.randomUUID(), name: 'Ice Manipulation', rank: 'Rank C (54.68%)', description: 'Frost magic toolkit (blast, wave, beams, absolute zero field).' },
+    { id: crypto.randomUUID(), name: 'Wind Manipulation', rank: 'Rank D (64.23%)', description: 'Wind magic toolkit (bullet, arcs of wind, sky rend).' },
+    { id: crypto.randomUUID(), name: 'Nature Manipulation', rank: 'Rank C (0.5%)', description: 'Nature magic toolkit (vines, roots, thorns, bark armor, sovereignty).' },
+    { id: crypto.randomUUID(), name: 'Ground Manipulation', rank: 'Rank D (1%)', description: 'Earth magic toolkit (stone gauntlet, seismic ruin).' },
+    { id: crypto.randomUUID(), name: 'Water Manipulation', rank: 'Rank D (1%)', description: 'Water magic toolkit (sphere, blast, spikes, tidal cataclysm).' },
+    { id: crypto.randomUUID(), name: 'Light Manipulation', rank: 'Rank C (54.32%)', description: "Light magic toolkit (light ball, Angel's Condemnation, radiant judgment)." },
+
+    { id: crypto.randomUUID(), name: 'Molten Tempest (four-stars)', rank: 'Combined Elemental', description: 'Fire + Lightning + Ground: molten spikes that resonate with lightning and chain discharges.' },
+    { id: crypto.randomUUID(), name: 'Charged Gauntlet (three-star)', rank: 'Combined Elemental', description: 'Combines flame and lightning with stone gauntlets; lightning arc with each powered strike.' },
+
+    { id: crypto.randomUUID(), name: 'Guiding Light', rank: 'Passive', description: 'Creates a stable orb of light that floats ahead, maintaining ideal position and brightness.' },
+    { id: crypto.randomUUID(), name: 'Blessing (Lilith)', rank: 'Blessing', description: 'Resistance to mental charms and mind magic.' },
+    { id: crypto.randomUUID(), name: "Divine Blessing: Thor's Mark of the Storm Sovereign", rank: 'Legendary Divine Blessing', description: 'Amplifies lightning attacks; once per day localized storm; temporary immunity to paralysis/stun/shock.' },
+    { id: crypto.randomUUID(), name: 'Title: Evolver', rank: 'Title', description: 'Increases success/stability of forced evolutions and reduces costs for subordinates.' },
+    { id: crypto.randomUUID(), name: 'Title: Life Bringer', rank: 'Title', description: 'Enhances life-aligned abilities and boosts regeneration for familiars and undead bound to your soul.' },
   ],
   history: [
     { id: crypto.randomUUID(), timestamp: new Date().toISOString(), action: 'Seed', detail: 'Created Alok canon profile with Divine rank.' },
@@ -121,6 +161,9 @@ function normalizeCharacter(raw: any): Character {
     intDragon: Number(raw?.intDragon ?? 0) || 0,
     intDemon: Number(raw?.intDemon ?? 0) || 0,
     intAngel: Number(raw?.intAngel ?? 0) || 0,
+    affinity: String(raw?.affinity ?? ''),
+    attributePoints: Number(raw?.attributePoints ?? 0) || 0,
+    towerPoints: Number(raw?.towerPoints ?? 0) || 0,
     skills: Array.isArray(raw?.skills) ? raw.skills : [],
     history: Array.isArray(raw?.history) ? raw.history : [],
   }
@@ -190,6 +233,9 @@ function App() {
       intDemon: 0,
       intAngel: 0,
       divinity: 0,
+      affinity: '',
+      attributePoints: 0,
+      towerPoints: 0,
       title: 'Unassigned',
       fatigue: 0,
       remainingPoints: 0,
@@ -305,10 +351,13 @@ function App() {
                   <>
                     <label>Dragon INT<input type="number" value={selected.intDragon} onChange={(event) => updateSelected({ intDragon: Number(event.target.value) || 0 }, 'Edit', 'Adjusted Dragon INT.')} /></label>
                     <label>Demon INT<input type="number" value={selected.intDemon} onChange={(event) => updateSelected({ intDemon: Number(event.target.value) || 0 }, 'Edit', 'Adjusted Demon INT.')} /></label>
-                    <label>Angel INT<input type="number" value={selected.intAngel} onChange={(event) => updateSelected({ intAngel: Number(event.target.value) || 0 }, 'Edit', 'Adjusted Angel INT.')} /></label>
+                    <label>Angel Core<input type="number" value={selected.intAngel} onChange={(event) => updateSelected({ intAngel: Number(event.target.value) || 0 }, 'Edit', 'Adjusted Angel Core.')} /></label>
                   </>
                 )}
                 <label>Divinity<input type="number" value={selected.divinity} onChange={(event) => updateSelected({ divinity: Number(event.target.value) || 0 }, 'Edit', 'Adjusted Divinity.')} /></label>
+                <label>Attribute Points<input type="number" value={selected.attributePoints} onChange={(event) => updateSelected({ attributePoints: Number(event.target.value) || 0 }, 'Edit', 'Adjusted attribute points.')} /></label>
+                <label>Tower Points<input type="number" value={selected.towerPoints} onChange={(event) => updateSelected({ towerPoints: Number(event.target.value) || 0 }, 'Edit', 'Adjusted tower points.')} /></label>
+                <label>Affinity<input value={selected.affinity} onChange={(event) => updateSelected({ affinity: event.target.value }, 'Edit', 'Updated affinity.')} /></label>
               </div>
               <label className="notes">Notes<textarea value={selected.notes} onChange={(event) => updateSelected({ notes: event.target.value }, 'Notes', 'Updated notes.')} /></label>
             </article>
@@ -375,10 +424,13 @@ function App() {
                     <div className="summary-grid">
                       <Card label="Name" value={selected.name} />
                       <Card label="Level" value={String(selected.level)} />
-                      <Card label="Job" value={selected.rank} />
+                      <Card label="Rank" value={selected.rank} />
                       <Card label="Fatigue" value={String(selected.fatigue)} />
                       <Card label="Title" value={selected.title} />
                       <Card label="Remaining Points" value={String(selected.remainingPoints)} />
+                      <Card label="Attribute Points" value={String(selected.attributePoints)} />
+                      <Card label="Tower Points" value={selected.towerPoints.toLocaleString()} />
+                      <Card label="Affinity" value={selected.affinity || '—'} />
                     </div>
 
                     <div className="stat-grid">
@@ -393,7 +445,7 @@ function App() {
                       <div className="alok-int-grid">
                         <Card label="DRAGON INT" value={selected.intDragon.toLocaleString()} />
                         <Card label="DEMON INT" value={selected.intDemon.toLocaleString()} />
-                        <Card label="ANGEL INT" value={selected.intAngel.toLocaleString()} />
+                        <Card label="ANGEL CORE" value={selected.intAngel.toLocaleString()} />
                       </div>
                     )}
 
