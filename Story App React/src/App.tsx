@@ -305,6 +305,26 @@ function inferElement(name: string, rank: string, description: string): string {
   return 'Arcane'
 }
 
+function isTitleSkill(skill: SkillCodexEntry): boolean {
+  return skill.category === 'Title' || skill.name.toLowerCase().startsWith('title:')
+}
+
+function isDivineSkill(skill: SkillCodexEntry): boolean {
+  const rank = skill.rank.toLowerCase()
+  const category = skill.category.toLowerCase()
+  const name = skill.name.toLowerCase()
+  return (
+    rank.includes('divine') ||
+    category.includes('divine') ||
+    category.includes('unique authority') ||
+    name.includes('divine blessing')
+  )
+}
+
+function isCombinedSkill(skill: SkillCodexEntry): boolean {
+  return skill.category === 'Combination' || skill.element.includes('+')
+}
+
 function App() {
   const [characters, setCharacters] = useState<Character[]>(() => loadInitialCharacters())
   const [selectedId, setSelectedId] = useState<string | null>(null)
@@ -383,11 +403,19 @@ function App() {
   }, [allCodexSkills, skillElement, skillSearch, skillStar])
 
   const filteredTitleCodex = useMemo(() => {
-    return filteredCodex.filter((skill) => skill.category === 'Title' || skill.name.toLowerCase().startsWith('title:'))
+    return filteredCodex.filter((skill) => isTitleSkill(skill))
+  }, [filteredCodex])
+
+  const filteredDivineCodex = useMemo(() => {
+    return filteredCodex.filter((skill) => !isTitleSkill(skill) && isDivineSkill(skill))
+  }, [filteredCodex])
+
+  const filteredCombinedCodex = useMemo(() => {
+    return filteredCodex.filter((skill) => !isTitleSkill(skill) && !isDivineSkill(skill) && isCombinedSkill(skill))
   }, [filteredCodex])
 
   const filteredSkillCodex = useMemo(() => {
-    return filteredCodex.filter((skill) => !(skill.category === 'Title' || skill.name.toLowerCase().startsWith('title:')))
+    return filteredCodex.filter((skill) => !isTitleSkill(skill) && !isDivineSkill(skill) && !isCombinedSkill(skill))
   }, [filteredCodex])
 
   const groupedCodex = useMemo(() => {
@@ -757,6 +785,8 @@ function App() {
                     </div>
                     <div className="skills-codex-metrics">
                       <span>{filteredSkillCodex.length} skills</span>
+                      <span>{filteredDivineCodex.length} divine</span>
+                      <span>{filteredCombinedCodex.length} combined</span>
                       <span>{filteredTitleCodex.length} titles</span>
                       <span>{allCodexSkills.length} total</span>
                     </div>
@@ -784,6 +814,52 @@ function App() {
                       </select>
                     </label>
                   </div>
+
+                  <section className="divine-section">
+                    <h4>Divine Skills</h4>
+                    <div className="skills-grid-codex">
+                      {filteredDivineCodex.map((skill) => {
+                        const tint = elementTint[skill.element] ?? '#f6d37d'
+                        return (
+                          <article key={skill.id} className="skill-codex-card divine-card" style={{ '--skill-tint': tint } as CSSProperties}>
+                            <div className="skill-codex-top">
+                              <strong>{skill.name}</strong>
+                              <span>{skill.starTier === null ? 'No Star' : `${skill.starTier}-Star`}</span>
+                            </div>
+                            <div className="skill-codex-tags">
+                              <span>{skill.element}</span>
+                              <span>{skill.rank}</span>
+                              <span>{skill.category}</span>
+                            </div>
+                            <p>{skill.description}</p>
+                          </article>
+                        )
+                      })}
+                    </div>
+                  </section>
+
+                  <section className="combined-section">
+                    <h4>Combined Skills</h4>
+                    <div className="skills-grid-codex">
+                      {filteredCombinedCodex.map((skill) => {
+                        const tint = elementTint[skill.element] ?? '#ffb763'
+                        return (
+                          <article key={skill.id} className="skill-codex-card combined-card" style={{ '--skill-tint': tint } as CSSProperties}>
+                            <div className="skill-codex-top">
+                              <strong>{skill.name}</strong>
+                              <span>{skill.starTier === null ? 'No Star' : `${skill.starTier}-Star`}</span>
+                            </div>
+                            <div className="skill-codex-tags">
+                              <span>{skill.element}</span>
+                              <span>{skill.rank}</span>
+                              <span>{skill.category}</span>
+                            </div>
+                            <p>{skill.description}</p>
+                          </article>
+                        )
+                      })}
+                    </div>
+                  </section>
 
                   <div className="skills-group-stack">
                     {groupedCodex.map((group) => (

@@ -674,6 +674,44 @@ button:disabled {
   gap: 0.7rem;
 }
 
+.divine-section,
+.combined-section {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 0.62rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.divine-section {
+  background:
+    radial-gradient(800px 220px at 0% -10%, rgba(255, 229, 157, 0.2), transparent 45%),
+    radial-gradient(700px 260px at 100% 120%, rgba(255, 244, 201, 0.12), transparent 45%),
+    rgba(255, 255, 255, 0.03);
+}
+
+.combined-section {
+  background:
+    radial-gradient(700px 220px at 8% -20%, rgba(255, 168, 95, 0.18), transparent 45%),
+    radial-gradient(700px 220px at 95% 110%, rgba(255, 216, 130, 0.14), transparent 45%),
+    rgba(255, 255, 255, 0.02);
+}
+
+.divine-section h4,
+.combined-section h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.divine-section h4 {
+  color: #ffe2a2;
+}
+
+.combined-section h4 {
+  color: #ffd7a7;
+}
+
 .skills-star-group {
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.02);
@@ -755,6 +793,20 @@ button:disabled {
   font-size: 0.76rem;
   color: #d7dff0;
   line-height: 1.36;
+}
+
+.skill-codex-card.divine-card {
+  border-color: color-mix(in oklab, #f2cb78 65%, white 35%);
+  background:
+    linear-gradient(140deg, rgba(242, 203, 120, 0.2), transparent 48%),
+    rgba(18, 12, 3, 0.82);
+}
+
+.skill-codex-card.combined-card {
+  border-color: color-mix(in oklab, #ffb86f 65%, white 35%);
+  background:
+    linear-gradient(140deg, rgba(255, 182, 111, 0.2), transparent 48%),
+    rgba(17, 9, 3, 0.82);
 }
 
 .titles-section {
