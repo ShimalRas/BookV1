@@ -37,6 +37,9 @@ type Character = {
   agi: number
   vit: number
   intelligence: number
+  intDragon: number
+  intDemon: number
+  intAngel: number
   divinity: number
   title: string
   fatigue: number
@@ -92,6 +95,9 @@ const seededCharacter: Character = {
   agi: 9560,
   vit: 10020,
   intelligence: 15190,
+  intDragon: 0,
+  intDemon: 0,
+  intAngel: 0,
   divinity: 8420,
   title: 'Eternal Legion Sovereign',
   fatigue: 33,
@@ -109,13 +115,24 @@ const seededCharacter: Character = {
   ],
 }
 
+function normalizeCharacter(raw: any): Character {
+  return {
+    ...raw,
+    intDragon: Number(raw?.intDragon ?? 0) || 0,
+    intDemon: Number(raw?.intDemon ?? 0) || 0,
+    intAngel: Number(raw?.intAngel ?? 0) || 0,
+    skills: Array.isArray(raw?.skills) ? raw.skills : [],
+    history: Array.isArray(raw?.history) ? raw.history : [],
+  }
+}
+
 function loadInitialCharacters(): Character[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
     if (!raw) return [seededCharacter]
-    const parsed = JSON.parse(raw) as Character[]
+    const parsed = JSON.parse(raw) as any
     if (!Array.isArray(parsed) || parsed.length === 0) return [seededCharacter]
-    return parsed
+    return parsed.map(normalizeCharacter)
   } catch {
     return [seededCharacter]
   }
@@ -132,9 +149,11 @@ function App() {
 
   const palette = rankColors[selected?.rank ?? 'Divine']
   const isAlok = selected?.name.toLowerCase() === 'alok aeonmorta'
-  const totalPower = selected ? selected.str + selected.agi + selected.vit + selected.intelligence + selected.divinity : 0
-  const hp = selected ? selected.vit * 25 + selected.str * 8 : 0
-  const mp = selected ? selected.intelligence * 25 + selected.divinity * 4 : 0
+  const extraInt = selected && isAlok ? (selected.intDragon + selected.intDemon + selected.intAngel) : 0
+  const totalInt = selected ? selected.intelligence + extraInt : 0
+  const totalPower = selected ? selected.str + selected.agi + selected.vit + totalInt + selected.divinity : 0
+  const hp = selected ? selected.vit * 100 : 0
+  const mp = selected ? totalInt * 100 : 0
   const hpFill = selected ? Math.min(100, Math.round((hp / (selected.level * 3000)) * 100)) : 0
   const mpFill = selected ? Math.min(100, Math.round((mp / (selected.level * 4600)) * 100)) : 0
 
@@ -167,6 +186,9 @@ function App() {
       agi: 50,
       vit: 50,
       intelligence: 60,
+      intDragon: 0,
+      intDemon: 0,
+      intAngel: 0,
       divinity: 0,
       title: 'Unassigned',
       fatigue: 0,
@@ -279,6 +301,13 @@ function App() {
                 <label>AGI<input type="number" value={selected.agi} onChange={(event) => updateSelected({ agi: Number(event.target.value) || 0 }, 'Edit', 'Adjusted AGI.')} /></label>
                 <label>VIT<input type="number" value={selected.vit} onChange={(event) => updateSelected({ vit: Number(event.target.value) || 0 }, 'Edit', 'Adjusted VIT.')} /></label>
                 <label>INT<input type="number" value={selected.intelligence} onChange={(event) => updateSelected({ intelligence: Number(event.target.value) || 0 }, 'Edit', 'Adjusted INT.')} /></label>
+                {isAlok && (
+                  <>
+                    <label>Dragon INT<input type="number" value={selected.intDragon} onChange={(event) => updateSelected({ intDragon: Number(event.target.value) || 0 }, 'Edit', 'Adjusted Dragon INT.')} /></label>
+                    <label>Demon INT<input type="number" value={selected.intDemon} onChange={(event) => updateSelected({ intDemon: Number(event.target.value) || 0 }, 'Edit', 'Adjusted Demon INT.')} /></label>
+                    <label>Angel INT<input type="number" value={selected.intAngel} onChange={(event) => updateSelected({ intAngel: Number(event.target.value) || 0 }, 'Edit', 'Adjusted Angel INT.')} /></label>
+                  </>
+                )}
                 <label>Divinity<input type="number" value={selected.divinity} onChange={(event) => updateSelected({ divinity: Number(event.target.value) || 0 }, 'Edit', 'Adjusted Divinity.')} /></label>
               </div>
               <label className="notes">Notes<textarea value={selected.notes} onChange={(event) => updateSelected({ notes: event.target.value }, 'Notes', 'Updated notes.')} /></label>
@@ -356,9 +385,17 @@ function App() {
                       <Card label="STR" value={selected.str.toLocaleString()} />
                       <Card label="AGI" value={selected.agi.toLocaleString()} />
                       <Card label="VIT" value={selected.vit.toLocaleString()} />
-                      <Card label="INTELLIGENCE" value={selected.intelligence.toLocaleString()} />
+                      <Card label="TOTAL INT" value={totalInt.toLocaleString()} />
                       <Card label="DIVINITY" value={selected.divinity.toLocaleString()} />
                     </div>
+
+                    {isAlok && (
+                      <div className="alok-int-grid">
+                        <Card label="DRAGON INT" value={selected.intDragon.toLocaleString()} />
+                        <Card label="DEMON INT" value={selected.intDemon.toLocaleString()} />
+                        <Card label="ANGEL INT" value={selected.intAngel.toLocaleString()} />
+                      </div>
+                    )}
 
                     {isAlok && <div className="canon">Canon profile active: Alok has a unique celestial system panel</div>}
                   </>
