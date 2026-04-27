@@ -1,8 +1,13 @@
 import { useEffect, useMemo, useState, type CSSProperties } from 'react'
 
+import skillsDoc from './docs/skills.txt?raw'
+import ranksDoc from './docs/ranks.txt?raw'
+import itemsDoc from './docs/items.txt?raw'
+
 type RankName = 'E' | 'D' | 'C' | 'B' | 'A' | 'S' | 'SS-1' | 'SS-2' | 'SS-3' | 'Mythic-1' | 'Mythic-2' | 'Demi' | 'Divine'
 type SystemMode = 'status' | 'skills'
 type WorkspacePage = 'panel' | 'editor' | 'history' | 'progression'
+type NavPage = 'characters' | 'skills' | 'ranks' | 'items'
 
 type Palette = {
   base: string
@@ -220,6 +225,7 @@ function App() {
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [mode, setMode] = useState<SystemMode>('status')
   const [page, setPage] = useState<WorkspacePage>('panel')
+  const [navPage, setNavPage] = useState<NavPage>('characters')
   const [skillDraft, setSkillDraft] = useState({ name: '', rank: 'Rank C', description: '' })
 
   const selected = useMemo(() => characters.find((item) => item.id === selectedId), [characters, selectedId])
@@ -336,29 +342,37 @@ function App() {
         <div>
           <h1>Story App</h1>
           <p>Local character manager with a dedicated celestial panel, separate stat editor, and saved history</p>
+          <div className="top-nav">
+            <button className={navPage === 'characters' ? 'active' : ''} onClick={() => setNavPage('characters')}>Characters</button>
+            <button className={navPage === 'skills' ? 'active' : ''} onClick={() => setNavPage('skills')}>Skills</button>
+            <button className={navPage === 'ranks' ? 'active' : ''} onClick={() => setNavPage('ranks')}>Ranks</button>
+            <button className={navPage === 'items' ? 'active' : ''} onClick={() => setNavPage('items')}>Items</button>
+          </div>
         </div>
         <div className="rank-badge">{selected ? `Lv ${selected.level} ${selected.rank}` : 'No character selected'}</div>
       </header>
 
-      <main className="layout">
-        <aside className="sidebar">
-          <div className="char-list">
-            {characters.map((character) => (
-              <button
-                key={character.id}
-                className={character.id === selectedId ? 'char-pill active' : 'char-pill'}
-                onClick={() => setSelectedId(character.id)}
-              >
-                {character.name} | {character.race}
-              </button>
-            ))}
-          </div>
-          <button onClick={addCharacter}>New Character</button>
-          <button onClick={() => updateSelected({}, 'Save', 'Manual save event recorded.')} disabled={!selected}>Save Character</button>
-          <button onClick={levelUpSelected}>Level Up</button>
-        </aside>
+      <main className={navPage === 'characters' ? 'layout' : 'layout layout-single'}>
+        {navPage === 'characters' ? (
+          <>
+            <aside className="sidebar">
+              <div className="char-list">
+                {characters.map((character) => (
+                  <button
+                    key={character.id}
+                    className={character.id === selectedId ? 'char-pill active' : 'char-pill'}
+                    onClick={() => setSelectedId(character.id)}
+                  >
+                    {character.name} | {character.race}
+                  </button>
+                ))}
+              </div>
+              <button onClick={addCharacter}>New Character</button>
+              <button onClick={() => updateSelected({}, 'Save', 'Manual save event recorded.')} disabled={!selected}>Save Character</button>
+              <button onClick={levelUpSelected}>Level Up</button>
+            </aside>
 
-        <section className="main-panel">
+            <section className="main-panel">
           <div className="workspace-tabs">
             <button className={page === 'panel' ? 'active' : ''} onClick={() => setPage('panel')}>System Panel</button>
             <button className={page === 'editor' ? 'active' : ''} onClick={() => setPage('editor')}>Stat Editor</button>
@@ -496,9 +510,9 @@ function App() {
 
                     {isAlok && (
                       <div className="alok-int-grid">
-                        <Card label="DRAGON INT" value={selected.intDragon.toLocaleString()} />
-                        <Card label="DEMON INT" value={selected.intDemon.toLocaleString()} />
-                        <Card label="ANGEL CORE" value={selected.intAngel.toLocaleString()} />
+                        <Card className="span-2" label="DRAGON INT" value={selected.intDragon.toLocaleString()} />
+                        <Card className="span-2" label="DEMON INT" value={selected.intDemon.toLocaleString()} />
+                        <Card className="span-1" label="ANGEL CORE" value={selected.intAngel.toLocaleString()} />
                       </div>
                     )}
 
@@ -525,15 +539,24 @@ function App() {
               </div>
             </article>
           )}
-        </section>
+            </section>
+          </>
+        ) : (
+          <section className="main-panel">
+            <article className="sheet-card">
+              <h2>{navPage === 'skills' ? 'Skills' : navPage === 'ranks' ? 'Ranks' : 'Items'}</h2>
+              <pre className="doc-view">{navPage === 'skills' ? skillsDoc : navPage === 'ranks' ? ranksDoc : itemsDoc}</pre>
+            </article>
+          </section>
+        )}
       </main>
     </div>
   )
 }
 
-function Card({ label, value }: { label: string; value: string }) {
+function Card({ label, value, className }: { label: string; value: string; className?: string }) {
   return (
-    <div className="card">
+    <div className={className ? `card ${className}` : 'card'}>
       <span>{label}</span>
       <strong>{value}</strong>
     </div>

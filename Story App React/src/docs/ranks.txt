@@ -1,0 +1,287 @@
+REVISED RANKING (from revisedRanking.txt)
+
+===============================================================================
+                                                                BEASTIARY SYSTEMS
+===============================================================================
+
+TABLE OF CONTENTS
+-----------------
+1. Rank Progression System
+2. Undead Companions Evolution
+3. Player Tier Chart
+4. Tower Realms Structure
+5. Strength & Speed (Reaction) Tier Chart
+
+-------------------------------------------------------------------------------
+1. RANK PROGRESSION SYSTEM
+-------------------------------------------------------------------------------
+
+| Rank      | Base Stat Gain (per Level) | Typical Examples                                 | Natural Limit*         |
+|-----------|----------------------------|--------------------------------------------------|------------------------|
+| E         | +2                         | Regular humans, basic trainees                   | 20–40                  |
+| D         | +3                         | Trained/elite humans, soldiers, knights, minor awakened | 40–70           |
+| C         | +4                         | Magic-capable mortals, low-tier adventurers, basic monster elites | 70–110 |
+| B         | +5                         | Advanced mortals and stronger races: beastkin, lesser vampires, high goblins, medium orcs, solid mid-tier players | 110–170 |
+| A         | +7                         | High-tier mortals and evolved races: true vampires, high elves, dragonoid warriors, strong veteran players, elite commanders | 170–240 |
+| S (Pinnacle) | +10                     | World-class mortals and peak high races: early Serena, national champions, named dungeon bosses, clan heads | 230–320 |
+| SS-1 (Ascendant) | +11                 | Ascendant elites: refined S-rank veterans, lesser vampire lords, draconic lieutenants, demon captains | 280–360 |
+| SS-2 (Sovereign) | +12                 | Sovereign-class mortals: regional warlords, major vampire lords, dragon generals, demon dukes, city-destroyer level threats | 320–390 |
+| SS-3 (Transcendent) | +13              | Transcendent mortals / quasi-mythic: top vampire lords, draconic champions, demonic warlords, heroic legends on the brink of apotheosis | 350–420+ |
+| Mythic-1 (Legendary) | +14             | Lower myth-tier: Archfey nobles, ancient dragon kings, high demon princes, beings that can reshape regions or lesser worlds | 380–500+ |
+| Mythic-2 (Origin) | +15                | Upper myth-tier: realm guardians, proto-god champions, named calamities, Tower-chosen monsters | 450–580+ |
+| Demi (Demigod/Draconic/Demonic) | +17  | Demigod / Draconic / Demonic rank: children of gods and mortals, true primordial dragons, great demon kings, nascent god-rulers whose existence warps continents | 550–750+ |
+| Divine (God Tier) | +20                | True godborns and full divine hybrids: Alok (child of two gods), true gods in mortal form, direct avatars | Practically unbounded, limited only by cosmic law |
+
+*Natural Limit refers to the typical maximum total stats attainable for beings in a “normal” world without direct Tower intervention, major blessings, or extreme evolution paths. B–A are the peak for most civilizations; S and its sub-tiers are extremely rare; Mythic, Demi, and Divine tiers belong to legend, calamity, or divinity.
+
+-------------------------------------------------------------------------------
+2. UNDEAD COMPANIONS EVOLUTION (SERENA, SOLIS, VALERIA, RAVEN)
+-------------------------------------------------------------------------------
+
+Alok's first three undead: Serena (wife), Solis, Valeria.
+Additional undead: Raven (necromancer).
+
+EVOLUTIONARY CHART (LEVEL-BASED)
+
+| Level Range    | Serena Evolution            | Solis Evolution        | Valeria Evolution       | Raven Evolution              | Aria Evolution (Fairy)        | Angel Evolution             | Dragonoid Evolution      |
+|----------------|----------------------------|------------------------|-------------------------|------------------------------|-------------------------------|-----------------------------|--------------------------|
+| 1–10           | Basic Skeleton             | Basic Skeleton         | Basic Spirit            | Undead Necromancer           | Child Fairy                   | Arcane Wisp                | Draconic Wyrmling          |
+| 11–25          | Vampiric Skeleton          | Skeleton Soldier       | Valkyrie Shade          | Undead Necromancer           | Child Fairy                   | Angelic Acolyte            | Tier 1 Dragonoid           |
+| 26–49          | Pureblood Vampire          | Elite Skeleton         | Valkyrie Apprentice     | Undead Necromancer           | Teen Fairy                    | Celestial Aspirant         | Tier 1 Dragonoid           |
+| 30 (Rebirth)   | Pureblood Vampire          | —                      | —                       | —                            | —                             | Initiate Seraph            | —                         |
+| 50–99          | True Pureblood Vampire     | Death Knight           | Valkyrie                | Lich                         | True Fairy                    | Minor Angel                | Tier 2 Dragonoid           |
+| 100–199        | Superior Vampire Noble     | Death Swordmaster      | Valkyrie Champion       | Lich King                    | High Fairy                    | Angel Knight               | Tier 3 Dragonoid           |
+| 200–499        | Vampire Lord               | Death Grandmaster      | Valkyrie Paragon        | Abyssal Lich Emperor         | Fairy Noble                   |   Grand Angel Knight       | Tier 4 Dragonoid           |
+| 500–799        | Vampire Queen / Ancestor   | Death Battle King      | Valkyrie Monarch        | Eternal Lich Sovereign       | Fairy Queen                   |   Archangel                | Tier 5 Dragonoid (True Dragon) |
+| 800–1199       | Sovereign of Night         | Death Warlord          | Valkyrie Matriarch      | Primordial Death Sage        | Elder Fairy Sovereign         | Angel Sovereign            | Ascended Dragon             |
+| 1200–1499      | Empress of Undead          | Death Overlord         | Valkyrie Archon         | Death Archsage               | Fairy Empress                 | Angel Overlord             | Primeval Dragon             |
+| 1500–1999      | Undead Empress Supreme     | Death Emperor          | Valkyrie Empress        | Abyssal Death Monarch        | Primordial Fairy Monarch      | Celestial Emperor          | Legendary Dragon            |
+| 2000+          | Primordial Undead Goddess  | Death Paragon          | Valkyrie Worldshaper    | Lich Worldforger             | Fairy Worldwarden             | Angel Worldshaper          | Dragon Worldshaper          |
+| 2500+          | Transcendent/Divine Path   | Transcendent/Divine Path | Transcendent/Divine Path | Transcendent/Divine Path      | Transcendent Fey Path         | Transcendent Celestial Path | Transcendent Dragon Path    |
+
+> **Notes:**
+> - Dragonoid tiers are rough evolutionary stages, with the fifth tier (500+) being the threshold for True Dragon transformation, after which further evolution yields Ascended, Primeval, Legendary, and Worldshaper dragons.
+> - Angels progress from early spiritual forms to Knight, Archangel, Sovereign, Overlord, Emperor, and ultimately Worldshaper/Transcendent upon attaining enough power.
+> - All evolutionary paths allow for Transcendent/Divine ascension above level 2500.
+
+-------------------------------------------------------------------------------
+3. PLAYER TIER CHART (NON-COMPANION CHARACTERS)
+-------------------------------------------------------------------------------
+
+| Level Range | Player Tier Name     | Description                                         |
+|-------------|---------------------|-----------------------------------------------------|
+| 1–50        | Tier One            | Novice, new adventurers, basic skills               |
+| 51–100      | Tier Two            | Intermediate, skilled fighters, minor elites        |
+| 101–200     | Tier Three          | Advanced, veteran players, low-ranked bosses        |
+| 201–400     | Tier Four           | High-tier, regional champions, elite commanders     |
+| 401–700     | Tier Five           | World-class, legendary heroes, rare monsters        |
+| 701–1200    | Tier Six            | Pinnacle mortals, mythic beings, near-divine        |
+| 1201–2500+  | God/Demon Class     | True gods, high demons, supreme entities            |
+
+-------------------------------------------------------------------------------
+4. TOWER REALMS STRUCTURE
+-------------------------------------------------------------------------------
+
+- **Floors 1–10: Beginning Realms / Mortal Gateway**
+    - Theme: The first steps; trials focused on adaptation, basic magic, foundational combat, teamwork, and courage.
+    - Enemies: Goblins, orcs, elemental beasts, beginner undead.
+    - Bosses: Mana-wrought golems, spirit knights, or first "tower guardian" types.
+    - Atmosphere: Labyrinths, training halls, natural caverns, ancient ruins.
+
+- **Floors 11–20: Wild Realms / Elemental Domains**
+    - Theme: Nature unleashed—players face powerful natural forces and must adapt to ever-changing environments.
+    - Enemies: Elemental spirits, fae, wild beasts, plant monsters, water spirits.
+    - Bosses: Elemental guardians (fire, water, earth, air), giant beasts, fae lords.
+    - Atmosphere: Shifting forests, burning fields, flooded caves, floating islands.
+
+- **Floors 21–30: Civilized Realms / Lost Kingdoms**
+    - Theme: Test of leadership, diplomacy, or strategy—ancient lost empires or civilizations inhabited by intelligent monsters and spirits.
+    - Enemies: Armored undead, spectral knights, monstrous "court" members, ancient automatons.
+    - Bosses: King or Queen-ruled monster courts, haunted pharaohs, wraith generals.
+    - Atmosphere: Ruined palaces, haunted castles, crumbling cities, clockwork fortresses.
+
+- **Floors 31–40: Labyrinth Realms / Trickster Halls**
+    - Theme: Puzzles, illusions, trickster magic, and psychological challenges dominate; combat is as much about wit as strength.
+    - Enemies: Mimics, doppelgangers, shapechangers, trickster spirits.
+    - Bosses: Tower trickster, illusionist overlords, fear mages.
+    - Atmosphere: Shifting mazes, halls of mirrors, reality-warped passages.
+
+- **Floors 41–50: War Realms / Battlefield Domains**
+    - Theme: Epic battles; large-scale fights, faction wars, and "raid battle" challenges. Coordination/training is key.
+    - Enemies: War golems, disciplined armies, siege beasts, legendary heroes as opponents.
+    - Bosses: War generals, ancient war machines, grand champions.
+    - Atmosphere: Ravaged fields, siege castles, moving warcamps.
+
+- **Floors 51–60: Mythic Realms / Dreaming Lands**
+    - Theme: Legendary monsters and magical landscapes—challenges based on heroic deeds, riddles, or legendary tasks.
+    - Enemies: Mythic beasts, enchanted guardians, dream creatures.
+    - Bosses: Dragon lords, sphinxes, legendary monsters.
+    - Atmosphere: Surreal dreamscapes, world trees, floating sanctuaries.
+
+- **Floors 61–80: Astral/Ethereal Realms**
+    - Theme: Reality blurs—gravity, time, and logic no longer hold sway. Tests of soul, mind, and will.
+    - Enemies: Phantasmal entities, mind flayers, astral marauders, ancient spirits.
+    - Bosses: Astral titans, soul-collectors, legendary liches.
+    - Atmosphere: Endless sky, shifting constellations, reality-warped corridors, landscape in flux.
+
+- **Floors 81–89: Desolation Realms / Apocalypse Levels**
+    - Theme: Facing ruin and despair—destroyed worlds, calamity beasts, and end-of-all-trials.
+    - Enemies: Cataclysmic monsters, world-enders, void entities.
+    - Bosses: Apocalypse dragons, void apparitions, harbingers of the end.
+    - Atmosphere: Collapsing cities, crumbling void, time-frozen catastrophes.
+
+- **Floors 90–100: Heavenly Realms / Thrones of Ascension**
+    - Theme: Divine and infernal domains; seat of gods, demons, and supreme entities. Only the mightiest may challenge these floors.
+    - Enemies: Archangels, demon princes, celestial armies, godspawned beast.
+    - Bosses: Throne guardians, demon lords, minor deities, trials set by the Tower’s own will.
+    - Atmosphere: Marble palaces, shining heavens, infernal fortresses, celestial battlefields, halls of judgment.
+
+-------------------------------------------------------------------------------
+5. STRENGTH & SPEED (REACTION) TIER CHART
+-------------------------------------------------------------------------------
+
+| Rank         | Strength (Lift)         | Movement Speed           | Reaction/Attack Speed         | Processing Speed                        | Description                                 |
+|--------------|------------------------|--------------------------|-------------------------------|------------------------------------------|---------------------------------------------|
+| Average Human| ~75 kg (~165 lbs)      | 20-25 km/h (12-16 mph)   | ~0.25s+ (avg human reflex: 250ms) | Normal (multi-tasking, not super)   | Non-trained                                 |
+| Athletic Human| ~130 kg (~285 lbs)    | 30-35 km/h (18-22 mph)   | ~0.18-0.22s (trained reflex: 180ms) | Quick, strategic                   | Trained, above average athlete              |
+| Peak Human   | ~250 kg (~550 lbs)     | 43 km/h (27 mph)         | ~0.14-0.16s (elite reflex: 140-160ms) | Fast, tactical                    | Olympic-level, fighter pilot, top eSports   |
+| Alok         | ~314 kg (~692 lbs, 2H) | 50-60 km/h (31-37 mph)   | ~0.03-0.06s (30-60ms)              | Nearly instant recall, advanced      | Beyond human, world slows slightly          |
+| PHY Type C   | ~500 kg (~1100 lbs, 1H)| 80-100 km/h (50-62 mph)  | ~0.01-0.03s (10-30ms)               | Can think/react in "bullet time"    | Superhuman; punch/kick is almost a blur     |
+| PHY Type B   | ~700 kg (~1545 lbs, 1H)| 160 km/h (100 mph)       | ~0.005-0.01s (5-10ms)                | Hyper-processing, can see projectiles| Many attacks in one human blink             |
+| PHY Type A   | ~1000 kg (~2205 lbs, 1H)| 300 km/h (186 mph)      | ~0.002-0.005s (2-5ms)                | Foresight-level, bullet time at will | Move/react so fast, appear teleport-y       |
+| PHY Type S   | ~3000 kg (~6614 lbs, 1H)| 500+ km/h (>310 mph)    | <0.001s (sub-millisecond)             | Can process many events per instant  | Speedster, can fight/read/react at blinding speed |
+
+
+
+LEVELING AND TIERS (from "Leveling and tiers")
+
+LEVELING AND TIERS (CANON CLARIFIED VERSION)
+===========================================
+
+DEFINITIONS (IMPORTANT)
+-----------------------
+Stats:
+- STR = Strength
+- AGI = Agility
+- VIT = Vitality
+- INT = Intelligence
+
+PHY (Physical Stats):
+- "PHY" is a category meaning STR + AGI + VIT (used only in growth rules and shorthand notes).
+
+Attribute Gain Per Level (Rank Table):
+- The "Attribute Gain Per Level" values in Section (3) are a POINT POOL.
+- You gain that many (Attribute Points) each level, then you distribute them into STR/AGI/VIT/INT as you choose,
+  subject to your build/species/class biases and caps.
+
+Tier Progression Benchmarks (Section 4):
+- In Section (4), "Physical" is NOT the same thing as PHY in Section (2).
+- "Physical" in Section (4) is a shorthand benchmark for (STR + AGI) only.
+- VIT is listed separately in Section (4) because it scales faster than STR/AGI in your setting.
+
+
+1) PLAYER TIER CHART (LEVEL-BASED)
+----------------------------------
+| Level Range | Player Tier Name | Description |
+|-------------|------------------|-------------|
+| 1–50        | Tier One         | Novice; new adventurers; basic skills |
+| 51–100      | Tier Two         | Intermediate; skilled fighters; minor elites |
+| 101–200     | Tier Three       | Advanced; veteran players; low-ranked bosses |
+| 201–400     | Tier Four        | High-tier; regional champions; elite commanders |
+| 401–700     | Tier Five        | World-class; legendary heroes; rare monsters |
+| 701–1000    | Tier Six         | Pinnacle mortals; mythic-adjacent beings |
+| 1001–1200   | Tier Seven       | Lord-level entities |
+| 1201–1500   | Tier Eight       | World-shaper emperor tier |
+| 1501–2500+  | God/Demon Class  | True gods; high demons; supreme entities |
+
+
+2) BASE STAT GAIN PER LEVEL (SIMPLE MODEL; CATEGORY SHORTHAND)
+--------------------------------------------------------------
+This section is a HIGH-LEVEL shorthand for typical growth tendencies by major rank bands.
+It describes "baseline leaning" (how builds usually allocate points), not mandatory allocation.
+
+- E to A ranks:
+  - Typical allocation pattern per level: +1 to (one of STR/AGI/VIT) and +2 to INT
+- S to Mythic-2:
+  - Typical allocation pattern per level: +3 to Physical (distributed across STR/AGI/VIT) and +5 to INT
+- Demi to Divine:
+  - Typical allocation pattern per level: +5 to Physical (distributed across STR/AGI/VIT) and +10 to INT
+
+Notes:
+- PHY here means the physical-stat CATEGORY (STR, AGI, VIT).
+- Exact point allocation is governed by Section (3): Rank Attribute Gain Table (point pool).
+
+
+3) RANK ATTRIBUTE GAIN TABLE (POINT POOL PER LEVEL)
+---------------------------------------------------
+Rule:
+- Each level, you gain a number of Attribute Points based on your Rank.
+- You distribute those points into STR/AGI/VIT/INT (build-dependent).
+- Species/class tendencies often bias VIT growth higher than STR/AGI, which is why VIT benchmarks scale faster in Section (4).
+
+| Rank                  | Attribute Points Gained Per Level | Typical Examples |
+|-----------------------|-----------------------------------|------------------|
+| E                     | +2                                | Regular humans; basic trainees |
+| D                     | +3                                | Soldiers; knights; minor awakened |
+| C                     | +4                                | Low-tier adventurers; basic monster elites |
+| B                     | +5                                | Beastkin; lesser vampires; high goblins; mid orcs; solid mid-tier players |
+| A                     | +7                                | True vampires; high elves; dragonoid warriors; veteran players; elite commanders |
+| S (Pinnacle)          | +10                               | National champions; named gate bosses; clan heads |
+| SS-1 (Ascendant)      | +12                               | Refined S-rank veterans; lesser vampire lords; demon captains |
+| SS-2 (Sovereign)      | +14                               | Major vampire lords; demon dukes; dragon generals; city-destroyer threats |
+| SS-3 (Transcendent)   | +16                               | Heroic legends nearing apotheosis; top warlords/champions |
+| Mythic-1 (Legendary)  | +18                               | Archfey nobles; ancient dragon kings; high demon princes |
+| Mythic-2 (Origin)     | +20                               | Realm guardians; proto-god champions; named calamities; Tower-chosen monsters |
+| Demi (Demigod Class)  | +25                               | Primordial dragons; great demon kings; nascent god-rulers |
+| Divine (God Tier)     | +30                               | True godborns; divine hybrids; avatars; gods in mortal form |
+
+Natural Limit (setting note):
+- Most civilizations peak at B–A in a normal world.
+- S and above are extremely rare; Mythic/Demi/Divine belong to legend/calamity/divinity.
+
+
+4) TIER PROGRESSION STATS (AVERAGE BENCHMARKS)
+----------------------------------------------
+Interpretation:
+- Physical = (STR + AGI)
+- Vitality = VIT (listed separately because it scales faster than STR/AGI in your setting)
+- INT = Intelligence
+- Attribute Points = typical total unspent/free points or total points earned (choose one and keep consistent in your sheets)
+
+| Tier Benchmark       | Level  | Physical (STR+AGI) | Vitality (VIT) | INT      | Attribute Points |
+|----------------------|--------|--------------------|----------------|----------|------------------|
+| First Tier           | 20     | 180                | 260            | 320      | 120              |
+| Second Tier          | 50     | 350                | 600            | 750      | 250              |
+| Third Tier           | 100    | 1,000              | 2,000          | 2,200    | 550              |
+| Fourth Tier          | 200    | 5,000              | 10,000         | 12,500   | 2,000            |
+| Fifth Tier           | 400    | 15,000             | 35,000         | 35,000   | 10,000           |
+| Sixth Tier           | 700    | 45,000             | 90,000         | 110,000  | 25,000           |
+| Seventh Tier         | 1000   | 120,000            | 260,000        | 300,000  | 60,000           |
+| Eighth Tier          | 1200   | 300,000            | 700,000        | 800,000  | 150,000          |
+| God/Demon Class Tier | 1500+  | 900,000+           | 2,200,000+     | 2,500,000+ | 400,000+       |
+
+
+5) LEVEL 20 BASELINE STATS (STANDARD AVERAGE)
+---------------------------------------------
+| Rank | STR | AGI | VIT | INT |
+|------|-----|-----|-----|-----|
+| S    | 120 | 120 | 122 | 200 |
+| A    | 62  | 62  | 70  | 120 |
+| B    | 56  | 55  | 60  | 100 |
+| C    | 55  | 54  | 60  | 85  |
+| D    | 52  | 52  | 55  | 75  |
+| E    | 50  | 50  | 55  | 60  |
+
+
+6) STAR SPELL SCALING TABLE
+---------------------------
+| Star Rating  | Natural Power | Artificial Power | Range            | Width          | Circles | Tier         |
+|--------------|---------------|------------------|------------------|----------------|---------|--------------|
+| One Star     | 250           | 75               | 5 meters         | 1 meter        | 1       | Senior Mage  |
+| Two Stars    | 750           | 500              | 10 meters        | 2.5 meters     | 1       | Elite Mage   |
+| Three Stars  | 2,000         | 1,500            | 30 meters        | 10 meters      | 3       | Grand Mage   |
+| Four Stars   | 5,000         | 3,500            | 250 meters       | 50 meters      | 7       | Great Mage   |
+| Five Stars   | 20,000        | 15,000           | 1,000 meters     | 250 meters     | 20      | Archmage     |
+| Six Stars    | 50,000        | 35,000           | 5,000 meters     | 1,000 meters   | 50      | Supreme Mage |
+| Seven Stars  | 200,000       | 150,000          | 10,000 meters    | 2,500 meters   | 100     | Mythic Mage  |
+| Eight Stars  | 1,000,000     | 750,000          | 1,000 kilometers | 100 kilometers | 250     | Divine Mage  |

@@ -41,6 +41,26 @@ body {
   font-size: 0.85rem;
 }
 
+.top-nav {
+  display: flex;
+  gap: 0.45rem;
+  margin-top: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.top-nav button {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: var(--text);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.75rem;
+}
+
+.top-nav button.active {
+  background: color-mix(in oklab, var(--accent-soft) 72%, black 28%);
+  color: var(--glow);
+}
+
 .rank-badge {
   border: 1px solid color-mix(in oklab, var(--accent) 80%, white 20%);
   color: var(--accent);
@@ -54,6 +74,10 @@ body {
   grid-template-columns: 110px 1fr;
   gap: 0.9rem;
   padding: 0 0.8rem 0.8rem;
+}
+
+.layout.layout-single {
+  grid-template-columns: 1fr;
 }
 
 .sidebar {
@@ -391,16 +415,38 @@ button:disabled {
 
 .stat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0.42rem;
   margin-top: 0.5rem;
 }
 
 .alok-int-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0.42rem;
   margin-top: 0.42rem;
+}
+
+.alok-int-grid .span-2 {
+  grid-column: span 2;
+}
+
+.alok-int-grid .span-1 {
+  grid-column: span 1;
+}
+
+.doc-view {
+  margin: 0;
+  margin-top: 0.6rem;
+  padding: 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.18);
+  color: #d7dff0;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  white-space: pre-wrap;
+  max-height: 70vh;
+  overflow: auto;
 }
 
 .card {
@@ -488,5 +534,20 @@ button:disabled {
 
   .workspace-tabs {
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 720px) {
+  .stat-grid {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  }
+
+  .alok-int-grid {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  }
+
+  .alok-int-grid .span-2,
+  .alok-int-grid .span-1 {
+    grid-column: auto;
   }
 }
