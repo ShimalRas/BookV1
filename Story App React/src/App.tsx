@@ -34,6 +34,23 @@ type HistoryEntry = {
   detail: string
 }
 
+type Item = {
+  id: string
+  name: string
+  rarity: 'Common' | 'Rare' | 'Epic' | 'Legendary' | 'Divine'
+  category: string
+  description: string
+  equipped: boolean
+}
+
+type Avatar = {
+  character: string
+  eyes: string
+  hair: string
+  skin: string
+  accent: string
+}
+
 type Character = {
   id: string
   name: string
@@ -55,6 +72,8 @@ type Character = {
   title: string
   notes: string
   skills: Skill[]
+  items: Item[]
+  avatar: Avatar
   history: HistoryEntry[]
 }
 
@@ -196,6 +215,19 @@ const seededCharacter: Character = {
     { id: crypto.randomUUID(), name: 'Title: Evolver', rank: 'Title', description: 'Increases success/stability of forced evolutions and reduces costs for subordinates.' },
     { id: crypto.randomUUID(), name: 'Title: Life Bringer', rank: 'Title', description: 'Enhances life-aligned abilities and boosts regeneration for familiars and undead bound to your soul.' },
   ],
+  items: [
+    { id: crypto.randomUUID(), name: 'Astraean Divine Sword', rarity: 'Divine', category: 'Weapon', description: 'Legendary sword of the Valkyrie royalty, channeling divine lightning.', equipped: true },
+    { id: crypto.randomUUID(), name: 'Robe of Eternal Legion', rarity: 'Legendary', category: 'Armor', description: 'Robes woven with the essence of undead legions.', equipped: true },
+    { id: crypto.randomUUID(), name: 'Ring of Soul Sovereignty', rarity: 'Legendary', category: 'Accessory', description: 'Amplifies soul manipulation abilities.', equipped: true },
+    { id: crypto.randomUUID(), name: 'Phylactery of Regeneration', rarity: 'Epic', category: 'Artifact', description: 'Stores life force for instant healing.', equipped: false },
+  ],
+  avatar: {
+    character: 'Alok',
+    eyes: '#8b7be2',
+    hair: '#ffd700',
+    skin: '#e8d4b0',
+    accent: '#f5c85a',
+  },
   history: [
     { id: crypto.randomUUID(), timestamp: new Date().toISOString(), action: 'Seed', detail: 'Created Alok canon profile with Divine rank.' },
   ],
@@ -247,6 +279,14 @@ function normalizeCharacter(raw: any): Character {
     towerPoints,
     divinityEnabled,
     skills: Array.isArray(raw?.skills) ? raw.skills : [],
+    items: Array.isArray(raw?.items) ? raw.items : [],
+    avatar: raw?.avatar || {
+      character: raw?.name || 'Character',
+      eyes: '#555555',
+      hair: '#8b7355',
+      skin: '#f0d9c8',
+      accent: '#888888',
+    },
     history: Array.isArray(raw?.history) ? raw.history : [],
   }
 }
@@ -477,6 +517,14 @@ function App() {
       title: 'Unassigned',
       notes: '',
       skills: [],
+      items: [],
+      avatar: {
+        character: `New Character ${characters.length + 1}`,
+        eyes: '#555555',
+        hair: '#8b7355',
+        skin: '#f0d9c8',
+        accent: '#888888',
+      },
       history: [{ id: crypto.randomUUID(), timestamp: new Date().toISOString(), action: 'Create', detail: 'Character created.' }],
     }
     setCharacters((prev) => [created, ...prev])
@@ -535,6 +583,52 @@ function App() {
     setSkillDraft({ name: '', rank: 'Rank C', description: '' })
   }
 
+  function PixelAvatar({ avatar, size = 'large' }: { avatar: Avatar; size?: 'small' | 'large' }) {
+    const scale = size === 'small' ? 4 : 8
+    const width = 16 * scale
+    const height = 20 * scale
+    const blockSize = scale
+
+    return (
+      <svg
+        width={width}
+        height={height}
+        viewBox={`0 0 ${16 * scale} ${20 * scale}`}
+        className={`pixel-avatar pixel-avatar-${size}`}
+        style={{ imageRendering: 'pixelated' }}
+      >
+        <defs>
+          <style>{`
+            .pixel-avatar { image-rendering: pixelated; }
+          `}</style>
+        </defs>
+
+        {/* Hair */}
+        <rect x={4 * blockSize} y={0} width={8 * blockSize} height={6 * blockSize} fill={avatar.hair} />
+        <rect x={3 * blockSize} y={2 * blockSize} width={1 * blockSize} height={2 * blockSize} fill={avatar.hair} />
+        <rect x={12 * blockSize} y={2 * blockSize} width={1 * blockSize} height={2 * blockSize} fill={avatar.hair} />
+
+        {/* Head */}
+        <rect x={3 * blockSize} y={5 * blockSize} width={10 * blockSize} height={7 * blockSize} fill={avatar.skin} />
+
+        {/* Eyes - Left Eye */}
+        <rect x={5 * blockSize} y={7 * blockSize} width={1 * blockSize} height={1 * blockSize} fill={avatar.eyes} />
+        {/* Eyes - Right Eye */}
+        <rect x={10 * blockSize} y={7 * blockSize} width={1 * blockSize} height={1 * blockSize} fill={avatar.eyes} />
+
+        {/* Mouth */}
+        <rect x={6 * blockSize} y={10 * blockSize} width={4 * blockSize} height={1 * blockSize} fill="#333333" opacity={0.5} />
+
+        {/* Body/Shoulders */}
+        <rect x={2 * blockSize} y={12 * blockSize} width={12 * blockSize} height={8 * blockSize} fill={avatar.accent} />
+
+        {/* Arms */}
+        <rect x={0} y={13 * blockSize} width={2 * blockSize} height={6 * blockSize} fill={avatar.skin} />
+        <rect x={14 * blockSize} y={13 * blockSize} width={2 * blockSize} height={6 * blockSize} fill={avatar.skin} />
+      </svg>
+    )
+  }
+
   return (
     <div
       className="app"
@@ -586,6 +680,9 @@ function App() {
 
                   return (
                     <button key={character.id} className="char-card" style={cardVars} onClick={() => openCharacter(character.id)}>
+                      <div className="char-card-avatar">
+                        <PixelAvatar avatar={character.avatar} size="small" />
+                      </div>
                       <div className="char-card-top">
                         <strong>{character.name}</strong>
                         <span className="char-card-rank">{character.rank}</span>
@@ -694,11 +791,16 @@ function App() {
             <article className="status-window panel-only" style={selectedCardVars}>
               <div className={isAlok ? 'status-frame alok-frame' : 'status-frame'}>
                 <div className="status-head">
-                  <div className="stars">✦ ✧ ✦</div>
-                  <h3>STATUS</h3>
-                  <p>{isAlok ? 'CELESTIAL DIVINE INTERFACE' : 'SYSTEM INTERFACE'}</p>
-                  <h4>{selected.name}</h4>
-                  <small>{selected.race} • {selected.rank} • Level {selected.level} • Total power {totalPower.toLocaleString()}</small>
+                  <div className="avatar-display">
+                    <PixelAvatar avatar={selected.avatar} size="large" />
+                  </div>
+                  <div className="status-head-text">
+                    <div className="stars">✦ ✧ ✦</div>
+                    <h3>STATUS</h3>
+                    <p>{isAlok ? 'CELESTIAL DIVINE INTERFACE' : 'SYSTEM INTERFACE'}</p>
+                    <h4>{selected.name}</h4>
+                    <small>{selected.race} • {selected.rank} • Level {selected.level} • Total power {totalPower.toLocaleString()}</small>
+                  </div>
                 </div>
 
                 <div className="mode-row">
@@ -737,6 +839,20 @@ function App() {
                       <Card label="VIT" value={selected.vit.toLocaleString()} />
                       <Card label="TOTAL INT" value={totalInt.toLocaleString()} />
                       {divinityEnabled && <Card label="DIVINITY" value={selected.divinity.toLocaleString()} />}
+                    </div>
+
+                    <div className="items-section">
+                      <h4>Inventory</h4>
+                      <div className="items-grid">
+                        {selected.items.map((item) => (
+                          <div key={item.id} className={`item-slot item-rarity-${item.rarity.toLowerCase()}`}>
+                            <div className="item-badge">{item.equipped ? '⚔' : '□'}</div>
+                            <strong>{item.name}</strong>
+                            <small>{item.category}</small>
+                            <span className="item-rarity">{item.rarity}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
 
                     {isAlok && (
