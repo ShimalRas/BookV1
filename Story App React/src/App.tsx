@@ -43,12 +43,32 @@ type Item = {
   equipped: boolean
 }
 
+type HairStyle = 'short' | 'spiky' | 'long' | 'mohawk'
+type OutfitStyle = 'jacket' | 'armor' | 'robe' | 'ranger'
+type AccessoryStyle = 'none' | 'headband' | 'cape' | 'horns'
+
 type Avatar = {
   character: string
   eyes: string
   hair: string
   skin: string
   accent: string
+  hairStyle: HairStyle
+  outfitStyle: OutfitStyle
+  accessory: AccessoryStyle
+}
+
+type CharacterBuilderDraft = {
+  name: string
+  race: string
+  rank: RankName
+  eyes: string
+  hair: string
+  skin: string
+  accent: string
+  hairStyle: HairStyle
+  outfitStyle: OutfitStyle
+  accessory: AccessoryStyle
 }
 
 type Character = {
@@ -112,6 +132,14 @@ const rankGains: Record<RankName, { phy: number; int: number; divinity: number }
 const races = ['human', 'elf', 'vampire', 'dragonoid', 'angel', 'fairy', 'valkyrie', 'demon', 'mixed']
 const ranks: RankName[] = ['E', 'D', 'C', 'B', 'A', 'S', 'SS-1', 'SS-2', 'SS-3', 'Mythic-1', 'Mythic-2', 'Demi', 'Divine']
 const STORAGE_KEY = 'story-app-react-v2'
+
+const skinPalette = ['#f3d8be', '#e8c8a8', '#d7ad84', '#b7835e', '#8e5d3d']
+const eyePalette = ['#6ac4ff', '#8b7be2', '#69d6a1', '#ff8fb0', '#ffd166']
+const hairPalette = ['#f7d85d', '#d0d5db', '#8f6f52', '#1f2430', '#d97757', '#6fd6cf']
+const accentPalette = ['#6c7a6b', '#4e62a7', '#8f3f8a', '#ad5f2e', '#2e6f5f', '#34373f']
+const hairStyleOptions: HairStyle[] = ['short', 'spiky', 'long', 'mohawk']
+const outfitStyleOptions: OutfitStyle[] = ['jacket', 'armor', 'robe', 'ranger']
+const accessoryOptions: AccessoryStyle[] = ['none', 'headband', 'cape', 'horns']
 
 const elementTint: Record<string, string> = {
   Arcane: '#8ec5ff',
@@ -227,6 +255,9 @@ const seededCharacter: Character = {
     hair: '#ffd700',
     skin: '#e8d4b0',
     accent: '#f5c85a',
+    hairStyle: 'spiky',
+    outfitStyle: 'armor',
+    accessory: 'cape',
   },
   history: [
     { id: crypto.randomUUID(), timestamp: new Date().toISOString(), action: 'Seed', detail: 'Created Alok canon profile with Divine rank.' },
@@ -280,14 +311,32 @@ function normalizeCharacter(raw: any): Character {
     divinityEnabled,
     skills: Array.isArray(raw?.skills) ? raw.skills : [],
     items: Array.isArray(raw?.items) ? raw.items : [],
-    avatar: raw?.avatar || {
-      character: raw?.name || 'Character',
-      eyes: '#555555',
-      hair: '#8b7355',
-      skin: '#f0d9c8',
-      accent: '#888888',
+    avatar: {
+      character: String(raw?.avatar?.character ?? raw?.name ?? 'Character'),
+      eyes: String(raw?.avatar?.eyes ?? '#555555'),
+      hair: String(raw?.avatar?.hair ?? '#8b7355'),
+      skin: String(raw?.avatar?.skin ?? '#f0d9c8'),
+      accent: String(raw?.avatar?.accent ?? '#888888'),
+      hairStyle: (raw?.avatar?.hairStyle as HairStyle) ?? 'short',
+      outfitStyle: (raw?.avatar?.outfitStyle as OutfitStyle) ?? 'jacket',
+      accessory: (raw?.avatar?.accessory as AccessoryStyle) ?? 'none',
     },
     history: Array.isArray(raw?.history) ? raw.history : [],
+  }
+}
+
+function makeBuilderDraft(index: number): CharacterBuilderDraft {
+  return {
+    name: `New Character ${index}`,
+    race: 'human',
+    rank: 'E',
+    eyes: '#6ac4ff',
+    hair: '#d0d5db',
+    skin: '#e8c8a8',
+    accent: '#6c7a6b',
+    hairStyle: 'short',
+    outfitStyle: 'jacket',
+    accessory: 'none',
   }
 }
 
@@ -368,6 +417,8 @@ function isCombinedSkill(skill: SkillCodexEntry): boolean {
 function App() {
   const [characters, setCharacters] = useState<Character[]>(() => loadInitialCharacters())
   const [selectedId, setSelectedId] = useState<string | null>(null)
+  const [showBuilder, setShowBuilder] = useState(false)
+  const [builderDraft, setBuilderDraft] = useState<CharacterBuilderDraft>(() => makeBuilderDraft(1))
   const [mode, setMode] = useState<SystemMode>('status')
   const [page, setPage] = useState<WorkspacePage>('panel')
   const [navPage, setNavPage] = useState<NavPage>('characters')
@@ -496,11 +547,31 @@ function App() {
   }
 
   function addCharacter() {
+    setShowBuilder(true)
+    setBuilderDraft(makeBuilderDraft(characters.length + 1))
+  }
+
+  function randomizeBuilder() {
+    const pick = <T,>(list: readonly T[]): T => list[Math.floor(Math.random() * list.length)]
+    setBuilderDraft((prev) => ({
+      ...prev,
+      eyes: pick(eyePalette),
+      hair: pick(hairPalette),
+      skin: pick(skinPalette),
+      accent: pick(accentPalette),
+      hairStyle: pick(hairStyleOptions),
+      outfitStyle: pick(outfitStyleOptions),
+      accessory: pick(accessoryOptions),
+    }))
+  }
+
+  function createCharacterFromBuilder() {
+    const safeName = builderDraft.name.trim() || `New Character ${characters.length + 1}`
     const created: Character = {
       id: crypto.randomUUID(),
-      name: `New Character ${characters.length + 1}`,
-      race: 'human',
-      rank: 'E',
+      name: safeName,
+      race: builderDraft.race,
+      rank: builderDraft.rank,
       level: 1,
       str: 10,
       agi: 10,
@@ -519,16 +590,20 @@ function App() {
       skills: [],
       items: [],
       avatar: {
-        character: `New Character ${characters.length + 1}`,
-        eyes: '#555555',
-        hair: '#8b7355',
-        skin: '#f0d9c8',
-        accent: '#888888',
+        character: safeName,
+        eyes: builderDraft.eyes,
+        hair: builderDraft.hair,
+        skin: builderDraft.skin,
+        accent: builderDraft.accent,
+        hairStyle: builderDraft.hairStyle,
+        outfitStyle: builderDraft.outfitStyle,
+        accessory: builderDraft.accessory,
       },
-      history: [{ id: crypto.randomUUID(), timestamp: new Date().toISOString(), action: 'Create', detail: 'Character created.' }],
+      history: [{ id: crypto.randomUUID(), timestamp: new Date().toISOString(), action: 'Create', detail: `Character created via builder (${builderDraft.hairStyle}/${builderDraft.outfitStyle}).` }],
     }
     setCharacters((prev) => [created, ...prev])
     setSelectedId(created.id)
+    setShowBuilder(false)
     setPage('panel')
     setMode('status')
   }
@@ -543,6 +618,7 @@ function App() {
 
   function openCharacter(id: string) {
     setSelectedId(id)
+    setShowBuilder(false)
     setPage('panel')
     setMode('status')
   }
@@ -603,10 +679,37 @@ function App() {
           `}</style>
         </defs>
 
-        {/* Hair */}
-        <rect x={4 * blockSize} y={0} width={8 * blockSize} height={6 * blockSize} fill={avatar.hair} />
-        <rect x={3 * blockSize} y={2 * blockSize} width={1 * blockSize} height={2 * blockSize} fill={avatar.hair} />
-        <rect x={12 * blockSize} y={2 * blockSize} width={1 * blockSize} height={2 * blockSize} fill={avatar.hair} />
+        {/* Hair variants */}
+        {avatar.hairStyle === 'short' && (
+          <>
+            <rect x={4 * blockSize} y={0} width={8 * blockSize} height={6 * blockSize} fill={avatar.hair} />
+            <rect x={3 * blockSize} y={2 * blockSize} width={1 * blockSize} height={2 * blockSize} fill={avatar.hair} />
+            <rect x={12 * blockSize} y={2 * blockSize} width={1 * blockSize} height={2 * blockSize} fill={avatar.hair} />
+          </>
+        )}
+        {avatar.hairStyle === 'spiky' && (
+          <>
+            <rect x={4 * blockSize} y={1 * blockSize} width={8 * blockSize} height={5 * blockSize} fill={avatar.hair} />
+            <rect x={3 * blockSize} y={2 * blockSize} width={2 * blockSize} height={2 * blockSize} fill={avatar.hair} />
+            <rect x={6 * blockSize} y={0} width={1 * blockSize} height={1 * blockSize} fill={avatar.hair} />
+            <rect x={8 * blockSize} y={0} width={1 * blockSize} height={1 * blockSize} fill={avatar.hair} />
+            <rect x={10 * blockSize} y={0} width={1 * blockSize} height={1 * blockSize} fill={avatar.hair} />
+          </>
+        )}
+        {avatar.hairStyle === 'long' && (
+          <>
+            <rect x={4 * blockSize} y={0} width={8 * blockSize} height={6 * blockSize} fill={avatar.hair} />
+            <rect x={2 * blockSize} y={4 * blockSize} width={2 * blockSize} height={6 * blockSize} fill={avatar.hair} />
+            <rect x={12 * blockSize} y={4 * blockSize} width={2 * blockSize} height={6 * blockSize} fill={avatar.hair} />
+          </>
+        )}
+        {avatar.hairStyle === 'mohawk' && (
+          <>
+            <rect x={7 * blockSize} y={0} width={2 * blockSize} height={6 * blockSize} fill={avatar.hair} />
+            <rect x={6 * blockSize} y={1 * blockSize} width={1 * blockSize} height={3 * blockSize} fill={avatar.hair} />
+            <rect x={9 * blockSize} y={1 * blockSize} width={1 * blockSize} height={3 * blockSize} fill={avatar.hair} />
+          </>
+        )}
 
         {/* Head */}
         <rect x={3 * blockSize} y={5 * blockSize} width={10 * blockSize} height={7 * blockSize} fill={avatar.skin} />
@@ -619,8 +722,37 @@ function App() {
         {/* Mouth */}
         <rect x={6 * blockSize} y={10 * blockSize} width={4 * blockSize} height={1 * blockSize} fill="#333333" opacity={0.5} />
 
-        {/* Body/Shoulders */}
-        <rect x={2 * blockSize} y={12 * blockSize} width={12 * blockSize} height={8 * blockSize} fill={avatar.accent} />
+        {/* Outfit variants */}
+        {avatar.outfitStyle === 'jacket' && <rect x={2 * blockSize} y={12 * blockSize} width={12 * blockSize} height={8 * blockSize} fill={avatar.accent} />}
+        {avatar.outfitStyle === 'armor' && (
+          <>
+            <rect x={2 * blockSize} y={12 * blockSize} width={12 * blockSize} height={8 * blockSize} fill={avatar.accent} />
+            <rect x={5 * blockSize} y={13 * blockSize} width={2 * blockSize} height={6 * blockSize} fill="#aab2bd" />
+            <rect x={9 * blockSize} y={13 * blockSize} width={2 * blockSize} height={6 * blockSize} fill="#aab2bd" />
+          </>
+        )}
+        {avatar.outfitStyle === 'robe' && (
+          <>
+            <rect x={3 * blockSize} y={12 * blockSize} width={10 * blockSize} height={8 * blockSize} fill={avatar.accent} />
+            <rect x={2 * blockSize} y={14 * blockSize} width={12 * blockSize} height={6 * blockSize} fill={avatar.accent} />
+          </>
+        )}
+        {avatar.outfitStyle === 'ranger' && (
+          <>
+            <rect x={2 * blockSize} y={12 * blockSize} width={12 * blockSize} height={8 * blockSize} fill={avatar.accent} />
+            <rect x={2 * blockSize} y={14 * blockSize} width={12 * blockSize} height={2 * blockSize} fill="#445246" />
+          </>
+        )}
+
+        {/* Accessory variants */}
+        {avatar.accessory === 'headband' && <rect x={3 * blockSize} y={5 * blockSize} width={10 * blockSize} height={1 * blockSize} fill="#2f2f2f" />}
+        {avatar.accessory === 'cape' && <rect x={1 * blockSize} y={12 * blockSize} width={1 * blockSize} height={8 * blockSize} fill="#8d2f5f" />}
+        {avatar.accessory === 'horns' && (
+          <>
+            <rect x={3 * blockSize} y={1 * blockSize} width={1 * blockSize} height={2 * blockSize} fill="#dddddd" />
+            <rect x={12 * blockSize} y={1 * blockSize} width={1 * blockSize} height={2 * blockSize} fill="#dddddd" />
+          </>
+        )}
 
         {/* Arms */}
         <rect x={0} y={13 * blockSize} width={2 * blockSize} height={6 * blockSize} fill={avatar.skin} />
@@ -698,6 +830,79 @@ function App() {
               <div className="character-footer">
                 <button className="primary" onClick={addCharacter}>New Character</button>
               </div>
+
+              {showBuilder && (
+                <article className="builder-panel">
+                  <div className="builder-preview">
+                    <PixelAvatar
+                      avatar={{
+                        character: builderDraft.name,
+                        eyes: builderDraft.eyes,
+                        hair: builderDraft.hair,
+                        skin: builderDraft.skin,
+                        accent: builderDraft.accent,
+                        hairStyle: builderDraft.hairStyle,
+                        outfitStyle: builderDraft.outfitStyle,
+                        accessory: builderDraft.accessory,
+                      }}
+                      size="large"
+                    />
+                  </div>
+
+                  <div className="builder-controls">
+                    <h3>Pixel Character Builder</h3>
+                    <div className="builder-grid">
+                      <label>Name<input value={builderDraft.name} onChange={(event) => setBuilderDraft((prev) => ({ ...prev, name: event.target.value }))} /></label>
+                      <label>Race<select value={builderDraft.race} onChange={(event) => setBuilderDraft((prev) => ({ ...prev, race: event.target.value }))}>{races.map((race) => <option key={race}>{race}</option>)}</select></label>
+                      <label>Rank<select value={builderDraft.rank} onChange={(event) => setBuilderDraft((prev) => ({ ...prev, rank: event.target.value as RankName }))}>{ranks.map((rank) => <option key={rank}>{rank}</option>)}</select></label>
+                      <label>Hair Style<select value={builderDraft.hairStyle} onChange={(event) => setBuilderDraft((prev) => ({ ...prev, hairStyle: event.target.value as HairStyle }))}>{hairStyleOptions.map((style) => <option key={style} value={style}>{style}</option>)}</select></label>
+                      <label>Outfit<select value={builderDraft.outfitStyle} onChange={(event) => setBuilderDraft((prev) => ({ ...prev, outfitStyle: event.target.value as OutfitStyle }))}>{outfitStyleOptions.map((style) => <option key={style} value={style}>{style}</option>)}</select></label>
+                      <label>Accessory<select value={builderDraft.accessory} onChange={(event) => setBuilderDraft((prev) => ({ ...prev, accessory: event.target.value as AccessoryStyle }))}>{accessoryOptions.map((style) => <option key={style} value={style}>{style}</option>)}</select></label>
+                    </div>
+
+                    <div className="builder-palette-wrap">
+                      <div>
+                        <span>Eyes</span>
+                        <div className="builder-palette">
+                          {eyePalette.map((color) => (
+                            <button key={color} className={builderDraft.eyes === color ? 'swatch active' : 'swatch'} style={{ background: color }} onClick={() => setBuilderDraft((prev) => ({ ...prev, eyes: color }))} aria-label={`Eye color ${color}`} />
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <span>Hair</span>
+                        <div className="builder-palette">
+                          {hairPalette.map((color) => (
+                            <button key={color} className={builderDraft.hair === color ? 'swatch active' : 'swatch'} style={{ background: color }} onClick={() => setBuilderDraft((prev) => ({ ...prev, hair: color }))} aria-label={`Hair color ${color}`} />
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <span>Skin</span>
+                        <div className="builder-palette">
+                          {skinPalette.map((color) => (
+                            <button key={color} className={builderDraft.skin === color ? 'swatch active' : 'swatch'} style={{ background: color }} onClick={() => setBuilderDraft((prev) => ({ ...prev, skin: color }))} aria-label={`Skin color ${color}`} />
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <span>Outfit Color</span>
+                        <div className="builder-palette">
+                          {accentPalette.map((color) => (
+                            <button key={color} className={builderDraft.accent === color ? 'swatch active' : 'swatch'} style={{ background: color }} onClick={() => setBuilderDraft((prev) => ({ ...prev, accent: color }))} aria-label={`Outfit color ${color}`} />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="builder-actions">
+                      <button onClick={randomizeBuilder}>Randomize</button>
+                      <button className="primary" onClick={createCharacterFromBuilder}>Create Character</button>
+                      <button onClick={() => setShowBuilder(false)}>Cancel</button>
+                    </div>
+                  </div>
+                </article>
+              )}
             </section>
           ) : (
             <section className="main-panel">
