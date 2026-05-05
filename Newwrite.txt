@@ -12,6 +12,7 @@ Attributes:
 • Angel Core: 29,320
 • Divinity: 69,690
 • Total INT: 119,020
+• Lightning Mutation: Crimson -> Black-Red with Gold Veins (permanent)
 • Affinity: Lightning, Flame, Frost, Blood (350% increase in damage, 200% increase in resistance)
 • Attribute Points: 11,550
 Tower points: 24,345,250
@@ -21,7 +22,7 @@ Regenerates body from damage and poisons. Can restore the body even from a death
 
 • Incineration Beam: Shoots a beam of absolute flames that incinerate monsters caught.
 
-• Thunder's Judgement: An immensely powerful spear of pure divine lightning that unleashes complete destruction upon an area of 10,000 meters releasing a violent thunderstorm that sweeps away everything.
+• Thunder's Judgement: An immensely powerful spear of black-red divine lightning veined with gold that unleashes complete destruction upon an area of 10,000 meters, releasing a violent thunderstorm of dominion lightning that sweeps away everything.
 
 • Soul Absorber: 
   Absorb and store souls, gaining their knowledge, skills, and essence.
@@ -102,14 +103,14 @@ Angel's Condemnation (three-stars) (Rank A, 0.002%): Rains down hundreds of swor
   - Blood Mist (three-star): Create a mist of blood that drains the enemies mana and health.
 Elemental Magic:
 • Lightning Manipulation (Rank B, 12.2%):
-  - Lightning Zap: Release a short straight line of lightning.
-  - Lightning Bolt(one-Star): Launch a concentrated bolt of lightning at a target.
+  - Lightning Zap: Release a short straight line of black-red lightning with sharper piercing power and stronger shock impact.
+  - Lightning Bolt(one-Star): Launch a concentrated bolt of lightning at a target, now heavily increased in speed, penetration, and discharge force.
   - Ball Lightning(Two-Star): The caster summons ten or more crackling spheres of ball lightning that autonomously seek out and strike enemies within range.
                               The caster may continuously generate new lightning balls—up to the limit of their mana and magical control—and the spell will persist until manually canceled or mana is exhausted.
                               Ball lightning orbits the caster and will relentlessly chase foes, shocking any that enter its proximity.
-                              While active, the caster can freely use other skills; Ball Lightning requires no attention to maintain, operating automatically until dismissed. Each sphere’s damage increases with spell rank and caster INT.
-  - Lightning Spear(three-star):  Release a spear of pure red lightning that devastates an entire area of Five hundred meters upon impact, destroying groups of monsters and continuously emitting arcs of lightning in the vicinity, chaining to nearby foes and causing widespread destruction.
-  - Thunder Dominion(four-stars): Summon a storm field of chained lightning that continuously strikes every enemy within range and amplifies all lightning damage.
+                              While active, the caster can freely use other skills; Ball Lightning requires no attention to maintain, operating automatically until dismissed. Each sphere’s damage, chaining range, and discharge intensity are permanently amplified by the mutation, scaling with spell rank and caster INT.
+  - Sovereign Storm-Lance(Six-Star, Unique): Release a black-red spear of dominion lightning veined with gold that tears through targets with composite annihilation. Lightning Tsunami sweeps outward up to 100 km, Cataclysm Burst detonates with an effective destruction radius up to 50 km, and Storm Edict establishes a sustained thunderfield that autonomously strikes designated targets while drawing ambient mana into the storm.
+  - Thunder Dominion(four-stars): Summon a storm field of chained black-red lightning that continuously strikes every enemy within range and amplifies all lightning damage, with greatly increased density, speed, and area control.
 
 • Flame Manipulation (Rank B, 83.16%):
   - Fire Ball: Launch a ball of fire at your target that explodes on impact.
@@ -178,10 +179,10 @@ BLESSINGS:
   Granted by: Thor, God of Thunder
   
   Effects:
-  - Thunderous Might: Alok's lightning attacks (spells, sword strikes, and skills) are further amplified by 25%.
-  - Storm Domain: Once per day, Alok can call forth a localized storm—summoning thunderclouds, rain, and devastating bolts of divine lightning to smite enemies in a wide area.
-  - Unstoppable Charge: Grants temporary immunity to paralysis, stun, and shock effects. When channeling lightning, movement speed increases by 40% for 30 seconds.
-  - Hammer's Echo: Alok's next critical lightning attack has a chance to unleash a shockwave reminiscent of Thor's hammer, dealing massive AoE damage and stunning all non-boss targets.
+  - Thunderous Might: Alok's lightning attacks (spells, sword strikes, and skills) are further amplified by 40%.
+  - Storm Domain: Once per day, Alok can call forth a localized storm—summoning thunderclouds, rain, and devastating bolts of divine black-red lightning to smite enemies in a wide area.
+  - Unstoppable Charge: Grants temporary immunity to paralysis, stun, and shock effects. When channeling lightning, movement speed increases by 50% for 30 seconds.
+  - Hammer's Echo: Alok's next critical lightning attack has a higher chance to unleash a shockwave reminiscent of Thor's hammer, dealing massive AoE damage and stunning all non-boss targets.
   
   Flavor Text:
   "Rise, challenger! With my mark, let lightning obey your call and storms gather at your command. Let your fury echo mine, and may your legend shake the heavens."
