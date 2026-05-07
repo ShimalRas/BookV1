@@ -102,7 +102,7 @@ Angel's Condemnation (three-stars) (Rank A, 0.002%): Rains down hundreds of swor
  
   - Blood Mist (three-star): Create a mist of blood that drains the enemies mana and health.
 Elemental Magic:
-• Lightning Manipulation (Rank B, 12.2%):
+• Lightning Manipulation (Rank A, 98.2%):
   - Lightning Zap: Release a short straight line of black-red lightning with sharper piercing power and stronger shock impact.
   - Lightning Bolt(one-Star): Launch a concentrated bolt of lightning at a target, now heavily increased in speed, penetration, and discharge force.
   - Ball Lightning(Two-Star): The caster summons ten or more crackling spheres of ball lightning that autonomously seek out and strike enemies within range.
@@ -299,14 +299,14 @@ Skills:
 
 •	Swordsmanship (Rank D, 34.42%): Enhances sword accuracy and efficiency.
 
-Serena Level 100 (True Pureblood Vampire)
+Serena Level 200 (True Pureblood Vampire)
 Race: Vampire
-• Rank: SS1 (Ascendant)
-• STR: 2091
-• AGI: 1865
-• VIT: 5217
-• INT: 5722
-• Attribute Points: 750
+• Rank: SS2 (Ascendant)
+• STR: 4591
+• AGI: 4165
+• VIT: 8717
+• INT: 9472
+• Attribute Points: 0
 Skills: 
 •	Skill: Regeneration(Rank B, Completion 0%)
 Regenerates injuries, can survive fatal blows, recover lost limbs.
