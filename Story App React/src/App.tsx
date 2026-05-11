@@ -26,9 +26,9 @@ const ACCESSORIES   = ["none","headband","cape","horns","halo","eyepatch","scarf
 // Palettes
 const SKIN_P  = ["#f5d5b0","#edc492","#d9a87c","#c48b5a","#a0663a","#6b3e20"];
 const SKIN_S  = ["#d9a87c","#c49060","#b07848","#966030","#7a4820","#4a2210"];
-const EYE_P   = ["#5bc8f5","#8b7be2","#6dd6a2","#e87cb4","#f5c842","#e85c5c","#4aafff","#c87de8"];
-const HAIR_P  = ["#f7d85d","#d0d5db","#8f6f52","#1f2430","#d97757","#6fd6cf","#e06090","#3f7fe8","#eeeeee","#2a1a0a"];
-const OUTFIT_P= ["#3a4a3a","#2e3a52","#5a2a2a","#2e4a5a","#4a2e5a","#5a4a20","#1a1a2e","#3a5a3a","#4a3a2a","#1e3a2e"];
+const EYE_P   = ["#8b7be2","#b19cd9","#c9a0dc","#5bc8f5","#6dd6a2","#e87cb4","#f5c842","#e85c5c"];
+const HAIR_P  = ["#ffd700","#f7d85d","#ffc107","#ffb347","#d4af37","#d0d5db","#8f6f52","#1f2430","#d97757","#6fd6cf"];
+const OUTFIT_P= ["#f5f5f5","#ffffff","#f0f0f0","#e8e8e8","#3a4a3a","#2e3a52","#5a2a2a","#2e4a5a","#4a2e5a","#5a4a20"];
 
 const EL_ICON ={ Fire:"🔥",Lightning:"⚡",Ice:"❄️",Water:"🌊",Wind:"🌀",Blood:"🩸",Dark:"🌑",Light:"✨",Soul:"👻",Nature:"🌿",Ground:"⛰️",Arcane:"🔮",Physical:"⚔️","Lightning/Divine":"⚡","Fire+Lightning+Ground":"🌋","Life/Death":"☯️",Life:"💚","Death/Command":"💀",Evolution:"🧬",Mind:"🧠",Divine:"✦" };
 const EL_CLR  ={ Fire:"#ff6b35",Lightning:"#fcd34d",Ice:"#7dd3fc",Water:"#38bdf8",Wind:"#a7f3d0",Blood:"#ef4444",Dark:"#8b5cf6",Light:"#fef08a",Soul:"#c4b5fd",Nature:"#4ade80",Ground:"#d97706",Arcane:"#818cf8",Physical:"#94a3b8","Lightning/Divine":"#fbbf24","Fire+Lightning+Ground":"#fb923c","Life/Death":"#86efac",Life:"#4ade80","Death/Command":"#94a3b8",Evolution:"#34d399",Mind:"#60a5fa",Divine:"#f5c85a" };
@@ -37,30 +37,49 @@ const RARITY  ={ Common:{c:"#9ca3af",bg:"#1f2937"},Rare:{c:"#60a5fa",bg:"#172554
 
 // ── Skills (91 canonical Alok skills) ──────────────────────────────────────
 const ALOK_SKILLS = [
+  // ── DIVINE ABILITIES ──────────────────────────────────────────────────────────
   { id:"regen",       name:"Regeneration",                        element:"Life/Death",          category:"Divine Ability",     rank:"Divine",              starTier:null, description:"Regenerates body from damage and poisons. Can restore even from a death state, drawing upon both life and death." },
   { id:"incinbeam",   name:"Incineration Beam",                   element:"Fire",                category:"Divine Ability",     rank:"Divine",              starTier:null, description:"Shoots a beam of absolute flames that incinerates everything caught in its path." },
   { id:"thunj",       name:"Thunder's Judgement",                  element:"Lightning/Divine",    category:"Divine Ability",     rank:"Divine",              starTier:null, description:"An immensely powerful spear of pure divine lightning. 10,000m blast radius. Devastates the entire region." },
   { id:"soulabs",     name:"Soul Absorber",                        element:"Soul",                category:"Divine Ability",     rank:"Divine",              starTier:null, description:"Absorbs and stores souls, gaining their knowledge, skills, and essence permanently." },
   { id:"soulreb",     name:"Soul Rebirth",                         element:"Soul",                category:"Divine Ability",     rank:"Divine",              starTier:null, description:"Transforms a soul, wiping its memories to grant it a new beginning under a new form." },
+  // ── UNIQUE AUTHORITIES ────────────────────────────────────────────────────────
   { id:"eternleg",    name:"Sovereign of Eternal Legions",         element:"Death/Command",       category:"Unique Authority",   rank:"Divine",              starTier:null, description:"You do not 'summon' undead — you RULE them. Conceptual command authority. Initial capacity: 54,000 units. Scales with INT." },
   { id:"soulevo",     name:"Soul Evolve",                          element:"Evolution",           category:"Unique Authority",   rank:"Divine",              starTier:null, description:"Initiate forced evolution on familiars and undead. Break level caps, reshape racial paths. Unique bloodline skill — Son of Life and Death." },
   { id:"genesis",     name:"Genesis of the Awakened",             element:"Life",                category:"Unique Authority",   rank:"Divine",              starTier:null, description:"Transform high-tier monster souls into new sentient beings, shaping their nature, instincts, and growth potential." },
   { id:"soulforg",    name:"Soulforged Vessel",                    element:"Soul",                category:"Unique Authority",   rank:"Divine",              starTier:null, description:"Imbue suitable objects, constructs, or corpses with souls, granting them new life and identity." },
+  // ── COMBAT SKILLS ─────────────────────────────────────────────────────────────
   { id:"giantf",      name:"Giant Force",                          element:"Physical",            category:"Combat",             rank:"Rank A",              starTier:null, description:"Boosts all physical stats by 500% for 10 seconds. Extreme burst capacity." },
+  { id:"basiccomb",   name:"Basic Combat",                         element:"Physical",            category:"Combat",             rank:"Rank C (56.554%)",    starTier:null, description:"Refines combat techniques and improves fundamental martial proficiency." },
+  { id:"basicmarks",  name:"Basic Marksmanship",                   element:"Physical",            category:"Combat",             rank:"Rank D (73.43%)",     starTier:null, description:"Increases accuracy with ranged weapons by 20%. Grants intuitive understanding of angles, wind, and leading targets." },
+  { id:"manaforces",  name:"Mana Force Strike",                    element:"Arcane",              category:"Combat",             rank:"Rank B (4.13%)",      starTier:null, description:"Increases punch power by 30% through precise mana reinforcement." },
+  { id:"dracointi",   name:"Draconic Intimidation",                element:"Physical",            category:"Combat",             rank:"Rank C",              starTier:null, description:"Emit a mana-charged roar. Inflicts [Fear], shatters morale, disrupts lower-tier spell casting." },
+  { id:"dracoclaw",   name:"Elemental Claw",                       element:"Physical",            category:"Combat",             rank:"Basic",               starTier:null, description:"Infuse hands/claws with any elemental mana. Adds massive magical damage and status effects (Burning, Freezing, Shocking) to physical strikes." },
+  // ── PASSIVE ABILITIES ─────────────────────────────────────────────────────────
   { id:"percep",      name:"Perception / Dragon Vision",           element:"Mind",                category:"Passive",            rank:"Rank A (99.84%)",     starTier:null, description:"Greatly enhanced senses and battlefield awareness. Dragon-tier sensory upgrade — detects threats before they manifest." },
+  { id:"dracomanacir",name:"Draconic Mana Circuit",               element:"Arcane",              category:"Passive",            rank:"Passive",             starTier:null, description:"Mana 30% easier to manipulate; casting speed greatly increased. The world recognizes you as a predator." },
+  { id:"comdom",      name:"Commander's Dominion",                 element:"Mind",                category:"Passive",            rank:"Active/Passive",      starTier:null, description:"In a designated area: undead and allies get +30% all physical stats, movement speed, resistance. Telepathic tactics. Uses mana to maintain." },
+  { id:"guidlight",   name:"Guiding Light",                        element:"Light",               category:"Passive",            rank:"Passive",             starTier:null, description:"Stable light orb that auto-follows, illuminates path. Adjusts brightness and position from mental intent." },
+  // ── SWORD ARTS ────────────────────────────────────────────────────────────────
   { id:"swords",      name:"Swordsmanship",                        element:"Physical",            category:"Combat",             rank:"Rank B (78.41%)",     starTier:null, description:"High proficiency in sword combat. Refined technique and form." },
   { id:"valstyle",    name:"Astraean Valkyrie Sword Style",        element:"Physical",            category:"Sword Art",          rank:"Rank S",              starTier:null, description:"Royal sword art of the Valkyrie warriors from Brynhildr Astraean — the eternal Valkyrie empire." },
   { id:"grace",       name:"Graceful Strike (Form I)",             element:"Physical",            category:"Sword Art",          rank:"Form I",              starTier:null, description:"First form of Astraean style; a graceful mana-powered strike with greatly increased damage." },
   { id:"flowsev",     name:"Flowing Severance (Form II)",          element:"Physical",            category:"Sword Art",          rank:"Form II",             starTier:null, description:"Second form; circular slashes targeting limbs with deep mana cuts that continue bleeding." },
   { id:"elemblade",   name:"Elemental Blade Infusion",             element:"Physical",            category:"Sword Art",          rank:"Rank B (96.13%)",     starTier:null, description:"Apply fire, ice, or lightning to your weapon. Elemental effects scale with proficiency." },
+  // ── MANA CRAFT ────────────────────────────────────────────────────────────────
   { id:"manaform",    name:"Mana Form",                            element:"Arcane",              category:"Mana Craft",         rank:"Rank C",              starTier:null, description:"Forms mana constructs with saved shape patterns. Effects scale with INT." },
-  { id:"manaforces",  name:"Mana Force Strike",                    element:"Arcane",              category:"Combat",             rank:"Rank B (4.13%)",      starTier:null, description:"Increases punch power by 30% through precise mana reinforcement." },
+  { id:"basicmed",    name:"Basic Mana Meditation",                element:"Arcane",              category:"Utility",            rank:"Unranked",            starTier:null, description:"Gather mana to your core and increase mana pool. Harder to gain as stats increase." },
+  { id:"manabull",    name:"Mana Bullet",                          element:"Arcane",              category:"Mana Craft",         rank:"Rank D",              starTier:null, description:"Forms and fires a bullet of mana that can explode on impact." },
+  { id:"manaswrd",    name:"Mana Sword",                           element:"Arcane",              category:"Mana Craft",         rank:"Rank C",              starTier:null, description:"Creates a temporary mana-forged sword." },
+  { id:"manabl",      name:"Mana Blast",                           element:"Arcane",              category:"Star Spell",         rank:"Rank C (75%)",        starTier:1,    description:"Explosive mana blast with adjustable detonation timing. Radius: 25m base." },
+  // ── BLOOD MANIPULATION ────────────────────────────────────────────────────────
   { id:"bloodman",    name:"Blood Manipulation",                   element:"Blood",               category:"Manipulation",       rank:"Rank C (14.25%)",     starTier:null, description:"Core blood affinity control: constructs, arrows, fists, spikes, mist." },
   { id:"bloodarr",    name:"Blood Arrow",                          element:"Blood",               category:"Manipulation",       rank:"Rank C",              starTier:1,    description:"High-velocity blood arrow with barrier-piercing power." },
   { id:"bloodfist",   name:"Blood Fist",                           element:"Blood",               category:"Manipulation",       rank:"Rank C",              starTier:1,    description:"Summons blood fists with boosted striking force and adjustable size." },
   { id:"bloodspk",    name:"Blood Spikes",                         element:"Blood",               category:"Manipulation",       rank:"Rank C",              starTier:2,    description:"Erupts spikes of blood from the ground or magic circles." },
   { id:"bloodmist",   name:"Blood Mist",                           element:"Blood",               category:"Manipulation",       rank:"Rank C",              starTier:3,    description:"Creates a blood mist that drains enemy mana and vitality. Allies are safe." },
   { id:"boneman",     name:"Bone Manipulation",                    element:"Physical",            category:"Manipulation",       rank:"Rank C (0%)",         starTier:null, description:"Forming bone constructs and controlling them." },
+  // ── FLAME MANIPULATION ────────────────────────────────────────────────────────
   { id:"flameman",    name:"Flame Manipulation",                   element:"Fire",                category:"Manipulation",       rank:"Rank B (83.16%)",     starTier:null, description:"Core flame affinity control. Unlocks: Fire Ball, Blast, Beam, Inferno Pulse, Inferno Crown." },
   { id:"fireball",    name:"Fire Ball",                            element:"Fire",                category:"Manipulation",       rank:"Rank B",              starTier:null, description:"Launches a concentrated fire orb at a target. Explodes on impact." },
   { id:"fireblast",   name:"Fire Blast",                           element:"Fire",                category:"Star Spell",         rank:"Rank B",              starTier:1,    description:"Powerful explosive fire impact. Sweeping explosion on hit." },
@@ -70,61 +89,44 @@ const ALOK_SKILLS = [
   { id:"flametornad", name:"Flame Tornado",                        element:"Fire",                category:"Star Spell",         rank:"Rank B",              starTier:3,    description:"Unleashes a tornado of flames." },
   { id:"infpulse",    name:"Inferno Pulse",                        element:"Fire",                category:"Star Spell",         rank:"Rank B",              starTier:3,    description:"Ring of intense flames that explodes outward, leaving burning streaks." },
   { id:"infcrown",    name:"Inferno Crown",                        element:"Fire",                category:"Star Spell",         rank:"Rank B",              starTier:4,    description:"Expanding crown of ultra-hot fire that detonates around the caster." },
+  // ── ICE MANIPULATION ──────────────────────────────────────────────────────────
   { id:"iceman",      name:"Ice Manipulation",                     element:"Ice",                 category:"Manipulation",       rank:"Rank C (54.68%)",     starTier:null, description:"Core frost affinity control. Unlocks: Icy Ball, Blast, Beam, Absolute Zero Field." },
   { id:"icyball",     name:"Icy Ball",                             element:"Ice",                 category:"Manipulation",       rank:"Rank C",              starTier:null, description:"Swirling ball of icy power that freezes on impact." },
   { id:"icyblast",    name:"Icy Blast",                            element:"Ice",                 category:"Star Spell",         rank:"Rank C",              starTier:1,    description:"Blast of frost power that freezes a broad impact zone." },
   { id:"frostwave",   name:"Frost Wave",                           element:"Ice",                 category:"Star Spell",         rank:"Rank C",              starTier:2,    description:"Wave of freezing power through the battlefield." },
   { id:"icebeam",     name:"Ice Beam",                             element:"Ice",                 category:"Star Spell",         rank:"Rank C",              starTier:3,    description:"Concentrated beam that freezes all targets in its path." },
   { id:"abszero",     name:"Absolute Zero Field",                  element:"Ice",                 category:"Star Spell",         rank:"Rank C",              starTier:4,    description:"Drops temperature over a wide area. Seals enemies in frozen mana." },
+  // ── LIGHTNING MANIPULATION ────────────────────────────────────────────────────
   { id:"lightman",    name:"Lightning Manipulation",               element:"Lightning",           category:"Manipulation",       rank:"Rank B (12.2%)",      starTier:null, description:"Core lightning affinity control. Unlocks: Zap, Bolt, Ball Lightning, Spear, Storm Breaker." },
   { id:"lightzap",    name:"Lightning Zap",                        element:"Lightning",           category:"Manipulation",       rank:"Rank B",              starTier:null, description:"Quick close-range lightning discharge." },
   { id:"lightbolt",   name:"Lightning Bolt",                       element:"Lightning",           category:"Star Spell",         rank:"Rank B",              starTier:1,    description:"Concentrated bolt of lightning fired at a target." },
-  { id:"ballight",    name:"Ball Lightning",                       element:"Lightning",           category:"Star Spell",         rank:"Rank B",              starTier:2,    description:"Autonomous lightning spheres that seek and strike enemies." },
+  { id:"ballight",    name:"Ball Lightning",                       element:"Lightning",           category:"Star Spell",         rank:"Rank B",              starTier:2,    description:"Autonomous lightning spheres that seek and strike enemies. Can generate 10+ simultaneous spheres." },
   { id:"lightspear",  name:"Lightning Spear",                      element:"Lightning",           category:"Star Spell",         rank:"Rank B",              starTier:3,    description:"Red lightning spear that devastates a wide area on impact, chaining to nearby foes." },
   { id:"stormbreak",  name:"Storm Breaker",                        element:"Lightning",           category:"Star Spell",         rank:"Rank B",              starTier:4,    description:"Ball of pure lightning rises and rains continuous strikes. Scales with mana invested." },
   { id:"thunddom",    name:"Thunder Dominion",                     element:"Lightning",           category:"Star Spell",         rank:"Rank B",              starTier:4,    description:"Summons a storm field with chained strikes and amplified lightning damage." },
+  { id:"stormspear",  name:"Sovereign Storm-Lance",                element:"Lightning/Divine",    category:"Star Spell",         rank:"Rank Divine",         starTier:6,    description:"Black-red spear of dominion lightning veined with gold. Lightning Tsunami: 100km. Cataclysm Burst: 50km. Storm Edict: sustained field." },
+  // ── WIND MANIPULATION ─────────────────────────────────────────────────────────
   { id:"windman",     name:"Wind Manipulation",                    element:"Wind",                category:"Manipulation",       rank:"Rank D (64.23%)",     starTier:null, description:"Core wind affinity control. Bullet, arc slashes, burst bursts from feet for pseudo-flight." },
   { id:"windbull",    name:"Wind Bullet",                          element:"Wind",                category:"Star Spell",         rank:"Rank D",              starTier:1,    description:"Rapid wind burst for pressure or interruption." },
   { id:"windarcl",    name:"Arcs of Wind",                         element:"Wind",                category:"Star Spell",         rank:"Rank D",              starTier:3,    description:"Razor-thin compressed wind slashes. Multiplied greatly by a blade." },
   { id:"skyrend",     name:"Sky Rend",                             element:"Wind",                category:"Star Spell",         rank:"Rank D",              starTier:4,    description:"Violent wind shear that tears through multiple targets." },
+  // ── GROUND MANIPULATION ───────────────────────────────────────────────────────
   { id:"groundman",   name:"Ground Manipulation",                  element:"Ground",              category:"Manipulation",       rank:"Rank D (19.54%)",     starTier:null, description:"Core earth affinity control: stone constructs, terrain disruption." },
   { id:"stonegaunt",  name:"Stone Gauntlet",                       element:"Ground",              category:"Star Spell",         rank:"Rank D",              starTier:1,    description:"Creates a stone gauntlet for reinforced melee attacks." },
   { id:"seismic",     name:"Seismic Ruin",                         element:"Ground",              category:"Star Spell",         rank:"Rank D",              starTier:4,    description:"Slams the ground to trigger a destructive localized earthquake." },
+  // ── WATER MANIPULATION ────────────────────────────────────────────────────────
   { id:"waterman",    name:"Water Manipulation",                   element:"Water",               category:"Manipulation",       rank:"Rank D (1%)",         starTier:null, description:"Core water affinity control. Sphere, blast, spikes, tidal cataclysm." },
-  { id:"lightmag",    name:"Light Manipulation",                   element:"Light",               category:"Manipulation",       rank:"Rank D (4.32%)",      starTier:null, description:"Core light affinity control: radiant attacks, Angel's Condemnation." },
-  { id:"lightball",   name:"Light Ball",                           element:"Light",               category:"Star Spell",         rank:"Rank C",              starTier:1,    description:"Solid projectile of condensed light." },
-  { id:"angelcond",   name:"Angel's Condemnation",                 element:"Light",               category:"Star Spell",         rank:"Rank A",              starTier:3,    description:"Rains hundreds of swords of pure light that pierce and pursue enemies." },
-  { id:"radjudge",    name:"Radiant Judgment",                     element:"Light",               category:"Star Spell",         rank:"Rank C",              starTier:4,    description:"Calls down holy light that scorches foes and purges darkness." },
-  { id:"natureman",   name:"Nature Manipulation",                  element:"Nature",              category:"Manipulation",       rank:"Rank C (0.5%)",       starTier:null, description:"Core nature affinity: vines, roots, thorns, bark armor, sovereignty." },
-  { id:"molttmp",     name:"Molten Tempest",                       element:"Fire+Lightning+Ground",category:"Combination",       rank:"Rank A (2.003%)",     starTier:4,    description:"Stomp covered in molten rock — spikes erupt, lightning arcs through them, continuous chain discharges. Extremely destructive." },
-  { id:"chargaunt",   name:"Charged Gauntlet",                     element:"Fire+Lightning+Ground",category:"Combination",       rank:"Combined",            starTier:3,    description:"Stone gauntlet strikes infused with flame and arcing lightning." },
-  { id:"multistoneg", name:"Multi-Elemental Stone Gauntlet",       element:"Fire+Lightning+Ground",category:"Combination",       rank:"Combined",            starTier:null, description:"Stone gauntlet infused with fire (Flaming Gauntlet) or ice (Frosty Gauntlet) or lightning." },
-  { id:"dracointi",   name:"Draconic Intimidation",                element:"Physical",            category:"Combat",             rank:"Rank C",              starTier:null, description:"Emit a mana-charged roar. Inflicts [Fear], shatters morale, disrupts lower-tier spell casting." },
-  { id:"dracomanacir",name:"Draconic Mana Circuit",               element:"Arcane",              category:"Passive",            rank:"Passive",             starTier:null, description:"Mana 30% easier to manipulate; casting speed greatly increased. The world recognizes you as a predator." },
-  { id:"dracoclaw",   name:"Elemental Claw",                       element:"Physical",            category:"Combat",             rank:"Basic",               starTier:null, description:"Infuse hands/claws with any elemental mana. Adds massive magical damage and status effects (Burning, Freezing, Shocking) to physical strikes." },
-  { id:"comdom",      name:"Commander's Dominion",                 element:"Mind",                category:"Passive",            rank:"Active/Passive",      starTier:null, description:"In a designated area: undead and allies get +30% all physical stats, movement speed, resistance. Telepathic tactics. Uses mana to maintain." },
-  { id:"guidlight",   name:"Guiding Light",                        element:"Light",               category:"Passive",            rank:"Passive",             starTier:null, description:"Stable light orb that auto-follows, illuminates path. Adjusts brightness and position from mental intent." },
-  { id:"thormrk",     name:"Divine Blessing: Thor's Mark",         element:"Lightning/Divine",    category:"Blessing",           rank:"Legendary Divine",    starTier:null, description:"⚡ +25% lightning attacks · Once/day localized storm · Immunity to paralysis/stun/shock · +40% speed while channeling · Hammer's Echo (AoE crit shockwave)" },
-  { id:"lilblss",     name:"Blessing (Lilith)",                    element:"Mind",                category:"Blessing",           rank:"Blessing",            starTier:null, description:"Resistance to mental charms and mind magic. Granted by Lilith, Queen of Temptation." },
-  { id:"evoTitle",    name:"Title: Evolver",                       element:"Evolution",           category:"Title",              rank:"Title",               starTier:null, description:"+25% evolution success rate for subordinates. −15% soul/mana evolution cost. Beings evolved by Alok gain a soul imprint boosting loyalty and growth." },
-  { id:"lifeTitle",   name:"Title: Life Bringer",                  element:"Life",                category:"Title",              rank:"Title",               starTier:null, description:"+35% effectiveness to Life-aligned abilities. Boosts ally regen. Beings created by Alok gain permanent Affinity Bonus." },
-  { id:"manameditation",name:"Basic Mana Meditation",             element:"Arcane",              category:"Utility",            rank:"Unranked",            starTier:null, description:"Core meditation for mana growth and control." },
-  { id:"manabull",    name:"Mana Bullet",                          element:"Arcane",              category:"Mana Craft",         rank:"Rank D",              starTier:null, description:"Forms and fires a bullet of mana that can explode on impact." },
-  { id:"manaswrd",    name:"Mana Sword",                           element:"Arcane",              category:"Mana Craft",         rank:"Rank C",              starTier:null, description:"Creates a temporary mana-forged sword." },
-  { id:"manabl",      name:"Mana Blast",                           element:"Arcane",              category:"Star Spell",         rank:"Rank C (75%)",        starTier:1,    description:"Explosive mana blast with adjustable detonation timing. Radius: 25m base." },
-  { id:"perception",  name:"Perception",                           element:"Mind",                category:"Passive",            rank:"Rank A (99.07%)",     starTier:null, description:"Greatly enhanced senses and battlefield awareness." },
-  { id:"giantf2",     name:"Giant Force",                          element:"Physical",            category:"Combat",             rank:"Rank A (0%)",         starTier:null, description:"For 10 seconds increases all physical stats by 500%. Cooldown 10 minutes." },
-  { id:"basicmed",    name:"Basic Mana Meditation",                element:"Arcane",              category:"Utility",            rank:"Unranked",            starTier:null, description:"Gather mana to your core and increase mana pool. Harder to gain as stats increase." },
-  { id:"basiccomb",   name:"Basic Combat",                         element:"Physical",            category:"Combat",             rank:"Rank C (56.554%)",    starTier:null, description:"Refines combat techniques and improves fundamental martial proficiency." },
-  { id:"basicmarks",  name:"Basic Marksmanship",                   element:"Physical",            category:"Combat",             rank:"Rank D (73.43%)",     starTier:null, description:"Increases accuracy with ranged weapons by 20%. Grants intuitive understanding of angles, wind, and leading targets." },
-  { id:"manablast",   name:"Mana Blast",                           element:"Arcane",              category:"Star Spell",         rank:"Rank C (75.36%)",     starTier:1,    description:"Forms and releases a blast of mana. Explodes on impact or on command. Explosion radius: 25 meters." },
   { id:"watersph",    name:"Water Sphere",                         element:"Water",               category:"Star Spell",         rank:"Rank D",              starTier:1,    description:"Shoot ball of water that slows enemy down." },
   { id:"waterblast",  name:"Water Blast",                          element:"Water",               category:"Star Spell",         rank:"Rank D",              starTier:2,    description:"Shoot powerful blast of water that knocks back enemies with force." },
   { id:"waterspk",    name:"Water Spikes",                         element:"Water",               category:"Star Spell",         rank:"Rank D",              starTier:3,    description:"Unleash spikes of water that pierce enemies." },
   { id:"tidalcat",    name:"Tidal Cataclysm",                      element:"Water",               category:"Star Spell",         rank:"Rank D",              starTier:4,    description:"Summon sweeping tidal surge that crushes enemies, floods field, and washes away defenses." },
+  // ── LIGHT MANIPULATION ────────────────────────────────────────────────────────
+  { id:"lightmag",    name:"Light Manipulation",                   element:"Light",               category:"Manipulation",       rank:"Rank D (4.32%)",      starTier:null, description:"Core light affinity control: radiant attacks, Angel's Condemnation." },
   { id:"lightball",   name:"Light Ball",                           element:"Light",               category:"Star Spell",         rank:"Rank C",              starTier:1,    description:"Release solid ball of light." },
+  { id:"angelcond",   name:"Angel's Condemnation",                 element:"Light",               category:"Star Spell",         rank:"Rank A",              starTier:3,    description:"Rains hundreds of swords of pure light that pierce and pursue enemies." },
   { id:"radjudge",    name:"Radiant Judgment",                     element:"Light",               category:"Star Spell",         rank:"Rank C",              starTier:4,    description:"Call down column of holy light that scorches foes and purges darkness in wide area." },
-  { id:"natureman",   name:"Nature Manipulation",                  element:"Nature",              category:"Manipulation",       rank:"Rank C (0.5%)",       starTier:null, description:"Core nature affinity control." },
+  // ── NATURE MANIPULATION ───────────────────────────────────────────────────────
+  { id:"natureman",   name:"Nature Manipulation",                  element:"Nature",              category:"Manipulation",       rank:"Rank C (0.5%)",       starTier:null, description:"Core nature affinity: vines, roots, thorns, bark armor, sovereignty." },
   { id:"vinelash",    name:"Vine Lash",                            element:"Nature",              category:"Star Spell",         rank:"Rank C",              starTier:1,    description:"Release fast whip of vines to strike or restrain target." },
   { id:"rootbind",    name:"Root Bind",                            element:"Nature",              category:"Star Spell",         rank:"Rank C",              starTier:1,    description:"Summon roots from ground to immobilize enemies." },
   { id:"thornshot",   name:"Thorn Shot",                           element:"Nature",              category:"Star Spell",         rank:"Rank C",              starTier:2,    description:"Fire spread of hardened thorns that pierce light defenses." },
@@ -132,16 +134,25 @@ const ALOK_SKILLS = [
   { id:"natgrasp",    name:"Nature's Grasp",                       element:"Nature",              category:"Star Spell",         rank:"Rank C",              starTier:3,    description:"Unleash wide surge of roots, vines, and branches to trap multiple foes." },
   { id:"worldbloom",  name:"Worldroot Bloom",                      element:"Nature",              category:"Star Spell",         rank:"Rank C",              starTier:4,    description:"Trigger massive burst of living growth that overwhelms battlefield." },
   { id:"verdantsor",  name:"Verdant Sovereignty",                  element:"Nature",              category:"Star Spell",         rank:"Rank C",              starTier:4,    description:"Call forth nature's wrath—creates barriers, heals allies, smothers enemies." },
-  { id:"stormspear",  name:"Sovereign Storm-Lance",                element:"Lightning/Divine",    category:"Star Spell",         rank:"Rank Divine",         starTier:6,    description:"Black-red spear of dominion lightning veined with gold. Lightning Tsunami: 100km. Cataclysm Burst: 50km. Storm Edict: sustained field." },
+  // ── COMBINATION SKILLS ────────────────────────────────────────────────────────
+  { id:"molttmp",     name:"Molten Tempest",                       element:"Fire+Lightning+Ground",category:"Combination",       rank:"Rank A (2.003%)",     starTier:4,    description:"Stomp covered in molten rock — spikes erupt, lightning arcs through them, continuous chain discharges. Extremely destructive." },
+  { id:"chargaunt",   name:"Charged Gauntlet",                     element:"Fire+Lightning+Ground",category:"Combination",       rank:"Combined",            starTier:3,    description:"Stone gauntlet strikes infused with flame and arcing lightning." },
+  { id:"multistoneg", name:"Multi-Elemental Stone Gauntlet",       element:"Fire+Lightning+Ground",category:"Combination",       rank:"Combined",            starTier:null, description:"Stone gauntlet infused with fire (Flaming Gauntlet) or ice (Frosty Gauntlet) or lightning." },
+  // ── BLESSINGS ─────────────────────────────────────────────────────────────────
+  { id:"thormrk",     name:"Divine Blessing: Thor's Mark",         element:"Lightning/Divine",    category:"Blessing",           rank:"Legendary Divine",    starTier:null, description:"⚡ +25% lightning attacks · Once/day localized storm · Immunity to paralysis/stun/shock · +40% speed while channeling · Hammer's Echo (AoE crit shockwave)" },
+  { id:"lilblss",     name:"Blessing (Lilith)",                    element:"Mind",                category:"Blessing",           rank:"Blessing",            starTier:null, description:"Resistance to mental charms and mind magic. Granted by Lilith, Queen of Temptation." },
+  // ── TITLES ────────────────────────────────────────────────────────────────────
+  { id:"evoTitle",    name:"Title: Evolver",                       element:"Evolution",           category:"Title",              rank:"Title",               starTier:null, description:"+25% evolution success rate for subordinates. −15% soul/mana evolution cost. Beings evolved by Alok gain a soul imprint boosting loyalty and growth." },
+  { id:"lifeTitle",   name:"Title: Life Bringer",                  element:"Life",                category:"Title",              rank:"Title",               starTier:null, description:"+35% effectiveness to Life-aligned abilities. Boosts ally regen. Beings created by Alok gain permanent Affinity Bonus." },
 ];
 
 // ── ALOK LEVEL 222 CANONICAL STATS ────────────────────────────────────────────
 const ALOK = {
   id:"alok", name:"Alok Aeonmorta", race:"Mixed", rank:"Divine", level:222, tier:"Tier One",
-  stats:{ STR:18134, AGI:20245, VIT:29040, INT:31060, MANA:2500000, DIVINITY:69690 },
+  stats:{ STR:18134, AGI:20245, VIT:29040, INT:31060, DRAGON_INT:29320, DEMON_INT:29320, ANGEL_CORE:29320, TOTAL_INT:119020, MANA:2500000, DIVINITY:69690 },
   affinities:["Lightning","Flame","Frost","Blood"],
   equipment:["Eclipse Tyrant (Artifact #27, Bound — +140% Elemental Amp, 1-of-1)","Bracelet of Mana Confluence (+15% mana recovery)"],
-  avatar:{ skin:SKIN_P[1], hair:HAIR_P[0], eyes:EYE_P[0], outfitColor:OUTFIT_P[1], hairStyle:"short", outfitStyle:"armor", accessory:"none" },
+  avatar:{ skin:SKIN_P[1], hair:HAIR_P[0], eyes:EYE_P[0], outfitColor:OUTFIT_P[1], hairStyle:"long", outfitStyle:"armor", accessory:"crown" },
 };
 
 // ── ITEMS (14 items database) ─────────────────────────────────────────────────
@@ -201,6 +212,13 @@ function PixelAvatar({avatar,size="large",manifest={}}){
     r(4,14,12,7,"#232330");r(5,14,10,7,outfit);
     r(3,14,4,3,outfitL);r(13,14,4,3,outfitL);r(3,14,1,3,OUT,0.5);r(17,14,1,3,OUT,0.5);
     r(7,14,6,6,lighten(outfit,10));r(8,15,4,4,outfitL);r(9,16,2,2,lighten(outfit,50),0.35);
+    // Enhanced metallic shading for white/light armor
+    if(outfit==="#f5f5f5"||outfit==="#ffffff"||outfit==="#f0f0f0"||outfit==="#e8e8e8"){
+      r(6,14,3,2,"#f0f8ff",0.5);r(11,14,3,2,"#f0f8ff",0.4);
+      r(8,15,1,1,"#e8f4f8",0.6);r(11,15,1,1,"#e8f4f8",0.6);
+      r(7,17,2,1,"#d0dce8",0.3);r(11,17,2,1,"#d0dce8",0.3);
+      r(9,18,2,1,"#e0e8f0",0.4);
+    }
     r(4,20,12,1,outfitD);
     if(manifest.Dragon){r(7,15,2,1,"#2d6a2d",0.8);r(11,15,2,1,"#2d6a2d",0.8);r(6,17,2,1,"#2d6a2d",0.6);}
   }else if(avatar.outfitStyle==="robe"||avatar.outfitStyle==="mage"){
@@ -228,6 +246,11 @@ function PixelAvatar({avatar,size="large",manifest={}}){
 
   if(avatar.hairStyle==="short"){
     r(4,2,12,3,hair);r(3,3,2,4,hair);r(15,3,2,4,hair);r(5,2,4,1,hairL,0.5);
+    // Golden hair shine enhancement
+    if(hair==="#ffd700"||hair==="#f7d85d"||hair==="#ffc107"||hair==="#ffb347"||hair==="#d4af37"){
+      r(5,2,2,1,"#ffed4e",0.7);r(10,2,2,1,"#ffed4e",0.6);
+      r(6,3,1,1,"#fffacd",0.5);r(11,3,1,1,"#fffacd",0.5);
+    }
     r(4,2,12,1,OUT,0.75);r(3,2,1,2,OUT,0.65);r(16,2,1,2,OUT,0.65);r(4,4,3,1,hairD,0.3);r(13,4,3,1,hairD,0.3);
   }else if(avatar.hairStyle==="spiky"){
     r(4,2,12,2,hair);r(3,3,2,3,hair);r(15,3,2,3,hair);
@@ -245,6 +268,15 @@ function PixelAvatar({avatar,size="large",manifest={}}){
 
   r(5,7,3,2,"#f8fafc");r(12,7,3,2,"#f8fafc");
   r(6,7,2,2,eye);r(13,7,2,2,eye);
+  // Violet eye enhancement with shine
+  if(eye==="#8b7be2"||eye==="#b19cd9"||eye==="#c9a0dc"){
+    r(6,7,1,1,"#c9b0ff",0.7);r(13,7,1,1,"#c9b0ff",0.7);
+    r(7,7,1,1,"#e8d9ff",0.6);r(14,7,1,1,"#e8d9ff",0.6);
+  }else if(eye==="#5bc8f5"||eye==="#4aafff"){
+    r(6,7,1,1,"#7dd7ff",0.6);r(13,7,1,1,"#7dd7ff",0.6);
+  }else if(eye==="#ff6b6b"||eye==="#e74c3c"){
+    r(6,7,1,1,"#ff9999",0.6);r(13,7,1,1,"#ff9999",0.6);
+  }
   r(6,8,1,1,darken(eye,80));r(13,8,1,1,darken(eye,80));
   r(7,7,1,1,"#fff",0.9);r(14,7,1,1,"#fff",0.9);
   r(5,7,1,2,OUT,0.4);r(8,7,1,2,OUT,0.4);r(12,7,1,2,OUT,0.4);r(15,7,1,2,OUT,0.4);
@@ -276,7 +308,7 @@ function PixelAvatar({avatar,size="large",manifest={}}){
 
 // ── Storage ───────────────────────────────────────────────────────────────────
 const SK="bookv1-v5";
-const DEF_AVA={skin:SKIN_P[0],hair:HAIR_P[2],eyes:EYE_P[0],outfitColor:OUTFIT_P[1],hairStyle:"short",outfitStyle:"jacket",accessory:"none"};
+const DEF_AVA={skin:SKIN_P[0],hair:HAIR_P[0],eyes:EYE_P[0],outfitColor:OUTFIT_P[1],hairStyle:"short",outfitStyle:"armor",accessory:"none"};
 function load(){try{const r=localStorage.getItem(SK);return r?JSON.parse(r):[];}catch{return[];}}
 function save(c){try{localStorage.setItem(SK,JSON.stringify(c));}catch{}}
 
@@ -412,6 +444,16 @@ function StatusWindow({char,onEdit,isAlok}){
           <div style={{fontSize:9,color:rp.accent,fontFamily:"monospace",letterSpacing:"0.15em",marginBottom:10,textTransform:"uppercase"}}>✦ Special Stats</div>
           <StatBar label="MANA" value={char.stats?.MANA??132000} max={200000} color="#c084fc" note="pool"/>
           <StatBar label="DIVINITY" value={char.stats?.DIVINITY??85} max={1000} color="#f5c85a"/>
+          {isAlok&&char.stats?.TOTAL_INT&&(
+            <div style={{marginTop:12,paddingTop:8,borderTop:"1px solid #2d3a50"}}>
+              <div style={{fontSize:8,color:"#4a5568",fontFamily:"monospace",marginBottom:5,textTransform:"uppercase"}}>INT Breakdown</div>
+              <StatBar label="Base INT" value={char.stats?.INT??31060} max={40000} color="#818cf8"/>
+              <StatBar label="Dragon INT" value={char.stats?.DRAGON_INT??29320} max={40000} color="#6b21a8"/>
+              <StatBar label="Demon INT" value={char.stats?.DEMON_INT??29320} max={40000} color="#b91c1c"/>
+              <StatBar label="Angel Core" value={char.stats?.ANGEL_CORE??29320} max={40000} color="#fef3c7"/>
+              <StatBar label="Total INT" value={char.stats?.TOTAL_INT??119020} max={200000} color="#f59e0b"/>
+            </div>
+          )}
         </div>
       </div>
 
