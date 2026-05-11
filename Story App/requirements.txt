@@ -1,2 +1,0 @@
-# No external packages required.
-# The app uses the Python standard library: tkinter, sqlite3, json, and pathlib.
