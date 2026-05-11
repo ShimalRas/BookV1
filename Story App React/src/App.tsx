@@ -112,15 +112,36 @@ const ALOK_SKILLS = [
   { id:"manabull",    name:"Mana Bullet",                          element:"Arcane",              category:"Mana Craft",         rank:"Rank D",              starTier:null, description:"Forms and fires a bullet of mana that can explode on impact." },
   { id:"manaswrd",    name:"Mana Sword",                           element:"Arcane",              category:"Mana Craft",         rank:"Rank C",              starTier:null, description:"Creates a temporary mana-forged sword." },
   { id:"manabl",      name:"Mana Blast",                           element:"Arcane",              category:"Star Spell",         rank:"Rank C (75%)",        starTier:1,    description:"Explosive mana blast with adjustable detonation timing. Radius: 25m base." },
+  { id:"perception",  name:"Perception",                           element:"Mind",                category:"Passive",            rank:"Rank A (99.07%)",     starTier:null, description:"Greatly enhanced senses and battlefield awareness." },
+  { id:"giantf2",     name:"Giant Force",                          element:"Physical",            category:"Combat",             rank:"Rank A (0%)",         starTier:null, description:"For 10 seconds increases all physical stats by 500%. Cooldown 10 minutes." },
+  { id:"basicmed",    name:"Basic Mana Meditation",                element:"Arcane",              category:"Utility",            rank:"Unranked",            starTier:null, description:"Gather mana to your core and increase mana pool. Harder to gain as stats increase." },
+  { id:"basiccomb",   name:"Basic Combat",                         element:"Physical",            category:"Combat",             rank:"Rank C (56.554%)",    starTier:null, description:"Refines combat techniques and improves fundamental martial proficiency." },
+  { id:"basicmarks",  name:"Basic Marksmanship",                   element:"Physical",            category:"Combat",             rank:"Rank D (73.43%)",     starTier:null, description:"Increases accuracy with ranged weapons by 20%. Grants intuitive understanding of angles, wind, and leading targets." },
+  { id:"manablast",   name:"Mana Blast",                           element:"Arcane",              category:"Star Spell",         rank:"Rank C (75.36%)",     starTier:1,    description:"Forms and releases a blast of mana. Explodes on impact or on command. Explosion radius: 25 meters." },
+  { id:"watersph",    name:"Water Sphere",                         element:"Water",               category:"Star Spell",         rank:"Rank D",              starTier:1,    description:"Shoot ball of water that slows enemy down." },
+  { id:"waterblast",  name:"Water Blast",                          element:"Water",               category:"Star Spell",         rank:"Rank D",              starTier:2,    description:"Shoot powerful blast of water that knocks back enemies with force." },
+  { id:"waterspk",    name:"Water Spikes",                         element:"Water",               category:"Star Spell",         rank:"Rank D",              starTier:3,    description:"Unleash spikes of water that pierce enemies." },
+  { id:"tidalcat",    name:"Tidal Cataclysm",                      element:"Water",               category:"Star Spell",         rank:"Rank D",              starTier:4,    description:"Summon sweeping tidal surge that crushes enemies, floods field, and washes away defenses." },
+  { id:"lightball",   name:"Light Ball",                           element:"Light",               category:"Star Spell",         rank:"Rank C",              starTier:1,    description:"Release solid ball of light." },
+  { id:"radjudge",    name:"Radiant Judgment",                     element:"Light",               category:"Star Spell",         rank:"Rank C",              starTier:4,    description:"Call down column of holy light that scorches foes and purges darkness in wide area." },
+  { id:"natureman",   name:"Nature Manipulation",                  element:"Nature",              category:"Manipulation",       rank:"Rank C (0.5%)",       starTier:null, description:"Core nature affinity control." },
+  { id:"vinelash",    name:"Vine Lash",                            element:"Nature",              category:"Star Spell",         rank:"Rank C",              starTier:1,    description:"Release fast whip of vines to strike or restrain target." },
+  { id:"rootbind",    name:"Root Bind",                            element:"Nature",              category:"Star Spell",         rank:"Rank C",              starTier:1,    description:"Summon roots from ground to immobilize enemies." },
+  { id:"thornshot",   name:"Thorn Shot",                           element:"Nature",              category:"Star Spell",         rank:"Rank C",              starTier:2,    description:"Fire spread of hardened thorns that pierce light defenses." },
+  { id:"barkarmor",   name:"Bark Armor",                           element:"Nature",              category:"Star Spell",         rank:"Rank C",              starTier:2,    description:"Coat body in protective bark to reduce incoming damage." },
+  { id:"natgrasp",    name:"Nature's Grasp",                       element:"Nature",              category:"Star Spell",         rank:"Rank C",              starTier:3,    description:"Unleash wide surge of roots, vines, and branches to trap multiple foes." },
+  { id:"worldbloom",  name:"Worldroot Bloom",                      element:"Nature",              category:"Star Spell",         rank:"Rank C",              starTier:4,    description:"Trigger massive burst of living growth that overwhelms battlefield." },
+  { id:"verdantsor",  name:"Verdant Sovereignty",                  element:"Nature",              category:"Star Spell",         rank:"Rank C",              starTier:4,    description:"Call forth nature's wrath—creates barriers, heals allies, smothers enemies." },
+  { id:"stormspear",  name:"Sovereign Storm-Lance",                element:"Lightning/Divine",    category:"Star Spell",         rank:"Rank Divine",         starTier:6,    description:"Black-red spear of dominion lightning veined with gold. Lightning Tsunami: 100km. Cataclysm Burst: 50km. Storm Edict: sustained field." },
 ];
 
-// ── ALOK LEVEL 30 CANONICAL STATS ─────────────────────────────────────────────
+// ── ALOK LEVEL 222 CANONICAL STATS ────────────────────────────────────────────
 const ALOK = {
-  id:"alok", name:"Alok Aeonmorta", race:"Mixed", rank:"Divine", level:30, tier:"Tier One",
-  stats:{ STR:730, AGI:710, VIT:850, INT:1320, MANA:132000, DIVINITY:85 },
-  affinities:["Fire","Ice","Lightning"],
+  id:"alok", name:"Alok Aeonmorta", race:"Mixed", rank:"Divine", level:222, tier:"Tier One",
+  stats:{ STR:18134, AGI:20245, VIT:29040, INT:31060, MANA:2500000, DIVINITY:69690 },
+  affinities:["Lightning","Flame","Frost","Blood"],
   equipment:["Eclipse Tyrant (Artifact #27, Bound — +140% Elemental Amp, 1-of-1)","Bracelet of Mana Confluence (+15% mana recovery)"],
-  avatar:{ skin:SKIN_P[1], hair:HAIR_P[2], eyes:EYE_P[0], outfitColor:OUTFIT_P[1], hairStyle:"short", outfitStyle:"armor", accessory:"none" },
+  avatar:{ skin:SKIN_P[1], hair:HAIR_P[0], eyes:EYE_P[0], outfitColor:OUTFIT_P[1], hairStyle:"short", outfitStyle:"armor", accessory:"none" },
 };
 
 // ── ITEMS (14 items database) ─────────────────────────────────────────────────
