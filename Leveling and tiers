@@ -89,11 +89,11 @@ Interpretation:
 - Physical = (STR + AGI)
 - Vitality = VIT (listed separately because it scales faster than STR/AGI in your setting)
 - INT = Intelligence
-- Attribute Points = typical total unspent/free points or total points earned (choose one and keep consistent in your sheets)
+- Attribute Points = typical total unspent/free points 
 
 | Tier Benchmark       | Level  | Physical (STR+AGI) | Vitality (VIT) | INT      | Attribute Points |
 |----------------------|--------|--------------------|----------------|----------|------------------|
-| First Tier           | 20     | 180                | 260            | 320      | 120              |
+| First Tier           | -      |                    | -              |          |                  |
 | Second Tier          | 50     | 350                | 600            | 750      | 250              |
 | Third Tier           | 100    | 1,000              | 2,000          | 2,200    | 550              |
 | Fourth Tier          | 200    | 5,000              | 10,000         | 12,500   | 2,000            |
@@ -101,7 +101,7 @@ Interpretation:
 | Sixth Tier           | 700    | 45,000             | 90,000         | 110,000  | 25,000           |
 | Seventh Tier         | 1000   | 120,000            | 260,000        | 300,000  | 60,000           |
 | Eighth Tier          | 1200   | 300,000            | 700,000        | 800,000  | 150,000          |
-| God/Demon Class Tier | 1500+  | 900,000+           | 2,200,000+     | 2,500,000+ | 400,000+       |
+| Ninth Tier           | 1500+  | 900,000+           | 2,200,000+     | 2,500,000+ | 400,000+       |
 
 
 5) LEVEL 20 BASELINE STATS (STANDARD AVERAGE)
