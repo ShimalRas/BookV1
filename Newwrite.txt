@@ -355,12 +355,12 @@ Summon up to 150 undead familiars using his lord’s power. Number increases as 
 Launches projectiles of pure dark energy at foes.
 
 [Familiar: Aria]
-Level: 42 (Fairy)
+Level: 50 (Fairy)
 Race: Child Fairy
 Rank: S
-•	STR: 333
-•	AGI: 323
-•	VIT: 473
-•	INT: 750
+•	STR: 357
+•	AGI: 350
+•	VIT: 497
+•	INT: 790
 •	Divinity: 1
-•	Attribute Points: 00
+•	Attribute Points: 80
