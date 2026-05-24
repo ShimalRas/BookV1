@@ -1,0 +1,95 @@
+GATE SYSTEMS & MONSTERS
+
+1) GATE RANK PATTERNS & CLEARANCE INFORMATION
+---------------------------------------------
+| Gate Rank | Typical Monsters                                                              | Clear Time (Outside) | Time Dilation    | Break Consequences                                                       |
+|-----------|-------------------------------------------------------------------------------|----------------------|------------------|--------------------------------------------------------------------------|
+| E         | Regular goblins and other monsters under level 5                              | ~1 hour              | None             | Minor localized damage                                                   |
+| D         | Regular goblins over level 10, bosses are medium goblins around level 25      | ~1 hour              | None             | Neighborhood/district damage                                             |
+| C         | Regular and medium goblins, bosses usually high goblins over level 50         | 1–3 hours            | None             | Significant city district damage                                         |
+| B         | High goblins above level 50 and elite goblins, boss is elite goblin/med orc   | 6 hours to 1 day     | Minor possible   | Part of a city leveled                                                   |
+| A         | High orcs over level 70, bosses over level 150                                | ~3 days              | Possible         | Entire cities destroyed, released monsters even stronger                 |
+| S         | Continental/world-scale threats, legendary monsters                           | Months (outside)     | Extreme          | Entire countries or more ruined, catastrophic                            |
+
+ADDITIONAL NOTES:
+• A-rank gates may exist in altered dimensions where time flows differently
+• S-rank gates can be as large as continents or entire worlds
+• Backup parties will enter A-rank gates if the primary team fails to return
+• Monsters released during gate breaks are significantly stronger than raid encounters
+• Very few S-rank hunters exist on Earth, and level requirements are critical
+
+2) E-RANK GATES (LEVEL < 5)
+---------------------------
+• Regular Goblin
+• Kobold Youngling
+• Lesser Slime
+• Wild Hound
+• Cave Snake
+• Forest Sprite (weak)
+• Stone Imp (minor)
+• Feral Bat
+
+3) D-RANK GATES (LEVEL 5–25, BOSS LEVEL ~25)
+--------------------------------------------
+• Regular Goblin (stronger)
+• Goblin Scout
+• Kobold Warrior
+• Lesser Orc (juvenile)
+• Medium Slime
+• Wild Boar
+• Small Bugbear
+• Skeleton (weak)
+• Cave Lizard
+• Medium Goblin (boss)
+• Dusky Harpy (rare)
+• Carrion Crow (giant)
+
+4) C-RANK GATES (LEVEL 15–35, BOSS OVER 40)
+-------------------------------------------
+• Regular Goblin (level < 20)
+• Medium Goblin
+• Orc
+• Orc Warrior (minor)
+• Skeleton Soldier
+• Stone Imp (strong)
+• Forest Warg
+• Ogre Fledgling (rare)
+• Giant Spider
+• Lizardman
+• Medium Slime (strong)
+• High Goblin (boss)
+• Shadow Bat
+• Acid Toad
+
+5) B-RANK GATES (LEVEL 40–60, BOSS: ELITE GOBLIN OR MEDIUM ORC)
+---------------------------------------------------------------
+• High Goblin
+• Elite Goblin
+• Orc
+• Skeleton Knight
+• Warg Alpha
+• Giant Lizardman
+• Ogre (juvenile)
+• Iron Slime
+• Dark Imp
+• Forest Troll (rare)
+• Death Crow (giant, rare)
+• High Orc (rare, elite)
+• Elite Goblin (boss or mini-boss)
+• Medium Orc (boss)
+• Ogre Mage (rare, possible mini-boss)
+• Second Stage Fairy (rare, boss)
+• First Stage Fairy (rare)
+• Shadow Bats
+• Blood Bats (rare, boss)
+
+6) A-RANK GATES (LEVEL 60+)
+---------------------------
+• Medium Orc
+• High Orc
+• Troll Berserker
+• Abyssal Warg
+• Skeleton Champion
+• Ogre Warrior
+• Shadow Mage
+• Wyvern Hatchling (rare)

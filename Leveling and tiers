@@ -62,21 +62,21 @@ Rule:
 - You distribute those points into STR/AGI/VIT/INT (build-dependent).
 - Species/class tendencies often bias VIT growth higher than STR/AGI, which is why VIT benchmarks scale faster in Section (4).
 
-| Rank                  | Attribute Points Gained Per Level | Typical Examples |
-|-----------------------|-----------------------------------|------------------|
-| E                     | +2                                | Regular humans; basic trainees |
-| D                     | +3                                | Soldiers; knights; minor awakened |
-| C                     | +4                                | Low-tier adventurers; basic monster elites |
-| B                     | +5                                | Beastkin; lesser vampires; high goblins; mid orcs; solid mid-tier players |
-| A                     | +7                                | True vampires; high elves; dragonoid warriors; veteran players; elite commanders |
-| S (Pinnacle)          | +10                               | National champions; named gate bosses; clan heads |
-| SS-1 (Ascendant)      | +12                               | Refined S-rank veterans; lesser vampire lords; demon captains |
-| SS-2 (Sovereign)      | +14                               | Major vampire lords; demon dukes; dragon generals; city-destroyer threats |
-| SS-3 (Transcendent)   | +16                               | Heroic legends nearing apotheosis; top warlords/champions |
-| Mythic-1 (Legendary)  | +18                               | Archfey nobles; ancient dragon kings; high demon princes |
-| Mythic-2 (Origin)     | +20                               | Realm guardians; proto-god champions; named calamities; Tower-chosen monsters |
-| Demi (Demigod Class)  | +25                               | Primordial dragons; great demon kings; nascent god-rulers |
-| Divine (God Tier)     | +30                               | True godborns; divine hybrids; avatars; gods in mortal form |
+| Rank                  | Mana Color       | Attribute Pts / Lvl | Typical Examples |
+|-----------------------|------------------|---------------------|------------------|
+| E                     | Dull Grey        | +2                  | Regular humans; basic trainees |
+| D                     | Pale Bronze      | +3                  | Soldiers; knights; minor awakened |
+| C                     | Copper Green     | +4                  | Low-tier adventurers; basic monster elites |
+| B                     | Azure Blue       | +5                  | Beastkin; lesser vampires; high goblins; mid orcs; solid mid-tier players |
+| A                     | Royal Purple     | +7                  | True vampires; high elves; dragonoid warriors; veteran players; elite commanders |
+| S (Pinnacle)          | Sunlight Gold    | +10                 | National champions; named gate bosses; clan heads |
+| SS-1 (Ascendant)      | Crimson Spark    | +12                 | Refined S-rank veterans; lesser vampire lords; demon captains |
+| SS-2 (Sovereign)      | Violet Obsidian  | +14                 | Major vampire lords; demon dukes; dragon generals; city-destroyer threats |
+| SS-3 (Transcendent)   | Silver Mercury   | +16                 | Heroic legends nearing apotheosis; top warlords/champions |
+| Mythic-1 (Legendary)  | Ethereal Teal    | +18                 | Archfey nobles; ancient dragon kings; high demon princes |
+| Mythic-2 (Origin)     | Celestial White  | +20                 | Realm guardians; proto-god champions; named calamities; Tower-chosen monsters |
+| Demi (Demigod Class)  | Void Black       | +25                 | Primordial dragons; great demon kings; nascent god-rulers |
+| Divine (God Tier)     | Starry Violet    | +30                 | True godborns; divine hybrids; avatars; gods in mortal form |
 
 Natural Limit (setting note):
 - Most civilizations peak at B–A in a normal world.

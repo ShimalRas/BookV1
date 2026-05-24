@@ -1,0 +1,264 @@
+Name: Alok Aeonmorta
+Rank: Divine
+Level: 222
+Race: mixed
+Attributes:
+• STR: 18,134
+• AGI: 20,245
+• VIT: 29,040
+• INT: 31,060
+• Dragon INT: 29,320
+• Demon INT: 29,320
+• Angel Core: 29,320
+• Divinity: 69,690
+• Total INT: 119,020
+• Lightning Mutation: Crimson -> Black-Red with Gold Veins (permanent)
+• Affinity: Lightning, Flame, Frost, Blood (350% increase in damage, 200% increase in resistance)
+• Attribute Points: 11,550
+Tower points: 24,345,250
+
+DIVINE ABILITIES:
+• Regeneration (Divine)
+• Incineration Beam (Five-Star)
+• Thunder's Judgement (Seven-Star)
+• Soul Absorber
+• Soul Rebirth
+• [Sovereign of Eternal Legions] (Divine – Death / Command)
+• [Soul Evolve] (Divine – Life / Death / Evolution)
+• Genesis of the Awakened
+• [Soulforged Vessel]
+
+Skills:
+• Perception (Rank A, 99.07%)
+• Giant Force (Rank A, 0%)
+• Basic mana meditation
+• Basic Combat (Rank C, 56.55%)
+• Swordsmanship (Rank B, 85.53%)
+• Astraean Valkyrie Sword Style (Rank S)
+• Mana Form (Rank C, 98%)
+• Mana Bullet (Rank D, 99.99%)
+• Mana Sword (Rank C, 74%)
+• Basic Marksmanship (D Rank, 73.43%)
+• Mana Blast (One-Star) (Rank C, 75.36%)
+• Angel's Condemnation (Three-Star) (Rank A, 0.002%)
+• Blood Manipulation (Rank C, 98%)
+  - Blood Arrow (One-Star)
+  - Blood Fist (One-Star)
+  - Blood Spikes (Two-Star)
+  - Blood Mist (Three-Star)
+
+Elemental Magic:
+• Lightning Manipulation (Rank A, 98.2%)
+  - Lightning Zap (Zero-Star)
+  - Lightning Bolt (One-Star)
+  - Ball Lightning (Two-Star)
+  - Thunder Dominion (Four-Star)
+  - Storm Breaker (Five-Star)
+  - Sovereign Storm-Lance (Six-Star, Unique)
+• Flame Manipulation (Rank B, 83.16%)
+  - Fire Ball (Zero-Star)
+  - Fire Blast (One-Star)
+  - Ember Sweep (Two-Star)
+  - Flame Beam (Three-Star)
+  - Fire Chains (Three-Star)
+  - Flame Tornado (Three-Star)
+  - Inferno Pulse (Four-Star)
+  - Inferno Crown (Four-Star)
+• Ice Manipulation (Rank C, 54.68%)
+  - Icy Ball (Zero-Star)
+  - Icy Blast (One-Star)
+  - Frost Wave (Two-Star)
+  - Ice Beam (Three-Star)
+  - Absolute Zero Field (Four-Star)
+• Wind Manipulation (Rank D, 64.23%)
+  - Wind Bullet (One-Star)
+  - Arcs of Wind (Three-Star)
+  - Sky Rend (Four-Star)
+• Nature Manipulation (Rank C, 0.5%)
+  - Vine Lash (One-Star)
+  - Root Bind (One-Star)
+  - Thorn Shot (Two-Star)
+  - Bark Armor (Two-Star)
+  - Nature's Grasp (Three-Star)
+  - Worldroot Bloom (Four-Star)
+  - Verdant Sovereignty (Four-Star)
+• Ground Manipulation (Rank D, 1%)
+  - Stone Gauntlet (One-Star)
+  - Seismic Ruin (Four-Star)
+• Water Manipulation (Rank D, 1%)
+  - Water Sphere (One-Star)
+  - Water Blast (Two-Star)
+  - Water Spikes (Three-Star)
+  - Tidal Cataclysm (Four-Star)
+• Light Manipulation (Rank C, 54.32%)
+  - Light Ball (One-Star)
+  - Radiant Judgment (Four-Star)
+• Combined Elemental Magic:
+  - Charged Gauntlet (Three-Star)
+  - Molten Tempest (Four-Star)
+
+Passive Skills:
+• Guiding Light
+
+Blessings:
+• Blessing: Resistance to mental charms (Lilith)
+• [Divine Blessing: Thor's Mark of the Storm Sovereign]
+
+Titles:
+• [Title: Evolver]
+• [Title: Life Bringer]
+
+
+---
+Name: Alana
+Rank: SS1
+Level: 100
+Race: human Second tier
+Attributes:
+• STR: 1753
+• AGI: 1848
+• VIT: 3568
+• INT: 5092
+
+---
+Name: Erica
+Rank: S
+Level: 20
+Race: human
+Attributes:
+• STR: 120
+• AGI: 120
+• VIT: 131
+• INT: 200
+
+---
+Name: Solis (Blazing Death Knight / Blazing Swordmaster)
+Rank: SS1
+Level: 185
+Race: Human (Undead)
+Attributes:
+• STR: 3,219
+• AGI: 3,061
+• VIT: 5,235
+• INT: 6,109
+Skills:
+• Enhance Weapon / Infuse Mana (Rank B)
+• Wind Slash (Rank B)
+• Swordsmanship (Rank A)
+• Flame Slash (Rank C)
+• Blazing Vortex (One-Star)
+• Inferno Blade (Two-Star)
+• Phoenix Ascension (Three-Star)
+• Eternal Flame Sovereign (Four-Star)
+• [Infernal Execution] (Four-Star equivalent)
+• [Hellmarch] (Three-Star equivalent)
+• [Graveflame Bulwark] (Three-Star equivalent)
+• [Cinder Call] (Three-Star equivalent)
+
+---
+Name: Valeria (Valkyrie Apprentice)
+Rank: S
+Level: 100
+Race: Valkyrie (Undead)
+Attributes:
+• STR: 772
+• AGI: 745
+• VIT: 1402
+• INT: 1791
+Skills:
+• Infuse Mana (Rank E)
+• Swordsmanship (Rank D)
+• Basic Spearmanship (Rank B)
+• Piercing (Rank B)
+• Light Manipulation (Rank B)
+• Heavenpiercing Lances (Three-Star equivalent)
+• Heaven's Call (Rank C)
+• Battlefield Salvation (Rank B)
+• [Valkyrie's Blessing] (Rank C)
+• [Purifying Radiance] (Rank B)
+
+---
+Name: Serena (True Pureblood Vampire)
+Rank: SS2 (Ascendant)
+Level: 200
+Race: Vampire
+Attributes:
+• STR: 4591
+• AGI: 4165
+• VIT: 8717
+• INT: 9472
+Skills:
+• Regeneration (Rank B)
+• Infuse Mana (Rank C)
+• Swordsmanship (Rank A)
+• Vampiric Blade arts (Rank B)
+• Blood Manipulation (Rank A)
+  - Blood Arrow (One-Star)
+  - Blood Fist (One-Star)
+  - Blood Bullet (One-Star)
+  - Blood Spike (Two-Star)
+  - Blood Swords (Three-Star)
+  - Blood Barrier (Three-Star)
+  - Drain (Two-Star equivalent)
+  - Blood Mist (Three-Star equivalent)
+• Flame Manipulation (Rank C)
+• Ice Manipulation (Rank D)
+• Lightning Manipulation (Rank C)
+• Wind Manipulation (Rank D)
+• [Vampiric Sovereignty]
+• [Perfect Shapeshift – Vampiric Form]
+• [Ascendant Blood]
+
+---
+Name: Raven (Necromancer)
+Rank: S
+Level: 50
+Race: Human (Lich class path)
+Attributes:
+• STR: 150
+• AGI: 145
+• VIT: 245
+• INT: 337
+Skills:
+• Undead Legion Command (Rank B+)
+• Dark Blasts (Rank C, One-Star equivalent)
+
+---
+Name: Aria (Child Fairy of Life and Death)
+Rank: S
+Level: 50
+Race: Child Fairy
+Attributes:
+• STR: 357
+• AGI: 350
+• VIT: 497
+• INT: 790
+• Divinity: 1
+Skills:
+• [Fairy Physique (Unique)]
+• [Innocent Core]
+• [Instinctive Magic (Fairy)]
+• [Child of Life and Death (Unique)]
+• Flight
+• Wind Manipulation (Rank D) - Wind Bullet (One-Star)
+• Lightning, Nature, Ground manipulation (Rank D)
+
+---
+Name: Aegis
+Designation: Elemental Guardian
+Rank: SS-1 (Ascendant)
+Type: Soul-Bearing Elemental Golem / Guardian-Class
+State: Active Core Installed
+Core & Soul:
+• Heart: Elemental Fairy-Heart Core (S Rank, Enhanced)
+• Soul: Artificial, Engineered Soul
+Elemental Systems:
+• Embedded Elemental Mana Cores (x6): Flame, Frost, Lightning, Wind, Nature, Ground
+Elemental Capabilities (One-Star to Three-Star equivalent barrages):
+• Flame, Frost, Lightning, Wind, Nature, Ground techniques and combinations.
+Body & Movement:
+• Humanoid (female form), optimized for agility.
+• Flight via wind/mana manipulation.
+Recovery & Durability:
+• Durability: SS-1 class.
+• Self-Repair: Converts mana into structural repair.
