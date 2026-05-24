@@ -46,7 +46,7 @@ const ALOK_SKILLS = [
   { id:"thunj",       name:"Thunder's Judgement",                  element:"Lightning/Divine",    category:"Divine Ability",     rank:"Divine",              starTier:null, description:"An immensely powerful spear of pure divine lightning. 10,000m blast radius. Devastates the entire region." },
   { id:"soulabs",     name:"Soul Absorber",                        element:"Soul",                category:"Divine Ability",     rank:"Divine",              starTier:null, description:"Absorbs and stores souls, gaining their knowledge, skills, and essence permanently." },
   { id:"soulreb",     name:"Soul Rebirth",                         element:"Soul",                category:"Divine Ability",     rank:"Divine",              starTier:null, description:"Transforms a soul, wiping its memories to grant it a new beginning under a new form." },
-  { id:"eternleg",    name:"Sovereign of Eternal Legions",         element:"Life/Death",          category:"Divine Ability",     rank:"Divine",              starTier:null, description:"Unique Skill. Rules over living and dead alike. Beings of the legion are eternal; an old living person joining is restored to their prime, limbs regenerate, vigor renewed. A soul can grow a new body. Nothing dies in the eternal legion. Encompasses all soul-related abilities (Soul Evolve, Genesis, Soulforge). Initial capacity: 54,000 units." },
+  { id:"eternleg",    name:"Sovereign of Eternal Legions",         element:"Life/Death",          category:"Divine Ability",     rank:"Divine",              starTier:null, description:"Unique Skill. Rules over living and dead alike. Living beings can join without dying. All members are restored to their prime, become eternal, gain experience, and breakthrough. Can force-evolve monsters into sentient civilizations instantly (e.g., Goblins to Goblinoids, accelerating dragon evolutions). Encompasses all soul-related abilities. Capacity: 3,000,000+ units." },
   // ── COMBAT SKILLS ─────────────────────────────────────────────────────────────
   { id:"giantf",      name:"Giant Force",                          element:"Physical",            category:"Combat",             rank:"Rank A",              starTier:null, description:"Boosts all physical stats by 500% for 10 seconds. Extreme burst capacity." },
   { id:"basiccomb",   name:"Basic Combat",                         element:"Physical",            category:"Combat",             rank:"Rank C (56.554%)",    starTier:null, description:"Refines combat techniques and improves fundamental martial proficiency." },
@@ -148,6 +148,7 @@ const ALOK_SKILLS = [
 // ── ALOK LEVEL 222 CANONICAL STATS ────────────────────────────────────────────
 const ALOK = {
   id:"alok", name:"Alok Aeonmorta", race:"Mixed", rank:"Divine", level:222, tier:"Tier One",
+  titles:["Son of Life and Death", "Heir of the Supreme Empires", "Sovereign of the Eternal Legions"],
   stats:{ STR:18134, AGI:20245, VIT:29040, INT:31060, DRAGON_INT:29320, DEMON_INT:29320, ANGEL_CORE:29320, TOTAL_INT:119020, MANA:2500000, DIVINITY:69690 },
   affinities:["Lightning","Flame","Frost","Blood"],
   equipment:["Eclipse Tyrant (Artifact #27, Bound — +140% Elemental Amp, 1-of-1)","Bracelet of Mana Confluence (+15% mana recovery)"],
@@ -264,6 +265,13 @@ function StatusWindow({char,onEdit,isAlok}){
               <span key={af} style={{fontSize:9,color:affColors[af]??"#fff",background:`${affColors[af]??"#555"}22`,border:`1px solid ${affColors[af]??"#555"}50`,padding:"2px 8px",borderRadius:8,fontFamily:"monospace"}}>{EL_ICON[af]??""} {af}</span>
             ))}
           </div>
+          {char.titles && char.titles.length > 0 && (
+            <div style={{display:"flex",alignItems:"center",gap:6,flexWrap:"wrap",marginTop:8}}>
+              {char.titles.map(t=>(
+                <span key={t} style={{fontSize:9,color:"#e2e8f0",background:"#1e293b",border:"1px solid #334155",padding:"3px 8px",borderRadius:6,fontFamily:"monospace"}}>👑 {t}</span>
+              ))}
+            </div>
+          )}
         </div>
         <div style={{display:"flex",flexDirection:"column",alignItems:"flex-end",gap:8}}>
           {onEdit&&<button onClick={onEdit} style={{fontSize:10,color:"#4a5568",background:"transparent",border:"1px solid #1e2535",borderRadius:4,padding:"3px 10px",cursor:"pointer"}}>✏ Edit</button>}
@@ -272,14 +280,14 @@ function StatusWindow({char,onEdit,isAlok}){
 
       {isAlok&&(
         <div style={{marginBottom:18,background:"#ffffff06",border:"1px solid #c084fc20",borderRadius:10,padding:"12px 14px"}}>
-          <div style={{fontSize:9,color:"#c084fc",fontFamily:"monospace",letterSpacing:"0.15em",textTransform:"uppercase",marginBottom:10}}>⬡ Racial Manifestation</div>
+          <div style={{fontSize:9,color:"#c084fc",fontFamily:"monospace",letterSpacing:"0.15em",textTransform:"uppercase",marginBottom:10}}>⬡ Supreme Bloodlines / Royal Manifestations</div>
           <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
             {[
-              {key:"Dragon",icon:"🐉",label:"Dragonoid",color:"#4ade80",desc:"Scales · Claws"},
-              {key:"Angel",icon:"✨",label:"Angel",color:"#fef08a",desc:"Wings · Aura"},
-              {key:"Valkyrie",icon:"⚔️",label:"Valkyrie",color:"#c4b5fd",desc:"Wings · Trim"},
-              {key:"Demon",icon:"🌑",label:"Demon",color:"#ef4444",desc:"Horns · Fangs"},
-            ].map(({key,icon,label,color})=>(
+              {key:"Dragon",icon:"🐉",label:"Dragon Empire Heir",color:"#4ade80",desc:"Apex Draconic Authority"},
+              {key:"Angel",icon:"✨",label:"Angelic Heir",color:"#fef08a",desc:"Supreme Divine Authority"},
+              {key:"Valkyrie",icon:"⚔️",label:"Valkyrie Heir",color:"#c4b5fd",desc:"Apex Martial Authority"},
+              {key:"Demon",icon:"🌑",label:"Demonic Heir",color:"#ef4444",desc:"Supreme Infernal Authority"},
+            ].map(({key,icon,label,color,desc})=>(
               <button key={key} onClick={()=>toggleManifest(key)} style={{
                 display:"flex",flexDirection:"column",alignItems:"flex-start",
                 padding:"8px 12px",borderRadius:8,cursor:"pointer",
@@ -289,7 +297,8 @@ function StatusWindow({char,onEdit,isAlok}){
               }}>
                 <span style={{fontSize:18,marginBottom:2}}>{icon}</span>
                 <span style={{fontSize:10,fontWeight:700,marginBottom:2}}>{label}</span>
-                {manifestState[key]&&<span style={{fontSize:8,color,marginTop:3}}>● Active</span>}
+                <span style={{fontSize:8,color:"#6b7280",marginBottom:2}}>{desc}</span>
+                {manifestState[key]&&<span style={{fontSize:8,color,marginTop:3}}>● Active Bloodline</span>}
               </button>
             ))}
           </div>
