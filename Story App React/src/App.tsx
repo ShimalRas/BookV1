@@ -20,6 +20,18 @@ const RANK_DATA = {
 const RANKS = Object.keys(RANK_DATA);
 const RACES = ["Human","Elf","Vampire","Dragonoid","Angel","Fairy","Valkyrie","Demon","Mixed"];
 
+const RACE_BASE_STATS = {
+  "Human": { STR: 7, AGI: 7, VIT: 9, INT: 2, MANA: 20, DIVINITY: 0 },
+  "Elf": { STR: 15, AGI: 22, VIT: 17, INT: 30, MANA: 300, DIVINITY: 0 },
+  "Valkyrie": { STR: 35, AGI: 35, VIT: 50, INT: 20, MANA: 200, DIVINITY: 10 },
+  "Angel": { STR: 50, AGI: 50, VIT: 60, INT: 40, MANA: 400, DIVINITY: 50 },
+  "Fairy": { STR: 50, AGI: 50, VIT: 60, INT: 40, MANA: 400, DIVINITY: 20 },
+  "Demon": { STR: 70, AGI: 60, VIT: 80, INT: 55, MANA: 550, DIVINITY: 0 },
+  "Dragonoid": { STR: 110, AGI: 105, VIT: 150, INT: 260, MANA: 2600, DIVINITY: 0 },
+  "Vampire": { STR: 20, AGI: 30, VIT: 25, INT: 15, MANA: 150, DIVINITY: 0 },
+  "Mixed": { STR: 12, AGI: 12, VIT: 15, INT: 15, MANA: 150, DIVINITY: 0 }
+};
+
 
 const EL_ICON ={ Fire:"🔥",Lightning:"⚡",Ice:"❄️",Water:"🌊",Wind:"🌀",Blood:"🩸",Dark:"🌑",Light:"✨",Soul:"👻",Nature:"🌿",Ground:"⛰️",Arcane:"🔮",Physical:"⚔️","Lightning/Divine":"⚡","Fire+Lightning+Ground":"🌋","Life/Death":"☯️",Life:"💚","Death/Command":"💀",Evolution:"🧬",Mind:"🧠",Divine:"✦" };
 const EL_CLR  ={ Fire:"#ff6b35",Lightning:"#fcd34d",Ice:"#7dd3fc",Water:"#38bdf8",Wind:"#a7f3d0",Blood:"#ef4444",Dark:"#8b5cf6",Light:"#fef08a",Soul:"#c4b5fd",Nature:"#4ade80",Ground:"#d97706",Arcane:"#818cf8",Physical:"#94a3b8","Lightning/Divine":"#fbbf24","Fire+Lightning+Ground":"#fb923c","Life/Death":"#86efac",Life:"#4ade80","Death/Command":"#94a3b8",Evolution:"#34d399",Mind:"#60a5fa",Divine:"#f5c85a" };
@@ -383,13 +395,13 @@ export default function App(){
   const [tab,setTab]=useState("alok");
   const [chars,setChars]=useState(load);
   const [editId,setEditId]=useState(null);
-  const [draft,setDraft]=useState({name:"",race:"Human",rank:"E",level:1,stats:{STR:50,AGI:50,VIT:55,INT:60,MANA:500,DIVINITY:0}});
+  const [draft,setDraft]=useState({name:"",race:"Human",rank:"E",level:1,stats:{...RACE_BASE_STATS.Human}});
   const [itemFilter,setItemFilter]=useState({category:"All",rarity:"All",search:""});
   const [expandItem,setExpandItem]=useState(null);
 
   function openBuilder(char=null){
     if(char){setDraft({name:char.name,race:char.race,rank:char.rank,level:char.level||1,stats:{...char.stats}});setEditId(char.id);}
-    else{setDraft({name:"",race:"Human",rank:"E",level:1,stats:{STR:50,AGI:50,VIT:55,INT:60,MANA:500,DIVINITY:0}});setEditId(null);}
+    else{setDraft({name:"",race:"Human",rank:"E",level:1,stats:{...RACE_BASE_STATS.Human}});setEditId(null);}
     setTab("builder");
   }
   function saveChar(){
@@ -401,7 +413,7 @@ export default function App(){
   function delChar(id){const u=chars.filter(c=>c.id!==id);setChars(u);save(u);}
   function randomize(){
     const pick=a=>a[Math.floor(Math.random()*a.length)];
-    setDraft(d=>({...d,race:pick(RACES),rank:pick(RANKS)}));
+    setDraft(d=>{const nr=pick(RACES);return{...d,race:nr,rank:pick(RANKS),stats:{...RACE_BASE_STATS[nr]}};});
   }
   const upS=(k,v)=>setDraft(d=>({...d,stats:{...d.stats,[k]:Number(v)}}));
   const rp=RANK_DATA[draft.rank]??RANK_DATA.E;
@@ -513,7 +525,7 @@ export default function App(){
                 </label>
                 <div style={{marginBottom:12}}>
                   <div style={{fontSize:10,color:"#374151",fontFamily:"monospace",marginBottom:6}}>Race</div>
-                  <div style={{display:"flex",flexWrap:"wrap",gap:5}}>{RACES.map(r=><Chip key={r} label={r} active={draft.race===r} onClick={()=>setDraft(d=>({...d,race:r}))} color={rp.accent}/>)}</div>
+                  <div style={{display:"flex",flexWrap:"wrap",gap:5}}>{RACES.map(r=><Chip key={r} label={r} active={draft.race===r} onClick={()=>setDraft(d=>({...d,race:r,stats:{...RACE_BASE_STATS[r]}}))} color={rp.accent}/>)}</div>
                 </div>
                 <div>
                   <div style={{fontSize:10,color:"#374151",fontFamily:"monospace",marginBottom:6}}>Rank</div>

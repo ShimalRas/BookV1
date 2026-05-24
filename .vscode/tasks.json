@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "dev: story-app-react",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"--prefix",
+				"Story App React",
+				"run",
+				"dev"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}
