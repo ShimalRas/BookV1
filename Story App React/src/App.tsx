@@ -19,16 +19,7 @@ const RANK_DATA = {
 };
 const RANKS = Object.keys(RANK_DATA);
 const RACES = ["Human","Elf","Vampire","Dragonoid","Angel","Fairy","Valkyrie","Demon","Mixed"];
-const HAIR_STYLES   = ["short","long","spiky","mohawk","ponytail","bun"];
-const OUTFIT_STYLES = ["jacket","armor","robe","ranger","necromancer","mage"];
-const ACCESSORIES   = ["none","headband","cape","horns","halo","eyepatch","scarf"];
 
-// Palettes
-const SKIN_P  = ["#f5d5b0","#edc492","#d9a87c","#c48b5a","#a0663a","#6b3e20"];
-const SKIN_S  = ["#d9a87c","#c49060","#b07848","#966030","#7a4820","#4a2210"];
-const EYE_P   = ["#8b7be2","#b19cd9","#c9a0dc","#5bc8f5","#6dd6a2","#e87cb4","#f5c842","#e85c5c"];
-const HAIR_P  = ["#ffd700","#f7d85d","#ffc107","#ffb347","#d4af37","#d0d5db","#8f6f52","#1f2430","#d97757","#6fd6cf"];
-const OUTFIT_P= ["#f5f5f5","#ffffff","#f0f0f0","#e8e8e8","#3a4a3a","#2e3a52","#5a2a2a","#2e4a5a","#4a2e5a","#5a4a20"];
 
 const EL_ICON ={ Fire:"🔥",Lightning:"⚡",Ice:"❄️",Water:"🌊",Wind:"🌀",Blood:"🩸",Dark:"🌑",Light:"✨",Soul:"👻",Nature:"🌿",Ground:"⛰️",Arcane:"🔮",Physical:"⚔️","Lightning/Divine":"⚡","Fire+Lightning+Ground":"🌋","Life/Death":"☯️",Life:"💚","Death/Command":"💀",Evolution:"🧬",Mind:"🧠",Divine:"✦" };
 const EL_CLR  ={ Fire:"#ff6b35",Lightning:"#fcd34d",Ice:"#7dd3fc",Water:"#38bdf8",Wind:"#a7f3d0",Blood:"#ef4444",Dark:"#8b5cf6",Light:"#fef08a",Soul:"#c4b5fd",Nature:"#4ade80",Ground:"#d97706",Arcane:"#818cf8",Physical:"#94a3b8","Lightning/Divine":"#fbbf24","Fire+Lightning+Ground":"#fb923c","Life/Death":"#86efac",Life:"#4ade80","Death/Command":"#94a3b8",Evolution:"#34d399",Mind:"#60a5fa",Divine:"#f5c85a" };
@@ -152,7 +143,6 @@ const ALOK = {
   stats:{ STR:18134, AGI:20245, VIT:29040, INT:31060, DRAGON_INT:29320, DEMON_INT:29320, ANGEL_CORE:29320, TOTAL_INT:119020, MANA:2500000, DIVINITY:69690 },
   affinities:["Lightning","Flame","Frost","Blood"],
   equipment:["Eclipse Tyrant (Artifact #27, Bound — +140% Elemental Amp, 1-of-1)","Bracelet of Mana Confluence (+15% mana recovery)"],
-  avatar:{ skin:SKIN_P[1], hair:HAIR_P[0], eyes:EYE_P[0], outfitColor:OUTFIT_P[1], hairStyle:"long", outfitStyle:"armor", accessory:"crown" },
 };
 
 // ── ITEMS (14 items database) ─────────────────────────────────────────────────
@@ -177,138 +167,8 @@ const ITEMS_DB = [
 function darken(hex,amt){const h=hex.replace("#","");const[r,g,b]=[0,2,4].map(i=>parseInt(h.slice(i,i+2),16));const d=v=>Math.max(0,Math.min(255,v-amt));return`#${[d(r),d(g),d(b)].map(v=>v.toString(16).padStart(2,"0")).join("")}`;}
 function lighten(hex,amt){return darken(hex,-amt);}
 
-// ── PIXEL AVATAR (reference-accurate 20×28 chibi) ────────────────────────────
-function PixelAvatar({avatar,size="large",manifest={}}){
-  const sc=size==="small"?3:size==="medium"?5:9;
-  const W=20*sc,H=28*sc;
-  const si=Math.max(0,SKIN_P.indexOf(avatar.skin));
-  const sk=SKIN_P[si],skS=SKIN_S[si]??darken(sk,30),skD=darken(sk,55);
-  const OUT="#3a1a00";
-  const hair=avatar.hair,hairD=darken(hair,40),hairL=lighten(hair,30);
-  const outfit=avatar.outfitColor,outfitD=darken(outfit,40),outfitL=lighten(outfit,30);
-  const eye=avatar.eyes;
-  const rects=[];
-  const r=(x,y,w,h,color,op=1)=>rects.push({x:x*sc,y:y*sc,w:w*sc,h:h*sc,color,op});
-
-  r(4,26,12,2,"#000",0.14);
-
-  if(avatar.hairStyle==="long"||avatar.hairStyle==="braided"){r(2,5,16,2,hair);r(1,7,2,14,hair);r(17,7,2,14,hair);r(2,20,2,3,hairD);r(16,20,2,3,hairD);}
-  if(avatar.hairStyle==="ponytail"){r(14,5,5,12,hair);r(15,16,4,4,hairD);}
-  if(avatar.hairStyle==="bun"){r(5,2,10,5,hair);r(7,1,6,2,hair);}
-
-  if(manifest.Dragon){r(1,13,2,8,"#2d6a2d",0.7);r(17,13,2,8,"#2d6a2d",0.7);}
-  if(manifest.Angel){r(0,13,3,10,"#fef9c3",0.8);r(17,13,3,10,"#fef9c3",0.8);r(0,14,2,8,"#fef3c7",0.6);r(18,14,2,8,"#fef3c7",0.6);}
-  if(manifest.Valkyrie){r(0,14,3,9,"#c4b5fd",0.7);r(17,14,3,9,"#c4b5fd",0.7);r(1,16,2,6,"#7c3aed",0.5);r(17,16,2,6,"#7c3aed",0.5);}
-
-  r(5,21,4,5,darken(OUT,-8));r(11,21,4,5,darken(OUT,-8));
-  r(4,23,6,3,"#1a1218");r(10,23,6,3,"#1a1218");
-  r(4,21,1,3,OUT,0.6);r(15,21,1,3,OUT,0.6);r(4,26,6,1,OUT,0.5);r(10,26,6,1,OUT,0.5);
-
-  if(avatar.outfitStyle==="jacket"||avatar.outfitStyle==="ranger"){
-    r(4,14,12,7,outfit);r(4,14,2,7,outfitL,0.3);r(14,14,2,7,outfitL,0.2);r(9,14,2,7,outfitD,0.4);
-    r(9,15,2,1,outfitL,0.5);r(9,17,2,1,outfitL,0.5);r(9,19,2,1,outfitL,0.5);
-    if(avatar.outfitStyle==="ranger"){r(4,17,12,2,"#2d4a2d",0.6);r(8,17,4,2,"#4a3a20",0.8);}
-  }else if(avatar.outfitStyle==="armor"){
-    r(4,14,12,7,"#232330");r(5,14,10,7,outfit);
-    r(3,14,4,3,outfitL);r(13,14,4,3,outfitL);r(3,14,1,3,OUT,0.5);r(17,14,1,3,OUT,0.5);
-    r(7,14,6,6,lighten(outfit,10));r(8,15,4,4,outfitL);r(9,16,2,2,lighten(outfit,50),0.35);
-    // Enhanced metallic shading for white/light armor
-    if(outfit==="#f5f5f5"||outfit==="#ffffff"||outfit==="#f0f0f0"||outfit==="#e8e8e8"){
-      r(6,14,3,2,"#f0f8ff",0.5);r(11,14,3,2,"#f0f8ff",0.4);
-      r(8,15,1,1,"#e8f4f8",0.6);r(11,15,1,1,"#e8f4f8",0.6);
-      r(7,17,2,1,"#d0dce8",0.3);r(11,17,2,1,"#d0dce8",0.3);
-      r(9,18,2,1,"#e0e8f0",0.4);
-    }
-    r(4,20,12,1,outfitD);
-    if(manifest.Dragon){r(7,15,2,1,"#2d6a2d",0.8);r(11,15,2,1,"#2d6a2d",0.8);r(6,17,2,1,"#2d6a2d",0.6);}
-  }else if(avatar.outfitStyle==="robe"||avatar.outfitStyle==="mage"){
-    r(3,14,14,7,outfit);r(2,17,16,4,outfit);r(3,14,2,7,outfitL,0.3);r(15,14,2,7,outfitL,0.2);r(9,14,2,7,outfitD,0.35);
-    r(2,17,1,4,outfitL,0.4);r(17,17,1,4,outfitL,0.4);r(3,20,14,1,outfitL,0.4);
-  }else if(avatar.outfitStyle==="necromancer"){
-    r(3,14,14,7,"#0a0a14");r(4,14,12,7,outfit,0.8);r(3,15,2,6,"#5b21b6");r(15,15,2,6,"#5b21b6");
-    r(9,14,2,7,darken(outfit,20),0.55);r(9,16,2,2,"#e0e0e0");r(9,18,1,1,"#e0e0e0");r(10,18,1,1,"#e0e0e0");
-  }
-  r(3,14,1,7,OUT,0.3);r(16,14,1,7,OUT,0.3);r(4,21,12,1,OUT,0.25);
-
-  r(2,14,3,5,outfit,0.8);r(15,14,3,5,outfit,0.8);
-  r(2,18,3,4,sk);r(15,18,3,4,sk);r(2,21,3,2,skD);r(15,21,3,2,skD);
-  r(1,14,1,9,OUT,0.3);r(18,14,1,9,OUT,0.3);
-
-  r(8,12,4,3,sk);r(7,13,1,2,skS,0.4);r(12,13,1,2,skS,0.4);
-  r(5,3,10,10,sk);r(4,4,1,8,sk);r(15,4,1,8,sk);r(5,2,10,2,sk);
-  r(5,9,2,3,skS,0.4);r(13,9,2,3,skS,0.4);r(4,6,1,4,skS,0.3);r(15,6,1,4,skS,0.3);r(6,11,8,1,skD,0.18);
-  r(3,7,2,3,sk);r(15,7,2,3,sk);r(3,7,1,1,skS,0.4);r(16,7,1,1,skS,0.4);
-  if(avatar.race==="Elf"){r(2,6,1,2,sk);r(17,6,1,2,sk);r(1,5,1,1,sk);r(18,5,1,1,sk);}
-  r(4,2,12,1,OUT,0.7);r(3,3,1,1,OUT,0.65);r(16,3,1,1,OUT,0.65);r(3,4,1,8,OUT,0.65);r(16,4,1,8,OUT,0.65);r(4,12,12,1,OUT,0.5);
-
-  if(manifest.Dragon){r(4,5,2,3,"#2d6a2d",0.5);r(14,5,2,3,"#2d6a2d",0.5);r(8,3,4,1,"#1d5a1d",0.4);}
-  if(manifest.Demon){r(5,2,2,3,"#6b1010",0.5);r(13,2,2,3,"#6b1010",0.5);r(5,0,2,4,"#4a0000");r(13,0,2,4,"#4a0000");r(5,0,1,2,"#2a0000");r(14,0,1,2,"#2a0000");}
-
-  if(avatar.hairStyle==="short"){
-    r(4,2,12,3,hair);r(3,3,2,4,hair);r(15,3,2,4,hair);r(5,2,4,1,hairL,0.5);
-    // Golden hair shine enhancement
-    if(hair==="#ffd700"||hair==="#f7d85d"||hair==="#ffc107"||hair==="#ffb347"||hair==="#d4af37"){
-      r(5,2,2,1,"#ffed4e",0.7);r(10,2,2,1,"#ffed4e",0.6);
-      r(6,3,1,1,"#fffacd",0.5);r(11,3,1,1,"#fffacd",0.5);
-    }
-    r(4,2,12,1,OUT,0.75);r(3,2,1,2,OUT,0.65);r(16,2,1,2,OUT,0.65);r(4,4,3,1,hairD,0.3);r(13,4,3,1,hairD,0.3);
-  }else if(avatar.hairStyle==="spiky"){
-    r(4,2,12,2,hair);r(3,3,2,3,hair);r(15,3,2,3,hair);
-    r(6,0,2,3,hair);r(9,0,2,4,hair);r(12,0,2,3,hair);r(7,0,1,1,hairL,0.6);r(10,0,1,1,hairL,0.6);
-    r(6,0,1,1,OUT,0.6);r(9,0,1,1,OUT,0.6);r(12,0,1,1,OUT,0.6);
-  }else if(avatar.hairStyle==="long"||avatar.hairStyle==="braided"){
-    r(4,2,12,3,hair);r(3,3,2,3,hair);r(15,3,2,3,hair);r(5,2,4,1,hairL,0.4);r(4,2,12,1,OUT,0.75);
-  }else if(avatar.hairStyle==="mohawk"){
-    r(9,0,2,5,hair);r(8,1,1,3,hair);r(11,1,1,3,hair);r(4,3,4,1,hair);r(12,3,4,1,hair);r(9,0,1,1,hairL,0.6);
-  }else if(avatar.hairStyle==="ponytail"){
-    r(4,2,10,3,hair);r(3,3,2,3,hair);r(5,2,4,1,hairL,0.4);r(4,2,10,1,OUT,0.75);
-  }else if(avatar.hairStyle==="bun"){
-    r(4,2,12,3,hair);r(3,3,2,3,hair);r(15,3,2,3,hair);r(7,2,6,1,hairL,0.5);r(4,2,12,1,OUT,0.75);
-  }
-
-  r(5,7,3,2,"#f8fafc");r(12,7,3,2,"#f8fafc");
-  r(6,7,2,2,eye);r(13,7,2,2,eye);
-  // Violet eye enhancement with shine
-  if(eye==="#8b7be2"||eye==="#b19cd9"||eye==="#c9a0dc"){
-    r(6,7,1,1,"#c9b0ff",0.7);r(13,7,1,1,"#c9b0ff",0.7);
-    r(7,7,1,1,"#e8d9ff",0.6);r(14,7,1,1,"#e8d9ff",0.6);
-  }else if(eye==="#5bc8f5"||eye==="#4aafff"){
-    r(6,7,1,1,"#7dd7ff",0.6);r(13,7,1,1,"#7dd7ff",0.6);
-  }else if(eye==="#ff6b6b"||eye==="#e74c3c"){
-    r(6,7,1,1,"#ff9999",0.6);r(13,7,1,1,"#ff9999",0.6);
-  }
-  r(6,8,1,1,darken(eye,80));r(13,8,1,1,darken(eye,80));
-  r(7,7,1,1,"#fff",0.9);r(14,7,1,1,"#fff",0.9);
-  r(5,7,1,2,OUT,0.4);r(8,7,1,2,OUT,0.4);r(12,7,1,2,OUT,0.4);r(15,7,1,2,OUT,0.4);
-  r(5,6,3,1,OUT,0.35);r(12,6,3,1,OUT,0.35);r(5,9,3,1,OUT,0.28);r(12,9,3,1,OUT,0.28);
-  r(5,5,3,1,hairD,0.85);r(12,5,3,1,hairD,0.85);
-  if(avatar.rank==="Divine"){r(6,7,2,2,lighten(eye,30),0.25);r(13,7,2,2,lighten(eye,30),0.25);}
-
-  r(9,10,2,1,skS,0.5);r(7,11,1,1,skD,0.3);r(8,11,4,1,darken(sk,50),0.45);r(12,11,1,1,skD,0.3);r(8,12,4,1,skS,0.25);
-
-  if(avatar.accessory==="headband"){r(4,4,12,1,"#c0392b");r(3,4,1,1,"#c0392b");r(16,4,1,1,"#c0392b");r(9,3,2,3,"#e74c3c");r(4,4,3,1,"#e74c3c",0.4);}
-  if(avatar.accessory==="cape"){r(1,15,2,10,"#6d28d9");r(17,15,2,10,"#6d28d9");r(0,19,3,6,"#5b21b6");r(17,19,3,6,"#5b21b6");}
-  if(avatar.accessory==="horns"){r(4,1,2,4,sk);r(14,1,2,4,sk);r(4,0,2,2,"#d8d0c8");r(14,0,2,2,"#d8d0c8");r(5,0,1,2,"#c8c0b8");r(15,0,1,2,"#c8c0b8");}
-  if(avatar.accessory==="halo"){r(5,0,10,2,"#fbbf24",0.3);r(5,1,10,1,"#fde68a",0.65);r(6,0,8,1,"#fef3c7",0.85);}
-  if(avatar.accessory==="eyepatch"){r(4,6,5,4,"#111",0.92);r(4,8,1,1,"#333",0.7);r(9,8,1,1,"#333",0.7);}
-  if(avatar.accessory==="scarf"){r(5,12,10,2,"#dc2626");r(3,13,4,3,"#dc2626");r(5,14,5,2,darken("#dc2626",25));}
-
-  if(manifest.Valkyrie){r(3,14,1,7,"#7c3aed",0.5);r(16,14,1,7,"#7c3aed",0.5);}
-  if(manifest.Dragon){r(2,18,3,4,darken(sk,10));r(15,18,3,4,darken(sk,10));r(2,18,1,1,"#2d6a2d",0.5);r(4,20,1,1,"#2d6a2d",0.5);r(15,18,1,1,"#2d6a2d",0.5);}
-  if(avatar.race==="Vampire"||manifest.Demon){r(8,12,1,1,"#fff",0.9);r(11,12,1,1,"#fff",0.9);}
-
-  return(
-    <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{imageRendering:"pixelated",display:"block",shapeRendering:"crispEdges"}}>
-      {rects.map((rc,i)=>(
-        <rect key={i} x={rc.x} y={rc.y} width={rc.w} height={rc.h} fill={rc.color} opacity={rc.op}/>
-      ))}
-    </svg>
-  );
-}
-
 // ── Storage ───────────────────────────────────────────────────────────────────
-const SK="bookv1-v5";
-const DEF_AVA={skin:SKIN_P[0],hair:HAIR_P[0],eyes:EYE_P[0],outfitColor:OUTFIT_P[1],hairStyle:"short",outfitStyle:"armor",accessory:"none"};
+const SK="bookv1-v6";
 function load(){try{const r=localStorage.getItem(SK);return r?JSON.parse(r):[];}catch{return[];}}
 function save(c){try{localStorage.setItem(SK,JSON.stringify(c));}catch{}}
 
@@ -350,7 +210,6 @@ function StatusWindow({char,onEdit,isAlok}){
   const [activeSkillTab,setActiveSkillTab]=useState("Divine Ability");
   const isDivine=char.rank==="Divine";
 
-  const avatar={...char.avatar,rank:char.rank};
   const skills=isAlok?ALOK_SKILLS:[];
   const skillCats=[...new Set(skills.map(s=>s.category))];
   const shownSkills=skills.filter(s=>s.category===activeSkillTab);
@@ -399,9 +258,6 @@ function StatusWindow({char,onEdit,isAlok}){
           </div>
         </div>
         <div style={{display:"flex",flexDirection:"column",alignItems:"flex-end",gap:8}}>
-          <div style={{display:"flex",justifyContent:"center"}}>
-            <PixelAvatar avatar={avatar} size="large" manifest={manifestState}/>
-          </div>
           {onEdit&&<button onClick={onEdit} style={{fontSize:10,color:"#4a5568",background:"transparent",border:"1px solid #1e2535",borderRadius:4,padding:"3px 10px",cursor:"pointer"}}>✏ Edit</button>}
         </div>
       </div>
@@ -527,28 +383,26 @@ export default function App(){
   const [tab,setTab]=useState("alok");
   const [chars,setChars]=useState(load);
   const [editId,setEditId]=useState(null);
-  const [draft,setDraft]=useState({name:"",race:"Human",rank:"E",level:1,stats:{STR:50,AGI:50,VIT:55,INT:60,MANA:500,DIVINITY:0},avatar:{...DEF_AVA}});
+  const [draft,setDraft]=useState({name:"",race:"Human",rank:"E",level:1,stats:{STR:50,AGI:50,VIT:55,INT:60,MANA:500,DIVINITY:0}});
   const [itemFilter,setItemFilter]=useState({category:"All",rarity:"All",search:""});
   const [expandItem,setExpandItem]=useState(null);
 
   function openBuilder(char=null){
-    if(char){setDraft({name:char.name,race:char.race,rank:char.rank,level:char.level||1,stats:{...char.stats},avatar:{...char.avatar}});setEditId(char.id);}
-    else{setDraft({name:"",race:"Human",rank:"E",level:1,stats:{STR:50,AGI:50,VIT:55,INT:60,MANA:500,DIVINITY:0},avatar:{...DEF_AVA}});setEditId(null);}
+    if(char){setDraft({name:char.name,race:char.race,rank:char.rank,level:char.level||1,stats:{...char.stats}});setEditId(char.id);}
+    else{setDraft({name:"",race:"Human",rank:"E",level:1,stats:{STR:50,AGI:50,VIT:55,INT:60,MANA:500,DIVINITY:0}});setEditId(null);}
     setTab("builder");
   }
   function saveChar(){
     const name=draft.name.trim()||"Unknown Hero";
-    const avatar={...draft.avatar,race:draft.race};
-    if(editId){const upd=chars.map(c=>c.id===editId?{...c,name,race:draft.race,rank:draft.rank,level:draft.level,stats:{...draft.stats},avatar}:c);setChars(upd);save(upd);}
-    else{const nc={id:Date.now().toString(),name,race:draft.race,rank:draft.rank,level:draft.level,stats:{...draft.stats},avatar,createdAt:new Date().toISOString()};const upd=[nc,...chars];setChars(upd);save(upd);}
+    if(editId){const upd=chars.map(c=>c.id===editId?{...c,name,race:draft.race,rank:draft.rank,level:draft.level,stats:{...draft.stats}}:c);setChars(upd);save(upd);}
+    else{const nc={id:Date.now().toString(),name,race:draft.race,rank:draft.rank,level:draft.level,stats:{...draft.stats},createdAt:new Date().toISOString()};const upd=[nc,...chars];setChars(upd);save(upd);}
     setTab("roster");
   }
   function delChar(id){const u=chars.filter(c=>c.id!==id);setChars(u);save(u);}
   function randomize(){
     const pick=a=>a[Math.floor(Math.random()*a.length)];
-    setDraft(d=>({...d,race:pick(RACES),rank:pick(RANKS),avatar:{...d.avatar,skin:pick(SKIN_P),hair:pick(HAIR_P),eyes:pick(EYE_P),outfitColor:pick(OUTFIT_P),hairStyle:pick(HAIR_STYLES),outfitStyle:pick(OUTFIT_STYLES),accessory:pick(ACCESSORIES)}}));
+    setDraft(d=>({...d,race:pick(RACES),rank:pick(RANKS)}));
   }
-  const upA=(k,v)=>setDraft(d=>({...d,avatar:{...d.avatar,[k]:v}}));
   const upS=(k,v)=>setDraft(d=>({...d,stats:{...d.stats,[k]:Number(v)}}));
   const rp=RANK_DATA[draft.rank]??RANK_DATA.E;
 
@@ -633,9 +487,7 @@ export default function App(){
             <div style={{position:"sticky",top:0}}>
               <div style={{background:rp.bg,border:`1px solid ${rp.accent}40`,borderRadius:14,padding:22,textAlign:"center"}}>
                 <div style={{fontSize:9,color:rp.accent,letterSpacing:"0.18em",fontFamily:"monospace",marginBottom:10,textTransform:"uppercase"}}>Preview</div>
-                <div style={{display:"flex",justifyContent:"center",marginBottom:16}}>
-                  <PixelAvatar avatar={{...draft.avatar,rank:draft.rank}} size="large"/>
-                </div>
+
                 <div style={{fontFamily:"'Press Start 2P',monospace",fontSize:8,color:"#f1f5f9",marginBottom:4}}>{draft.name||"New Hero"}</div>
                 <div style={{fontSize:11,color:rp.accent,marginBottom:3}}>{draft.rank} · {draft.race} · Lv {draft.level}</div>
               </div>
@@ -682,27 +534,6 @@ export default function App(){
                 </div>
               </section>
 
-              <section style={{background:"#0c1018",border:"1px solid #111827",borderRadius:12,padding:18}}>
-                <div style={{fontSize:9,color:rp.accent,fontFamily:"monospace",letterSpacing:"0.15em",textTransform:"uppercase",marginBottom:14}}>Appearance</div>
-                <div style={{marginBottom:12}}>
-                  <div style={{fontSize:10,color:"#374151",fontFamily:"monospace",marginBottom:6}}>Hair Style</div>
-                  <div style={{display:"flex",flexWrap:"wrap",gap:5}}>{HAIR_STYLES.map(o=><Chip key={o} label={o} active={draft.avatar.hairStyle===o} onClick={()=>upA("hairStyle",o)} color={rp.accent}/>)}</div>
-                </div>
-                <div style={{marginBottom:12}}>
-                  <div style={{fontSize:10,color:"#374151",fontFamily:"monospace",marginBottom:6}}>Outfit</div>
-                  <div style={{display:"flex",flexWrap:"wrap",gap:5}}>{OUTFIT_STYLES.map(o=><Chip key={o} label={o} active={draft.avatar.outfitStyle===o} onClick={()=>upA("outfitStyle",o)} color={rp.accent}/>)}</div>
-                </div>
-                <div style={{marginBottom:14}}>
-                  <div style={{fontSize:10,color:"#374151",fontFamily:"monospace",marginBottom:6}}>Accessory</div>
-                  <div style={{display:"flex",flexWrap:"wrap",gap:5}}>{ACCESSORIES.map(o=><Chip key={o} label={o} active={draft.avatar.accessory===o} onClick={()=>upA("accessory",o)} color={rp.accent}/>)}</div>
-                </div>
-                {[["Skin Tone",SKIN_P,"skin"],["Eye Color",EYE_P,"eyes"],["Hair Color",HAIR_P,"hair"],["Outfit Color",OUTFIT_P,"outfitColor"]].map(([label,pal,key])=>(
-                  <div key={key} style={{marginBottom:14}}>
-                    <div style={{fontSize:10,color:"#374151",fontFamily:"monospace",marginBottom:7}}>{label}</div>
-                    <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>{pal.map(col=><Swatch key={col} color={col} active={draft.avatar[key]===col} onClick={()=>upA(key,col)}/>)}</div>
-                  </div>
-                ))}
-              </section>
             </div>
           </div>
         )}
