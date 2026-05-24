@@ -3,19 +3,19 @@ import { useState, useMemo } from "react";
 
 // ── THEME / RANK DATA ─────────────────────────────────────────────────────────
 const RANK_DATA = {
-  E:        { accent:"#9ca3af", glow:"#d1d5db", bg:"#111827", manaColor:"#9ca3af", label:"The Mundane",        statGain:2  },
-  D:        { accent:"#b45309", glow:"#fcd34d", bg:"#1c1107", manaColor:"#b45309", label:"The Initiated",      statGain:3  },
-  C:        { accent:"#16a34a", glow:"#86efac", bg:"#071a0e", manaColor:"#16a34a", label:"The Capable",        statGain:4  },
-  B:        { accent:"#3b82f6", glow:"#93c5fd", bg:"#0d1a38", manaColor:"#3b82f6", label:"The Advanced",       statGain:5  },
-  A:        { accent:"#9333ea", glow:"#d8b4fe", bg:"#1a0a2e", manaColor:"#9333ea", label:"The Elite",          statGain:7  },
-  S:        { accent:"#f59e0b", glow:"#fde68a", bg:"#2a1a00", manaColor:"#f59e0b", label:"The Pinnacle",       statGain:10 },
-  "SS-1":   { accent:"#ef4444", glow:"#fca5a5", bg:"#2a0808", manaColor:"#ef4444", label:"The Ascendant",      statGain:12 },
-  "SS-2":   { accent:"#7c3aed", glow:"#c4b5fd", bg:"#1e0d40", manaColor:"#7c3aed", label:"The Sovereign",      statGain:14 },
-  "SS-3":   { accent:"#e2e8f0", glow:"#f8fafc", bg:"#1a1f2e", manaColor:"#e2e8f0", label:"The Transcendent",   statGain:16 },
-  "Mythic-1":{ accent:"#2dd4bf", glow:"#99f6e4", bg:"#051a17", manaColor:"#2dd4bf", label:"The Legendary",    statGain:18 },
-  "Mythic-2":{ accent:"#f0f9ff", glow:"#ffffff", bg:"#0a1628", manaColor:"#f0f9ff", label:"The Origin",        statGain:20 },
-  Demi:     { accent:"#1e1b4b", glow:"#6366f1", bg:"#080810", manaColor:"#4338ca", label:"The Primordial",     statGain:25 },
-  Divine:   { accent:"#c084fc", glow:"#f5c85a", bg:"#0e0718", manaColor:"#c084fc", label:"The Godborn",        statGain:30 },
+  E:        { accent:"#9ca3af", glow:"#d1d5db", bg:"#111827", manaColor:"#9ca3af", label:"The Mundane",        statGain:2,  outputMultiplier:1.00 },
+  D:        { accent:"#b45309", glow:"#fcd34d", bg:"#1c1107", manaColor:"#b45309", label:"The Initiated",      statGain:3,  outputMultiplier:1.50 },
+  C:        { accent:"#16a34a", glow:"#86efac", bg:"#071a0e", manaColor:"#16a34a", label:"The Capable",        statGain:4,  outputMultiplier:2.25 },
+  B:        { accent:"#3b82f6", glow:"#93c5fd", bg:"#0d1a38", manaColor:"#3b82f6", label:"The Advanced",       statGain:5,  outputMultiplier:3.38 },
+  A:        { accent:"#9333ea", glow:"#d8b4fe", bg:"#1a0a2e", manaColor:"#9333ea", label:"The Elite",          statGain:7,  outputMultiplier:5.06 },
+  S:        { accent:"#f59e0b", glow:"#fde68a", bg:"#2a1a00", manaColor:"#f59e0b", label:"The Pinnacle",       statGain:10, outputMultiplier:7.59 },
+  "SS-1":   { accent:"#ef4444", glow:"#fca5a5", bg:"#2a0808", manaColor:"#ef4444", label:"The Ascendant",      statGain:12, outputMultiplier:11.39 },
+  "SS-2":   { accent:"#7c3aed", glow:"#c4b5fd", bg:"#1e0d40", manaColor:"#7c3aed", label:"The Sovereign",      statGain:14, outputMultiplier:17.09 },
+  "SS-3":   { accent:"#e2e8f0", glow:"#f8fafc", bg:"#1a1f2e", manaColor:"#e2e8f0", label:"The Transcendent",   statGain:16, outputMultiplier:25.63 },
+  "Mythic-1":{ accent:"#2dd4bf", glow:"#99f6e4", bg:"#051a17", manaColor:"#2dd4bf", label:"The Legendary",    statGain:18, outputMultiplier:38.44 },
+  "Mythic-2":{ accent:"#f0f9ff", glow:"#ffffff", bg:"#0a1628", manaColor:"#f0f9ff", label:"The Origin",        statGain:20, outputMultiplier:57.67 },
+  Demi:     { accent:"#1e1b4b", glow:"#6366f1", bg:"#080810", manaColor:"#4338ca", label:"The Primordial",     statGain:25, outputMultiplier:86.50 },
+  Divine:   { accent:"#c084fc", glow:"#f5c85a", bg:"#0e0718", manaColor:"#c084fc", label:"The Godborn",        statGain:30, outputMultiplier:129.75 },
 };
 const RANKS = Object.keys(RANK_DATA);
 const RACES = ["Human","Elf","Vampire","Dragonoid","Angel","Fairy","Valkyrie","Demon","Mixed"];
@@ -150,14 +150,14 @@ const ALOK = {
   id:"alok", name:"Alok Aeonmorta", race:"Mixed", rank:"Divine", level:222, tier:"Tier One",
   titles:["Son of Life and Death", "Heir of the Supreme Empires", "Sovereign of the Eternal Legions"],
   stats:{ STR:18134, AGI:20245, VIT:29040, INT:31060, DRAGON_INT:29320, DEMON_INT:29320, ANGEL_CORE:29320, TOTAL_INT:119020, MANA:2500000, DIVINITY:69690 },
-  affinities:["Lightning","Flame","Frost","Blood"],
-  equipment:["Eclipse Tyrant (Artifact #27, Bound — +140% Elemental Amp, 1-of-1)","Bracelet of Mana Confluence (+15% mana recovery)"],
+  affinities:["Lightning","Flame","Frost","Blood","Life","Death","Soul","Evolution"],
+  equipment:["Spatial Storage Ring (Contains Primal Eclipse & Astrape — Badges of his Apostle Status)"],
 };
 
 // ── ITEMS (14 items database) ─────────────────────────────────────────────────
 const ITEMS_DB = [
-  {id:"i1",name:"Eclipse Tyrant",rarity:"Divine",category:"Weapon",type:"Artifact Sword",stats:{elemental_amp:"140%",fire_res:"60%",lightning_res:"60%",frost_res:"50%"},description:"Numbered Artifact #27. Bound to Alok alone. Jet-black blade woven with all elemental veins. Elemental King's Judgement & Blizzard Thunderfirestorm ultimates (1/day each).",icon:"⚔️"},
-  {id:"i2",name:"Bracelet of Mana Confluence",rarity:"Rare",category:"Accessory",type:"Bracelet",stats:{mana_regen:"+15%"},description:"Increases Alok's mana recovery rate by 15%. Harmonizes elemental mana flows.",icon:"📿"},
+  {id:"i1",name:"Primal Eclipse",rarity:"Divine",category:"Weapon",type:"Artifact Sword",stats:{base_elemental_amp:"150%",affinity_multiplier:"100% per affinity",total_amp:"950%"},description:"A supreme artifact sword bound only to Alok, signifying his status as an Apostle of Athena. Kept in storage unless needed for authority.",icon:"⚔️"},
+  {id:"i2",name:"Astrape",rarity:"Divine",category:"Weapon",type:"Divine Artifact",stats:{lightning_amp:"+700%"},description:"A sentient divine weapon signifying his status as an Apostle of Hermes. Kept in storage to show his divine backing.",icon:"⚡"},
   {id:"i3",name:"Ring of Crimson Fortitude",rarity:"Epic",category:"Accessory",type:"Ring",stats:{regen:"+20%",all_res:"+10%"},description:"Serena's ring. Increases regeneration and elemental resistance.",icon:"💍"},
   {id:"i4",name:"Astraean Divine Sword",rarity:"Divine",category:"Weapon",type:"Sword",stats:{atk:4200,spd:180},description:"Legendary sword of the Valkyrie royalty, channeling divine lightning through its crystalline edge.",icon:"⚔️"},
   {id:"i5",name:"Staff of Eternal Flame",rarity:"Legendary",category:"Weapon",type:"Staff",stats:{int:3100,matk:2800},description:"Carved from a phoenix tree, permanently ablaze with undying flame.",icon:"🔥"},
@@ -331,7 +331,10 @@ function StatusWindow({char,onEdit,isAlok}){
       </div>
 
       <div style={{marginBottom:18}}>
-        <div style={{fontSize:9,color:"#4a5568",fontFamily:"monospace",marginBottom:6}}>MANA AURA — {char.rank}</div>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-end",marginBottom:6}}>
+          <div style={{fontSize:9,color:"#4a5568",fontFamily:"monospace"}}>MANA AURA — {char.rank}</div>
+          <div style={{fontSize:9,color:isDivine?"#f5c85a":rp.accent,fontFamily:"monospace"}}>Output Purity: {rp.outputMultiplier}x</div>
+        </div>
         <div style={{height:8,borderRadius:4,overflow:"hidden",background:"#0a0d16",position:"relative"}}>
           {isDivine?(
             <div style={{height:"100%",background:"linear-gradient(90deg,#2d1068,#c084fc,#f5c85a,#c084fc,#2d1068)",backgroundSize:"200% 100%",animation:"rotateSlow 3s linear infinite",borderRadius:4}}/>
