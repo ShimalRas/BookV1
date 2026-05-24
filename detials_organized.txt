@@ -594,7 +594,7 @@ Description:
 
 Name: Aegis
 Designation: Elemental Guardian
-Rank: SS-1 (Ascendant)
+Rank: SS-3 
 Type: Soul-Bearing Elemental Golem / Guardian-Class
 State: Active Core Installed / Awaiting Name
 
